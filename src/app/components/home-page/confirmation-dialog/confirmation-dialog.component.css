@@ -1,0 +1,133 @@
+.dont-allow {
+  position: absolute;
+  top: 5.3px;
+  left: 15.6px;
+  line-height: 15.4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* width: 69px; */
+  height: 15.4px;
+}
+.button {
+  top: 104.8px;
+  left: 188.9px;
+  border-radius: 4px;
+  background-color: #febf10;
+  border: 1px solid var(--color-gray-500);
+  box-sizing: border-box;
+  width: 100px;
+  height: 26px;
+  overflow: hidden;
+}
+.allow,
+.button,
+.button1 {
+  position: absolute;
+}
+.allow {
+  top: 5.3px;
+  left: 28.3px;
+  line-height: 15.4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 33.7px;
+  height: 15.4px;
+}
+.button1 {
+  top: 104.8px;
+  left: 312px;
+  border-radius: var(--br-9xs);
+  background-color: #febf10;
+  border: 1px solid var(--color-gray-500);
+  box-sizing: border-box;
+  width: 90px;
+  height: 26px;
+  overflow: hidden;
+  font-size: 13.2px;
+}
+.q9r92tq90x90jpgcompthequintjp-icon {
+  position: absolute;
+  top: 15px;
+  left: 20px;
+  width: 65px;
+  height: 65px;
+  overflow: hidden;
+  object-fit: cover;
+}
+.get-breaking-news {
+  position: absolute;
+  top: -0.8px;
+  left: 0;
+  line-height: 19.6px;
+  display: flex;
+  align-items: center;
+  width: 264px;
+  height: 19.6px;
+}
+.spanng-binding {
+  position: absolute;
+  width: calc(100% - 120px);
+  top: 10px;
+  right: 20px;
+  left: 124px;
+  height: 39.2px;
+  overflow: hidden;
+  text-align: left;
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-200);
+  font-family: var(--font-open-sans);
+}
+.notifications-can-be,
+.settings {
+  margin: -8px;
+}
+.notifications-can-be-container1 {
+  width: 100%;
+}
+.notifications-can-be-container {
+  position: absolute;
+  top: -0.4px;
+  left: 26px;
+  line-height: 16.8px;
+  display: flex;
+  align-items: center;
+  width: 298.3px;
+  height: 33.6px;
+}
+.png-binding {
+  position: absolute;
+  width: calc(100% - 120px);
+  top: 59.2px;
+  right: 20px;
+  left: 100px;
+  height: 33.6px;
+  overflow: hidden;
+  text-align: left;
+  font-size: 12px;
+  color: var(--color-gray-200);
+  font-family: var(--font-open-sans);
+}
+.divdesktopbannerwrapped {
+  max-width: 500px;
+  width: 100%;
+  position: relative;
+  background-color: #fff;
+  box-shadow: 0 0 4px #888;
+  height: 150.8px;
+  text-align: center;
+  font-size: 12.9px;
+  color: #35154f;
+  font-family: var(--font-inter);
+  margin: 10px;
+}
+
+@media only screen and (max-width: 767px) {
+  .button1 {
+    left: 262px;
+  }
+  .button {
+    left: 136.9px;
+  }
+}

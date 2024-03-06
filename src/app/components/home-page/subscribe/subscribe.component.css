@@ -1,0 +1,294 @@
+.header2,
+.wwwthequintcom-by-htmltode {
+  width: 100%;
+  background-color: var(--color-white);
+}
+.header2 {
+  position: absolute;
+  top: 115px;
+  right: 0;
+  left: 0;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.15);
+  height: 30px;
+  overflow: hidden;
+  text-align: center;
+  font-size: var(--font-size-smi);
+}
+.wwwthequintcom-by-htmltode {
+  /* position: relative; */
+  height: 390.6px;
+  text-align: left;
+  font-size: var(--font-size-mini-9);
+  color: var(--color-dimgray);
+  font-family: var(--font-inter);
+}
+
+.body,
+header .iframe {
+  position: absolute;
+  height: 315px;
+}
+.body,
+header {
+  width: calc(100% + 0.5px);
+  top: 44px;
+  right: -0.5px;
+  left: 0;
+  background-color: var(--color-white);
+}
+.iframe {
+  width: calc(100% - 865.5px);
+  top: 190px;
+  right: 432.7px;
+  left: 432.8px;
+  overflow: hidden;
+  text-align: center;
+  font-size: 24px;
+  color: var(--color-gray-300);
+  font-family: var(--font-roboto);
+}
+.divembed-page-inner {
+  position: absolute;
+  top: calc(50% - 141.4px);
+  left: calc(50% - 185px);
+  width: 370px;
+  height: 282.8px;
+}
+
+.link-https3a2f2fsubstack- {
+  position: absolute;
+  top: 0;
+  left: calc(50% - 25px);
+  border-radius: 12px;
+  width: 85px;
+  height: 52px;
+  overflow: hidden;
+  object-fit: cover;
+}
+.heading-1 {
+  position: absolute;
+  top: 57.1px;
+  left: calc(50% - 129.7px);
+  text-decoration: underline;
+  line-height: 27.84px;
+  display: flex;
+  color: #404040;
+  align-items: center;
+  justify-content: center;
+  width: 259.7px;
+  height: 27.8px;
+}
+.the-quint-tells {
+  margin: -6px;
+}
+.the-quint-tells-container1 {
+  width: 100%;
+}
+.the-quint-tells-container {
+  top: 91.8px;
+  left: calc(50% - 178px);
+  font-size: 13.9px;
+  line-height: 18px;
+  width: 356.2px;
+  height: 50.9px;
+}
+.over-19000-subscribers,
+.the-quint-tells-container,
+.type-your-email {
+  position: absolute;
+  display: flex;
+  align-items: center;
+}
+.over-19000-subscribers {
+  top: 149.8px;
+  left: calc(50% - 69.2px);
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 600;
+  justify-content: center;
+  width: 138.7px;
+  height: 22.9px;
+}
+.form {
+  position: absolute;
+  height: 40px;
+}
+.button {
+  top: 0;
+  left: 260.4px;
+  border-radius: 0 var(--br-5xs) var(--br-5xs) 0;
+  background-color: var(--color-midnightblue);
+  border: 1px solid var(--color-midnightblue);
+  box-sizing: border-box;
+  width: 109.6px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--color-white);
+}
+.form {
+  width: 100%;
+  top: 179.8px;
+  right: 0;
+  left: 0;
+  text-align: left;
+  font-size: 16px;
+}
+.input {
+  position: absolute;
+  top: 0;
+  left: calc(50% - 185px);
+  border-radius: var(--br-5xs) 0 0 var(--br-5xs);
+  background-color: var(--color-white);
+  border-top: 1px solid var(--color-midnightblue);
+  border-bottom: 1px solid var(--color-midnightblue);
+  border-left: 1px solid var(--color-midnightblue);
+  box-sizing: border-box;
+  width: 260.4px;
+  height: 40px;
+}
+
+.divplaceholder {
+  position: absolute;
+  width: calc(100% - 21px);
+  top: 10.5px;
+  right: 10px;
+  left: 11px;
+  height: 19px;
+  overflow: hidden;
+}
+.type-your-email {
+  top: 1px;
+  left: 0;
+  width: 125.1px;
+  height: 16px;
+}
+.button,
+.form {
+  position: absolute;
+  height: 40px;
+}
+.button {
+  top: 0;
+  left: 260.4px;
+  border-radius: 0 var(--br-5xs) var(--br-5xs) 0;
+  background-color: var(--color-midnightblue);
+  border: 1px solid var(--color-midnightblue);
+  box-sizing: border-box;
+  width: 109.6px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--color-white);
+}
+.divbecome-member-button,
+.link {
+  position: absolute;
+  left: 0;
+  width: 200.5px;
+  height: 47px;
+}
+.divbecome-member-button {
+  top: -11px;
+  border-radius: var(--br-11xl);
+  background-color: var(--color-gold);
+}
+.link {
+  top: calc(50% - 24px);
+}
+.link-news-letter-svg {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 225.5px;
+  max-height: 100%;
+  width: 49px;
+  overflow: hidden;
+  object-fit: cover;
+}
+.link-search {
+  position: absolute;
+  top: calc(50% - 20.5px);
+  left: 383.5px;
+  width: 36px;
+  height: 41px;
+}
+.button-profile-icon {
+  position: absolute;
+  top: calc(50% - 24.5px);
+  left: 304.5px;
+  border-radius: var(--br-11xl);
+  width: 49px;
+  height: 49px;
+}
+.subscribe {
+  position: absolute;
+  top: 10px;
+  left: calc(50% - 33.8px);
+  line-height: 20px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 67.8px;
+  height: 20px;
+}
+.by-subscribing-you-container,
+.link-policy-container {
+  position: absolute;
+  top: 238.8px;
+  left: calc(50% - 174.3px);
+  font-size: 9.9px;
+  line-height: 16px;
+  color: var(--color-gray-100);
+  display: flex;
+  align-items: center;
+  width: 348.9px;
+  height: 8.9px;
+}
+.substacks-terms-of {
+  text-decoration: underline;
+}
+
+.link-policy-container {
+  top: 254.8px;
+  left: calc(50% - 113.7px);
+  font-size: 11.6px;
+  width: 227.7px;
+  height: 16px;
+}
+.https3a2f2fsubstackcom2fi-icon {
+  position: absolute;
+  right: 12px;
+  bottom: 11.9px;
+  width: 80px;
+  height: 13.8px;
+  overflow: hidden;
+  object-fit: cover;
+  opacity: 0.3;
+}
+
+@media only screen and (max-width: 600px) {
+  .wwwthequintcom-by-htmltode {
+    height: auto;
+  }
+
+  .body,
+  header .iframe,
+  header {
+    width: 100%;
+  }
+
+  .iframe {
+    width: 100%;
+    top: 150px;
+    right: 0;
+    left: 0;
+  }
+
+  .divembed-page-inner {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+  }
+}

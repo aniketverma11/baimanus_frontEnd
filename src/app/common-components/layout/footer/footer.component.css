@@ -1,0 +1,158 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.container {
+  max-width: 1280px;
+  margin: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.d-flex {
+  display: flex;
+}
+.items-c {
+  align-items: center;
+}
+.top-header,
+footer {
+  background: #35144f;
+}
+.top-header .container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.vl {
+  height: 50px;
+  border-left: 1px solid #ffffff;
+}
+.middle-header,
+.top-header,
+.bottom-header {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.middle-header,
+.bottom-header {
+  box-shadow: 0px -2px 6px 0px #494848aa inset;
+}
+ul li a,
+li {
+  font-size: 18px;
+  line-height: 27px;
+}
+.header-support-the-quint {
+  text-decoration: none;
+}
+header ul,
+footer ul {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+header ul li {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+header ul li a,
+footer ul li a,
+footer a {
+  text-decoration: none;
+  color: #000000;
+}
+.header-navs a,
+.header-navs button {
+  padding-right: 20px;
+}
+footer {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+footer ul {
+  justify-content: flex-start;
+  padding-top: 10px;
+}
+footer ul li {
+  padding-right: 25px;
+  padding-bottom: 10px;
+}
+footer ul li a,
+footer a {
+  color: #ffffff;
+}
+footer h3 {
+  color: #febf0f;
+}
+footer .bottom-footer {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+}
+#become-member-button {
+  padding: 10px 15px;
+  background: #febf0f;
+  border-radius: 23px;
+}
+._2_rjA {
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+select {
+  border: none;
+  font-size: 18px;
+}
+.bottom-footer ._3HZlw {
+  display: flex;
+  flex-direction: column;
+}
+._22jt_ {
+  display: flex;
+  align-items: center;
+}
+._2hNto div a {
+  padding-left: 20px;
+}
+._22jt_ a {
+  padding-right: 20px;
+}
+@media only screen and (max-width: 768px) {
+  footer ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: normal;
+  }
+  footer .bottom-footer {
+    flex-direction: column;
+    align-items: center;
+    grid-gap: 20px;
+    text-align: center;
+  }
+}
+@media only screen and (max-width: 572px) {
+  ._2hNto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    grid-gap: 10px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  footer ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  ._2hNto div {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 10px;
+  }
+}
+
+.logoImg {
+  width: 95px;
+  height: 60px;
+}

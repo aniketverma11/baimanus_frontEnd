@@ -1,1 +1,185 @@
-/* You can add global styles to this file, and also import other style files */
+/* styles.css or styles.scss */
+@import "../node_modules/@fortawesome/fontawesome-free/css/all.css";
+
+body.dark-theme {
+  background-color: #1a1a1a;
+  color: #fff;
+}
+
+body {
+  margin: 0;
+  line-height: normal;
+}
+
+:root {
+  /* fonts */
+  --font-inter: Inter;
+  --font-nunito-sans: "Nunito Sans";
+  --font-roboto: Roboto;
+
+  /* font sizes */
+  --font-size-smi-8: 12.8px;
+  --font-size-smi-6: 12.6px;
+  --font-size-smi: 13px;
+  --font-size-mini: 15px;
+  --font-size-mini-8: 14.8px;
+  --font-size-base-3: 15.3px;
+  --font-size-mini-5: 14.5px;
+  --font-size-mini-9: 14.9px;
+  --font-size-mini-6: 14.6px;
+  --font-size-base-1: 15.1px;
+
+  /* Colors */
+  --color-white: #fff;
+  --color-gray-100: #8c8c8c;
+  --color-gray-200: #858585;
+  --color-gray-300: #757575;
+  --color-dimgray: #4d4d4d;
+  --color-midnightblue: #35144f;
+  --color-gold: #febf0f;
+
+  /* Border radiuses */
+  --br-11xl: 30px;
+  --br-3xs: 10px;
+  --br-5xs: 8px;
+
+  /* member */
+  body {
+    margin: 0;
+    line-height: normal;
+  }
+
+  :root {
+    /* fonts */
+    --font-inter: Inter;
+    --font-nunito-sans: "Nunito Sans";
+    --font-open-sans: "Open Sans";
+    --font-roboto: Roboto;
+
+    /* font sizes */
+    --font-size-xs-8: 11.8px;
+    --font-size-xs-6: 11.6px;
+    --font-size-lgi-8: 19.8px;
+    --font-size-3xs: 10px;
+    --font-size-mid: 17px;
+    --font-size-sm: 14px;
+    --font-size-base: 16px;
+    --font-size-xl: 20px;
+    --font-size-6xl: 25px;
+    --font-size-lg-4: 18.4px;
+    --font-size-xs-1: 11.1px;
+    --font-size-4xs: 9px;
+    --font-size-mid-7: 17.7px;
+    --font-size-lgi-1: 19.1px;
+    --font-size-smi-1: 12.1px;
+    --font-size-lg: 18px;
+    --font-size-3xl: 22px;
+    --font-size-xl-3: 20.3px;
+    --font-size-smi-4: 12.4px;
+    --font-size-smi-5: 12.5px;
+    --font-size-6xl-4: 25.4px;
+    --font-size-xl-1: 20.1px;
+    --font-size-6xl-8: 25.8px;
+    --font-size-2xl: 21px;
+    --font-size-xs-3: 11.3px;
+    --font-size-lg-2: 18.2px;
+    --font-size-6xl-6: 25.6px;
+    --font-size-7xl: 26px;
+    --font-size-xl-5: 20.5px;
+    --font-size-2xl-1: 21.1px;
+    --font-size-13xl: 32px;
+
+    /* Colors */
+    --color-goldenrod: #febf2c;
+    --color-whitesmoke-100: #f2f2f2;
+    --color-whitesmoke-200: #f0f0f0;
+    --color-whitesmoke-300: #eee;
+    --color-indigo-100: #592183;
+    --color-indigo-200: #582182;
+    --color-indigo-300: rgba(88, 33, 130, 0.3);
+    --color-midnightblue-100: #4c0e5f;
+    --color-midnightblue-200: #35154f;
+    --color-midnightblue-300: #35144f;
+    --color-lightgray-100: #d1d1d1;
+    --color-firebrick-100: #d64045;
+    --color-firebrick-200: #af191e;
+    --color-white: #fff;
+    --color-forestgreen: #26a64d;
+    --color-dimgray-100: #6c6c6c;
+    --color-dimgray-200: #676767;
+    --color-gray-100: #292929;
+    --color-gray-200: #232323;
+    --color-gray-300: rgba(255, 255, 255, 0.4);
+    --color-gray-400: rgba(255, 255, 255, 0.2);
+    --color-gray-500: rgba(0, 0, 0, 0.1);
+    --color-gold-100: #febf0f;
+    --color-darkgoldenrod: #cc8c00;
+    --color-black: #000;
+    --color-gainsboro: #ddd;
+
+    /* Gaps */
+    --gap-98xl: 117px;
+    --gap-mini: 15px;
+    --gap-12xs: 1px;
+    --gap-0: 0px;
+    --gap-xl: 20px;
+    --gap-5xl: 24px;
+    --gap-8xs: 5px;
+    --gap-9xs: 4px;
+    --gap-3xl: 22px;
+    --gap-3xs: 10px;
+    --gap-7xs: 6px;
+    --gap-31xl: 50px;
+    --gap-10xs: 3px;
+    --gap-39xl: 58px;
+    --gap-9xl: 28px;
+
+    /* Paddings */
+    --padding-xl: 20px;
+    --padding-11xs: 2px;
+    --padding-4xs: 9px;
+    --padding-3xs: 10px;
+    --padding-15xl: 34px;
+    --padding-3xl: 22px;
+    --padding-mini: 15px;
+    --padding-2xl: 21px;
+    --padding-8xs: 5px;
+    --padding-12xs: 1px;
+    --padding-5xs: 8px;
+    --padding-6xs: 7px;
+    --padding-xs: 12px;
+    --padding-10xs: 3px;
+    --padding-9xs: 4px;
+    --padding-smi: 13px;
+    --padding-base: 16px;
+    --padding-mid: 17px;
+    --padding-lg: 18px;
+    --padding-16xl: 35px;
+    --padding-sm: 14px;
+    --padding-48xl: 67px;
+    --padding-40xl: 59px;
+    --padding-39xl: 58px;
+    --padding-10xl: 29px;
+    --padding-22xl: 41px;
+    --padding-52xl: 71px;
+    --padding-56xl: 75px;
+    --padding-30xl: 49px;
+    --padding-189xl: 208px;
+    --padding-397xl: 416px;
+    --padding-98xl: 117px;
+    --padding-216xl: 235px;
+    --padding-7xs: 6px;
+    --padding-9xl: 28px;
+
+    /* Border radiuses */
+    --br-xl: 20px;
+    --br-8xs: 5px;
+    --br-9xs: 4px;
+    --br-41xl: 60px;
+    --br-6xl: 25px;
+    --br-10xs-1: 2.1px;
+    --br-5xs: 8px;
+    --br-smi: 13px;
+    --br-13xl-3: 32.3px;
+  }
+}
