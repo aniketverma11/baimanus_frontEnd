@@ -18,6 +18,11 @@ import {
   BrowserAnimationsModule,
   NoopAnimationsModule,
 } from '@angular/platform-browser/animations';
+import {
+  FacebookLoginProvider,
+  GoogleLoginProvider,
+  SocialAuthServiceConfig,
+} from '@abacritt/angularx-social-login';
 
 @NgModule({
   declarations: [AppComponent, SidebarComponent, FooterComponent],
@@ -31,7 +36,26 @@ import {
     BrowserAnimationsModule,
     NoopAnimationsModule,
   ],
-  providers: [provideClientHydration()],
+  providers: [
+    provideClientHydration(),
+
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider('Your-Google-Client-Id'),
+          },
+          {
+            id: FacebookLoginProvider.PROVIDER_ID,
+            provider: new FacebookLoginProvider('Your-Facebook-App-Id'),
+          },
+        ],
+      } as SocialAuthServiceConfig,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

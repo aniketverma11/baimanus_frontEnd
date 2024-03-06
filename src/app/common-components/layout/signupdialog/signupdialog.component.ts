@@ -1,4 +1,10 @@
-import { Component } from '@angular/core';
+import {
+  FacebookLoginProvider,
+  GoogleLoginProvider,
+  SocialAuthService,
+  SocialUser,
+} from '@abacritt/angularx-social-login';
+import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
@@ -6,24 +12,25 @@ import { MatDialogRef } from '@angular/material/dialog';
   templateUrl: './signupdialog.component.html',
   styleUrl: './signupdialog.component.css',
 })
-export class SignupdialogComponent {
-  constructor(private dialogRef: MatDialogRef<SignupdialogComponent>) {}
-  // constructor(private auth: AngularFireAuth, private fb: FacebookService) {
-  //   const initParams: InitParams = {
-  //     appId: 'YOUR_FACEBOOK_APP_ID',
-  //     xfbml: true,
-  //     version: 'v10.0',
-  //   };
-  //   fb.init(initParams);
-  // }
+export class SignupdialogComponent implements OnInit {
+  user!: SocialUser;
+
+  constructor(
+    private dialogRef: MatDialogRef<SignupdialogComponent>,
+    private authService: SocialAuthService
+  ) {}
+
+  ngOnInit(): void {
+    this.authService.authState.subscribe((user) => {
+      // this.user = user;
+    });
+  }
   loginWithGoogle() {
-    // this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
   }
 
   loginWithFacebook() {
-    //   this.fb.login().then((response: LoginResponse) => {
-    //     console.log(response);
-    //   });
+    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
   }
 
   closeDialog(): void {
