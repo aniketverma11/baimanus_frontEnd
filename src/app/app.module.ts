@@ -22,9 +22,15 @@ import {
 import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
-
+import { LoaderComponent } from './common-components/layout/loader/loader.component';
+//
 @NgModule({
-  declarations: [AppComponent, SidebarComponent, FooterComponent],
+  declarations: [
+    AppComponent,
+    SidebarComponent,
+    FooterComponent,
+    LoaderComponent,
+  ],
   imports: [
     BrowserModule,
     MatSlideToggleModule,
