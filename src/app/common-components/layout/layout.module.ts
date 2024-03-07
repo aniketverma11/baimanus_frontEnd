@@ -52,8 +52,9 @@ export function tokenGetter() {
         providers: [
           {
             id: FacebookLoginProvider.PROVIDER_ID,
-            provider: new FacebookLoginProvider('807269351450476'),
+            provider: new FacebookLoginProvider('434343'),
           },
+          // 807269351450476
         ],
         onError: (err) => {
           console.error(err);
