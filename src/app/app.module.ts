@@ -18,11 +18,10 @@ import {
   BrowserAnimationsModule,
   NoopAnimationsModule,
 } from '@angular/platform-browser/animations';
-import {
-  FacebookLoginProvider,
-  GoogleLoginProvider,
-  SocialAuthServiceConfig,
-} from '@abacritt/angularx-social-login';
+
+import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
+import { HttpClientModule } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [AppComponent, SidebarComponent, FooterComponent],
@@ -35,27 +34,10 @@ import {
     MatSidenavModule,
     BrowserAnimationsModule,
     NoopAnimationsModule,
+    HttpClientModule,
+    ToastrModule.forRoot(),
   ],
-  providers: [
-    provideClientHydration(),
-
-    {
-      provide: 'SocialAuthServiceConfig',
-      useValue: {
-        autoLogin: false,
-        providers: [
-          {
-            id: GoogleLoginProvider.PROVIDER_ID,
-            provider: new GoogleLoginProvider('Your-Google-Client-Id'),
-          },
-          {
-            id: FacebookLoginProvider.PROVIDER_ID,
-            provider: new FacebookLoginProvider('Your-Facebook-App-Id'),
-          },
-        ],
-      } as SocialAuthServiceConfig,
-    },
-  ],
+  providers: [provideClientHydration(), JwtHelperService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

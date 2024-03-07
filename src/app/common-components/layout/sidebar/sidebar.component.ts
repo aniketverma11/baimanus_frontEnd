@@ -1,15 +1,11 @@
-import {
-  ChangeDetectorRef,
-  Component,
-  OnInit,
-  Renderer2,
-  ViewChild,
-} from '@angular/core';
+import { Component, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { ThemeService } from '../theme.service';
 import { MatDrawer } from '@angular/material/sidenav';
-import { MediaMatcher } from '@angular/cdk/layout';
 import { MatDialog } from '@angular/material/dialog';
 import { SignupdialogComponent } from '../signupdialog/signupdialog.component';
+import { CategoryService } from '../../../../services/category.service';
+import { Subscription } from 'rxjs';
+import { AuthService } from '../../../../services/auth.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -17,27 +13,35 @@ import { SignupdialogComponent } from '../signupdialog/signupdialog.component';
   styleUrls: ['./sidebar.component.css'],
 })
 export class SidebarComponent implements OnInit {
+  private unsubscribe: Subscription = new Subscription();
   darkMode: boolean;
   @ViewChild('drawer') drawer!: MatDrawer;
   isExpanded: boolean = true;
   isSidebarExpanded = false;
-  isMobile: boolean;
-
-  private mobileQueryListener: () => void;
+  categoryList: any;
+  visibleCategories: any[] = [];
+  showAll = false;
+  loggedUser: any;
+  user_profile_picture: any;
+  showDropdown = false;
 
   constructor(
     private themeService: ThemeService,
-    private changeDetectorRef: ChangeDetectorRef,
-    private media: MediaMatcher,
     private renderer: Renderer2,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private categoryService: CategoryService,
+    private authService: AuthService
   ) {
     this.darkMode = this.themeService.isDarkMode();
-    this.mobileQueryListener = () => changeDetectorRef.detectChanges();
-    this.isMobile = this.media.matchMedia('(max-width: 600px)').matches;
-    this.media
-      .matchMedia('(max-width: 600px)')
-      .addListener(this.mobileQueryListener);
+  }
+
+  ngOnInit() {
+    this.getAllCategories();
+
+    const storedUserData = sessionStorage.getItem('loggedInUser');
+    if (storedUserData) {
+      this.getLoginInfo();
+    }
   }
 
   toggleDarkMode(): void {
@@ -48,19 +52,8 @@ export class SidebarComponent implements OnInit {
     this.renderer.setStyle(sidebar, ' color', 'green');
   }
 
-  toggleSidebar() {
-    if (this.isMobile) {
-    } else {
-      this.drawer.toggle();
-      this.isSidebarExpanded = !this.isSidebarExpanded;
-    }
-  }
+  toggleSidebar() {}
 
-  ngOnDestroy(): void {
-    this.media
-      .matchMedia('(max-width: 600px)')
-      .removeListener(this.mobileQueryListener);
-  }
   public showSidebar() {
     const sidebar = document.querySelector('.sidebar');
     this.renderer.setStyle(sidebar, 'display', 'flex');
@@ -70,17 +63,57 @@ export class SidebarComponent implements OnInit {
     this.renderer.setStyle(sidebar, 'display', 'none');
   }
 
-  ngOnInit() {}
-
   openPaymentModal(): void {
     const dialogRef = this.dialog.open(SignupdialogComponent, {
       width: '1380px',
       height: '700px',
     });
 
-    // You can also subscribe to the 'afterClosed' event if you want to perform actions when the dialog is closed
     dialogRef.afterClosed().subscribe((result) => {
       console.log('Dialog closed with result:', result);
     });
+  }
+  getAllCategories() {
+    this.unsubscribe.add(
+      this.categoryService.getAllCategories().subscribe(
+        (data) => {
+          this.categoryList = data;
+          this.visibleCategories = [...this.categoryList.slice(0, 5)];
+        },
+        (error) => {
+          console.error(error);
+        }
+      )
+    );
+  }
+
+  showMore() {
+    this.visibleCategories = [...this.categoryList];
+    this.showAll = true;
+  }
+
+  getLoginInfo() {
+    const storedUserData = sessionStorage.getItem('loggedInUser');
+    if (storedUserData) {
+      const loggedInUser = storedUserData ? JSON.parse(storedUserData) : null;
+      this.loggedUser = loggedInUser;
+      this.user_profile_picture = this.loggedUser.picture;
+      //
+      console.log(this.loggedUser);
+    }
+  }
+
+  toggleDropdown(): void {
+    this.showDropdown = !this.showDropdown;
+  }
+  logout(): void {
+    window.alert('logged out sucuess');
+    window.location.reload();
+    sessionStorage.removeItem('loggedInUser');
+    this.authService.signOut();
+    this.getAllCategories();
+  }
+  ngOnDestroy(): void {
+    this.unsubscribe.unsubscribe();
   }
 }

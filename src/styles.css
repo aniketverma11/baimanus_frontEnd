@@ -1,5 +1,6 @@
 /* styles.css or styles.scss */
 @import "../node_modules/@fortawesome/fontawesome-free/css/all.css";
+@import "ngx-toastr/toastr";
 
 body.dark-theme {
   background-color: #1a1a1a;
