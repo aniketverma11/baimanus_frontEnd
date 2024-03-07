@@ -234,13 +234,13 @@ input:checked + .slider:before {
   .btnToggle {
     position: sticky !;
   }
-  .topheaderMobile {
+  /* .topheaderMobile {
     height: 13px !important;
     overflow-x: auto !important;
   }
   .topheaderMobile li {
     margin-right: 15px;
-  }
+  } */
   ._1bFcO {
     height: 13px !important;
     overflow-x: auto !important;
