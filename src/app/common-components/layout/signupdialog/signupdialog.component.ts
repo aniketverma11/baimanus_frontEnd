@@ -1,9 +1,10 @@
-import { SocialUser } from '@abacritt/angularx-social-login';
+import { SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { environment } from './../../../../enviroments/environment';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from '../../../../services/auth.service';
 declare var google: any;
 
 @Component({
@@ -17,10 +18,14 @@ export class SignupdialogComponent implements OnInit, AfterViewInit {
   constructor(
     private dialogRef: MatDialogRef<SignupdialogComponent>,
     private jwtHelper: JwtHelperService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private authService: AuthService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    const user = this.authService.getFacebookUser();
+    console.log(user);
+  }
 
   ngAfterViewInit(): void {
     google.accounts.id.initialize({
@@ -68,7 +73,9 @@ export class SignupdialogComponent implements OnInit, AfterViewInit {
 
   loginWithGoogle() {}
 
-  loginWithFacebook() {}
+  loginWithFacebook() {
+    this.authService.signInWithFB();
+  }
 
   closeDialog(): void {
     this.dialogRef.close();

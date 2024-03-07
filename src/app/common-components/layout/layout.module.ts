@@ -11,6 +11,12 @@ import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import {
+  FacebookLoginProvider,
+  GoogleLoginProvider,
+  SocialAuthServiceConfig,
+  SocialLoginModule,
+} from '@abacritt/angularx-social-login';
 export function tokenGetter() {
   return sessionStorage.getItem('loggedInUser');
 }
@@ -23,6 +29,7 @@ export function tokenGetter() {
     MatIconModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    SocialLoginModule,
     ToastrModule.forRoot({
       positionClass: 'toast-top-right',
       preventDuplicates: true,
@@ -36,6 +43,23 @@ export function tokenGetter() {
     }),
   ],
 
-  providers: [JwtHelperService],
+  providers: [
+    JwtHelperService,
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: FacebookLoginProvider.PROVIDER_ID,
+            provider: new FacebookLoginProvider('807269351450476'),
+          },
+        ],
+        onError: (err) => {
+          console.error(err);
+        },
+      } as SocialAuthServiceConfig,
+    },
+  ],
 })
 export class LayoutModule {}
