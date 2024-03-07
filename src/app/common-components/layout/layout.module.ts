@@ -17,11 +17,13 @@ import {
   SocialAuthServiceConfig,
   SocialLoginModule,
 } from '@abacritt/angularx-social-login';
+import { LoaderComponent } from './loader/loader.component';
 export function tokenGetter() {
   return sessionStorage.getItem('loggedInUser');
 }
 @NgModule({
   declarations: [SignupdialogComponent],
+
   imports: [
     CommonModule,
     MatTabsModule,

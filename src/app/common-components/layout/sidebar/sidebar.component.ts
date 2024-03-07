@@ -24,6 +24,7 @@ export class SidebarComponent implements OnInit {
   loggedUser: any;
   user_profile_picture: any;
   showDropdown = false;
+  isLoading: boolean = false;
 
   constructor(
     private themeService: ThemeService,
@@ -74,9 +75,12 @@ export class SidebarComponent implements OnInit {
     });
   }
   getAllCategories() {
+    this.isLoading = true;
     this.unsubscribe.add(
       this.categoryService.getAllCategories().subscribe(
         (data) => {
+          this.isLoading = false;
+
           this.categoryList = data;
           this.visibleCategories = [...this.categoryList.slice(0, 5)];
         },
