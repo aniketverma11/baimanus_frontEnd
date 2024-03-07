@@ -39,9 +39,11 @@ export class SidebarComponent implements OnInit {
   ngOnInit() {
     this.getAllCategories();
 
-    const storedUserData = sessionStorage.getItem('loggedInUser');
-    if (storedUserData) {
-      this.getLoginInfo();
+    if (typeof sessionStorage !== 'undefined') {
+      const storedUserData = sessionStorage.getItem('loggedInUser');
+      if (storedUserData) {
+        this.getLoginInfo();
+      }
     }
   }
 
