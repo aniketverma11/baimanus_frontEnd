@@ -870,3 +870,31 @@ body.dark-theme .sidebar {
 ._361IT {
   border-radius: 70px !important;
 }
+#profile-button-icon-desktop {
+  background: #35144f;
+  border: none;
+}
+@media only screen and (max-width: 768px){
+  .bottom-header ul.mobile-top-nav-item, .middle-header ul.topheaderMobile{
+    display: flex;
+    align-items: center;
+    overflow: scroll;
+    height: 30px;
+  }
+  .bottom-header ul.mobile-top-nav-item li, .middle-header ul.topheaderMobile li{
+    padding: 0 15px 0 0;
+    float: left;
+  }
+  header ul::-webkit-scrollbar{
+    display: none;
+  }
+  ul.topheaderMobile .top-navbar-1{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+  ul.topheaderMobile div{
+    display: contents;
+    padding-left: 15px;
+  }
+}

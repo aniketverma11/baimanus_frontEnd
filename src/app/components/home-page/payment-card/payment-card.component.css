@@ -409,7 +409,8 @@
 .paymentCard {
   position: fixed;
   z-index: 999;
-  margin-left: 996px;
+  /* margin-left: 996px; */
+  right: 4%;
 }
 .div-2yhck {
   max-width: 436px;
