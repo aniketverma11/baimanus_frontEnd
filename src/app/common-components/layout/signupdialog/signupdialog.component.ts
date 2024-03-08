@@ -39,7 +39,7 @@ export class SignupdialogComponent implements OnInit, AfterViewInit {
       theme: 'filled_blue',
       size: 'large',
       shape: 'rectangle',
-      width: 350,
+      width: 300,
     });
   }
 
