@@ -177,7 +177,7 @@
 }
 .divi3tna1 {
   background-color: var(--wwwthequintcom-nero);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -4669,4 +4669,66 @@ app-payment-card {
 }
 .sticky-wrapper app-payment-card {
   margin-top: -419.4px; /* Adjust based on the height of your payment card */
+}
+.straight{
+  border-top: 3px solid #febf2c;
+  width: 40%;
+  padding-bottom: 25px;
+}
+.member-banner-section{
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+  align-items: center;
+  min-height: 70vh;
+}
+.block-fill{
+  display: grid;
+  grid-template-columns: 4fr 8fr;
+  align-items: center;
+}
+h2.member-benefits{
+  color: #febf0f;
+  font-size: 36px;
+  text-align: center;
+  margin: 0;
+  padding: 25px 0;
+}
+.member-benefit-section{
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+}
+.mbblock-fill-contain{
+  padding: 4rem 0;
+  display: flex;
+  flex-direction: column;
+}
+.mbblock-fill .text-section{width: 350px;}
+.mbblock-fill .text-section h3{
+  font-size: 24px;
+}
+.mbblock-fill{
+  display: flex;
+  flex-direction: row; 
+  align-items: center;
+  grid-gap: 40px;
+  justify-content: flex-start;
+}
+.mbblock-fill.rev-flex{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+.supporting-special{
+  background: #ffffff;
+    position: relative;
+    z-index: 9999;
+    padding: 4rem 0;
+}
+.member-benefit-block{
+  background: #35144f;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
 }

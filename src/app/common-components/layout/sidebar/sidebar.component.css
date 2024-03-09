@@ -874,6 +874,15 @@ body.dark-theme .sidebar {
   background: #35144f;
   border: none;
 }
+.middle-header .container{
+  position: relative; 
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+}
+.middle-header ul.topheaderMobile{
+  margin-left: 15px;
+}
 @media only screen and (max-width: 768px){
   .bottom-header ul.mobile-top-nav-item, .middle-header ul.topheaderMobile{
     display: flex;
@@ -897,4 +906,6 @@ body.dark-theme .sidebar {
     display: contents;
     padding-left: 15px;
   }
+  .mheader-hamburger{display: inline-block;}
+  .mheader-hamburger button img{width: 50px;}
 }

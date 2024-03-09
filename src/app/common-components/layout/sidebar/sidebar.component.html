@@ -534,37 +534,36 @@
   <!-- moddle header -->
   <div class="middle-header">
     <div class="container">
+      <div class="mheader-hamburger">
+        <button
+          class="showSideBarButton btnToggle"
+          (click)="showSidebar()"
+        >
+          <img src="../../../../assets/icons/Menu.png" alt="" />
+        </button>
+      </div>
       <ul class="topheaderMobile horizontal-list">
-        <li style="position: fixed">
-          <button
-            class="showSideBarButton btnToggle"
-            style="position: fixed"
-            (click)="showSidebar()"
-          >
-            <img src="../../../../assets/icons/Menu.png" alt="" />
-          </button>
-        </li>
-        <li class="top-navbar-1 J_MHx">
+        <!-- <li class="top-navbar-1 J_MHx"> -->
           <!-- <a id="ga4-header-10" class="" href="#" target="_blank"> -->
 
-          <div
+          <li
             *ngFor="let category of visibleCategories.slice(0, 5)"
             class="horizontal-list"
           >
             {{ category.name }}
-          </div>
+          </li>
 
-          <div *ngIf="showAll">
-            <div
+          <!-- <ul *ngIf="showAll"> -->
+            <li
               *ngFor="let category of visibleCategories.slice(6)"
               class="horizontal-list"
             >
               {{ category.name }}
-            </div>
-          </div>
-        </li>
-
-        <li>
+            </li>
+          <!-- </ul> -->
+        <!-- </li> -->
+      </ul>
+        <div>
           <div class="_2j_ED">
             <select name="more" id="more-bottom-header">
               <option value="">More</option>
@@ -576,8 +575,8 @@
               </option>
             </select>
           </div>
-        </li>
-      </ul>
+        </div>
+      
     </div>
   </div>
   <!-- < Middle header ends here> -->
