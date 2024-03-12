@@ -5,7 +5,7 @@
     <div class="container">
       <div class="logos d-flex items-c">
         <div class="XRy60">
-          <a class="_2eoA3" aria-label="The Quint homepage" href="/">
+          <a class="_2eoA3" aria-label="The  homepage" href="/">
             <span class="logoImg">
               <img
                 class="logoImg"
@@ -19,6 +19,7 @@
         <div class="vl"></div>
         <div class="hinditoggle">
           <svg
+            (click)="switchLanguage()"
             xmlns="http://www.w3.org/2000/svg"
             width="120"
             height="42"
@@ -100,7 +101,7 @@
           </svg>
         </div>
         <div class="_1what">
-          <a class="" aria-label="The Quint homepage" href="/">
+          <a class="" aria-label="The  homepage" href="/">
             <div class="_1H8g8 hinditoggle">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -125,7 +126,9 @@
           aria-label="Become a Member"
           routerLink="home/plan_section"
         >
-          <div id="become-member-button" class="_1atAn">Become a Member</div>
+          <div id="become-member-button" class="_1atAn">
+            {{ "Become a Member" | translate }}
+          </div>
         </a>
         <a class="_238ph" aria-label="News letter" routerLink="/home/subsribe"
           ><svg
@@ -535,48 +538,44 @@
   <div class="middle-header">
     <div class="container">
       <div class="mheader-hamburger">
-        <button
-          class="showSideBarButton btnToggle"
-          (click)="showSidebar()"
-        >
+        <button class="showSideBarButton btnToggle" (click)="showSidebar()">
           <img src="../../../../assets/icons/Menu.png" alt="" />
         </button>
       </div>
       <ul class="topheaderMobile horizontal-list">
         <!-- <li class="top-navbar-1 J_MHx"> -->
-          <!-- <a id="ga4-header-10" class="" href="#" target="_blank"> -->
+        <!-- <a id="ga4-header-10" class="" href="#" target="_blank"> -->
 
-          <li
-            *ngFor="let category of visibleCategories.slice(0, 5)"
-            class="horizontal-list"
-          >
-            {{ category.name }}
-          </li>
+        <li
+          *ngFor="let category of visibleCategories.slice(0, 5)"
+          class="horizontal-list"
+        >
+          {{ category.name }}
+        </li>
 
-          <!-- <ul *ngIf="showAll"> -->
-            <li
-              *ngFor="let category of visibleCategories.slice(6)"
-              class="horizontal-list"
-            >
-              {{ category.name }}
-            </li>
-          <!-- </ul> -->
+        <!-- <ul *ngIf="showAll"> -->
+        <li
+          *ngFor="let category of visibleCategories.slice(6)"
+          class="horizontal-list"
+        >
+          {{ category.name }}
+        </li>
+        <!-- </ul> -->
         <!-- </li> -->
       </ul>
-        <div>
-          <div class="_2j_ED">
-            <select name="more" id="more-bottom-header">
-              <option value="">More</option>
-              <option
-                *ngFor="let category of categoryList.slice(6)"
-                [value]="category.id"
-              >
-                {{ category.name }}
-              </option>
-            </select>
-          </div>
+      <div>
+        <div class="_2j_ED">
+          <select name="more" id="more-bottom-header">
+            <option value="">More</option>
+            <option
+              *ngFor="let category of categoryList.slice(6)"
+              [value]="category.id"
+            >
+              {{ category.name }}
+            </option>
+          </select>
         </div>
-      
+      </div>
     </div>
   </div>
   <!-- < Middle header ends here> -->

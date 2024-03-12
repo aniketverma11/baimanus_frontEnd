@@ -18,6 +18,7 @@ import {
   SocialLoginModule,
 } from '@abacritt/angularx-social-login';
 import { LoaderComponent } from './loader/loader.component';
+import { TranslatePipe } from '@ngx-translate/core';
 export function tokenGetter() {
   return sessionStorage.getItem('loggedInUser');
 }
@@ -29,6 +30,7 @@ export function tokenGetter() {
     MatTabsModule,
     MatDialogModule,
     MatIconModule,
+
     HttpClientModule,
     BrowserAnimationsModule,
     SocialLoginModule,

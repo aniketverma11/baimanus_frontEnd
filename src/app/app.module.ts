@@ -20,9 +20,11 @@ import {
 } from '@angular/platform-browser/animations';
 
 import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { LoaderComponent } from './common-components/layout/loader/loader.component';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 //
 @NgModule({
   declarations: [
@@ -41,9 +43,21 @@ import { LoaderComponent } from './common-components/layout/loader/loader.compon
     BrowserAnimationsModule,
     NoopAnimationsModule,
     HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: httpTranslateLoader,
+        deps: [HttpClient],
+      },
+    }),
+
     ToastrModule.forRoot(),
   ],
   providers: [provideClientHydration(), JwtHelperService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+
+export function httpTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, '../assets/i18n/', '.json');
+}

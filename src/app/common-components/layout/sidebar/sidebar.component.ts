@@ -6,6 +6,8 @@ import { SignupdialogComponent } from '../signupdialog/signupdialog.component';
 import { CategoryService } from '../../../../services/category.service';
 import { Subscription } from 'rxjs';
 import { AuthService } from '../../../../services/auth.service';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
+import { LanguageService } from '../../../../services/language.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -31,7 +33,9 @@ export class SidebarComponent implements OnInit {
     private renderer: Renderer2,
     private dialog: MatDialog,
     private categoryService: CategoryService,
-    private authService: AuthService
+    private translateService: TranslateService,
+    private authService: AuthService,
+    private languageService: LanguageService
   ) {
     this.darkMode = this.themeService.isDarkMode();
   }
@@ -83,7 +87,7 @@ export class SidebarComponent implements OnInit {
         (data) => {
           this.isLoading = false;
 
-          this.categoryList = data;
+          this.categoryList = data.data;
           this.visibleCategories = [...this.categoryList.slice(0, 5)];
         },
         (error) => {
@@ -118,6 +122,14 @@ export class SidebarComponent implements OnInit {
     sessionStorage.removeItem('loggedInUser');
     this.authService.signOut();
     this.getAllCategories();
+  }
+
+  switchLanguage() {
+    const currentLanguage = this.translateService.currentLang;
+    const newLanguage = currentLanguage === 'en' ? 'mr' : 'en';
+
+    // Change the language
+    this.translateService.use(newLanguage);
   }
   ngOnDestroy(): void {
     this.unsubscribe.unsubscribe();

@@ -1,2 +1,16 @@
-<p>landing-page works!</p>
-<button routerLink="/home/subsribe">hello</button>
+<div
+  *ngFor="let content of homeContent"
+  class="content-item"
+  (click)="getHomeContentBySlug(content.slug)"
+>
+  <div class="category-image">
+    <img
+      [src]="getFullImagePath(content.image)"
+      alt="{{ content.image_alt }}"
+    />
+  </div>
+  <div class="content-details">
+    <h2>{{ content.title }}</h2>
+    <p>{{ content.short_description }}</p>
+  </div>
+</div>

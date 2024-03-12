@@ -1,20 +1,23 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { Observable, catchError, throwError } from 'rxjs';
 import { environment } from '../enviroments/environment';
-import { GET_ALL_CATEGORIES } from '../enviroments/api-path';
+import { HOME_CONTENT, HOME_CONTENT_BY_SLUG } from '../enviroments/api-path';
 
 @Injectable({
   providedIn: 'root',
 })
-export class CategoryService {
+export class ApiServicesService {
   constructor(private httpClient: HttpClient) {}
 
-  getAllCategories(): Observable<any> {
-    return this.httpClient
-      .get(environment.apiBaseUrl + GET_ALL_CATEGORIES)
-      .pipe(catchError(this.errorHandler));
+  getHomeContent(): Observable<any> {
+    return this.httpClient.get(environment.apiBaseUrl + HOME_CONTENT);
+  }
+
+  getHomeContentBySlug(slug: any): Observable<any> {
+    return this.httpClient.get(
+      `${environment.apiBaseUrl}${HOME_CONTENT_BY_SLUG}${slug}`
+    );
   }
 
   errorHandler(error: {

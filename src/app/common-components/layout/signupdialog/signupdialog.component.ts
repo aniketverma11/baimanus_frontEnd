@@ -5,6 +5,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { environment } from './../../../../enviroments/environment';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../../../../services/auth.service';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 declare var google: any;
 
 @Component({
@@ -19,8 +20,11 @@ export class SignupdialogComponent implements OnInit, AfterViewInit {
     private dialogRef: MatDialogRef<SignupdialogComponent>,
     private jwtHelper: JwtHelperService,
     private toastr: ToastrService,
-    private authService: AuthService
-  ) {}
+    private authService: AuthService,
+    private translateService: TranslateService
+  ) {
+    this.translateService.setDefaultLang('en');
+  }
 
   ngOnInit(): void {
     const user = this.authService.getFacebookUser();
