@@ -7,25 +7,32 @@
       />
     </div>
     <mat-tab-group>
-      <mat-tab label="Login">
+      <mat-tab label="{{ 'Login' | translate }}">
         <div class="auth-container">
           <div id="google-btn" class="g_id_signin"></div>
 
           <button class="facebook-login-button" (click)="loginWithFacebook()">
-            Continue with Facebook
+            {{ "Continue with Facebook" | translate }}
           </button>
         </div>
 
         <div class="benefitsContainer">
-          <Strong> <h2>Benefits</h2></Strong>
+          <Strong>
+            <h2>{{ "Benefits" | translate }}</h2></Strong
+          >
           <ul>
-            <li>Get recommended conten</li>
-            <li>Listen to stories and bookmark articles</li>
+            <li>{{ "Get recommended content" | translate }}</li>
+            <li>{{ "Listen to stories and bookmark articles" | translate }}</li>
           </ul>
-          <p>By signing in you agree to our T&C and privacy policy</p>
+          <p>
+            {{
+              "By signing in you agree to our T&C and privacy policy"
+                | translate
+            }}
+          </p>
         </div>
       </mat-tab>
-      <mat-tab label="Register">
+      <mat-tab label="{{ 'Register' | translate }}">
         <div class="auth-container">
           <button mat-raised-button color="primary" (click)="loginWithGoogle()">
             Continue with Google
@@ -42,12 +49,19 @@
         </div>
 
         <div class="benefitsContainer">
-          <Strong> <h2>Benefits</h2></Strong>
+          <Strong>
+            <h2>{{ "Benefits" | translate }}</h2></Strong
+          >
           <ul>
-            <li>Get recommended conten</li>
-            <li>Listen to stories and bookmark articles</li>
+            <li>{{ "Get recommended content" | translate }}</li>
+            <li>{{ "Listen to stories and bookmark articles" | translate }}</li>
           </ul>
-          <p>By signing in you agree to our T&C and privacy policy</p>
+          <p>
+            {{
+              "By signing in you agree to our T&C and privacy policy"
+                | translate
+            }}
+          </p>
         </div>
       </mat-tab>
     </mat-tab-group>

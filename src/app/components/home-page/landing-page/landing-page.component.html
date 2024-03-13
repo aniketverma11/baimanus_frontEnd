@@ -1,16 +1,36 @@
-<div
-  *ngFor="let content of homeContent"
-  class="content-item"
-  (click)="getHomeContentBySlug(content.slug)"
->
-  <div class="category-image">
-    <img
-      [src]="getFullImagePath(content.image)"
-      alt="{{ content.image_alt }}"
-    />
+<div class="container" *ngIf="!isLoading">
+  <div
+    *ngFor="let content of homeContent"
+    class="content-item"
+    (click)="getHomeContentBySlug(content.slug)"
+  >
+    <div class="category-image">
+      <img
+        [src]="getFullImagePath(content.image)"
+        alt="{{ content.image_alt }}"
+      />
+    </div>
+
+    <div class="content-details">
+      <h1>{{ content.title }}</h1>
+      <p>{{ content.short_description }}</p>
+    </div>
   </div>
-  <div class="content-details">
-    <h2>{{ content.title }}</h2>
-    <p>{{ content.short_description }}</p>
+
+  <!-- photos sections -->
+  <h1>Photos</h1>
+  <div class="photos" *ngIf="!isLoading">
+    <div class="left-section">
+      <div [innerHTML]="getSanitizedContent()"></div>
+      <div class="headingTitle">
+        <h1>{{ homeContent[0].title }}</h1>
+      </div>
+    </div>
+    <div class="right-section">
+      <div class="box" *ngFor="let title of headingTitle">
+        <hr />
+        <h1>{{ title }}</h1>
+      </div>
+    </div>
   </div>
 </div>

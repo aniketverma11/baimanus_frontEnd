@@ -1,9 +1,34 @@
-<div class="loader" *ngIf="isLoading">
+<!-- <div class="loader" *ngIf="isLoading">
   <div class="dot"></div>
   <div class="dot"></div>
   <div class="dot"></div>
-</div>
+</div> -->
 
-<div *ngIf="!isLoading">
-  <div [innerHTML]="content" [ngStyle]="getDynamicStyles()"></div>
+<div class="container">
+  <div class="title">
+    <strong>
+      <h1>{{ newsDetails.title }}</h1></strong
+    >
+  </div>
+  <div class="short_description">
+    {{ newsDetails.short_description }}
+  </div>
+
+  <div class="author">
+    <strong>
+      <span class="author-name">{{ newsDetails.author }}</span></strong
+    >
+    <span class="published-date">{{ newsDetails.publish }}</span>
+  </div>
+  <div class="images">
+    <img
+      [src]="getFullImagePath(newsDetails.image)"
+      alt="{{ newsDetails.image_alt }}"
+    />
+  </div>
+  <div
+    #contentContainer
+    [innerHTML]="content"
+    [ngStyle]="getDynamicStyles()"
+  ></div>
 </div>

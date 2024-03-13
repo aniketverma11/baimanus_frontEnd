@@ -2,7 +2,12 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, throwError } from 'rxjs';
 import { environment } from '../enviroments/environment';
-import { HOME_CONTENT, HOME_CONTENT_BY_SLUG } from '../enviroments/api-path';
+import {
+  HOME_CONTENT,
+  HOME_CONTENT_BY_SLUG,
+  PHOTOS,
+  VIDEOS,
+} from '../enviroments/api-path';
 
 @Injectable({
   providedIn: 'root',
@@ -18,6 +23,13 @@ export class ApiServicesService {
     return this.httpClient.get(
       `${environment.apiBaseUrl}${HOME_CONTENT_BY_SLUG}${slug}`
     );
+  }
+
+  getPhotos(): Observable<any> {
+    return this.httpClient.get(environment.apiBaseUrl + PHOTOS);
+  }
+  getViideos(): Observable<any> {
+    return this.httpClient.get(environment.apiBaseUrl + VIDEOS);
   }
 
   errorHandler(error: {

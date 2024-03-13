@@ -16,6 +16,9 @@ export class LandingPageComponent {
   private unsubscribe: Subscription = new Subscription();
   isLoading: boolean = true;
   homeContent: any;
+  homePhotos: any;
+  headingPhoto: any;
+  headingTitle: any[] = [];
   constructor(
     private apiService: ApiServicesService,
     private sanitizer: DomSanitizer,
@@ -24,6 +27,26 @@ export class LandingPageComponent {
 
   ngOnInit() {
     this.getHomeContent();
+    this.getHomePhotos();
+  }
+  getHomePhotos() {
+    this.isLoading = true;
+    this.unsubscribe.add(
+      this.apiService.getPhotos().subscribe(
+        (data) => {
+          this.isLoading = false;
+          this.homePhotos = data.data;
+          console.log(this.homePhotos);
+          this.headingPhoto = this.homeContent[0].content;
+          this.headingTitle = this.homePhotos
+            .slice(0, 3)
+            .map((item: any) => item.title);
+        },
+        (error) => {
+          console.error(error);
+        }
+      )
+    );
   }
 
   getHomeContent() {
@@ -31,10 +54,8 @@ export class LandingPageComponent {
     this.unsubscribe.add(
       this.apiService.getHomeContent().subscribe(
         (data) => {
-          // this.isLoading = false;
           this.homeContent = data.data;
           console.log(data);
-          // this.cmsPage = this.sanitizer.bypassSecurityTrustHtml(footerContent.content);
         },
         (error) => {
           console.error(error);
@@ -53,6 +74,18 @@ export class LandingPageComponent {
     return `${this.imageBaseURL}${relativePath}`;
   }
 
+  getSanitizedContent(): any {
+    if (this.headingPhoto) {
+      // Replace the image source with the base URL
+      const sanitizedContent = this.headingPhoto.replace(
+        /src="\/media/g,
+        `src="${this.imageBaseURL}/media`
+      );
+
+      // Use DomSanitizer to sanitize the HTML content
+      return this.sanitizer.bypassSecurityTrustHtml(sanitizedContent);
+    }
+  }
   ngOnDestroy(): void {
     this.unsubscribe.unsubscribe();
   }

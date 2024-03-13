@@ -27,6 +27,10 @@ export class SignupdialogComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
+    this.translateService.onLangChange.subscribe((event) => {
+      console.log('Language changed to:', event.lang);
+      // React to language changes as needed
+    });
     const user = this.authService.getFacebookUser();
     console.log(user);
   }

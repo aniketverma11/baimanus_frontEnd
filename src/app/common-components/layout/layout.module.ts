@@ -6,6 +6,8 @@ import { FooterComponent } from './footer/footer.component';
 import { SignupdialogComponent } from './signupdialog/signupdialog.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatDialogModule } from '@angular/material/dialog';
+
+import { TranslateModule } from '@ngx-translate/core';
 import { MatIconModule } from '@angular/material/icon';
 import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
 import { HttpClientModule } from '@angular/common/http';
@@ -19,6 +21,7 @@ import {
 } from '@abacritt/angularx-social-login';
 import { LoaderComponent } from './loader/loader.component';
 import { TranslatePipe } from '@ngx-translate/core';
+
 export function tokenGetter() {
   return sessionStorage.getItem('loggedInUser');
 }
@@ -30,7 +33,7 @@ export function tokenGetter() {
     MatTabsModule,
     MatDialogModule,
     MatIconModule,
-
+    TranslateModule,
     HttpClientModule,
     BrowserAnimationsModule,
     SocialLoginModule,

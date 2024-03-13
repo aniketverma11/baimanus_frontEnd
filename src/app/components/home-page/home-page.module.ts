@@ -14,6 +14,9 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MemberstopComponent } from './members-plans/memberstop/memberstop.component';
 import { NewsDetailsComponent } from './landing-page/news-details/news-details.component';
 import { LoaderComponent } from '../../common-components/layout/loader/loader.component';
+import { PhotosComponent } from './landing-page/photos/photos.component';
+import { VideosComponent } from './landing-page/videos/videos.component';
+import { PhotosDetailsComponent } from './landing-page/photos/photos-details/photos-details.component';
 
 const routes: Routes = [
   {
@@ -32,6 +35,15 @@ const routes: Routes = [
     path: 'news-details',
     component: NewsDetailsComponent,
   },
+  {
+    path: 'photos',
+    component: PhotosComponent,
+  },
+
+  {
+    path: 'videos',
+    component: VideosComponent,
+  },
 ];
 
 @NgModule({
@@ -43,6 +55,9 @@ const routes: Routes = [
     ConfirmationDialogComponent,
     MemberstopComponent,
     NewsDetailsComponent,
+    VideosComponent,
+    PhotosComponent,
+    PhotosDetailsComponent,
   ],
   imports: [
     CommonModule,
