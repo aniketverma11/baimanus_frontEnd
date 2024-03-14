@@ -1,36 +1,80 @@
-<div class="container" *ngIf="!isLoading">
-  <div
-    *ngFor="let content of homeContent"
-    class="content-item"
-    (click)="getHomeContentBySlug(content.slug)"
-  >
-    <div class="category-image">
-      <img
-        [src]="getFullImagePath(content.image)"
-        alt="{{ content.image_alt }}"
-      />
+<!-- container.component.html -->
+<div class="container">
+  <div class="left-section">
+    <a (click)="getHomeContentBySlug(homeContent.slug)">
+      <div class="category-image">
+        <img
+          [src]="getFullImagePath(homeContent.image)"
+          alt="{{ homeContent?.image_alt }}"
+        />
+      </div>
+      <div class="content-details">
+        <h1>{{ homeContent.title }}</h1>
+        <p>{{ homeContent.short_description }}</p>
+      </div>
+    </a>
+    <div class="hometitle">
+      <div class="news-left">
+        <div class="box" *ngFor="let items of homeInfo">{{ items }}</div>
+      </div>
+      <div class="news-right">
+        <div class="news-right-title">
+          <img
+            [src]="getFullImagePath(homeContent.image)"
+            alt="{{ homeContent?.image_alt }}"
+          />
+          <h1>{{ homeContent.title }}</h1>
+        </div>
+      </div>
     </div>
 
-    <div class="content-details">
-      <h1>{{ content.title }}</h1>
-      <p>{{ content.short_description }}</p>
+    <!-- Photos section -->
+
+    <div class="photos" (click)="navigate()">
+      <!-- <a (click)="navigate()"> -->
+      <div class="photos-left">
+        <h1>Photos</h1>
+        <div class="phots-heading">
+          <img src="{{ imagetitle }}" alt="" />
+          <h1>{{ headingTitle[0] }}</h1>
+        </div>
+      </div>
+
+      <div class="photos-right">
+        <div class="phots-box" *ngFor="let title of headingTitle">
+          <hr />
+          <h1>{{ title }}</h1>
+        </div>
+      </div>
+      <!-- </a> -->
     </div>
+
+    <div class="photos video">
+      <div class="photos-left">
+        <h1>Videos</h1>
+        <div class="phots-heading">
+          <img src="{{ imagetitle }}" alt="" />
+          <h1>{{ headingTitle[0] }}</h1>
+        </div>
+      </div>
+
+      <div class="photos-right">
+        <div class="phots-box" *ngFor="let title of headingTitle">
+          <hr />
+          <h1>{{ title }}</h1>
+        </div>
+      </div>
+    </div>
+    <!-- video section -->
   </div>
 
-  <!-- photos sections -->
-  <h1>Photos</h1>
-  <div class="photos" *ngIf="!isLoading">
-    <div class="left-section">
-      <div [innerHTML]="getSanitizedContent()"></div>
-      <div class="headingTitle">
-        <h1>{{ homeContent[0].title }}</h1>
-      </div>
-    </div>
-    <div class="right-section">
-      <div class="box" *ngFor="let title of headingTitle">
-        <hr />
-        <h1>{{ title }}</h1>
-      </div>
+  <div class="right-section">
+    <h1>Stay updated</h1>
+    <div class="line"></div>
+    <!-- <app-subscribe></app-subscribe> -->
+
+    <div class="more-news">
+      <h1>More News</h1>
     </div>
   </div>
 </div>

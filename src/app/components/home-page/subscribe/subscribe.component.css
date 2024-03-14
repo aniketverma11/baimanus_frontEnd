@@ -1,7 +1,6 @@
 .header2,
 .wwwthequintcom-by-htmltode {
   width: 100%;
-  background-color: var(--color-white);
 }
 .header2 {
   position: absolute;
@@ -15,7 +14,7 @@
   font-size: var(--font-size-smi);
 }
 .wwwthequintcom-by-htmltode {
-  /* position: relative; */
+  display: flex;
   height: 390.6px;
   text-align: left;
   font-size: var(--font-size-mini-9);

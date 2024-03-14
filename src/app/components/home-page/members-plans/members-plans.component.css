@@ -4685,6 +4685,7 @@ app-payment-card {
   display: grid;
   grid-template-columns: 4fr 8fr;
   align-items: center;
+  grid-gap: 40px;
 }
 h2.member-benefits{
   color: #febf0f;
@@ -4697,10 +4698,12 @@ h2.member-benefits{
   display: grid;
   grid-template-columns: 7fr 5fr;
 }
+.block-fill img{width: 100%; height: 300px;}
 .mbblock-fill-contain{
   padding: 4rem 0;
   display: flex;
   flex-direction: column;
+  gap: 40px;
 }
 .mbblock-fill .text-section{width: 350px;}
 .mbblock-fill .text-section h3{
@@ -4731,4 +4734,23 @@ h2.member-benefits{
   left: 0;
   right: 0;
   z-index: 99;
+}
+.mbblock-fill-contain .mbblock-fill .svg-icon12{
+  width: 100%;
+  height: 250px;
+}
+@media only screen and (max-width: 768px){
+  .member-benefit-section, .block-fill, .member-banner-section{
+    display: grid; 
+    grid-template-columns: 1fr;
+  }
+  .mbblock-fill, .mbblock-fill.rev-flex, .block-fill{
+    display: flex; 
+    flex-direction: column-reverse;
+    padding: 25px 0;
+  }
+  .mbblock-fill .text-section{width: 100%;}
+  .div-2vn4g1{width: 85%;}
+  .div-3zqx1 div{font-size: 20px;}
+  .div-3zqx1{width: 100%;}
 }

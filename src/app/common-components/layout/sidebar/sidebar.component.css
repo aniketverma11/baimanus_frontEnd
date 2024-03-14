@@ -909,3 +909,6 @@ body.dark-theme .sidebar {
   .mheader-hamburger{display: inline-block;}
   .mheader-hamburger button img{width: 50px;}
 }
+@media only screen and (max-width: 480px){
+  #become-member-button{display: none;}
+}

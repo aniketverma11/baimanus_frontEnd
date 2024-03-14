@@ -17,6 +17,8 @@ import { LoaderComponent } from '../../common-components/layout/loader/loader.co
 import { PhotosComponent } from './landing-page/photos/photos.component';
 import { VideosComponent } from './landing-page/videos/videos.component';
 import { PhotosDetailsComponent } from './landing-page/photos/photos-details/photos-details.component';
+import { NewsSectionComponent } from './landing-page/news-section/news-section.component';
+import { HomePageVideosComponent } from './landing-page/videos/home-page-videos/home-page-videos.component';
 
 const routes: Routes = [
   {
@@ -58,6 +60,9 @@ const routes: Routes = [
     VideosComponent,
     PhotosComponent,
     PhotosDetailsComponent,
+    NewsSectionComponent,
+    HomePageVideosComponent,
+    SubscribeComponent,
   ],
   imports: [
     CommonModule,

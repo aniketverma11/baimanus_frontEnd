@@ -1,1 +1,26 @@
-<p>photos works!</p>
+<div class="container">
+  <div class="left-section">
+    <div class="photos">
+      <div class="photos-left">
+        <h1>Photos</h1>
+        <!-- <div class="phots-heading" >
+          <img src="{{ imagetitle }}" alt="" />
+          <h1>{{ headingTitle }}</h1>
+        </div> -->
+        <div class="phots-heading" *ngFor="let photo of homePhotos">
+          <img [src]="getImageUrl(photo.content)" alt="" />
+          <h1>{{ photo.title }}</h1>
+        </div>
+      </div>
+
+      <!-- <div class="photos-right">
+        <div class="phots-box" *ngFor="let items of homePhotos">
+          <hr />
+          <h1>{{ items.title }}</h1>
+        </div>
+      </div> -->
+    </div>
+  </div>
+
+  <div class="right-section">Right Section</div>
+</div>

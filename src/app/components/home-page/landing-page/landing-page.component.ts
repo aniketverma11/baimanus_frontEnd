@@ -19,6 +19,8 @@ export class LandingPageComponent {
   homePhotos: any;
   headingPhoto: any;
   headingTitle: any[] = [];
+  imagetitle: string = '';
+  homeInfo: any;
   constructor(
     private apiService: ApiServicesService,
     private sanitizer: DomSanitizer,
@@ -28,6 +30,7 @@ export class LandingPageComponent {
   ngOnInit() {
     this.getHomeContent();
     this.getHomePhotos();
+    // this.getHomeVideos();
   }
   getHomePhotos() {
     this.isLoading = true;
@@ -37,7 +40,13 @@ export class LandingPageComponent {
           this.isLoading = false;
           this.homePhotos = data.data;
           console.log(this.homePhotos);
-          this.headingPhoto = this.homeContent[0].content;
+          this.headingPhoto = this.homePhotos[0]?.content;
+          const srcRegex = /<img[^>]+src="([^">]+)"/;
+          const match = this.headingPhoto.match(srcRegex);
+          const src = match ? match[1] : null;
+          this.imagetitle = this.imageBaseURL + src;
+          console.log(this.imagetitle);
+
           this.headingTitle = this.homePhotos
             .slice(0, 3)
             .map((item: any) => item.title);
@@ -54,8 +63,12 @@ export class LandingPageComponent {
     this.unsubscribe.add(
       this.apiService.getHomeContent().subscribe(
         (data) => {
-          this.homeContent = data.data;
-          console.log(data);
+          this.homeInfo = data.data;
+          this.homeContent = data?.data[0];
+
+          this.homeInfo = data.data.slice(0, 3).map((item: any) => item.title);
+
+          console.log(this.homeInfo);
         },
         (error) => {
           console.error(error);
@@ -85,6 +98,36 @@ export class LandingPageComponent {
       // Use DomSanitizer to sanitize the HTML content
       return this.sanitizer.bypassSecurityTrustHtml(sanitizedContent);
     }
+  }
+
+  getHomeVideos() {
+    this.isLoading = true;
+    this.unsubscribe.add(
+      this.apiService.getViideos().subscribe(
+        (data) => {
+          this.isLoading = false;
+          this.homePhotos = data.data;
+          console.log(this.homePhotos);
+          this.headingPhoto = this.homePhotos[0].content;
+          const srcRegex = /<img[^>]+src="([^">]+)"/;
+          const match = this.headingPhoto.match(srcRegex);
+          const src = match ? match[1] : null;
+          this.imagetitle = this.imageBaseURL + src;
+          console.log(this.imagetitle);
+
+          this.headingTitle = this.homePhotos
+            .slice(0, 3)
+            .map((item: any) => item.title);
+        },
+        (error) => {
+          console.error(error);
+        }
+      )
+    );
+  }
+
+  navigate() {
+    this, this.router.navigate(['/home/photos']);
   }
   ngOnDestroy(): void {
     this.unsubscribe.unsubscribe();

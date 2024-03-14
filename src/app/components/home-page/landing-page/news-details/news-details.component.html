@@ -7,23 +7,23 @@
 <div class="container">
   <div class="title">
     <strong>
-      <h1>{{ newsDetails.title }}</h1></strong
+      <h1>{{ newsDetails?.title }}</h1></strong
     >
   </div>
   <div class="short_description">
-    {{ newsDetails.short_description }}
+    {{ newsDetails?.short_description }}
   </div>
 
   <div class="author">
     <strong>
-      <span class="author-name">{{ newsDetails.author }}</span></strong
+      <span class="author-name">{{ newsDetails?.author }}</span></strong
     >
-    <span class="published-date">{{ newsDetails.publish }}</span>
+    <span class="published-date">{{ newsDetails?.publish }}</span>
   </div>
   <div class="images">
     <img
-      [src]="getFullImagePath(newsDetails.image)"
-      alt="{{ newsDetails.image_alt }}"
+      [src]="getFullImagePath(newsDetails?.image)"
+      alt="{{ newsDetails?.image_alt }}"
     />
   </div>
   <div
