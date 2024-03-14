@@ -63,8 +63,10 @@ export class LandingPageComponent {
     this.unsubscribe.add(
       this.apiService.getHomeContent().subscribe(
         (data) => {
+          console.log(data);
+
           this.homeInfo = data.data;
-          this.homeContent = data?.data[0];
+          this.homeContent = data?.data[4];
 
           this.homeInfo = data.data.slice(0, 3).map((item: any) => item.title);
 
