@@ -21,6 +21,9 @@ export class LandingPageComponent {
   headingTitle: any[] = [];
   imagetitle: string = '';
   homeInfo: any;
+  belowContent: any;
+  readMoreItems: any;
+  readMoreImages: any;
   constructor(
     private apiService: ApiServicesService,
     private sanitizer: DomSanitizer,
@@ -66,9 +69,16 @@ export class LandingPageComponent {
           console.log(data);
 
           this.homeInfo = data.data;
-          this.homeContent = data?.data[4];
+          this.belowContent = data.data;
+          this.homeContent = data?.data[0];
 
           this.homeInfo = data.data.slice(0, 3).map((item: any) => item.title);
+          this.readMoreItems = data.data
+            .slice(0, 4)
+            .map((item: any) => item.title);
+          this.readMoreImages = data.data
+            .slice(0, 4)
+            .map((item: any) => item.image);
 
           console.log(this.homeInfo);
         },

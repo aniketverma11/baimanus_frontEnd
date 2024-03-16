@@ -1,5 +1,10 @@
 import { SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  OnInit,
+  ViewEncapsulation,
+} from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { environment } from './../../../../enviroments/environment';
@@ -12,6 +17,7 @@ declare var google: any;
   selector: 'app-signupdialog',
   templateUrl: './signupdialog.component.html',
   styleUrl: './signupdialog.component.css',
+  encapsulation: ViewEncapsulation.None,
 })
 export class SignupdialogComponent implements OnInit, AfterViewInit {
   user!: SocialUser;

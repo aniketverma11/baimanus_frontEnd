@@ -18,7 +18,14 @@
         </div>
         <div class="vl"></div>
         <div class="hinditoggle">
-          <svg
+          <span class="switchLanguage">
+            <img
+              src="../../../../assets/images/lan-switch.png"
+              (click)="switchLanguage()"
+              alt=""
+            />
+          </span>
+          <!-- <svg
             (click)="switchLanguage()"
             xmlns="http://www.w3.org/2000/svg"
             width="120"
@@ -98,7 +105,7 @@
                 transform="translate(26.995 4.768)"
               ></path>
             </g>
-          </svg>
+          </svg> -->
         </div>
         <div class="_1what">
           <a class="" aria-label="The  homepage" href="/">
@@ -449,12 +456,12 @@
               />
             </div>
           </div>
-          <div class="wrapper-link-fit-homepage">
+          <div class="wrapper-link-fit-homepage" (click)="switchLanguage()">
             <img
               class="link-fit-homepage"
               loading="lazy"
               alt=""
-              src="./public/link--fit-homepage.svg"
+              src="../../../../assets/images/lan-switch.png"
             />
           </div>
         </div>
@@ -501,7 +508,11 @@
           <div class="rectangle">
             <div class="text-parent">
               <div class="text" data-scroll-to="text"></div>
-              <h3 class="become-a-member1" id="becomeAMember1">
+              <h3
+                class="become-a-member1"
+                id="becomeAMember1"
+                (click)="navigateToPlan()"
+              >
                 {{ "Become a Member" | translate }}
               </h3>
             </div>

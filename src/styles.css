@@ -184,3 +184,8 @@ body {
     --br-13xl-3: 32.3px;
   }
 }
+
+::ng-deep .mat-tab-label-active {
+  background-color: #ff8800;
+  color: #ffffff;
+}

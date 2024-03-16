@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiServicesService } from '../../../../../services/api-services.service';
-import { DomSanitizer } from '@angular/platform-browser';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { Subscription, catchError } from 'rxjs';
 import { environment } from '../../../../../enviroments/environment';
 
@@ -19,12 +19,25 @@ import { environment } from '../../../../../enviroments/environment';
 export class NewsDetailsComponent implements AfterViewInit {
   private imageBaseURL = environment.imagesBaseURL;
   slug: string | null = '';
-  isLoading: boolean = false;
+  isLoading: boolean = true;
+  homeContent: any;
+  homePhotos: any;
+  headingPhoto: any;
+  headingTitle: any[] = [];
+  imagetitle: string = '';
+  homeInfo: any;
+  belowContent: any;
   private unsubscribe: Subscription = new Subscription();
   content: any;
   newsDetails: any;
   images: string = '';
+  showFullContent: boolean = false;
   @ViewChild('contentContainer') contentContainer!: ElementRef;
+  readMoreItems: any;
+  readMoreImages: any;
+  trendingNews: any;
+  readMoreItemsDetail: any;
+  readMoreImagesDetail: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -47,6 +60,8 @@ export class NewsDetailsComponent implements AfterViewInit {
         this.router.navigate(['home']);
       }
     });
+
+    this.getHomeContent();
   }
   ngAfterViewInit(): void {
     this.addStylesToImages();
@@ -75,6 +90,14 @@ export class NewsDetailsComponent implements AfterViewInit {
             if (data) {
               this.newsDetails = data.data;
               this.images = this.imageBaseURL;
+              this.trendingNews = data.data.treanding_news;
+              this.readMoreItemsDetail = data.data.read_more
+                .slice(0, 4)
+                .map((item: any) => item.title);
+              this.readMoreImagesDetail = data.data.read_more
+                .slice(0, 4)
+                .map((item: any) => item.image);
+              console.log(this.trendingNews);
             }
           }
           if (data.data.is_for_members === true) {
@@ -118,6 +141,49 @@ export class NewsDetailsComponent implements AfterViewInit {
         this.renderer.setStyle(p, 'border', '3px solid green');
       });
     }
+  }
+
+  // get content
+  getHomeContent() {
+    this.isLoading = true;
+    this.unsubscribe.add(
+      this.apiService.getHomeContent().subscribe(
+        (data) => {
+          console.log(data);
+
+          this.homeInfo = data.data;
+          this.belowContent = data.data;
+          this.homeContent = data?.data[0];
+
+          this.homeInfo = data.data.slice(0, 3).map((item: any) => item.title);
+          this.readMoreItems = data.data
+            .slice(0, 4)
+            .map((item: any) => item.title);
+          this.readMoreImages = data.data
+            .slice(0, 4)
+            .map((item: any) => item.image);
+
+          console.log(this.homeInfo);
+        },
+        (error) => {
+          console.error(error);
+        }
+      )
+    );
+  }
+
+  truncateHtmlContent(content: string): SafeHtml {
+    const words = content.split(' ');
+
+    const truncatedWords = words.slice(0, 70);
+
+    const truncatedContent = truncatedWords.join(' ');
+
+    return this.sanitizer.bypassSecurityTrustHtml(truncatedContent);
+  }
+
+  toggleExpanded(newsItem: any): void {
+    newsItem.expanded = !newsItem.expanded;
   }
 
   ngOnDestroy(): void {

@@ -1,4 +1,10 @@
-import { Component, OnInit, Renderer2, ViewChild } from '@angular/core';
+import {
+  Component,
+  HostListener,
+  OnInit,
+  Renderer2,
+  ViewChild,
+} from '@angular/core';
 import { ThemeService } from '../theme.service';
 import { MatDrawer } from '@angular/material/sidenav';
 import { MatDialog } from '@angular/material/dialog';
@@ -8,6 +14,7 @@ import { Subscription } from 'rxjs';
 import { AuthService } from '../../../../services/auth.service';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { LanguageService } from '../../../../services/language.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
@@ -27,6 +34,10 @@ export class SidebarComponent implements OnInit {
   user_profile_picture: any;
   showDropdown = false;
   isLoading: boolean = false;
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.checkScreenWidth();
+  }
 
   constructor(
     private themeService: ThemeService,
@@ -35,13 +46,15 @@ export class SidebarComponent implements OnInit {
     private categoryService: CategoryService,
     private translateService: TranslateService,
     private authService: AuthService,
-    private languageService: LanguageService
+    private languageService: LanguageService,
+    private router: Router
   ) {
     this.darkMode = this.themeService.isDarkMode();
   }
 
   ngOnInit() {
     this.getAllCategories();
+    // check screen size
 
     if (typeof sessionStorage !== 'undefined') {
       const storedUserData = sessionStorage.getItem('loggedInUser');
@@ -128,9 +141,21 @@ export class SidebarComponent implements OnInit {
     const currentLanguage = this.translateService.currentLang;
     const newLanguage = currentLanguage === 'en' ? 'mr' : 'en';
 
-    // Change the language
     this.translateService.use(newLanguage);
   }
+
+  checkScreenWidth() {
+    if (window.innerWidth > 768) {
+      const sidebar = document.querySelector('.sidebar');
+      this.renderer.setStyle(sidebar, 'display', 'none');
+    } else {
+    }
+  }
+  navigateToPlan() {
+    this.router.navigate(['/home/plan_section']);
+    this.checkScreenWidth();
+  }
+
   ngOnDestroy(): void {
     this.unsubscribe.unsubscribe();
   }

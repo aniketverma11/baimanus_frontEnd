@@ -320,13 +320,22 @@ input:checked + .slider:before {
   position: fixed;
   top: 0;
   height: 100vh;
-  width: 100%;
+  /* width: 100%; */
   z-index: 999;
   background-color: rgb(255, 255, 255);
   display: none;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
+}
+.hinditoggle img {
+  max-width: 100px;
+  max-height: 100%;
+}
+@media only screen and (min-width: 769px) {
+  .showSideBarButton {
+    display: none;
+  }
 }
 
 @media only screen and (max-width: 767px) {
@@ -874,41 +883,49 @@ body.dark-theme .sidebar {
   background: #35144f;
   border: none;
 }
-.middle-header .container{
-  position: relative; 
-  display: flex; 
+.middle-header .container {
+  position: relative;
+  display: flex;
   align-items: center;
   justify-content: center;
 }
-.middle-header ul.topheaderMobile{
+.middle-header ul.topheaderMobile {
   margin-left: 15px;
 }
-@media only screen and (max-width: 768px){
-  .bottom-header ul.mobile-top-nav-item, .middle-header ul.topheaderMobile{
+@media only screen and (max-width: 768px) {
+  .bottom-header ul.mobile-top-nav-item,
+  .middle-header ul.topheaderMobile {
     display: flex;
     align-items: center;
     overflow: scroll;
     height: 30px;
   }
-  .bottom-header ul.mobile-top-nav-item li, .middle-header ul.topheaderMobile li{
+  .bottom-header ul.mobile-top-nav-item li,
+  .middle-header ul.topheaderMobile li {
     padding: 0 15px 0 0;
     float: left;
   }
-  header ul::-webkit-scrollbar{
+  header ul::-webkit-scrollbar {
     display: none;
   }
-  ul.topheaderMobile .top-navbar-1{
+  ul.topheaderMobile .top-navbar-1 {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
   }
-  ul.topheaderMobile div{
+  ul.topheaderMobile div {
     display: contents;
     padding-left: 15px;
   }
-  .mheader-hamburger{display: inline-block;}
-  .mheader-hamburger button img{width: 50px;}
+  .mheader-hamburger {
+    display: inline-block;
+  }
+  .mheader-hamburger button img {
+    width: 50px;
+  }
 }
-@media only screen and (max-width: 480px){
-  #become-member-button{display: none;}
+@media only screen and (max-width: 480px) {
+  #become-member-button {
+    display: none;
+  }
 }

@@ -61,6 +61,10 @@ button {
   margin-bottom: 20px;
   text-align: center;
 }
+.welcomeImages img {
+  max-width: 100%;
+  height: 700px;
+}
 
 .facebook-login-button {
   background-color: #4267b2;
@@ -96,4 +100,9 @@ button {
   .benefitsContainer {
     margin-top: 80px;
   }
+}
+
+.mat-tab-label-active {
+  background-color: #ff8800 !important;
+  color: #ffffff;
 }

@@ -1,4 +1,3 @@
-<!-- container.component.html -->
 <div class="container">
   <div class="left-section">
     <a (click)="getHomeContentBySlug(homeContent.slug)">
@@ -15,15 +14,18 @@
     </a>
     <div class="hometitle">
       <div class="news-left">
-        <div class="box" *ngFor="let items of homeInfo">{{ items }}</div>
+        <div class="box" *ngFor="let items of homeInfo">
+          {{ items }}
+          <hr />
+        </div>
       </div>
       <div class="news-right">
         <div class="news-right-title">
           <img
-            [src]="getFullImagePath(homeContent.image)"
-            alt="{{ homeContent?.image_alt }}"
+            [src]="getFullImagePath(belowContent[4].image)"
+            alt="{{ belowContent[4]?.image_alt }}"
           />
-          <h1>{{ homeContent.title }}</h1>
+          <h1>{{ belowContent[4].title }}</h1>
         </div>
       </div>
     </div>
@@ -69,12 +71,40 @@
   </div>
 
   <div class="right-section">
-    <h1>Stay updated</h1>
+    <div class="stay-updated">
+      <h2>Stay Updated</h2>
+      <div class="newsletter">
+        <p class="newsletter-title">The Quint's Newsletter</p>
+        <p class="newsletter-description">
+          The Quint tells stories no one else is willing to tell. Join us on our
+          journey as we bring you unheard voices, human-centric events, and
+          propel change.
+        </p>
+        <p class="subscriber-count">Over 20,000 subscribers</p>
+        <form>
+          <input type="email" placeholder="Type your email..." required />
+          <button type="submit">Subscribe</button>
+        </form>
+        <p class="terms">
+          By subscribing you agree to Substack's <a href="#">Terms of Use</a>,
+          <a href="#">Privacy Policy</a> and our
+          <a href="#">information collection notice</a>
+        </p>
+      </div>
+    </div>
     <div class="line"></div>
-    <!-- <app-subscribe></app-subscribe> -->
 
     <div class="more-news">
-      <h1>More News</h1>
+      <h2>More News</h2>
+      <hr />
+      <div class="news-item" *ngFor="let item of readMoreItems; let i = index">
+        <img
+          [src]="getFullImagePath(readMoreImages[i])"
+          [alt]="'News Item ' + (i + 1)"
+        />
+        <p>{{ item }}</p>
+      </div>
+      <hr />
     </div>
   </div>
 </div>

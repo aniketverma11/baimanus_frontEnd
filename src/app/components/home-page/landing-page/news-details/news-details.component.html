@@ -1,34 +1,156 @@
-<!-- <div class="loader" *ngIf="isLoading">
-  <div class="dot"></div>
-  <div class="dot"></div>
-  <div class="dot"></div>
-</div> -->
-
 <div class="container">
-  <div class="title">
-    <strong>
-      <h1>{{ newsDetails?.title }}</h1></strong
-    >
-  </div>
-  <div class="short_description">
-    {{ newsDetails?.short_description }}
+  <div class="left-section">
+    <!-- <span *ngFor="let news of belowContent"> -->
+    <span>
+      <h1>{{ newsDetails?.title }}</h1>
+
+      <div class="content-details">
+        <p>{{ newsDetails.short_description }}</p>
+
+        <strong>
+          <span class="author-name">{{ newsDetails?.author }}</span>
+        </strong>
+
+        <span class="published-date" style="display: block">
+          Published : {{ newsDetails?.publish | date }}
+        </span>
+      </div>
+      <div class="category-image">
+        <img
+          [src]="getFullImagePath(newsDetails.image)"
+          alt="{{ newsDetails?.image_alt }}"
+        />
+        <div class="shar-section">
+          <hr />
+        </div>
+      </div>
+      <div class="articalread">
+        <div
+          [innerHTML]="
+            newsDetails.expanded
+              ? newsDetails.content
+              : truncateHtmlContent(newsDetails.content)
+          "
+        ></div>
+        <button class="read-full-article" (click)="toggleExpanded(newsDetails)">
+          {{ newsDetails.expanded ? "Show Less" : "Read Full Article" }}
+        </button>
+      </div>
+
+      <div class="ReadMore-section">
+        <div class="read-more">
+          <h1>Read More</h1>
+          <hr />
+          <div class="read-more-items">
+            <div class="item" *ngFor="let item of readMoreItems; let i = index">
+              <img
+                [src]="getFullImagePath(readMoreImages[i])"
+                alt="Image {{ i + 1 }}"
+              />
+              <p>{{ item }}</p>
+            </div>
+          </div>
+          <div class="shar-section">
+            <hr />
+          </div>
+        </div>
+      </div>
+    </span>
+
+    <span class="trendingNews" *ngFor="let news of trendingNews">
+      <!--  -->
+
+      <h1>{{ news?.title }}</h1>
+
+      <div class="content-details">
+        <p>{{ news.short_description }}</p>
+
+        <strong>
+          <span class="author-name">{{ news?.author }}</span>
+        </strong>
+
+        <span class="published-date" style="display: block">
+          Published : {{ news?.publish | date }}
+        </span>
+      </div>
+      <div class="category-image">
+        <img [src]="getFullImagePath(news.image)" alt="{{ news?.image_alt }}" />
+        <div class="shar-section">
+          <hr />
+        </div>
+      </div>
+      <div class="articalread">
+        <div
+          [innerHTML]="
+            news.expanded ? news.content : truncateHtmlContent(news.content)
+          "
+        ></div>
+        <button class="read-full-article" (click)="toggleExpanded(news)">
+          {{ news.expanded ? "Show Less" : "Read Full Article" }}
+        </button>
+      </div>
+
+      <div class="ReadMore-section">
+        <div class="read-more">
+          <h1>Read More</h1>
+          <hr />
+          <div class="read-more-items">
+            <div class="item" *ngFor="let item of readMoreItems; let i = index">
+              <img
+                [src]="getFullImagePath(readMoreImages[i])"
+                alt="Image {{ i + 1 }}"
+              />
+              <p>{{ item }}</p>
+            </div>
+          </div>
+          <div class="shar-section">
+            <hr />
+          </div>
+        </div>
+      </div>
+
+      <!--  -->
+    </span>
   </div>
 
-  <div class="author">
-    <strong>
-      <span class="author-name">{{ newsDetails?.author }}</span></strong
-    >
-    <span class="published-date">{{ newsDetails?.publish }}</span>
+  <div class="right-section">
+    <div class="stay-updated">
+      <h2>Stay Updated</h2>
+      <div class="newsletter">
+        <p class="newsletter-title">The Quint's Newsletter</p>
+        <p class="newsletter-description">
+          The Quint tells stories no one else is willing to tell. Join us on our
+          journey as we bring you unheard voices, human-centric events, and
+          propel change.
+        </p>
+        <p class="subscriber-count">Over 20,000 subscribers</p>
+        <form>
+          <input type="email" placeholder="Type your email..." required />
+          <button type="submit">Subscribe</button>
+        </form>
+        <p class="terms">
+          By subscribing you agree to Substack's <a href="#">Terms of Use</a>,
+          <a href="#">Privacy Policy</a> and our
+          <a href="#">information collection notice</a>
+        </p>
+      </div>
+    </div>
+    <div class="line"></div>
+
+    <div class="more-news">
+      <h2>More News</h2>
+      <hr />
+      <div
+        class="news-item"
+        *ngFor="let item of readMoreItemsDetail; let i = index"
+      >
+        <img
+          [src]="getFullImagePath(readMoreImagesDetail[i])"
+          [alt]="'News Item ' + (i + 1)"
+        />
+        <p>{{ item }}</p>
+      </div>
+      <hr />
+    </div>
   </div>
-  <div class="images">
-    <img
-      [src]="getFullImagePath(newsDetails?.image)"
-      alt="{{ newsDetails?.image_alt }}"
-    />
-  </div>
-  <div
-    #contentContainer
-    [innerHTML]="content"
-    [ngStyle]="getDynamicStyles()"
-  ></div>
 </div>
