@@ -38,6 +38,7 @@ export class NewsDetailsComponent implements AfterViewInit {
   trendingNews: any;
   readMoreItemsDetail: any;
   readMoreImagesDetail: any;
+  readMoreSlug: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -91,6 +92,11 @@ export class NewsDetailsComponent implements AfterViewInit {
               this.newsDetails = data.data;
               this.images = this.imageBaseURL;
               this.trendingNews = data.data.treanding_news;
+              this.readMoreSlug = data.data.read_more
+                .slice(0, 4)
+                .map((item: any) => item.slug);
+              console.log(this.readMoreSlug);
+
               this.readMoreItemsDetail = data.data.read_more
                 .slice(0, 4)
                 .map((item: any) => item.title);
@@ -185,7 +191,13 @@ export class NewsDetailsComponent implements AfterViewInit {
   toggleExpanded(newsItem: any): void {
     newsItem.expanded = !newsItem.expanded;
   }
+  getHomeContentBySlugAndNavigate(slug: any) {
+    console.log(slug);
 
+    this.router.navigate(['home/news-details'], {
+      queryParams: { slug: slug },
+    });
+  }
   ngOnDestroy(): void {
     this.unsubscribe.unsubscribe();
   }

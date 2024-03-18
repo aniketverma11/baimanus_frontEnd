@@ -90,10 +90,10 @@ h1 {
   margin-bottom: 10px;
   border: -1px solid #35144f;
 }
-.phots-box hr {
+.side-photo hr {
   margin-top: 5px;
   margin-bottom: 10px;
-  border: 1px solid #35144f;
+  border: 3px solid #35144f;
 }
 .phots-heading img {
   width: 100%;
@@ -245,4 +245,66 @@ h1 {
   display: flex;
   justify-content: center;
   margin-bottom: 10px;
+}
+
+/* members only  section  */
+/* .containerMember {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.pages {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.page {
+  width: 48%;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border: 1px solid #ddd;
+}
+
+.boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.box {
+  width: 24%;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+} */
+
+/* Media Queries for responsiveness */
+@media only screen and (min-width: 768px) {
+  .pages {
+    flex-direction: row;
+  }
+
+  .page {
+    width: calc(50% - 20px);
+  }
+
+  .boxes {
+    flex-direction: row;
+  }
+
+  .box {
+    width: calc(50% - 20px);
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .page {
+    width: calc(33.33% - 20px);
+  }
+
+  .box {
+    width: calc(25% - 20px);
+  }
 }

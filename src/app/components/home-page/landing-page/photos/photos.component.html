@@ -1,26 +1,134 @@
 <div class="container">
   <div class="left-section">
-    <div class="photos">
-      <div class="photos-left">
-        <h1>Photos</h1>
-        <!-- <div class="phots-heading" >
-          <img src="{{ imagetitle }}" alt="" />
-          <h1>{{ headingTitle }}</h1>
-        </div> -->
-        <div class="phots-heading" *ngFor="let photo of homePhotos">
-          <img [src]="getImageUrl(photo.content)" alt="" />
-          <h1>{{ photo.title }}</h1>
+    <!-- <span *ngFor="let imgaedata of homePhotos"> -->
+    <h1>{{ homePhotos?.title }}</h1>
+
+    <div class="content-details">
+      <p>{{ homePhotos?.short_description }}</p>
+
+      <strong>
+        <span class="author-name">{{ homePhotos?.author }}</span>
+      </strong>
+
+      <span class="published-date" style="display: block">
+        Published : {{ homePhotos?.publish | date }}
+      </span>
+    </div>
+    <div class="category-image">
+      <ng-container *ngFor="let image of homePhotos.images">
+        <img [src]="getFullImagePath(image.image)" alt="" />
+      </ng-container>
+      <div class="shar-section">
+        <hr />
+      </div>
+    </div>
+    <!-- <div class="articalread">
+        <div
+          [innerHTML]="
+            newsDetails.expanded
+              ? newsDetails.content
+              : truncateHtmlContent(newsDetails.content)
+          "
+        ></div>
+        <button class="read-full-article" (click)="toggleExpanded(newsDetails)">
+          {{ newsDetails.expanded ? "Show Less" : "Read Full Article" }}
+        </button>
+      </div> -->
+
+    <div class="ReadMore-section">
+      <div class="read-more">
+        <h1>Read More</h1>
+        <hr />
+        <div class="read-more-items">
+          <div class="item" *ngFor="let item of readMoreItems; let i = index">
+            <img
+              [src]="getFullImagePath(readMoreImages[i])"
+              alt="Image {{ i + 1 }}"
+            />
+            <p>{{ item }}</p>
+          </div>
+        </div>
+        <div class="shar-section">
+          <hr />
         </div>
       </div>
-
-      <!-- <div class="photos-right">
-        <div class="phots-box" *ngFor="let items of homePhotos">
-          <hr />
-          <h1>{{ items.title }}</h1>
-        </div>
-      </div> -->
     </div>
+    <!-- </span> -->
+
+    <!-- <span class="trendingNews" *ngFor="let news of trendingNews">
+      <h1>{{ news?.title }}</h1>
+
+      <div class="content-details">
+        <p>{{ news.short_description }}</p>
+
+        <strong>
+          <span class="author-name">{{ news?.author }}</span>
+        </strong>
+
+        <span class="published-date" style="display: block">
+          Published : {{ news?.publish | date }}
+        </span>
+      </div>
+      <div class="category-image" *ngFor="let images of trendingNews.images">
+        <ng-container *ngFor="let image of news.images">
+          <img [src]="getFullImagePath(image.image)" />
+        </ng-container>
+        <div class="shar-section">
+          <hr />
+        </div>
+      </div>
+      <div class="articalread">
+        <div
+          [innerHTML]="
+            news.expanded ? news.content : truncateHtmlContent(news.content)
+          "
+        ></div>
+        <button class="read-full-article" (click)="toggleExpanded(news)">
+          {{ news.expanded ? "Show Less" : "Read Full Article" }}
+        </button>
+      </div>
+
+      <div class="ReadMore-section">
+        <div class="read-more">
+          <h1>Read More</h1>
+          <hr />
+          <div class="read-more-items">
+            <div class="item" *ngFor="let item of readMoreItems; let i = index">
+              <img
+                [src]="getFullImagePath(readMoreImages[i])"
+                alt="Image {{ i + 1 }}"
+              />
+              <p>{{ item }}</p>
+            </div>
+          </div>
+          <div class="shar-section">
+            <hr />
+          </div>
+        </div>
+      </div>
+    </span> -->
   </div>
 
-  <div class="right-section">Right Section</div>
+  <div class="right-section">
+    <div class="stay-updated">
+      <h2>Stay Updated</h2>
+      <app-subscribe></app-subscribe>
+    </div>
+    <div class="line"></div>
+
+    <div class="more-news">
+      <h2>More News</h2>
+      <hr />
+      <div
+        class="news-item"
+        *ngFor="let item of readMoreItemsDetail; let i = index"
+      >
+        <span (click)="getHomeContentBySlugAndNavigate(readMoreSlug[i])">
+          <img [src]="getFullImagePath(readMoreImagesDetail[i])" />
+          <p>{{ item }}</p>
+        </span>
+      </div>
+      <hr />
+    </div>
+  </div>
 </div>

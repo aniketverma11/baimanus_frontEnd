@@ -6,6 +6,7 @@ import {
   HOME_CONTENT,
   HOME_CONTENT_BY_SLUG,
   PHOTOS,
+  PHOTOS_DETAILS,
   VIDEOS,
 } from '../enviroments/api-path';
 
@@ -28,6 +29,12 @@ export class ApiServicesService {
   getPhotos(): Observable<any> {
     return this.httpClient.get(environment.apiBaseUrl + PHOTOS);
   }
+  getPhotosDetails(slug: string): Observable<any> {
+    return this.httpClient.get(
+      `${environment.apiBaseUrl}${PHOTOS_DETAILS}${slug}`
+    );
+  }
+
   getViideos(): Observable<any> {
     return this.httpClient.get(environment.apiBaseUrl + VIDEOS);
   }

@@ -1,28 +1,34 @@
-<body>
-  <div class="subscription-container">
-    <h1>Subscribe to The Quint DAILY</h1>
-    <p>For impactful stories you just can't miss</p>
-    <div class="newsletter-info">
-      <img src="newsletter-icon.png" alt="Newsletter Icon" />
-      <div>
-        <h2>The Quint's Newsletter</h2>
-        <p>
-          The Quint tells stories no one else is willing to tell. Join us in our
-          journey as we bring you unheard voices, humanise big events, and
-          propel change.
-        </p>
-        <p>Over 20,000 subscribers</p>
+<section class="subscribeee-body">
+  <div class="sub-outer-container">
+    <!-- <h2>Subscribe to BAIMANUS DAILY</h2> -->
+    <hr />
+    <div class="subscription-container">
+      <!-- <h6>For impactful stories you just can't miss</h6> -->
+      <div class="newsletter-info">
+        <img
+          src="https://baimanus.in/wp-content/uploads/2022/01/bai_manus.png"
+          alt="Newsletter Icon"
+        />
+        <div>
+          <a class="sub-head-link"><h4>The Baimanus's Newsletter</h4></a>
+          <p>
+            The Quint tells stories no one else is willing to tell. Join us in
+            our journey as we bring you unheard voices, humanise big events, and
+            propel change.
+          </p>
+          <p>Over 20,000 subscribers</p>
+        </div>
       </div>
+      <div class="subscribe-form">
+        <input type="email" placeholder="Type your email..." required />
+        <button type="submit" (click)="subscribe()">Subscribe</button>
+      </div>
+      <p class="terms">
+        By subscribing you agree to <a href="#">Substack's Terms of Use</a>, our
+        <a href="#">Privacy Policy</a> and our
+        <a href="#">Information collection policy</a>.
+      </p>
+      <p class="powered-by">Powered by Substack</p>
     </div>
-    <div class="subscribe-form">
-      <input type="email" placeholder="Type your email..." required />
-      <button type="submit" (click)="subscribe()">Subscribe</button>
-    </div>
-    <p class="terms">
-      By subscribing you agree to <a href="#">Substack's Terms of Use</a>, our
-      <a href="#">Privacy Policy</a> and our
-      <a href="#">Information collection policy</a>.
-    </p>
-    <p class="powered-by">Powered by Substack</p>
   </div>
-</body>
+</section>
