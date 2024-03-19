@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container top-headlines">
   <div class="left-section">
     <a (click)="getHomeContentBySlug(homeContent.slug)">
       <div class="category-image">
@@ -16,7 +16,6 @@
       <div class="news-left">
         <div class="box" *ngFor="let items of homeInfo">
           {{ items }}
-          <hr />
         </div>
       </div>
       <div class="news-right">
@@ -29,14 +28,84 @@
         </div>
       </div>
     </div>
+  </div>
 
+  <div class="right-section">
+    <div class="stay-updated">
+      <h2>Stay Updated</h2>
+      <div class="newsletter">
+        <p class="newsletter-title">The Quint's Newsletter</p>
+        <p class="newsletter-description">
+          The Quint tells stories no one else is willing to tell. Join us on our
+          journey as we bring you unheard voices, human-centric events, and
+          propel change.
+        </p>
+        <p class="subscriber-count">Over 20,000 subscribers</p>
+        <form>
+          <input type="email" placeholder="Type your email..." required />
+          <button type="submit">Subscribe</button>
+        </form>
+        <p class="terms">
+          By subscribing you agree to Substack's <a href="#">Terms of Use</a>,
+          <a href="#">Privacy Policy</a> and our
+          <a href="#">information collection notice</a>
+        </p>
+      </div>
+    </div>
+    <div class="line"></div>
+
+    <div class="more-news">
+      <h2>More News</h2>
+      <hr />
+      <div class="news-item" *ngFor="let item of readMoreItems; let i = index">
+        <img
+          [src]="getFullImagePath(readMoreImages[i])"
+          [alt]="'News Item ' + (i + 1)"
+        />
+        <p>{{ item }}</p>
+      </div>
+      <hr />
+    </div>
+  </div>
+</div>
+<!-- Videos section Starts here -->
+<div class="container vid-title">
+  <h2>Videos</h2>
+</div>
+<section class="home-video-block">
+  <div class="container">
+    <div class="photos video">
+      <div class="photos-left">
+        <!-- <span (click)="navigate(homePhotosSlug)"> -->
+
+        <div class="phots-heading">
+          <img src="{{ imagetitle }}" alt="" />
+          <h3>{{ headingTitle[0] }}</h3>
+        </div>
+        <!-- </span> -->
+      </div>
+
+      <div class="photos-right">
+        <div class="phots-box" *ngFor="let title of headingTitle">
+          <hr />
+          <h3>{{ title }}</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Videos section Ends here -->
+<!-- Photos section Starts here -->
+<section class="home-photo-block">
+  <div class="container">
+    <h2>Photos</h2>
     <div class="photos">
+      <!-- <a (click)="navigate()"> -->
       <div class="photos-left">
         <span (click)="navigate(homePhotosSlug)">
-          <h1>Photos</h1>
           <div class="phots-heading">
             <img src="{{ imagetitle }}" alt="" />
-            <h1>{{ headingTitle[0] }}</h1>
+            <h3>{{ headingTitle[0] }}</h3>
           </div>
         </span>
       </div>
@@ -44,50 +113,11 @@
       <div class="photos-right">
         <div class="phots-box" *ngFor="let title of headingTitle">
           <hr />
-          <h1>{{ title }}</h1>
+          <h3>{{ title }}</h3>
         </div>
       </div>
-    </div>
-
-    <div class="photos video">
-      <div class="photos-left">
-        <h1>Videos</h1>
-        <div class="phots-heading">
-          <img src="{{ imagetitle }}" alt="" />
-          <h1>{{ headingTitle[0] }}</h1>
-        </div>
-      </div>
-
-      <div class="photos-right">
-        <div class="phots-box" *ngFor="let title of headingTitle">
-          <hr />
-          <h1>{{ title }}</h1>
-        </div>
-      </div>
+      <!-- </a> -->
     </div>
   </div>
-
-  <div class="right-section">
-    <div class="stay-updated">
-      <h2>Stay Updated</h2>
-      <app-subscribe></app-subscribe>
-    </div>
-
-    <div class="line"></div>
-
-    <div class="more-news">
-      <h2>More News</h2>
-      <hr />
-      <div class="news-item" *ngFor="let item of readMoreItems; let i = index">
-        <span (click)="getHomeContentBySlug(readMoreSlug[i])">
-          <img
-            [src]="getFullImagePath(readMoreImages[i])"
-            [alt]="'News Item ' + (i + 1)"
-          />
-        </span>
-        <p>{{ item }}</p>
-      </div>
-      <hr />
-    </div>
-  </div>
-</div>
+</section>
+<!-- Photos section Ends here -->

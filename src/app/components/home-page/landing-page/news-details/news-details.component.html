@@ -1,5 +1,6 @@
 <div class="container">
   <div class="left-section">
+    <!-- <span *ngFor="let news of belowContent"> -->
     <span>
       <h1>{{ newsDetails?.title }}</h1>
 
@@ -57,6 +58,8 @@
     </span>
 
     <span class="trendingNews" *ngFor="let news of trendingNews">
+      <!--  -->
+
       <h1>{{ news?.title }}</h1>
 
       <div class="content-details">
@@ -105,13 +108,32 @@
           </div>
         </div>
       </div>
+
+      <!--  -->
     </span>
   </div>
 
   <div class="right-section">
     <div class="stay-updated">
       <h2>Stay Updated</h2>
-      <app-subscribe></app-subscribe>
+      <div class="newsletter">
+        <p class="newsletter-title">The Quint's Newsletter</p>
+        <p class="newsletter-description">
+          The Quint tells stories no one else is willing to tell. Join us on our
+          journey as we bring you unheard voices, human-centric events, and
+          propel change.
+        </p>
+        <p class="subscriber-count">Over 20,000 subscribers</p>
+        <form>
+          <input type="email" placeholder="Type your email..." required />
+          <button type="submit">Subscribe</button>
+        </form>
+        <p class="terms">
+          By subscribing you agree to Substack's <a href="#">Terms of Use</a>,
+          <a href="#">Privacy Policy</a> and our
+          <a href="#">information collection notice</a>
+        </p>
+      </div>
     </div>
     <div class="line"></div>
 
@@ -122,13 +144,11 @@
         class="news-item"
         *ngFor="let item of readMoreItemsDetail; let i = index"
       >
-        <span (click)="getHomeContentBySlugAndNavigate(readMoreSlug[i])">
-          <img
-            [src]="getFullImagePath(readMoreImagesDetail[i])"
-            [alt]="'News Item ' + (i + 1)"
-          />
-          <p>{{ item }}</p>
-        </span>
+        <img
+          [src]="getFullImagePath(readMoreImagesDetail[i])"
+          [alt]="'News Item ' + (i + 1)"
+        />
+        <p>{{ item }}</p>
       </div>
       <hr />
     </div>

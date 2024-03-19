@@ -24,7 +24,6 @@ export class LandingPageComponent {
   belowContent: any;
   readMoreItems: any;
   readMoreImages: any;
-  readMoreSlug: any;
   homePhotosSlug: any;
   constructor(
     private apiService: ApiServicesService,
@@ -76,10 +75,6 @@ export class LandingPageComponent {
           this.homeInfo = data.data;
           this.belowContent = data.data;
           this.homeContent = data?.data[0];
-          this.readMoreSlug = data.data
-            .slice(0, 4)
-            .map((item: any) => item.slug);
-          console.log(this.readMoreSlug);
 
           this.homeInfo = data.data.slice(0, 3).map((item: any) => item.title);
           this.readMoreItems = data.data
@@ -99,8 +94,6 @@ export class LandingPageComponent {
   }
 
   getHomeContentBySlug(slug: any) {
-    console.log(slug);
-
     this.router.navigate(['home/news-details'], {
       queryParams: { slug: slug },
     });
@@ -148,6 +141,7 @@ export class LandingPageComponent {
       )
     );
   }
+
   navigate(slug: any) {
     console.log(slug);
 
@@ -155,7 +149,6 @@ export class LandingPageComponent {
       queryParams: { slug: slug },
     });
   }
-
   ngOnDestroy(): void {
     this.unsubscribe.unsubscribe();
   }
