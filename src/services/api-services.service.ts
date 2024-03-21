@@ -8,6 +8,7 @@ import {
   PHOTOS,
   PHOTOS_DETAILS,
   VIDEOS,
+  VIDEOS_DETAILS,
 } from '../enviroments/api-path';
 
 @Injectable({
@@ -34,7 +35,11 @@ export class ApiServicesService {
       `${environment.apiBaseUrl}${PHOTOS_DETAILS}${slug}`
     );
   }
-
+  getVideosDetails(slug: string): Observable<any> {
+    return this.httpClient.get(
+      `${environment.apiBaseUrl}${VIDEOS_DETAILS}${slug}`
+    );
+  }
   getViideos(): Observable<any> {
     return this.httpClient.get(environment.apiBaseUrl + VIDEOS);
   }

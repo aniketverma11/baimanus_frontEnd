@@ -6,10 +6,26 @@ body.dark-theme {
   background-color: #1a1a1a;
   color: #fff;
 }
-
+.dark-theme #footer {
+  background-color: #1a1a1a;
+  color: #fff;
+}
+.dark-theme #header {
+  background-color: #1a1a1a;
+  color: #fff;
+}
 body {
   margin: 0;
   line-height: normal;
+}
+.dark-mode h3,
+.dark-mode p,
+.dark-mode .more-news p {
+  color: white;
+}
+
+.dark-mode .dark-color {
+  color: #333; /* Or any other dark color you prefer */
 }
 
 :root {

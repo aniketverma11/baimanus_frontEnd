@@ -101,6 +101,7 @@ export class SidebarComponent implements OnInit {
           this.isLoading = false;
 
           this.categoryList = data.data;
+
           this.visibleCategories = [...this.categoryList.slice(0, 5)];
         },
         (error) => {

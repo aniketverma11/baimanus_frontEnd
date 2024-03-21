@@ -383,12 +383,16 @@
               transform="translate(2.526 2.525)"
             ></path></svg
         ></a>
-        <div class="toggle-theme _1JW5g hinditoggle">
-          <div class="dark-mode-toggle" (change)="toggleDarkMode()">
-            <input type="checkbox" id="darkModeToggle" />
-            <label for="darkModeToggle"></label>
-            <span class="dark-mode-label">Dark Mode</span>
-          </div>
+        <div class="dark-mode-wrapper">
+          <b class="dark-mode">Dark Mode</b>
+          <label class="dark-mode-toggle">
+            <input
+              (change)="toggleDarkMode()"
+              type="checkbox"
+              id="darkModeToggle"
+            />
+            <span class="slider round"></span>
+          </label>
         </div>
         <!-- <div class="dark-mode-wrapper">
           <b class="dark-mode">Dark Mode</b>
@@ -472,9 +476,7 @@
             <!-- <input type="serach" name="" id="" /> -->
           </div>
         </div>
-        <!-- <div class="serachSideBar">
-          <input type="serach" name="" id="" />
-        </div> -->
+
         <div class="frame-home-wrapper">
           <div class="frame-home">
             <div class="frame-home-election">
@@ -594,7 +596,7 @@
   <!-- < Middle header ends here> -->
 
   <!-- < Bottom header starts from here> -->
-  <div class="bottom-header">
+  <!-- <div class="bottom-header">
     <div class="container">
       <ul class="mobile-top-nav-item _1bFcO">
         <li class="top-navbar-1 J_MHx">
@@ -661,5 +663,5 @@
         </li>
       </ul>
     </div>
-  </div>
+  </div> -->
 </header>

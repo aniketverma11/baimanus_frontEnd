@@ -19,6 +19,7 @@ import { VideosComponent } from './landing-page/videos/videos.component';
 import { PhotosDetailsComponent } from './landing-page/photos/photos-details/photos-details.component';
 import { NewsSectionComponent } from './landing-page/news-section/news-section.component';
 import { HomePageVideosComponent } from './landing-page/videos/home-page-videos/home-page-videos.component';
+import { YouTubePlayerModule } from '@angular/youtube-player';
 
 const routes: Routes = [
   {
@@ -68,7 +69,7 @@ const routes: Routes = [
     CommonModule,
     MatExpansionModule,
     MatRadioModule,
-
+    YouTubePlayerModule,
     RouterModule.forChild(routes),
   ], // Use forChild() for lazy-loaded modules
 })

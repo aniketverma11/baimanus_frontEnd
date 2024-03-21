@@ -71,21 +71,17 @@ export class PhotosComponent {
           this.readMoreImagesDetail = data.data.read_more.flatMap((item: any) =>
             item.images.map((imageItem: any) => imageItem.image)
           );
-          console.log(this.readMoreImagesDetail);
 
           this.readMoreItems = data.data.read_more.map(
             (item: any) => item.title
           );
-          console.log(this.readMoreItems);
           this.readMoreImages = data.data.read_more.flatMap((item: any) =>
             item.images.map((imageItem: any) => imageItem.image)
           );
-          console.log(this.readMoreImages);
 
           this.readMoreSlug = data.data.read_more
             .slice(0, 4)
             .map((item: any) => item.slug);
-          console.log(this.readMoreSlug);
 
           // loop
           for (let i = 0; i < this.homePhotos.length; i++) {
@@ -93,7 +89,6 @@ export class PhotosComponent {
             const match = this.homePhotos[i].content.match(srcRegex);
             const src = match ? match[1] : null;
             this.imagetitle = this.imageBaseURL + src;
-            console.log(this.imagetitle);
           }
 
           // this.headingTitle = this.homePhotos

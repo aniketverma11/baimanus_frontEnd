@@ -1,10 +1,10 @@
-<div class="container top-headlines">
+<div class="container top-headlines dark-mode">
   <div class="left-section">
     <a (click)="getHomeContentBySlug(homeContent.slug)">
       <div class="category-image">
         <img
           [src]="getFullImagePath(homeContent.image)"
-          alt="{{ homeContent?.image_alt }}"
+          [alt]="homeContent?.image_alt"
         />
       </div>
       <div class="content-details">
@@ -14,15 +14,13 @@
     </a>
     <div class="hometitle">
       <div class="news-left">
-        <div class="box" *ngFor="let items of homeInfo">
-          {{ items }}
-        </div>
+        <div class="box" *ngFor="let items of homeInfo">{{ items }}</div>
       </div>
       <div class="news-right">
         <div class="news-right-title">
           <img
             [src]="getFullImagePath(belowContent[4].image)"
-            alt="{{ belowContent[4]?.image_alt }}"
+            [alt]="belowContent[4]?.image_alt"
           />
           <h1>{{ belowContent[4].title }}</h1>
         </div>
@@ -33,24 +31,7 @@
   <div class="right-section">
     <div class="stay-updated">
       <h2>Stay Updated</h2>
-      <div class="newsletter">
-        <p class="newsletter-title">The Quint's Newsletter</p>
-        <p class="newsletter-description">
-          The Quint tells stories no one else is willing to tell. Join us on our
-          journey as we bring you unheard voices, human-centric events, and
-          propel change.
-        </p>
-        <p class="subscriber-count">Over 20,000 subscribers</p>
-        <form>
-          <input type="email" placeholder="Type your email..." required />
-          <button type="submit">Subscribe</button>
-        </form>
-        <p class="terms">
-          By subscribing you agree to Substack's <a href="#">Terms of Use</a>,
-          <a href="#">Privacy Policy</a> and our
-          <a href="#">information collection notice</a>
-        </p>
-      </div>
+      <app-subscribe></app-subscribe>
     </div>
     <div class="line"></div>
 
@@ -68,44 +49,43 @@
     </div>
   </div>
 </div>
-<!-- Videos section Starts here -->
-<div class="container vid-title">
+
+<div class="container vid-title dark-mode">
   <h2>Videos</h2>
 </div>
-<section class="home-video-block">
+
+<section class="home-video-block dark-mode">
   <div class="container">
     <div class="photos video">
       <div class="photos-left">
-        <!-- <span (click)="navigate(homePhotosSlug)"> -->
-
-        <div class="phots-heading">
-          <img src="{{ imagetitle }}" alt="" />
-          <h3>{{ headingTitle[0] }}</h3>
-        </div>
-        <!-- </span> -->
+        <span (click)="navigateVideos(VideoObject?.slug)">
+          <div class="phots-heading">
+            <img [src]="getFullImagePath(VideoObject?.image)" />
+            <h3 class="dark-color">{{ VideoObject?.title }}</h3>
+          </div>
+        </span>
       </div>
 
-      <div class="photos-right">
-        <div class="phots-box" *ngFor="let title of headingTitle">
+      <div class="photos-right videosRight">
+        <div class="phots-box" *ngFor="let title of VideoTitle; index as i">
+          <img [src]="getFullImagePath(videoImages[i])" />
+          <h3 class="dark-color">{{ title }}</h3>
           <hr />
-          <h3>{{ title }}</h3>
         </div>
       </div>
     </div>
   </div>
 </section>
-<!-- Videos section Ends here -->
-<!-- Photos section Starts here -->
-<section class="home-photo-block">
+
+<section class="home-photo-block dark-mode">
   <div class="container">
     <h2>Photos</h2>
     <div class="photos">
-      <!-- <a (click)="navigate()"> -->
       <div class="photos-left">
         <span (click)="navigate(homePhotosSlug)">
           <div class="phots-heading">
             <img src="{{ imagetitle }}" alt="" />
-            <h3>{{ headingTitle[0] }}</h3>
+            <h3 class="dark-color">{{ headingTitle[0] }}</h3>
           </div>
         </span>
       </div>
@@ -113,11 +93,9 @@
       <div class="photos-right">
         <div class="phots-box" *ngFor="let title of headingTitle">
           <hr />
-          <h3>{{ title }}</h3>
+          <h3 class="dark-color">{{ title }}</h3>
         </div>
       </div>
-      <!-- </a> -->
     </div>
   </div>
 </section>
-<!-- Photos section Ends here -->

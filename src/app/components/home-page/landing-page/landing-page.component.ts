@@ -25,6 +25,9 @@ export class LandingPageComponent {
   readMoreItems: any;
   readMoreImages: any;
   homePhotosSlug: any;
+  VideoObject: any;
+  VideoTitle: any;
+  videoImages: any;
   constructor(
     private apiService: ApiServicesService,
     private sanitizer: DomSanitizer,
@@ -34,7 +37,7 @@ export class LandingPageComponent {
   ngOnInit() {
     this.getHomeContent();
     this.getHomePhotos();
-    // this.getHomeVideos();
+    this.getHomeVideos();
   }
   getHomePhotos() {
     this.isLoading = true;
@@ -120,20 +123,15 @@ export class LandingPageComponent {
     this.isLoading = true;
     this.unsubscribe.add(
       this.apiService.getViideos().subscribe(
-        (data) => {
+        (res) => {
           this.isLoading = false;
-          this.homePhotos = data.data;
-          console.log(this.homePhotos);
-          this.headingPhoto = this.homePhotos[0].content;
-          const srcRegex = /<img[^>]+src="([^">]+)"/;
-          const match = this.headingPhoto.match(srcRegex);
-          const src = match ? match[1] : null;
-          this.imagetitle = this.imageBaseURL + src;
-          console.log(this.imagetitle);
-
-          this.headingTitle = this.homePhotos
+          console.log(res.data);
+          this.VideoObject = res.data[0];
+          this.VideoTitle = res.data.slice(0, 3).map((item: any) => item.title);
+          this.videoImages = res.data
             .slice(0, 3)
-            .map((item: any) => item.title);
+            .map((item: any) => item.image);
+          console.log(this.videoImages);
         },
         (error) => {
           console.error(error);
@@ -146,6 +144,13 @@ export class LandingPageComponent {
     console.log(slug);
 
     this.router.navigate(['home/photos'], {
+      queryParams: { slug: slug },
+    });
+  }
+  navigateVideos(slug: any) {
+    console.log(slug);
+
+    this.router.navigate(['home/videos'], {
       queryParams: { slug: slug },
     });
   }

@@ -94,6 +94,8 @@ export class NewsDetailsComponent implements AfterViewInit {
               this.readMoreItemsDetail = data.data.read_more
                 .slice(0, 4)
                 .map((item: any) => item.title);
+              console.log();
+
               this.readMoreImagesDetail = data.data.read_more
                 .slice(0, 4)
                 .map((item: any) => item.image);
@@ -149,16 +151,18 @@ export class NewsDetailsComponent implements AfterViewInit {
     this.unsubscribe.add(
       this.apiService.getHomeContent().subscribe(
         (data) => {
-          console.log(data);
+          console.log('aaa', data);
 
           this.homeInfo = data.data;
           this.belowContent = data.data;
           this.homeContent = data?.data[0];
 
           this.homeInfo = data.data.slice(0, 3).map((item: any) => item.title);
+          // this.readMoreItemsNew =
           this.readMoreItems = data.data
             .slice(0, 4)
             .map((item: any) => item.title);
+          console.log(this.readMoreItems);
           this.readMoreImages = data.data
             .slice(0, 4)
             .map((item: any) => item.image);
