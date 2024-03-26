@@ -53,8 +53,10 @@ export class SidebarComponent implements OnInit {
   }
 
   ngOnInit() {
+    // set deault Language to englis
+    localStorage.setItem('language', 'english');
+
     this.getAllCategories();
-    // check screen size
 
     if (typeof sessionStorage !== 'undefined') {
       const storedUserData = sessionStorage.getItem('loggedInUser');
@@ -141,6 +143,17 @@ export class SidebarComponent implements OnInit {
   switchLanguage() {
     const currentLanguage = this.translateService.currentLang;
     const newLanguage = currentLanguage === 'en' ? 'mr' : 'en';
+    let setlangauge: string;
+    if (currentLanguage === 'en') {
+      setlangauge = 'marathi';
+    } else if (currentLanguage === 'mr') {
+      setlangauge = 'english';
+    } else {
+      setlangauge = 'english';
+    }
+
+    localStorage.setItem('language', setlangauge);
+    console.log(localStorage.getItem('language'));
 
     this.translateService.use(newLanguage);
   }

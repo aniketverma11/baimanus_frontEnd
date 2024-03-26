@@ -23,7 +23,11 @@ import { LoaderComponent } from './loader/loader.component';
 import { TranslatePipe } from '@ngx-translate/core';
 
 export function tokenGetter() {
-  return sessionStorage.getItem('loggedInUser');
+  if (sessionStorage && sessionStorage.getItem('loggedInUser')) {
+    return sessionStorage.getItem('loggedInUser');
+  } else {
+    return null;
+  }
 }
 @NgModule({
   declarations: [SignupdialogComponent],

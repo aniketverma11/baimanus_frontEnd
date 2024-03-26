@@ -51,7 +51,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
       },
     }),
 
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot({ positionClass: 'toast-center-center' }),
   ],
   providers: [provideClientHydration(), JwtHelperService],
   bootstrap: [AppComponent],

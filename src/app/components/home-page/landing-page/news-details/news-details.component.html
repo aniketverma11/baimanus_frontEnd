@@ -1,4 +1,11 @@
-<div class="container">
+<div
+  class="container"
+  [ngClass]="{
+    'small-text': textSize === 'small',
+    'medium-text': textSize === 'medium',
+    'large-text': textSize === 'large'
+  }"
+>
   <div class="left-section">
     <!-- <span *ngFor="let news of belowContent"> -->
     <span>
@@ -21,6 +28,72 @@
           alt="{{ newsDetails?.image_alt }}"
         />
         <div class="shar-section">
+          <div class="Share icon">
+            <div class="shareLeft">
+              <button class="Menus" mat-button [matMenuTriggerFor]="menu">
+                <img src="../../../../../assets/icons/share_icon.png" alt="" />
+              </button>
+              Share
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item>
+                  <img src="../../../../../assets/icons/whats app.png" alt="" />
+                  <span class="iconNaming"
+                    ><span class="whatsapp-text">WhatsApp</span></span
+                  >
+                </button>
+                <button mat-menu-item>
+                  <img src="../../../../../assets/icons/facebook.png" alt="" />
+                  <span class="iconNaming"
+                    ><span class="whatsapp-text">Facebook</span></span
+                  >
+                </button>
+                <button mat-menu-item>
+                  <img src="../../../../../assets/icons/twitter_X.png" alt="" />
+                  <span class="iconNaming"
+                    ><span class="whatsapp-text">x</span></span
+                  >
+                </button>
+                <button mat-menu-item>
+                  <img src="../../../../../assets/icons/telegrame.png" alt="" />
+                  <span class="iconNaming"
+                    ><span class="whatsapp-text">Telegrame</span></span
+                  >
+                </button>
+                <span (click)="urlAndCopylink()">
+                  <button mat-menu-item>
+                    <img
+                      src="../../../../../assets/icons/copy_link.png"
+                      alt=""
+                    />
+                    <span class="iconNaming"
+                      ><span class="whatsapp-text">Copy link</span></span
+                    >
+                  </button>
+                </span>
+              </mat-menu>
+            </div>
+            <div class="TextSizing">
+              <button mat-button [matMenuTriggerFor]="menuText">Aa</button>
+              <mat-menu #menuText="matMenu">
+                <button mat-menu-item (click)="setTextSize('small')">
+                  Small
+                </button>
+                <button mat-menu-item (click)="setTextSize('medium')">
+                  Medium
+                </button>
+                <button mat-menu-item (click)="setTextSize('large')">
+                  Large
+                </button>
+              </mat-menu>
+            </div>
+
+            <div class="bookmark" (click)="bookmark()">
+              <img src="../../../../../assets/icons/bookmark.png" alt="" />
+            </div>
+            <div class="commets" (click)="isCommnet()">
+              <img src="../../../../../assets/icons/commentsTwo.png" alt="" />
+            </div>
+          </div>
           <hr />
         </div>
       </div>
@@ -53,6 +126,46 @@
           <div class="shar-section">
             <hr />
           </div>
+        </div>
+      </div>
+      <!-- comments sections  -->
+      <div
+        class="comments-section"
+        *ngIf="isCommnetEnable === true"
+        #commentsSection
+      >
+        <div class="header">
+          <h2>Sign in</h2>
+          <div class="sort-share">
+            <div class="sort">
+              <select>
+                <option value="newest">Newest</option>
+                <option value="newest">Oldest</option>
+              </select>
+            </div>
+            <div class="share">
+              <span
+                ><img src="../../../../../assets/icons/share_icon.png" alt=""
+              /></span>
+              <span>Share</span>
+            </div>
+          </div>
+        </div>
+        <div class="comment-input">
+          <div class="user-avatar">
+            <img src="user-avatar.png" alt="User Avatar" />
+          </div>
+          <div class="input-box">
+            <input type="text" placeholder="Share your thoughts..." />
+            <div class="icons">
+              <span class="attachment">📷</span>
+            </div>
+          </div>
+          <button class="post-btn">POST</button>
+        </div>
+        <div class="disclaimer">
+          This site is protected by reCAPTCHA and the Google Privacy Policy and
+          Terms of Service apply.
         </div>
       </div>
     </span>

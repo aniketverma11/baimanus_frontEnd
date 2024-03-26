@@ -246,3 +246,117 @@ h1 {
   justify-content: center;
   margin-bottom: 10px;
 }
+.Menus {
+  background-color: white;
+  border: none;
+  color: #35144f;
+}
+.whatsapp-text {
+  font-size: 10px;
+}
+/* news-details.component.css */
+.small-text {
+  font-size: 12px; /* Define your small font size */
+}
+
+.medium-text {
+  font-size: 16px; /* Define your medium font size */
+}
+
+.large-text {
+  font-size: 20px; /* Define your large font size */
+}
+
+
+/* comments section  */
+
+.comments-section {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.header h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.sort-share {
+  display: flex;
+  align-items: center;
+}
+
+.sort select {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-right: 10px;
+}
+
+.share {
+  color: #555;
+  cursor: pointer;
+}
+
+.comment-input {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.user-avatar img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.input-box {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 5px 10px;
+}
+
+.input-box input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 5px;
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+}
+
+.icons span {
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.post-btn {
+  background-color: #ccc;
+  color: #555;
+  border: none;
+  border-radius: 20px;
+  padding: 5px 15px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.disclaimer {
+  font-size: 12px;
+  color: #888;
+}

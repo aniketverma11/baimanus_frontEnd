@@ -17,13 +17,14 @@ import {
 export class ApiServicesService {
   constructor(private httpClient: HttpClient) {}
 
-  getHomeContent(): Observable<any> {
-    return this.httpClient.get(environment.apiBaseUrl + HOME_CONTENT);
+  getHomeContent(type: string): Observable<any> {
+    const url = `${environment.apiBaseUrl}${HOME_CONTENT}?type=${type}`;
+    return this.httpClient.get(url);
   }
 
-  getHomeContentBySlug(slug: any): Observable<any> {
+  getHomeContentBySlug(slug: any, type: string): Observable<any> {
     return this.httpClient.get(
-      `${environment.apiBaseUrl}${HOME_CONTENT_BY_SLUG}${slug}`
+      `${environment.apiBaseUrl}${HOME_CONTENT_BY_SLUG}${slug}?type=${type}`
     );
   }
 
@@ -43,6 +44,10 @@ export class ApiServicesService {
   getViideos(): Observable<any> {
     return this.httpClient.get(environment.apiBaseUrl + VIDEOS);
   }
+  // getVideos(type: string): Observable<any> {
+  //   const url = `${environment.apiBaseUrl}${VIDEOS}?type=${type}`;
+  //   return this.httpClient.get(url);
+  // }
 
   errorHandler(error: {
     error: {

@@ -20,7 +20,7 @@ import { PhotosDetailsComponent } from './landing-page/photos/photos-details/pho
 import { NewsSectionComponent } from './landing-page/news-section/news-section.component';
 import { HomePageVideosComponent } from './landing-page/videos/home-page-videos/home-page-videos.component';
 import { YouTubePlayerModule } from '@angular/youtube-player';
-
+import { MatMenuModule } from '@angular/material/menu';
 const routes: Routes = [
   {
     path: '',
@@ -71,6 +71,7 @@ const routes: Routes = [
     MatRadioModule,
     YouTubePlayerModule,
     RouterModule.forChild(routes),
+    MatMenuModule,
   ], // Use forChild() for lazy-loaded modules
 })
 export class HomePageModule {}

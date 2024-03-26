@@ -26,31 +26,31 @@ export class HomePageVideosComponent {
   ) {}
 
   ngOnInit() {
-    this.getHomeVideos();
+    // this.getHomeVideos();
   }
-  getHomeVideos() {
-    this.isLoading = true;
-    this.unsubscribe.add(
-      this.apiService.getPhotos().subscribe(
-        (data) => {
-          this.isLoading = false;
-          this.homePhotos = data.data;
-          console.log(this.homePhotos);
-          this.headingPhoto = this.homePhotos[0].content;
-          const srcRegex = /<img[^>]+src="([^">]+)"/;
-          const match = this.headingPhoto.match(srcRegex);
-          const src = match ? match[1] : null;
-          this.imagetitle = this.imageBaseURL + src;
-          console.log(this.imagetitle);
+  // getHomeVideos() {
+  //   this.isLoading = true;
+  //   this.unsubscribe.add(
+  //     this.apiService.getPhotos().subscribe(
+  //       (data) => {
+  //         this.isLoading = false;
+  //         this.homePhotos = data.data;
+  //         console.log(this.homePhotos);
+  //         this.headingPhoto = this.homePhotos[0].content;
+  //         const srcRegex = /<img[^>]+src="([^">]+)"/;
+  //         const match = this.headingPhoto.match(srcRegex);
+  //         const src = match ? match[1] : null;
+  //         this.imagetitle = this.imageBaseURL + src;
+  //         console.log(this.imagetitle);
 
-          this.headingTitle = this.homePhotos
-            .slice(0, 3)
-            .map((item: any) => item.title);
-        },
-        (error) => {
-          console.error(error);
-        }
-      )
-    );
-  }
+  //         this.headingTitle = this.homePhotos
+  //           .slice(0, 3)
+  //           .map((item: any) => item.title);
+  //       },
+  //       (error) => {
+  //         console.error(error);
+  //       }
+  //     )
+  //   );
+  // }
 }

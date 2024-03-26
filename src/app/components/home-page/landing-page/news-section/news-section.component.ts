@@ -26,20 +26,20 @@ export class NewsSectionComponent {
   ) {}
 
   ngOnInit() {
-    this.getHomeContent();
+    // this.getHomeContent();
   }
-  getHomeContent() {
-    this.isLoading = true;
-    this.unsubscribe.add(
-      this.apiService.getHomeContent().subscribe(
-        (data) => {
-          this.homeContent = data.data;
-          console.log(data);
-        },
-        (error) => {
-          console.error(error);
-        }
-      )
-    );
-  }
+  // getHomeContent() {
+  //   this.isLoading = true;
+  //   this.unsubscribe.add(
+  //     this.apiService.getHomeContent().subscribe(
+  //       (data) => {
+  //         this.homeContent = data.data;
+  //         console.log(data);
+  //       },
+  //       (error) => {
+  //         console.error(error);
+  //       }
+  //     )
+  //   );
+  // }
 }

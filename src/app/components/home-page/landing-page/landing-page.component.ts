@@ -28,6 +28,8 @@ export class LandingPageComponent {
   VideoObject: any;
   VideoTitle: any;
   videoImages: any;
+  type = 'english';
+  homeInfoSlug: any;
   constructor(
     private apiService: ApiServicesService,
     private sanitizer: DomSanitizer,
@@ -44,6 +46,8 @@ export class LandingPageComponent {
     this.unsubscribe.add(
       this.apiService.getPhotos().subscribe(
         (data) => {
+          console.log(data);
+
           this.isLoading = false;
           this.homePhotos = data.data;
           this.homePhotosSlug = data.data[0].slug;
@@ -70,8 +74,9 @@ export class LandingPageComponent {
 
   getHomeContent() {
     this.isLoading = true;
+    const type = 'english';
     this.unsubscribe.add(
-      this.apiService.getHomeContent().subscribe(
+      this.apiService.getHomeContent(type).subscribe(
         (data) => {
           console.log(data);
 
@@ -80,6 +85,11 @@ export class LandingPageComponent {
           this.homeContent = data?.data[0];
 
           this.homeInfo = data.data.slice(0, 3).map((item: any) => item.title);
+          this.homeInfoSlug = data.data
+            .slice(0, 3)
+            .map((item: any) => item.slug);
+          console.log(this.homeInfoSlug);
+
           this.readMoreItems = data.data
             .slice(0, 4)
             .map((item: any) => item.title);

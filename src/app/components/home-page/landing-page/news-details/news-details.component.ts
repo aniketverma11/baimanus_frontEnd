@@ -10,6 +10,8 @@ import { ApiServicesService } from '../../../../../services/api-services.service
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { Subscription, catchError } from 'rxjs';
 import { environment } from '../../../../../enviroments/environment';
+import { ToastrService } from 'ngx-toastr';
+import { TextSizingService } from '../../../../../services/text-sizing.service';
 
 @Component({
   selector: 'app-news-details',
@@ -17,7 +19,10 @@ import { environment } from '../../../../../enviroments/environment';
   styleUrl: './news-details.component.css',
 })
 export class NewsDetailsComponent implements AfterViewInit {
+  @ViewChild('commentsSection') commentsSection!: ElementRef;
   private imageBaseURL = environment.imagesBaseURL;
+  private websiteUrl = environment.webiste_url;
+
   slug: string | null = '';
   isLoading: boolean = true;
   homeContent: any;
@@ -38,6 +43,9 @@ export class NewsDetailsComponent implements AfterViewInit {
   trendingNews: any;
   readMoreItemsDetail: any;
   readMoreImagesDetail: any;
+  textSize: string = 'medium';
+  type: any = 'english';
+  isCommnetEnable: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -45,16 +53,25 @@ export class NewsDetailsComponent implements AfterViewInit {
     private apiService: ApiServicesService,
     private sanitizer: DomSanitizer,
     private router: Router,
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    private toastr: ToastrService,
+    private textSizeService: TextSizingService
   ) {}
 
   ngOnInit(): void {
+    // getLangauge
+    this.type = localStorage.getItem('language');
+    console.log(localStorage.getItem('language'));
+
     this.route.queryParams.subscribe((params) => {
       this.slug = params['slug'];
 
       console.log(this.slug);
       if (this.slug) {
         this.getHomeContentBySlug(this.slug);
+        this.textSizeService.textSize$.subscribe((size) => {
+          this.textSize = size;
+        });
       }
       if (!this.slug) {
         this.router.navigate(['home']);
@@ -71,7 +88,7 @@ export class NewsDetailsComponent implements AfterViewInit {
     this.isLoading = true;
     this.unsubscribe.add(
       this.apiService
-        .getHomeContentBySlug(slug)
+        .getHomeContentBySlug(slug, this.type)
         .pipe(
           catchError((error) => {
             console.error('API Error:', error);
@@ -148,8 +165,9 @@ export class NewsDetailsComponent implements AfterViewInit {
   // get content
   getHomeContent() {
     this.isLoading = true;
+    const type = 'english';
     this.unsubscribe.add(
-      this.apiService.getHomeContent().subscribe(
+      this.apiService.getHomeContent(type).subscribe(
         (data) => {
           console.log('aaa', data);
 
@@ -189,7 +207,38 @@ export class NewsDetailsComponent implements AfterViewInit {
   toggleExpanded(newsItem: any): void {
     newsItem.expanded = !newsItem.expanded;
   }
+  urlAndCopylink() {
+    // Construct the complete URL with the slug
+    const completeUrl = `${this.websiteUrl}/home/news-details?slug=${this.slug}`;
+    console.log(completeUrl);
 
+    this.copyToClipboard(completeUrl);
+  }
+  copyToClipboard(text: string) {
+    const textarea = document.createElement('textarea');
+    textarea.style.position = 'fixed';
+    textarea.style.left = '0';
+    textarea.style.top = '0';
+    textarea.style.opacity = '0';
+    textarea.value = text;
+    document.body.appendChild(textarea);
+    textarea.focus();
+    textarea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textarea);
+    // window.alert('');
+    this.toastr.success('Link copied');
+  }
+  setTextSize(size: string) {
+    this.textSizeService.setTextSize(size);
+  }
+  bookmark() {
+    this.toastr.success('Bookmark added');
+  }
+  isCommnet() {
+    this.isCommnetEnable = true;
+    this.commentsSection.nativeElement.scrollIntoView({ behavior: 'smooth' });
+  }
   ngOnDestroy(): void {
     this.unsubscribe.unsubscribe();
   }
