@@ -19,7 +19,10 @@ export class ThemeService {
 
   private applyFooterTheme(): void {
     const footer = document.getElementById('footer');
+    console.log(footer);
+
     const header = document.getElementById('header');
+    console.log(header, 'header=====>');
 
     if (footer) {
       footer.classList.toggle('dark-theme', this.darkMode);
@@ -31,11 +34,12 @@ export class ThemeService {
   }
 
   applyHTheme(): void {
-    const h3Elements = document.querySelectorAll('h3');
+    const headings = document.querySelectorAll('h1, h2, h3, h4');
 
-    if (h3Elements) {
-      h3Elements.forEach((element) => {
+    if (headings) {
+      headings.forEach((element) => {
         element.classList.toggle('white-color', !this.darkMode);
+        element.classList.toggle('yellow-color', this.darkMode);
       });
     }
   }

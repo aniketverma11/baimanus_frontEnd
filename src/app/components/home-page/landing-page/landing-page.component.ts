@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',
   styleUrl: './landing-page.component.css',
+  providers: [ThemeService],
 })
 export class LandingPageComponent {
   private imageBaseURL = environment.imagesBaseURL;
@@ -28,15 +29,17 @@ export class LandingPageComponent {
   VideoObject: any;
   VideoTitle: any;
   videoImages: any;
-  type = 'english';
+  type: any;
   homeInfoSlug: any;
   constructor(
     private apiService: ApiServicesService,
     private sanitizer: DomSanitizer,
-    private router: Router
+    private router: Router,
+    private themeService: ThemeService
   ) {}
 
   ngOnInit() {
+    this.type = localStorage.getItem('language');
     this.getHomeContent();
     this.getHomePhotos();
     this.getHomeVideos();
@@ -46,20 +49,15 @@ export class LandingPageComponent {
     this.unsubscribe.add(
       this.apiService.getPhotos().subscribe(
         (data) => {
-          console.log(data);
-
           this.isLoading = false;
           this.homePhotos = data.data;
           this.homePhotosSlug = data.data[0].slug;
-          console.log(this.homePhotosSlug);
 
-          console.log(this.homePhotos);
           this.headingPhoto = this.homePhotos[0]?.content;
           const srcRegex = /<img[^>]+src="([^">]+)"/;
           const match = this.headingPhoto.match(srcRegex);
           const src = match ? match[1] : null;
           this.imagetitle = this.imageBaseURL + src;
-          console.log(this.imagetitle);
 
           this.headingTitle = this.homePhotos
             .slice(0, 3)
@@ -74,12 +72,11 @@ export class LandingPageComponent {
 
   getHomeContent() {
     this.isLoading = true;
-    const type = 'english';
-    this.unsubscribe.add(
-      this.apiService.getHomeContent(type).subscribe(
-        (data) => {
-          console.log(data);
+    console.log(this.type);
 
+    this.unsubscribe.add(
+      this.apiService.getHomeContent(this.type).subscribe(
+        (data) => {
           this.homeInfo = data.data;
           this.belowContent = data.data;
           this.homeContent = data?.data[0];
@@ -88,16 +85,13 @@ export class LandingPageComponent {
           this.homeInfoSlug = data.data
             .slice(0, 3)
             .map((item: any) => item.slug);
-          console.log(this.homeInfoSlug);
 
-          this.readMoreItems = data.data
-            .slice(0, 4)
-            .map((item: any) => item.title);
+          this.readMoreItems = data.data.slice(0, 4).map((item: any) => item);
+          console.log(this.readMoreItems);
+
           this.readMoreImages = data.data
             .slice(0, 4)
             .map((item: any) => item.image);
-
-          console.log(this.homeInfo);
         },
         (error) => {
           console.error(error);
@@ -135,13 +129,11 @@ export class LandingPageComponent {
       this.apiService.getViideos().subscribe(
         (res) => {
           this.isLoading = false;
-          console.log(res.data);
           this.VideoObject = res.data[0];
           this.VideoTitle = res.data.slice(0, 3).map((item: any) => item.title);
           this.videoImages = res.data
             .slice(0, 3)
             .map((item: any) => item.image);
-          console.log(this.videoImages);
         },
         (error) => {
           console.error(error);
@@ -151,18 +143,17 @@ export class LandingPageComponent {
   }
 
   navigate(slug: any) {
-    console.log(slug);
-
     this.router.navigate(['home/photos'], {
       queryParams: { slug: slug },
     });
   }
   navigateVideos(slug: any) {
-    console.log(slug);
-
     this.router.navigate(['home/videos'], {
       queryParams: { slug: slug },
     });
+  }
+  get themeServiceInstance(): ThemeService {
+    return this.themeService;
   }
   ngOnDestroy(): void {
     this.unsubscribe.unsubscribe();

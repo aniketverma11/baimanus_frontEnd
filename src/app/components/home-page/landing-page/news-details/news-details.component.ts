@@ -85,6 +85,8 @@ export class NewsDetailsComponent implements AfterViewInit {
   }
 
   getHomeContentBySlug(slug: any) {
+    console.log(this.type);
+
     this.isLoading = true;
     this.unsubscribe.add(
       this.apiService
@@ -110,7 +112,7 @@ export class NewsDetailsComponent implements AfterViewInit {
               this.trendingNews = data.data.treanding_news;
               this.readMoreItemsDetail = data.data.read_more
                 .slice(0, 4)
-                .map((item: any) => item.title);
+                .map((item: any) => item);
               console.log();
 
               this.readMoreImagesDetail = data.data.read_more
@@ -238,6 +240,12 @@ export class NewsDetailsComponent implements AfterViewInit {
   isCommnet() {
     this.isCommnetEnable = true;
     this.commentsSection.nativeElement.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  NavigateWithSlug(slug: any) {
+    this.router.navigate(['home/news-details'], {
+      queryParams: { slug: slug },
+    });
   }
   ngOnDestroy(): void {
     this.unsubscribe.unsubscribe();

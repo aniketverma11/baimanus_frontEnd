@@ -1,7 +1,9 @@
 /* styles.css or styles.scss */
 @import "../node_modules/@fortawesome/fontawesome-free/css/all.css";
 @import "ngx-toastr/toastr";
-
+* {
+  font-family: "nunito-sans";
+}
 body.dark-theme {
   background-color: #1a1a1a;
   color: #fff;
@@ -11,9 +13,10 @@ body.dark-theme {
   color: #fff;
 }
 .dark-theme #header {
-  background-color: #1a1a1a;
+  background-color: #1a1a1a !important;
   color: #fff;
 }
+
 body {
   margin: 0;
   line-height: normal;
@@ -199,6 +202,9 @@ body {
     --br-smi: 13px;
     --br-13xl-3: 32.3px;
   }
+}
+.yellow-color {
+  color: yellow;
 }
 
 ::ng-deep .mat-tab-label-active {

@@ -12,23 +12,34 @@
         <p>{{ homeContent.short_description }}</p>
       </div>
     </a>
-    <div class="hometitle">
-      <div class="news-left">
-        <div class="box" *ngFor="let items of homeInfo">{{ items }}</div>
-      </div>
-      <div class="news-right">
-        <div class="news-right-title">
-          <img
-            [src]="getFullImagePath(belowContent[3].image)"
-            [alt]="belowContent[3]?.image_alt"
-          />
-          <h1>{{ belowContent[3].title }}</h1>
+    <span>
+      <div class="hometitle">
+        <div class="news-left">
+          <div class="box" *ngFor="let items of homeInfo; index as i">
+            <span (click)="getHomeContentBySlug(homeInfoSlug[i])">
+              {{ items }}
+            </span>
+          </div>
+        </div>
+        <div class="news-right">
+          <div class="news-right-title">
+            <span (click)="getHomeContentBySlug(belowContent[3].slug)">
+              <img
+                [src]="getFullImagePath(belowContent[3].image)"
+                [alt]="belowContent[3]?.image_alt"
+              />
+              <h1>{{ belowContent[3].title }}</h1>
+            </span>
+          </div>
         </div>
       </div>
-    </div>
+    </span>
   </div>
 
-  <div class="right-section">
+  <div
+    class="right-section"
+    [ngClass]="{ 'dark-mode': themeServiceInstance.isDarkMode() }"
+  >
     <div class="stay-updated">
       <h2>Stay Updated</h2>
       <app-subscribe></app-subscribe>
@@ -38,13 +49,15 @@
     <div class="more-news">
       <h2>More News</h2>
       <hr />
-      <div class="news-item" *ngFor="let item of readMoreItems; let i = index">
-        <img
-          [src]="getFullImagePath(readMoreImages[i])"
-          [alt]="'News Item ' + (i + 1)"
-        />
-        <p>{{ item }}</p>
-      </div>
+      <span *ngFor="let item of readMoreItems; let i = index">
+        <div class="news-item" (click)="getHomeContentBySlug(item.slug)">
+          <img
+            [src]="getFullImagePath(readMoreImages[i])"
+            [alt]="'News Item ' + (i + 1)"
+          />
+          <p>{{ item.title }}</p>
+        </div>
+      </span>
       <hr />
     </div>
   </div>

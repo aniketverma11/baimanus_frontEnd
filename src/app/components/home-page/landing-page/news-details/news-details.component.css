@@ -44,11 +44,14 @@
   margin-bottom: 40px;
 }
 .title {
-  color: #35144f;
+  /* color: #35144f; */
 }
 h1 {
-  color: #35144f;
+  /* color: #35144f; */
   font-style: bold;
+}
+.dark-theme h1 {
+  color: yellow;
 }
 
 .box {
@@ -57,7 +60,7 @@ h1 {
   height: 100px;
   margin-bottom: 10px;
   font-size: 18px;
-  color: #35144f;
+  /* color: #35144f; */
   font-family: Arial, Helvetica, sans-serif;
 }
 .hometitle {
@@ -104,7 +107,7 @@ h1 {
   height: 100%;
 }
 .shar-section {
-  margin-top: 73px;
+  margin-top: 23px;
 }
 .category-image {
   max-width: 100%;
@@ -202,13 +205,13 @@ h1 {
 }
 /* stay uodated */
 
-.stay-updated {
+/* .stay-updated {
   background-color: #f5f5f5;
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+} */
 
 .stay-updated h2 {
   font-size: 18px;
@@ -249,7 +252,7 @@ h1 {
 .Menus {
   background-color: white;
   border: none;
-  color: #35144f;
+  /* color: #35144f; */
 }
 .whatsapp-text {
   font-size: 10px;
@@ -266,7 +269,6 @@ h1 {
 .large-text {
   font-size: 20px; /* Define your large font size */
 }
-
 
 /* comments section  */
 
@@ -359,4 +361,30 @@ h1 {
 .disclaimer {
   font-size: 12px;
   color: #888;
+}
+.d-flex {
+  display: flex;
+}
+.category-image img {
+  width: 100%;
+}
+.shar-section .Share {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.share_rightt {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.share_rightt div {
+  margin-left: 30px;
+}
+
+.TextSizing button {
+  background-color: white;
+  border: none;
+  color: #35144f;
+  font-weight: bolder;
 }

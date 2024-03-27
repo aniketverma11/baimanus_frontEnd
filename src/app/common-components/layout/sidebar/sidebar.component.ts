@@ -54,7 +54,7 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit() {
     // set deault Language to englis
-    localStorage.setItem('language', 'english');
+    // localStorage.setItem('language', 'english');
 
     this.getAllCategories();
 
