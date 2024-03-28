@@ -46,6 +46,7 @@ export class NewsDetailsComponent implements AfterViewInit {
   textSize: string = 'medium';
   type: any = 'english';
   isCommnetEnable: boolean = false;
+  readMoreItemsNew: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -113,7 +114,7 @@ export class NewsDetailsComponent implements AfterViewInit {
               this.readMoreItemsDetail = data.data.read_more
                 .slice(0, 4)
                 .map((item: any) => item);
-              console.log();
+              console.log(this.readMoreItemsDetail);
 
               this.readMoreImagesDetail = data.data.read_more
                 .slice(0, 4)
@@ -178,11 +179,13 @@ export class NewsDetailsComponent implements AfterViewInit {
           this.homeContent = data?.data[0];
 
           this.homeInfo = data.data.slice(0, 3).map((item: any) => item.title);
-          // this.readMoreItemsNew =
+          this.readMoreItemsNew = data.data
+            .slice(0, 4)
+            .map((item: any) => item);
+          console.log(this.readMoreItemsNew);
           this.readMoreItems = data.data
             .slice(0, 4)
             .map((item: any) => item.title);
-          console.log(this.readMoreItems);
           this.readMoreImages = data.data
             .slice(0, 4)
             .map((item: any) => item.image);

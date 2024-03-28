@@ -1,15 +1,18 @@
 <div class="container top-headlines dark-mode">
   <div class="left-section">
-    <a (click)="getHomeContentBySlug(homeContent.slug)">
+    <!-- Insert the advertiment on top section starts from here-->
+    <div class="advertisment-top"></div>
+    <!-- Insert the advertiment on top section ends here-->
+    <a (click)="getHomeContentBySlug(homeContent?.slug)">
       <div class="category-image">
         <img
-          [src]="getFullImagePath(homeContent.image)"
+          [src]="getFullImagePath(homeContent?.image)"
           [alt]="homeContent?.image_alt"
         />
       </div>
       <div class="content-details">
-        <h1>{{ homeContent.title }}</h1>
-        <p>{{ homeContent.short_description }}</p>
+        <h1>{{ homeContent?.title }}</h1>
+        <p>{{ homeContent?.short_description }}</p>
       </div>
     </a>
     <span>
@@ -22,13 +25,16 @@
           </div>
         </div>
         <div class="news-right">
-          <div class="news-right-title">
-            <span (click)="getHomeContentBySlug(belowContent[3].slug)">
+          <div
+            class="news-right-title"
+            *ngIf="belowContent && belowContent.length >= 4"
+          >
+            <span (click)="getHomeContentBySlug(belowContent[3]?.slug)">
               <img
-                [src]="getFullImagePath(belowContent[3].image)"
+                [src]="getFullImagePath(belowContent[3]?.image)"
                 [alt]="belowContent[3]?.image_alt"
               />
-              <h1>{{ belowContent[3].title }}</h1>
+              <h2>{{ belowContent[3]?.title }}</h2>
             </span>
           </div>
         </div>
@@ -50,12 +56,12 @@
       <h2>More News</h2>
       <hr />
       <span *ngFor="let item of readMoreItems; let i = index">
-        <div class="news-item" (click)="getHomeContentBySlug(item.slug)">
+        <div class="news-item" (click)="getHomeContentBySlug(item?.slug)">
           <img
             [src]="getFullImagePath(readMoreImages[i])"
             [alt]="'News Item ' + (i + 1)"
           />
-          <p>{{ item.title }}</p>
+          <p>{{ item?.title }}</p>
         </div>
       </span>
       <hr />

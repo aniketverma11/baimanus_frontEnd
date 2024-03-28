@@ -117,10 +117,13 @@
           <h1>Read More</h1>
           <hr />
           <div class="read-more-items">
-            <div class="item" *ngFor="let item of readMoreItems; let i = index">
+            <div
+              class="item"
+              *ngFor="let item of readMoreItemsNew; let i = index"
+            >
               <img
                 (click)="NavigateWithSlug(item.slug)"
-                [src]="getFullImagePath(readMoreImages[i].image)"
+                [src]="getFullImagePath(readMoreImages[i])"
                 alt="Image {{ i + 1 }}"
               />
               <p>{{ item.title }}</p>

@@ -2,7 +2,7 @@
 @import "../node_modules/@fortawesome/fontawesome-free/css/all.css";
 @import "ngx-toastr/toastr";
 * {
-  font-family: "nunito-sans";
+  font-family: "Nunito", sans-serif !important;
 }
 body.dark-theme {
   background-color: #1a1a1a;
@@ -25,6 +25,11 @@ body {
 .dark-mode p,
 .dark-mode .more-news p {
   color: white;
+}
+p{
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 500;
 }
 
 .dark-mode .dark-color {

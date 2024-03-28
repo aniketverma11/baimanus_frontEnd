@@ -39,7 +39,9 @@
 }
 
 .content-details p {
-  font-size: 17px;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 500;
   color: #555;
   margin-bottom: 40px;
 }
@@ -48,7 +50,14 @@
 }
 h1 {
   /* color: #35144f; */
-  font-style: bold;
+  font-size: 25px;
+  line-height: 35px;
+  font-weight: 700;
+}
+.news-right-title h2{
+  font-size: 22px;
+  line-height: 28px;
+  font-weight: 700;
 }
 
 .box {
@@ -313,4 +322,13 @@ h2 {
     display: grid;
     grid-template-columns: 1fr;
   }
+}
+.more-news p, 
+.news-left .box span{
+  font-size: 18px;
+  line-height: 25px;
+  font-weight: 700;
+}
+.advertisment-top{
+  min-height: 80px;
 }

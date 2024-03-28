@@ -16,7 +16,7 @@
 }
 .top-header,
 footer {
-  background: #35144f;
+  background: #052962;
 }
 .top-header .container {
   display: flex;
@@ -57,6 +57,9 @@ footer ul {
 header ul li {
   padding-left: 10px;
   padding-right: 10px;
+  font-size: 16px;
+  line-height: 21px;
+  font-weight: 400;
 }
 header ul li a,
 footer ul li a,
