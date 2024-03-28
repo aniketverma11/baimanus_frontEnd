@@ -1,6 +1,14 @@
 /* styles.css or styles.scss */
 @import "../node_modules/@fortawesome/fontawesome-free/css/all.css";
 @import "ngx-toastr/toastr";
+
+@font-face {
+  font-family: "ProximaNova-Black";
+  src: url("./assets/fonts/ProximaNova-Black.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 * {
   font-family: "Nunito", sans-serif !important;
 }
@@ -26,7 +34,7 @@ body {
 .dark-mode .more-news p {
   color: white;
 }
-p{
+p {
   font-size: 18px;
   line-height: 24px;
   font-weight: 500;
