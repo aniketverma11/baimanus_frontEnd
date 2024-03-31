@@ -102,7 +102,15 @@ h1 {
   font-weight: 600;
 }
 
-.dark-mode p {
+.dark-mode {
   background-color: #333 !important;
   color: #fff !important;
 }
+
+.dark-mode h4 {
+  background-color: #333 !important;
+  color: #fff !important;
+}
+/* .dark-mode .sub-outer-container {
+  background-color: #333 !important;
+} */

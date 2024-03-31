@@ -1,5 +1,8 @@
 <section id="section" class="subscribeee-body">
-  <div class="sub-outer-container">
+  <div
+    class="sub-outer-container"
+    [ngClass]="{ 'dark-mode': themeServiceInstance.isDarkMode() }"
+  >
     <!-- <h2>Subscribe to BAIMANUS DAILY</h2> -->
     <hr />
     <div
@@ -13,22 +16,28 @@
           alt="Newsletter Icon"
         />
         <div>
-          <a class="sub-head-link"><h4>The Baimanus's Newsletter</h4></a>
+          <a class="sub-head-link"
+            ><h4>{{ "The Baimanus's Newsletter" | translate }}</h4></a
+          >
           <p>
-            The Quint tells stories no one else is willing to tell. Join us in
-            our journey as we bring you unheard voices, humanise big events, and
-            propel change.
+            {{
+              "The Quint tells stories no one else is willing to tell. Join us in our journey as we bring you unheard voices, humanise big events, and propel change"
+                | translate
+            }}.
           </p>
-          <p>Over 20,000 subscribers</p>
+          <p>{{ "Over 20,000 subscribers" | translate }}</p>
         </div>
       </div>
       <div class="subscribe-form">
         <input type="email" placeholder="Type your email..." required />
-        <button type="submit" (click)="subscribe()">Subscribe</button>
+        <button type="submit" (click)="subscribe()">
+          {{ "subscribe" | translate }}
+        </button>
       </div>
       <p class="terms">
-        By subscribing you agree to <a href="#">Substack's Terms of Use</a>, our
-        <a href="#">Privacy Policy</a> and our
+        {{ " By subscribing you agree to" | translate }}
+        <a href="#">{{ "By subscribing you agree to" | translate }}</a
+        >, our <a href="#">Privacy Policy</a> and our
         <a href="#">Information collection policy</a>.
       </p>
       <p class="powered-by">Powered by Substack</p>

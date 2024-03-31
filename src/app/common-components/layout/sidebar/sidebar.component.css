@@ -217,13 +217,13 @@ body.dark-theme .sidebar {
   width: 26px;
   left: 4px;
   bottom: 4px;
-  background-color: white;
+  background-color: #052962;
   transition: 0.4s;
   border-radius: 50%;
 }
 
 input:checked + .slider {
-  background-color: #1b1919;
+  background-color: #d3cfcf;
 }
 
 input:checked + .slider:before {

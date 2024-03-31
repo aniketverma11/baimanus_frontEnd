@@ -183,9 +183,7 @@ export class NewsDetailsComponent implements AfterViewInit {
             .slice(0, 4)
             .map((item: any) => item);
           console.log(this.readMoreItemsNew);
-          this.readMoreItems = data.data
-            .slice(0, 4)
-            .map((item: any) => item.title);
+          this.readMoreItems = data.data.slice(0, 4).map((item: any) => item);
           this.readMoreImages = data.data
             .slice(0, 4)
             .map((item: any) => item?.image);
@@ -249,6 +247,11 @@ export class NewsDetailsComponent implements AfterViewInit {
     this.router.navigate(['home/news-details'], {
       queryParams: { slug: slug },
     });
+  }
+  playAudio() {
+    const audio = new Audio();
+    audio.src = this.newsDetails.audio;
+    audio.play();
   }
   ngOnDestroy(): void {
     this.unsubscribe.unsubscribe();

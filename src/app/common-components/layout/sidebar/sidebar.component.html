@@ -381,6 +381,7 @@
               (change)="toggleDarkMode()"
               type="checkbox"
               id="darkModeToggle"
+              [checked]="isDarkModeInLocalStorage()"
             />
             <span class="slider round"></span>
           </label>
@@ -429,6 +430,7 @@
                     (change)="toggleDarkMode()"
                     type="checkbox"
                     id="darkModeToggle"
+                    [checked]="isDarkModeInLocalStorage()"
                   />
                   <span class="slider round"></span>
                 </label>

@@ -6,6 +6,8 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { environment } from '../../../../enviroments/environment';
 import { Router } from '@angular/router';
 import { CategoryService } from '../../../../services/category.service';
+import { LanguageService } from '../../../../services/language.service';
+import { LanguageChangeServiceService } from '../../../../services/language-change-service.service';
 
 @Component({
   selector: 'app-landing-page',
@@ -30,7 +32,7 @@ export class LandingPageComponent {
   VideoObject: any;
   VideoTitle: any;
   videoImages: any;
-  type: any = 'english';
+  type: any;
   homeInfoSlug: any;
   darkMode: boolean;
   categoryList: any;
@@ -40,7 +42,9 @@ export class LandingPageComponent {
     private sanitizer: DomSanitizer,
     private router: Router,
     private themeService: ThemeService,
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private languageService: LanguageService,
+    private LanguageChangeService: LanguageChangeServiceService
   ) {
     this.darkMode = this.themeService.isDarkMode();
     console.log(this.darkMode);
@@ -50,9 +54,16 @@ export class LandingPageComponent {
     if (typeof localStorage !== 'undefined') {
       this.type = localStorage.getItem('language');
     }
+
+    this.languageService.languageType$.subscribe((languageType) => {
+      this.type = languageType;
+      console.warn(this.type);
+      this.getHomeContent();
+    });
     this.themeService.darkModeChanged.subscribe((darkMode: boolean) => {
       this.darkMode = darkMode;
     });
+
     this.getHomeContent();
     this.getHomePhotos();
     this.getHomeVideos();
@@ -148,8 +159,10 @@ export class LandingPageComponent {
   getHomeVideos() {
     this.isLoading = true;
     this.unsubscribe.add(
-      this.apiService.getViideos().subscribe(
+      this.apiService.getViideos(this.type).subscribe(
         (res) => {
+          console.log(res);
+
           this.isLoading = false;
           this.VideoObject = res.data[0];
           this.VideoTitle = res.data.slice(0, 3).map((item: any) => item.title);

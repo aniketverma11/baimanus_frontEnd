@@ -23,6 +23,8 @@ import { YouTubePlayerModule } from '@angular/youtube-player';
 import { MatMenuModule } from '@angular/material/menu';
 import { SerachComponent } from './serach/serach.component';
 import { CategoryDetailsComponent } from './category-details/category-details.component';
+import { TranslateModule } from '@ngx-translate/core';
+import { AboutUsComponent } from './about-us/about-us.component';
 const routes: Routes = [
   {
     path: '',
@@ -53,6 +55,10 @@ const routes: Routes = [
     path: 'search',
     component: SerachComponent,
   },
+  {
+    path: 'about-us',
+    component: AboutUsComponent,
+  },
 ];
 
 @NgModule({
@@ -72,10 +78,12 @@ const routes: Routes = [
     SubscribeComponent,
     SerachComponent,
     CategoryDetailsComponent,
+    AboutUsComponent,
   ],
   imports: [
     CommonModule,
     MatExpansionModule,
+    TranslateModule,
     MatRadioModule,
     YouTubePlayerModule,
     RouterModule.forChild(routes),

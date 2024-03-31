@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ThemeService } from '../../../common-components/layout/theme.service';
 import { ApiServicesService } from '../../../../services/api-services.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-subscribe',
@@ -13,7 +14,8 @@ export class SubscribeComponent {
     private apiService: ApiServicesService,
     // private sanitizer: DomSanitizer,
     // private router: Router,
-    private themeService: ThemeService
+    private themeService: ThemeService,
+    private translateService: TranslateService
   ) {
     this.themeServiceInstance = this.themeService;
     console.log(this.themeServiceInstance);

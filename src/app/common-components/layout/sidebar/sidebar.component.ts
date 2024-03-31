@@ -15,6 +15,7 @@ import { AuthService } from '../../../../services/auth.service';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { LanguageService } from '../../../../services/language.service';
 import { Router } from '@angular/router';
+import { LanguageChangeServiceService } from '../../../../services/language-change-service.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -48,7 +49,8 @@ export class SidebarComponent implements OnInit {
     private translateService: TranslateService,
     private authService: AuthService,
     private languageService: LanguageService,
-    private router: Router
+    private router: Router,
+    private LanguageChangeService: LanguageChangeServiceService
   ) {
     this.darkMode = this.themeService.isDarkMode();
   }
@@ -74,6 +76,7 @@ export class SidebarComponent implements OnInit {
   toggleDarkMode(): void {
     this.darkMode = !this.darkMode;
     this.themeService.toggleDarkMode();
+    localStorage.setItem('darkMode', JSON.stringify(this.darkMode));
   }
 
   toggleSidebar() {}
@@ -180,12 +183,13 @@ export class SidebarComponent implements OnInit {
     }
 
     this.translateService.use(newLanguage);
+    this.LanguageChangeService.emitLanguageChange();
     const currentUrl = this.router.url;
-    if (currentUrl === '/home') {
-      // location.reload();
-    } else {
-      this.router.navigate(['/home']);
-    }
+    // if (currentUrl === '/home') {
+    //   // location.reload();
+    // } else {
+    //   this.router.navigate(['/home']);
+    // }
   }
 
   checkScreenWidth() {
@@ -207,6 +211,16 @@ export class SidebarComponent implements OnInit {
     });
   }
   onmenuCHange() {}
+
+  isDarkModeInLocalStorage(): boolean {
+    if (typeof localStorage !== 'undefined') {
+      const isDark = localStorage.getItem('darkMode');
+      return isDark === 'true';
+    } else {
+      return false;
+    }
+  }
+
   ngOnDestroy(): void {
     this.unsubscribe.unsubscribe();
   }

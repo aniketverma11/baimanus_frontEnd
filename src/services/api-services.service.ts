@@ -43,8 +43,9 @@ export class ApiServicesService {
       `${environment.apiBaseUrl}${VIDEOS_DETAILS}${slug}`
     );
   }
-  getViideos(): Observable<any> {
-    return this.httpClient.get(environment.apiBaseUrl + VIDEOS);
+  getViideos(type: any): Observable<any> {
+    const url = `${environment.apiBaseUrl}${VIDEOS}?type=${type}`;
+    return this.httpClient.get(url);
   }
 
   serach(slug: string, type: any): Observable<any> {

@@ -49,16 +49,16 @@
       class="stay-updated"
       [ngClass]="{ 'dark-mode-section': themeServiceInstance.isDarkMode() }"
     >
-      <h2>Stay Updated</h2>
+      <h2>{{ "Stay Updated" | translate }}</h2>
       <app-subscribe></app-subscribe>
     </div>
     <div class="line"></div>
 
     <div
       class="more-news"
-      [ngClass]="{ 'dark-mode-section': themeServiceInstance.isDarkMode() }"
+      [ngClass]="{ 'dark-mode': themeServiceInstance.isDarkMode() }"
     >
-      <h2>More News</h2>
+      <h2>{{ "More News" | translate }}</h2>
       <hr />
       <span *ngFor="let item of readMoreItems; let i = index">
         <div class="news-item" (click)="getHomeContentBySlug(item?.slug)">
@@ -122,7 +122,7 @@
         transform="translate(12.922 18.535)"
       ></path>
     </svg>
-    <h2>Videos</h2>
+    <h2>{{ "Videos" | translate }}</h2>
   </div>
 </div>
 
@@ -181,7 +181,7 @@
           </g>
         </g>
       </svg>
-      <h2>Photos</h2>
+      <h2>{{ "Photos" | translate }}</h2>
     </div>
     <div class="photos">
       <div class="photos-left">
@@ -214,15 +214,18 @@
 <section
   class="home-entertain-block"
   [ngClass]="{ 'dark-mode': darkMode, 'light-mode': !darkMode }"
-  *ngFor="let category of categoryList; let i = index"
 >
-  <div class="container">
+  <div
+    class="container d-flex"
+    *ngFor="let category of categoryList; let i = index"
+  >
     <div class="entertain-block">
       <div class="entertain-inner-block">
         <div class="entertain-title">
           <h2 [ngClass]="{ 'dark-color': darkMode }">{{ category.name }}</h2>
           <div>
             <svg
+              class="arrow"
               version="1.0"
               xmlns="http://www.w3.org/2000/svg"
               width="32"
@@ -284,7 +287,7 @@
     </div>
   </div>
 
-  <ng-container *ngIf="(i + 1) % 4 === 0 && i !== categoryList.length - 1">
+  <!-- <ng-container *ngIf="(i + 1) % 4 === 0 && i !== categoryList.length - 1">
     <app-subscribe></app-subscribe>
-  </ng-container>
+  </ng-container> -->
 </section>

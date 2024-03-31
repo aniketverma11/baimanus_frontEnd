@@ -1,0 +1,17 @@
+.about-us {
+  padding: 20px 0;
+}
+
+.about-us .container {
+  max-width: 800px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+.about-us h2 {
+  margin-top: 20px;
+}
+
+.about-us p {
+  line-height: 1.6;
+}
