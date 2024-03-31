@@ -21,6 +21,8 @@ import { NewsSectionComponent } from './landing-page/news-section/news-section.c
 import { HomePageVideosComponent } from './landing-page/videos/home-page-videos/home-page-videos.component';
 import { YouTubePlayerModule } from '@angular/youtube-player';
 import { MatMenuModule } from '@angular/material/menu';
+import { SerachComponent } from './serach/serach.component';
+import { CategoryDetailsComponent } from './category-details/category-details.component';
 const routes: Routes = [
   {
     path: '',
@@ -47,6 +49,10 @@ const routes: Routes = [
     path: 'videos',
     component: VideosComponent,
   },
+  {
+    path: 'search',
+    component: SerachComponent,
+  },
 ];
 
 @NgModule({
@@ -64,6 +70,8 @@ const routes: Routes = [
     NewsSectionComponent,
     HomePageVideosComponent,
     SubscribeComponent,
+    SerachComponent,
+    CategoryDetailsComponent,
   ],
   imports: [
     CommonModule,

@@ -34,6 +34,7 @@ export class SidebarComponent implements OnInit {
   user_profile_picture: any;
   showDropdown = false;
   isLoading: boolean = false;
+  type: any = 'english';
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
     this.checkScreenWidth();
@@ -53,9 +54,13 @@ export class SidebarComponent implements OnInit {
   }
 
   ngOnInit() {
-    // set deault Language to englis
-    // localStorage.setItem('language', 'english');
+    this.themeService.darkModeChanged.subscribe((darkMode: boolean) => {
+      this.darkMode = darkMode;
+    });
 
+    if (typeof localStorage !== 'undefined') {
+      this.type = localStorage.getItem('language');
+    }
     this.getAllCategories();
 
     if (typeof sessionStorage !== 'undefined') {
@@ -69,9 +74,6 @@ export class SidebarComponent implements OnInit {
   toggleDarkMode(): void {
     this.darkMode = !this.darkMode;
     this.themeService.toggleDarkMode();
-    const sidebar = document.querySelector('.sidebar');
-    this.renderer.setStyle(sidebar, ' background-color', ' rgb(255, 255, 255)');
-    this.renderer.setStyle(sidebar, ' color', 'green');
   }
 
   toggleSidebar() {}
@@ -96,15 +98,20 @@ export class SidebarComponent implements OnInit {
     });
   }
   getAllCategories() {
+    if (!this.type) {
+      this.type = 'english';
+    }
     this.isLoading = true;
     this.unsubscribe.add(
-      this.categoryService.getAllCategories().subscribe(
+      this.categoryService.getFourCategories(this.type).subscribe(
         (data) => {
           this.isLoading = false;
 
           this.categoryList = data.data;
+          console.log(this.categoryList);
 
-          this.visibleCategories = [...this.categoryList.slice(0, 5)];
+          this.visibleCategories = [...this.categoryList.slice(0, 10)];
+          console.log(this.visibleCategories);
         },
         (error) => {
           console.error(error);
@@ -143,19 +150,42 @@ export class SidebarComponent implements OnInit {
   switchLanguage() {
     const currentLanguage = this.translateService.currentLang;
     const newLanguage = currentLanguage === 'en' ? 'mr' : 'en';
-    let setlangauge: string;
-    if (currentLanguage === 'en') {
-      setlangauge = 'marathi';
-    } else if (currentLanguage === 'mr') {
-      setlangauge = 'english';
-    } else {
-      setlangauge = 'english';
+    const isLanguageAlready = localStorage.getItem('language');
+
+    if (!isLanguageAlready) {
+      let setlangauge: string;
+      if (currentLanguage === 'en') {
+        setlangauge = 'marathi';
+        localStorage.setItem('language', setlangauge);
+      }
+      if (currentLanguage === 'mr') {
+        setlangauge = 'english';
+        console.log('113331');
+
+        localStorage.setItem('language', setlangauge);
+      }
+    }
+    if (isLanguageAlready) {
+      let setlangauge: string;
+      if (currentLanguage === 'en') {
+        setlangauge = 'marathi';
+        localStorage.setItem('language', setlangauge);
+      }
+      if (currentLanguage === 'mr') {
+        setlangauge = 'english';
+        console.log('113331');
+
+        localStorage.setItem('language', setlangauge);
+      }
     }
 
-    localStorage.setItem('language', setlangauge);
-    console.log(localStorage.getItem('language'));
-
     this.translateService.use(newLanguage);
+    const currentUrl = this.router.url;
+    if (currentUrl === '/home') {
+      // location.reload();
+    } else {
+      this.router.navigate(['/home']);
+    }
   }
 
   checkScreenWidth() {
@@ -169,7 +199,14 @@ export class SidebarComponent implements OnInit {
     this.router.navigate(['/home/plan_section']);
     this.checkScreenWidth();
   }
+  getHomeContentBySlug(slug: any) {
+    console.log(slug);
 
+    this.router.navigate(['home/news-details'], {
+      queryParams: { slug: slug },
+    });
+  }
+  onmenuCHange() {}
   ngOnDestroy(): void {
     this.unsubscribe.unsubscribe();
   }

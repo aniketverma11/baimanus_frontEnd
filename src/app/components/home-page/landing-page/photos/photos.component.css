@@ -18,7 +18,7 @@
 }
 .right-section .line {
   border: none;
-  border-top: 1px solid #febf0f;
+  border-top: 1px solid #fa9000;
 
   position: absolute;
   top: 50%;
@@ -26,7 +26,7 @@
   transform: translateY(-50%);
   width: 100px; /* Adjust line length */
   height: 1px;
-  background-color: #febf0f; /* Adjust line color */
+  background-color: #fa9000; /* Adjust line color */
 }
 
 .content-details {
@@ -126,7 +126,7 @@ img {
   height: var(--space4);
   width: 178px;
   border: 1px solid #292929;
-  background-color: #febf0f;
+  background-color: #fa9000;
   color: #292929;
 }
 

@@ -188,7 +188,7 @@ export class NewsDetailsComponent implements AfterViewInit {
             .map((item: any) => item.title);
           this.readMoreImages = data.data
             .slice(0, 4)
-            .map((item: any) => item.image);
+            .map((item: any) => item?.image);
 
           console.log(this.homeInfo);
         },

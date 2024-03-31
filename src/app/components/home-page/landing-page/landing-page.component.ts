@@ -5,6 +5,7 @@ import { Subscription, catchError } from 'rxjs';
 import { DomSanitizer } from '@angular/platform-browser';
 import { environment } from '../../../../enviroments/environment';
 import { Router } from '@angular/router';
+import { CategoryService } from '../../../../services/category.service';
 
 @Component({
   selector: 'app-landing-page',
@@ -29,28 +30,43 @@ export class LandingPageComponent {
   VideoObject: any;
   VideoTitle: any;
   videoImages: any;
-  type: any;
+  type: any = 'english';
   homeInfoSlug: any;
+  darkMode: boolean;
+  categoryList: any;
+  categoryListPosts: any;
   constructor(
     private apiService: ApiServicesService,
     private sanitizer: DomSanitizer,
     private router: Router,
-    private themeService: ThemeService
-  ) {}
+    private themeService: ThemeService,
+    private categoryService: CategoryService
+  ) {
+    this.darkMode = this.themeService.isDarkMode();
+    console.log(this.darkMode);
+  }
 
   ngOnInit() {
-    this.type = localStorage.getItem('language');
+    if (typeof localStorage !== 'undefined') {
+      this.type = localStorage.getItem('language');
+    }
+    this.themeService.darkModeChanged.subscribe((darkMode: boolean) => {
+      this.darkMode = darkMode;
+    });
     this.getHomeContent();
     this.getHomePhotos();
     this.getHomeVideos();
+    this.getAllCategories();
   }
   getHomePhotos() {
     this.isLoading = true;
     this.unsubscribe.add(
-      this.apiService.getPhotos().subscribe(
+      this.apiService.getPhotos(this.type).subscribe(
         (data) => {
           this.isLoading = false;
           this.homePhotos = data.data;
+          console.log(data.data[0]);
+
           this.homePhotosSlug = data.data[0].slug;
 
           this.headingPhoto = this.homePhotos[0]?.content;
@@ -61,7 +77,7 @@ export class LandingPageComponent {
 
           this.headingTitle = this.homePhotos
             .slice(0, 3)
-            .map((item: any) => item.title);
+            .map((item: any) => item);
         },
         (error) => {
           console.error(error);
@@ -73,6 +89,10 @@ export class LandingPageComponent {
   getHomeContent() {
     this.isLoading = true;
     console.log(this.type);
+
+    if (!this.type) {
+      this.type = 'english';
+    }
 
     this.unsubscribe.add(
       this.apiService.getHomeContent(this.type).subscribe(
@@ -86,7 +106,7 @@ export class LandingPageComponent {
             .slice(0, 3)
             .map((item: any) => item.slug);
 
-          this.readMoreItems = data.data.slice(0, 4).map((item: any) => item);
+          this.readMoreItems = data.data.slice(0, 3).map((item: any) => item);
           console.log(this.readMoreItems);
 
           this.readMoreImages = data.data
@@ -101,6 +121,8 @@ export class LandingPageComponent {
   }
 
   getHomeContentBySlug(slug: any) {
+    console.log();
+
     this.router.navigate(['home/news-details'], {
       queryParams: { slug: slug },
     });
@@ -143,6 +165,8 @@ export class LandingPageComponent {
   }
 
   navigate(slug: any) {
+    console.log(slug);
+
     this.router.navigate(['home/photos'], {
       queryParams: { slug: slug },
     });
@@ -155,6 +179,46 @@ export class LandingPageComponent {
   get themeServiceInstance(): ThemeService {
     return this.themeService;
   }
+
+  getAllCategories() {
+    this.isLoading = true;
+    this.unsubscribe.add(
+      this.categoryService.getFourCategories(this.type).subscribe(
+        (data) => {
+          this.isLoading = false;
+
+          this.categoryList = data.data;
+          console.log(this.categoryList);
+
+          this.categoryListPosts = this.categoryList.map(
+            (item: any) => item.posts
+          );
+          console.log(this.categoryListPosts);
+        },
+        (error) => {
+          console.error(error);
+        }
+      )
+    );
+  }
+
+  async getLandingPageCategoryDetails(
+    slug: string,
+    index: number
+  ): Promise<string> {
+    try {
+      this.isLoading = true;
+      const res = await this.categoryService
+        .getFourCategories(this.type)
+        .toPromise();
+      this.isLoading = false;
+      return res.data.title;
+    } catch (error) {
+      console.error(error);
+      return ''; // or handle error as needed
+    }
+  }
+
   ngOnDestroy(): void {
     this.unsubscribe.unsubscribe();
   }

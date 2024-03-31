@@ -27,6 +27,8 @@ export class PhotosComponent {
   readMoreSlug: any;
   slug: any;
   allImages: any;
+  type: any;
+  currentIndex = 0;
   constructor(
     private apiService: ApiServicesService,
     private router: Router,
@@ -46,20 +48,25 @@ export class PhotosComponent {
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    if (typeof localStorage !== 'undefined') {
+      this.type = localStorage.getItem('language');
+    }
+  }
 
   getHomePhotos(slug: string) {
-    slug = 'test';
+    // slug = 'test';
     console.log(slug);
 
     this.isLoading = true;
     this.unsubscribe.add(
-      this.apiService.getPhotosDetails(slug).subscribe(
+      this.apiService.getPhotosDetails(slug, this.type).subscribe(
         (data) => {
           console.log('data', data);
 
           this.isLoading = false;
           this.homePhotos = data.data;
+          console.log(this.homePhotos);
 
           this.trendingNews = data.data.treanding_news;
           console.log(this.trendingNews);
@@ -129,5 +136,20 @@ export class PhotosComponent {
     const match = content.match(srcRegex);
     const src = match ? match[1] : null;
     return this.imageBaseURL + src;
+  }
+
+  prev(index: number) {
+    if (this.currentIndex === index) {
+      this.currentIndex =
+        (this.currentIndex + this.homePhotos.images.length - 1) %
+        this.homePhotos.images.length;
+    }
+  }
+
+  next(index: number) {
+    if (this.currentIndex === index) {
+      this.currentIndex =
+        (this.currentIndex + 1) % this.homePhotos.images.length;
+    }
   }
 }

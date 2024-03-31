@@ -1,8 +1,11 @@
-<section class="subscribeee-body">
+<section id="section" class="subscribeee-body">
   <div class="sub-outer-container">
     <!-- <h2>Subscribe to BAIMANUS DAILY</h2> -->
     <hr />
-    <div class="subscription-container">
+    <div
+      class="subscription-container"
+      [ngClass]="{ 'dark-mode': themeServiceInstance.isDarkMode() }"
+    >
       <!-- <h6>For impactful stories you just can't miss</h6> -->
       <div class="newsletter-info">
         <img

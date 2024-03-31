@@ -18,7 +18,7 @@
 }
 .right-section .line {
   border: none;
-  border-top: 1px solid #febf0f;
+  border-top: 1px solid #fa9000;
 
   position: absolute;
   top: 50%;
@@ -26,7 +26,7 @@
   transform: translateY(-50%);
   width: 100px; /* Adjust line length */
   height: 1px;
-  background-color: #febf0f; /* Adjust line color */
+  background-color: #fa9000; /* Adjust line color */
 }
 
 .content-details {
@@ -122,7 +122,7 @@ h1 {
   height: var(--space4);
   width: 178px;
   border: 1px solid #292929;
-  background-color: #febf0f;
+  background-color: #fa9000;
   color: #292929;
 }
 
@@ -257,20 +257,6 @@ h1 {
 .whatsapp-text {
   font-size: 10px;
 }
-/* news-details.component.css */
-.small-text {
-  font-size: 12px; /* Define your small font size */
-}
-
-.medium-text {
-  font-size: 16px; /* Define your medium font size */
-}
-
-.large-text {
-  font-size: 20px; /* Define your large font size */
-}
-
-/* comments section  */
 
 .comments-section {
   background-color: #fff;
@@ -387,4 +373,14 @@ h1 {
   border: none;
   color: #35144f;
   font-weight: bolder;
+}
+.caps {
+  font-size: 30px;
+  font-weight: 800;
+  color: #052962;
+}
+.smallL {
+  font-size: 25px;
+  font-weight: 800;
+  color: #052962;
 }

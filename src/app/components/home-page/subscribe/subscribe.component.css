@@ -59,7 +59,7 @@ h1 {
 
 .subscribe-form button {
   padding: 10px 20px;
-  background-color: #35144f;
+  background-color: #052962;
   color: #fff;
   border: none;
   border-radius: 0 4px 4px 0;
@@ -100,4 +100,9 @@ h1 {
   font-size: 28px;
   line-height: 36px;
   font-weight: 600;
+}
+
+.dark-mode p {
+  background-color: #333 !important;
+  color: #fff !important;
 }

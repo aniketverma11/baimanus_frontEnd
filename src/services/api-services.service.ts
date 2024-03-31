@@ -7,6 +7,7 @@ import {
   HOME_CONTENT_BY_SLUG,
   PHOTOS,
   PHOTOS_DETAILS,
+  SEARCH,
   VIDEOS,
   VIDEOS_DETAILS,
 } from '../enviroments/api-path';
@@ -28,12 +29,13 @@ export class ApiServicesService {
     );
   }
 
-  getPhotos(): Observable<any> {
-    return this.httpClient.get(environment.apiBaseUrl + PHOTOS);
+  getPhotos(type: any): Observable<any> {
+    const url = `${environment.apiBaseUrl}${PHOTOS}?type=${type}`;
+    return this.httpClient.get(url);
   }
-  getPhotosDetails(slug: string): Observable<any> {
+  getPhotosDetails(slug: string, type: any): Observable<any> {
     return this.httpClient.get(
-      `${environment.apiBaseUrl}${PHOTOS_DETAILS}${slug}`
+      `${environment.apiBaseUrl}${PHOTOS_DETAILS}${slug}?type=${type}`
     );
   }
   getVideosDetails(slug: string): Observable<any> {
@@ -43,6 +45,12 @@ export class ApiServicesService {
   }
   getViideos(): Observable<any> {
     return this.httpClient.get(environment.apiBaseUrl + VIDEOS);
+  }
+
+  serach(slug: string, type: any): Observable<any> {
+    return this.httpClient.get(
+      `${environment.apiBaseUrl}${SEARCH}${slug}?type=${type}`
+    );
   }
   // getVideos(type: string): Observable<any> {
   //   const url = `${environment.apiBaseUrl}${VIDEOS}?type=${type}`;

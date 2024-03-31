@@ -1,0 +1,21 @@
+<section id="section" class="subscribeee-body">
+  <div class="sub-outer-container">
+    <hr />
+    <div class="subscription-container">
+      <div class="newsletter-info"></div>
+      <div class="subscribe-form">
+        <!-- Bind the form submission to the search function -->
+        <form (submit)="search(searchQuery.value, type.value)">
+          <input
+            type="text"
+            #searchQuery
+            placeholder="Type here...."
+            required
+          />
+          <input type="hidden" #type value="english" />
+          <button type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

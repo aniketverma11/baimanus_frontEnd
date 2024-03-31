@@ -88,7 +88,7 @@ footer a {
   color: #ffffff;
 }
 footer h3 {
-  color: #febf0f;
+  color: #fa9000;
 }
 footer .bottom-footer {
   display: flex;
@@ -97,7 +97,7 @@ footer .bottom-footer {
 }
 #become-member-button {
   padding: 10px 15px;
-  background: #febf0f;
+  background: #fa9000;
   border-radius: 23px;
 }
 ._2_rjA {
@@ -107,6 +107,7 @@ footer .bottom-footer {
 select {
   border: none;
   font-size: 18px;
+  max-width: 74px;
 }
 .bottom-footer ._3HZlw {
   display: flex;
@@ -222,7 +223,7 @@ body.dark-theme .sidebar {
 }
 
 input:checked + .slider {
-  background-color: #020202;
+  background-color: #1b1919;
 }
 
 input:checked + .slider:before {
@@ -370,7 +371,7 @@ input:checked + .slider:before {
   top: 0;
   left: 106px;
   border-radius: 30px;
-  background-color: #febf0f;
+  background-color: #fa9000;
   width: 145px;
   display: flex;
   flex-direction: row;

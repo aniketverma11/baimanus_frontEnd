@@ -1,16 +1,18 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ThemeService {
   private darkMode = false;
+  darkModeChanged: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   toggleDarkMode(): void {
     this.darkMode = !this.darkMode;
     this.applyTheme();
     this.applyFooterTheme();
     this.applyHTheme();
+    this.darkModeChanged.emit(this.darkMode);
   }
 
   private applyTheme(): void {
@@ -22,7 +24,6 @@ export class ThemeService {
     console.log(footer);
 
     const header = document.getElementById('header');
-    console.log(header, 'header=====>');
 
     if (footer) {
       footer.classList.toggle('dark-theme', this.darkMode);

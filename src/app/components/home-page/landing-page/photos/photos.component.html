@@ -16,6 +16,8 @@
     </div>
     <div class="category-image">
       <ng-container *ngFor="let image of homePhotos.images">
+        <!-- <app-photos-details [photos]="image"></app-photos-details> -->
+
         <img [src]="getFullImagePath(image.image)" alt="" />
       </ng-container>
       <div class="shar-section">

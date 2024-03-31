@@ -1,4 +1,5 @@
 export const GET_ALL_CATEGORIES = 'categories/';
+export const GET__CATEGORIES_HOME = 'posts/category-post/';
 
 export const HOME_CONTENT = 'posts/home_content/';
 
@@ -8,3 +9,4 @@ export const PHOTOS = 'photos';
 export const PHOTOS_DETAILS = 'photos/';
 export const VIDEOS = 'videos';
 export const VIDEOS_DETAILS = 'videos/';
+export const SEARCH = 'posts/search/';

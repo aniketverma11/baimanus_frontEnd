@@ -4496,8 +4496,8 @@
   top: 0;
   left: -2px;
   border-radius: 0 var(--br-8xs) var(--br-8xs) 0;
-  background-color: #febf0f;
-  border: 1px solid #febf0f;
+  background-color: #fa9000;
+  border: 1px solid #fa9000;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -4688,7 +4688,7 @@ app-payment-card {
   grid-gap: 40px;
 }
 h2.member-benefits{
-  color: #febf0f;
+  color: #fa9000;
   font-size: 36px;
   text-align: center;
   margin: 0;

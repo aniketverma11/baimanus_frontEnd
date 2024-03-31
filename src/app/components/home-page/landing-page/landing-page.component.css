@@ -18,7 +18,7 @@
 }
 /* .right-section .line {
   border: none;
-  border-top: 1px solid #febf0f;
+  border-top: 1px solid #fa9000;
 
   position: absolute;
   top: 50%;
@@ -26,7 +26,7 @@
 /* transform: translateY(-50%);
   width: 100px; /* Adjust line length */
 /* height: 1px; */
-/* background-color: #febf0f; Adjust line color */
+/* background-color: #fa9000; Adjust line color */
 /* }  */
 
 .content-details {
@@ -45,16 +45,16 @@
   color: #555;
   margin-bottom: 40px;
 }
-.title {
-  /* color: #35144f; */
-}
+/* .title {
+  color: #35144f;
+} */
 h1 {
   /* color: #35144f; */
   font-size: 25px;
   line-height: 35px;
   font-weight: 700;
 }
-.news-right-title h2{
+.news-right-title h2 {
   font-size: 22px;
   line-height: 28px;
   font-weight: 700;
@@ -136,7 +136,7 @@ h1 {
   height: var(--space4);
   width: 178px;
   border: 1px solid #292929;
-  background-color: #febf0f;
+  background-color: #fa9000;
   color: #292929;
 }
 
@@ -323,12 +323,65 @@ h2 {
     grid-template-columns: 1fr;
   }
 }
-.more-news p, 
-.news-left .box span{
+.more-news p,
+.news-left .box span {
   font-size: 18px;
   line-height: 25px;
   font-weight: 700;
 }
-.advertisment-top{
+.advertisment-top {
   min-height: 80px;
+}
+.entertain-block {
+  margin-bottom: 40px;
+}
+.home-entertain-block .container,
+.entertain-headlines-outer-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 40px;
+}
+.entertain-title {
+  display: flex;
+  justify-content: space-between;
+}
+.entertain-title h2 {
+  font-size: 36px;
+  line-height: 50px;
+  font-weight: 700;
+}
+.entertain-headlines-outer-block h4 {
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 700;
+  /* color: #35144f; */
+  padding: 10px 20px;
+}
+.enterblock-shadow {
+  border-top: 4px solid #35144f;
+  border-radius: 5px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15);
+  min-height: 129px;
+}
+.home-block-titles {
+  display: flex;
+  align-items: center;
+}
+.home-block-titles h2 {
+  margin-left: -60px;
+}
+.home-block-titles.video-block {
+  margin-bottom: -20px;
+}
+
+/* dark color changes  */
+h4 .dark-mode h2,
+.dark-mode svg path,
+.dark-mode .dark-color {
+  color: #ffffff;
+}
+
+.entertain-image-block img {
+  max-width: 100%;
+  max-height: 100%;
 }

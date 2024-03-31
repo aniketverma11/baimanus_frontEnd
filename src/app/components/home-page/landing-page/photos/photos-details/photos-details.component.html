@@ -1,1 +1,8 @@
-<p>photos-details works!</p>
+<div class="slider">
+  <img
+    [src]="getFullImagePath(photos[currentIndex]?.image)"
+    [alt]="photos[currentIndex]?.image_alt"
+  />
+  <button (click)="prev()">Previous</button>
+  <button (click)="next()">Next</button>
+</div>

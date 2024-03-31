@@ -1,4 +1,9 @@
+<div class="loader" *ngIf="isLoading == true">
+  <div class="circle"></div>
+</div>
+
 <div
+  *ngIf="isLoading == false"
   class="container"
   [ngClass]="{
     'small-text': textSize === 'small',
@@ -12,7 +17,7 @@
       <h1>{{ newsDetails?.title }}</h1>
 
       <div class="content-details">
-        <p>{{ newsDetails.short_description }}</p>
+        <p>{{ newsDetails?.short_description }}</p>
 
         <strong>
           <span class="author-name">{{ newsDetails?.author }}</span>
@@ -74,7 +79,9 @@
             </div>
             <div class="share_rightt">
               <div class="TextSizing">
-                <button mat-button [matMenuTriggerFor]="menuText">Aa</button>
+                <button mat-button [matMenuTriggerFor]="menuText">
+                  <span class="caps">A</span><span class="smallL">a</span>
+                </button>
                 <mat-menu #menuText="matMenu">
                   <button mat-menu-item (click)="setTextSize('small')">
                     Small
@@ -202,11 +209,11 @@
       <div class="articalread">
         <div
           [innerHTML]="
-            news.expanded ? news.content : truncateHtmlContent(news.content)
+            news?.expanded ? news.content : truncateHtmlContent(news?.content)
           "
         ></div>
         <button class="read-full-article" (click)="toggleExpanded(news)">
-          {{ news.expanded ? "Show Less" : "Read Full Article" }}
+          {{ news?.expanded ? "Show Less" : "Read Full Article" }}
         </button>
       </div>
 
@@ -251,7 +258,7 @@
           [src]="getFullImagePath(readMoreImagesDetail[i])"
           [alt]="'News Item ' + (i + 1)"
         />
-        <p>{{ item }}</p>
+        <p (click)="NavigateWithSlug(item?.slug)">{{ item?.title }}</p>
       </div>
       <hr />
     </div>

@@ -24,16 +24,20 @@ body.dark-theme {
   background-color: #1a1a1a !important;
   color: #fff;
 }
+.dark-theme #setion {
+  background-color: #1a1a1a !important;
+  color: #fff;
+}
 
 body {
   margin: 0;
   line-height: normal;
 }
-.dark-mode h3,
+/* .dark-mode h3,
 .dark-mode p,
 .dark-mode .more-news p {
   color: white;
-}
+} */
 p {
   font-size: 18px;
   line-height: 24px;
@@ -223,4 +227,37 @@ p {
 ::ng-deep .mat-tab-label-active {
   background-color: #ff8800;
   color: #ffffff;
+}
+.loader {
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 5px solid #ccc;
+  border-top-color: #333;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.small-text {
+  font-size: 18px;
+}
+
+.medium-text {
+  font-size: 20px;
+}
+
+.large-text {
+  font-size: 22px;
 }
