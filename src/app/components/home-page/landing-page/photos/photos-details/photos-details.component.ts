@@ -8,7 +8,7 @@ import { environment } from '../../../../../../enviroments/environment';
 })
 export class PhotosDetailsComponent {
   private imageBaseURL = environment.imagesBaseURL;
-  @Input() photos: any;
+  @Input() photos: any[] = [];
   currentIndex = 0;
 
   constructor() {

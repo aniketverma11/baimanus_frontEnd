@@ -1,5 +1,5 @@
 <div class="container top-headlines dark-mode">
-  <div class="left-section">
+  <div class="left-section" *ngIf="homeContent">
     <!-- Insert the advertiment on top section starts from here-->
     <div class="advertisment-top"></div>
     <!-- Insert the advertiment on top section ends here-->
@@ -41,13 +41,16 @@
       </div>
     </span>
   </div>
+  <!-- <div class="nodata" *ngIf="!homeContent">
+    <img src="../../../../assets/images/no-data.jpg" alt="" />
+  </div> -->
   <div
     class="right-section"
     [ngClass]="{ 'dark-mode': themeServiceInstance.isDarkMode() }"
   >
     <div
       class="stay-updated"
-      [ngClass]="{ 'dark-mode-section': themeServiceInstance.isDarkMode() }"
+      [ngClass]="{ 'dark-mode': themeServiceInstance.isDarkMode() }"
     >
       <h2>{{ "Stay Updated" | translate }}</h2>
       <app-subscribe></app-subscribe>
@@ -187,8 +190,11 @@
       <div class="photos-left">
         <span (click)="navigate(homePhotosSlug)">
           <div class="phots-heading">
-            <img src="{{ imagetitle }}" alt="" />
-            <h3 class="dark-color">{{ headingTitle[0] }}</h3>
+            <img
+              [src]="getFullImagePath(headingTitle[0]?.image)"
+              [alt]="headingTitle[0]?.image_description"
+            />
+            <h3 class="dark-color">{{ headingTitle[0]?.title }}</h3>
           </div>
         </span>
       </div>
@@ -215,11 +221,11 @@
   class="home-entertain-block"
   [ngClass]="{ 'dark-mode': darkMode, 'light-mode': !darkMode }"
 >
-  <div
-    class="container d-flex"
-    *ngFor="let category of categoryList; let i = index"
-  >
-    <div class="entertain-block">
+  <div class="container">
+    <div
+      class="entertain-block"
+      *ngFor="let category of categoryList; let i = index"
+    >
       <div class="entertain-inner-block">
         <div class="entertain-title">
           <h2 [ngClass]="{ 'dark-color': darkMode }">{{ category.name }}</h2>
@@ -284,10 +290,9 @@
           <h4>{{ category.posts[2]?.title }}</h4>
         </div>
       </div>
+      <!-- <ng-container *ngIf="(i + 1) % 4 === 0 && i !== categoryList.length - 1">
+        <app-subscribe></app-subscribe>
+      </ng-container> -->
     </div>
   </div>
-
-  <!-- <ng-container *ngIf="(i + 1) % 4 === 0 && i !== categoryList.length - 1">
-    <app-subscribe></app-subscribe>
-  </ng-container> -->
 </section>

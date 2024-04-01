@@ -47,7 +47,6 @@ export class LandingPageComponent {
     private LanguageChangeService: LanguageChangeServiceService
   ) {
     this.darkMode = this.themeService.isDarkMode();
-    console.log(this.darkMode);
   }
 
   ngOnInit() {
@@ -55,11 +54,6 @@ export class LandingPageComponent {
       this.type = localStorage.getItem('language');
     }
 
-    this.languageService.languageType$.subscribe((languageType) => {
-      this.type = languageType;
-      console.warn(this.type);
-      this.getHomeContent();
-    });
     this.themeService.darkModeChanged.subscribe((darkMode: boolean) => {
       this.darkMode = darkMode;
     });
@@ -70,13 +64,16 @@ export class LandingPageComponent {
     this.getAllCategories();
   }
   getHomePhotos() {
+    if (!this.type) {
+      this.type = 'english';
+    }
+
     this.isLoading = true;
     this.unsubscribe.add(
       this.apiService.getPhotos(this.type).subscribe(
         (data) => {
           this.isLoading = false;
           this.homePhotos = data.data;
-          console.log(data.data[0]);
 
           this.homePhotosSlug = data.data[0].slug;
 
@@ -89,6 +86,7 @@ export class LandingPageComponent {
           this.headingTitle = this.homePhotos
             .slice(0, 3)
             .map((item: any) => item);
+          console.log(this.headingTitle);
         },
         (error) => {
           console.error(error);
@@ -99,7 +97,6 @@ export class LandingPageComponent {
 
   getHomeContent() {
     this.isLoading = true;
-    console.log(this.type);
 
     if (!this.type) {
       this.type = 'english';
@@ -118,7 +115,6 @@ export class LandingPageComponent {
             .map((item: any) => item.slug);
 
           this.readMoreItems = data.data.slice(0, 3).map((item: any) => item);
-          console.log(this.readMoreItems);
 
           this.readMoreImages = data.data
             .slice(0, 4)
@@ -132,8 +128,6 @@ export class LandingPageComponent {
   }
 
   getHomeContentBySlug(slug: any) {
-    console.log();
-
     this.router.navigate(['home/news-details'], {
       queryParams: { slug: slug },
     });
@@ -157,12 +151,14 @@ export class LandingPageComponent {
   }
 
   getHomeVideos() {
+    if (!this.type) {
+      this.type = 'english';
+    }
+
     this.isLoading = true;
     this.unsubscribe.add(
       this.apiService.getViideos(this.type).subscribe(
         (res) => {
-          console.log(res);
-
           this.isLoading = false;
           this.VideoObject = res.data[0];
           this.VideoTitle = res.data.slice(0, 3).map((item: any) => item.title);
@@ -178,8 +174,6 @@ export class LandingPageComponent {
   }
 
   navigate(slug: any) {
-    console.log(slug);
-
     this.router.navigate(['home/photos'], {
       queryParams: { slug: slug },
     });
@@ -201,12 +195,10 @@ export class LandingPageComponent {
           this.isLoading = false;
 
           this.categoryList = data.data;
-          console.log(this.categoryList);
 
           this.categoryListPosts = this.categoryList.map(
             (item: any) => item.posts
           );
-          console.log(this.categoryListPosts);
         },
         (error) => {
           console.error(error);

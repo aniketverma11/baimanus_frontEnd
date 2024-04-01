@@ -4,7 +4,6 @@ import { LandingPageComponent } from './components/home-page/landing-page/landin
 import { TranslatePipe } from '@ngx-translate/core';
 
 const routes: Routes = [
-  // { path: '', component: LandingPageComponent },
   {
     path: 'home',
     loadChildren: () =>

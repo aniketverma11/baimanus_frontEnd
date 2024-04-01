@@ -1,9 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { environment } from '../../../../../enviroments/environment';
 import { Subscription } from 'rxjs';
 import { ApiServicesService } from '../../../../../services/api-services.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { ToastrService } from 'ngx-toastr';
+import { TextSizingService } from '../../../../../services/text-sizing.service';
+import { OwlOptions } from 'ngx-owl-carousel-o';
+import { ThemeService } from '../../../../common-components/layout/theme.service';
 
 @Component({
   selector: 'app-photos',
@@ -11,9 +15,36 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
   styleUrl: './photos.component.css',
 })
 export class PhotosComponent {
+  customOptions: OwlOptions = {
+    loop: true,
+    mouseDrag: false,
+    touchDrag: false,
+    pullDrag: false,
+    dots: false,
+    navSpeed: 700,
+    navText: ['', ''],
+    responsive: {
+      0: {
+        items: 1,
+      },
+      400: {
+        items: 2,
+      },
+      740: {
+        items: 3,
+      },
+      940: {
+        items: 4,
+      },
+    },
+    nav: true,
+  };
+
   private imageBaseURL = environment.imagesBaseURL;
   private unsubscribe: Subscription = new Subscription();
   isLoading: boolean = true;
+  isAudioPlaying: boolean = false;
+  audio: HTMLAudioElement = new Audio();
   homeContent: any;
   homePhotos: any;
   headingPhoto: any;
@@ -29,16 +60,23 @@ export class PhotosComponent {
   allImages: any;
   type: any;
   currentIndex = 0;
+  currentImage: string = '';
+  private websiteUrl = environment.webiste_url;
+  @ViewChild('commentsSection') commentsSection!: ElementRef;
+  isCommnetEnable: boolean = false;
+  slidesImages: any;
   constructor(
     private apiService: ApiServicesService,
     private router: Router,
     private sanitizer: DomSanitizer,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private toastr: ToastrService,
+    private textSizeService: TextSizingService,
+    private themeService: ThemeService
   ) {
     this.route.queryParams.subscribe((params) => {
       this.slug = params['slug'];
 
-      console.log(this.slug);
       if (this.slug) {
         this.getHomePhotos(this.slug);
       }
@@ -56,20 +94,29 @@ export class PhotosComponent {
 
   getHomePhotos(slug: string) {
     // slug = 'test';
-    console.log(slug);
 
     this.isLoading = true;
     this.unsubscribe.add(
       this.apiService.getPhotosDetails(slug, this.type).subscribe(
         (data) => {
-          console.log('data', data);
+          console.log(data);
 
           this.isLoading = false;
           this.homePhotos = data.data;
-          console.log(this.homePhotos);
+          if (
+            this.homePhotos &&
+            this.homePhotos.images &&
+            Array.isArray(this.homePhotos.images)
+          ) {
+            this.slidesImages = this.homePhotos.images.map(
+              (image: any) => this.imageBaseURL + image.image.replace(/"/g, '')
+            );
+            console.log(this.slidesImages);
+          }
+
+          console.log(this.slidesImages);
 
           this.trendingNews = data.data.treanding_news;
-          console.log(this.trendingNews);
 
           this.readMoreItemsDetail = data.data.read_more.map(
             (item: any) => item.title
@@ -96,6 +143,7 @@ export class PhotosComponent {
             const match = this.homePhotos[i].content.match(srcRegex);
             const src = match ? match[1] : null;
             this.imagetitle = this.imageBaseURL + src;
+            console.log();
           }
 
           // this.headingTitle = this.homePhotos
@@ -125,8 +173,6 @@ export class PhotosComponent {
     newsItem.expanded = !newsItem.expanded;
   }
   getHomeContentBySlugAndNavigate(slug: any) {
-    console.log(slug);
-
     this.router.navigate(['home/photos'], {
       queryParams: { slug: slug },
     });
@@ -151,5 +197,71 @@ export class PhotosComponent {
       this.currentIndex =
         (this.currentIndex + 1) % this.homePhotos.images.length;
     }
+  }
+
+  urlAndCopylink() {
+    const completeUrl = `${this.websiteUrl}/home/news-details?slug=${this.slug}`;
+
+    this.copyToClipboard(completeUrl);
+  }
+  copyToClipboard(text: string) {
+    const textarea = document.createElement('textarea');
+    textarea.style.position = 'fixed';
+    textarea.style.left = '0';
+    textarea.style.top = '0';
+    textarea.style.opacity = '0';
+    textarea.value = text;
+    document.body.appendChild(textarea);
+    textarea.focus();
+    textarea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textarea);
+    // window.alert('');
+    this.toastr.success('Link copied');
+  }
+  setTextSize(size: string) {
+    this.textSizeService.setTextSize(size);
+  }
+  bookmark() {
+    this.toastr.success('Bookmark added');
+  }
+  isCommnet() {
+    this.isCommnetEnable = true;
+    this.commentsSection.nativeElement.scrollIntoView({ behavior: 'smooth' });
+  }
+  playOrPauseAudio(file: string) {
+    if (!this.isAudioPlaying) {
+      // If audio is not playing, start playing
+      this.audio.src = this.imageBaseURL + file;
+      this.audio.play();
+      this.isAudioPlaying = true;
+    } else {
+      // If audio is playing, pause it
+      this.audio.pause();
+      this.isAudioPlaying = false;
+    }
+  }
+
+  //
+
+  prevImage(): void {
+    if (this.currentIndex > 0) {
+      this.currentIndex--;
+      this.currentImage = this.getFullImagePath(
+        this.homePhotos.images[this.currentIndex].image
+      );
+    }
+  }
+
+  nextImage(): void {
+    if (this.currentIndex < this.homePhotos.images.length - 1) {
+      this.currentIndex++;
+      this.currentImage = this.getFullImagePath(
+        this.homePhotos.images[this.currentIndex].image
+      );
+    }
+  }
+  get themeServiceInstance(): ThemeService {
+    return this.themeService;
   }
 }

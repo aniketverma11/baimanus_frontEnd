@@ -59,6 +59,7 @@ export class SidebarComponent implements OnInit {
     this.themeService.darkModeChanged.subscribe((darkMode: boolean) => {
       this.darkMode = darkMode;
     });
+    this.switchLanguageRefresh();
 
     if (typeof localStorage !== 'undefined') {
       this.type = localStorage.getItem('language');
@@ -96,9 +97,7 @@ export class SidebarComponent implements OnInit {
       height: '700px',
     });
 
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log('Dialog closed with result:', result);
-    });
+    dialogRef.afterClosed().subscribe((result) => {});
   }
   getAllCategories() {
     if (!this.type) {
@@ -111,10 +110,8 @@ export class SidebarComponent implements OnInit {
           this.isLoading = false;
 
           this.categoryList = data.data;
-          console.log(this.categoryList);
 
           this.visibleCategories = [...this.categoryList.slice(0, 10)];
-          console.log(this.visibleCategories);
         },
         (error) => {
           console.error(error);
@@ -135,7 +132,6 @@ export class SidebarComponent implements OnInit {
       this.loggedUser = loggedInUser;
       this.user_profile_picture = this.loggedUser.picture;
       //
-      console.log(this.loggedUser);
     }
   }
 
@@ -150,46 +146,49 @@ export class SidebarComponent implements OnInit {
     this.getAllCategories();
   }
 
+  switchLanguageRefresh() {
+    if (typeof localStorage !== 'undefined') {
+      const languageToUseOn = localStorage.getItem('language');
+
+      if (!languageToUseOn) {
+        let newLanguage;
+        if (languageToUseOn === 'english') {
+          newLanguage = 'english';
+        } else {
+          newLanguage = 'marathi';
+        }
+
+        localStorage.setItem('language', newLanguage);
+      }
+      const languageToUse = localStorage.getItem('language');
+      console.warn(languageToUse);
+
+      if (languageToUse) {
+        this.translateService.use(languageToUse);
+      }
+    }
+  }
   switchLanguage() {
-    const currentLanguage = this.translateService.currentLang;
-    const newLanguage = currentLanguage === 'en' ? 'mr' : 'en';
-    const isLanguageAlready = localStorage.getItem('language');
-
-    if (!isLanguageAlready) {
-      let setlangauge: string;
-      if (currentLanguage === 'en') {
-        setlangauge = 'marathi';
-        localStorage.setItem('language', setlangauge);
-      }
-      if (currentLanguage === 'mr') {
-        setlangauge = 'english';
-        console.log('113331');
-
-        localStorage.setItem('language', setlangauge);
-      }
-    }
-    if (isLanguageAlready) {
-      let setlangauge: string;
-      if (currentLanguage === 'en') {
-        setlangauge = 'marathi';
-        localStorage.setItem('language', setlangauge);
-      }
-      if (currentLanguage === 'mr') {
-        setlangauge = 'english';
-        console.log('113331');
-
-        localStorage.setItem('language', setlangauge);
-      }
+    this.isLoading = true;
+    const languageToUseOn = localStorage.getItem('language');
+    let newLanguage;
+    if (languageToUseOn === 'english') {
+      newLanguage = 'english';
+    } else {
+      newLanguage = 'marathi';
     }
 
-    this.translateService.use(newLanguage);
-    this.LanguageChangeService.emitLanguageChange();
-    const currentUrl = this.router.url;
-    // if (currentUrl === '/home') {
-    //   // location.reload();
-    // } else {
-    //   this.router.navigate(['/home']);
-    // }
+    localStorage.setItem('language', newLanguage);
+    const languageToUse = localStorage.getItem('language');
+
+    if (languageToUse) {
+      this.translateService.use(languageToUse);
+      this.router.navigate(['/home']);
+      // setTimeout(() => {
+      this.isLoading = false;
+      location.reload();
+      // }, 1000);
+    }
   }
 
   checkScreenWidth() {
@@ -204,8 +203,6 @@ export class SidebarComponent implements OnInit {
     this.checkScreenWidth();
   }
   getHomeContentBySlug(slug: any) {
-    console.log(slug);
-
     this.router.navigate(['home/news-details'], {
       queryParams: { slug: slug },
     });

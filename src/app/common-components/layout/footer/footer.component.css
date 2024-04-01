@@ -156,3 +156,14 @@ select {
   width: 95px;
   height: 60px;
 }
+
+.horizontal-list {
+  display: flex !important;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+/* Optional: Adjust the spacing between list items */
+.horizontal-list li {
+  margin-right: 10px; /* Adjust as needed */
+}

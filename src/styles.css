@@ -13,19 +13,22 @@
   font-family: "Nunito", sans-serif !important;
 }
 body.dark-theme {
-  background-color: #1a1a1a;
+  background-color: #333333;
   color: #fff;
 }
 .dark-theme #footer {
-  background-color: #1a1a1a;
+  background-color: #333333;
   color: #fff;
 }
 .dark-theme #header {
-  background-color: #1a1a1a !important;
+  background-color: #333333 !important;
   color: #fff;
 }
 .dark-theme #setion {
-  background-color: #1a1a1a !important;
+  background-color: #333333 !important;
+  color: #fff;
+}
+.dark-theme p {
   color: #fff;
 }
 
@@ -221,7 +224,7 @@ p {
   }
 }
 .yellow-color {
-  color: yellow;
+  color: #fa9000;
 }
 
 ::ng-deep .mat-tab-label-active {
@@ -251,7 +254,7 @@ p {
 }
 
 .small-text {
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .medium-text {
@@ -259,5 +262,23 @@ p {
 }
 
 .large-text {
-  font-size: 22px;
+  font-size: 24px;
+}
+@media only screen and (max-width: 520px) {
+  .ReadMore-section .read-more-items {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .ReadMore-section .read-more-items .item {
+    width: 100%;
+  }
+  .read-full-article {
+    margin-left: 0;
+  }
+}
+@media only screen and (max-width: 992px) {
+  .container.medium-text.ng-star-inserted {
+    display: flex;
+    flex-direction: column;
+  }
 }

@@ -124,7 +124,7 @@ select {
   padding-right: 20px;
 }
 body.dark-theme .sidebar {
-  background-color: #1a1a1a; /* Set your dark mode background color */
+  background-color: #333333; /* Set your dark mode background color */
   color: #ffffff; /* Set your dark mode text color */
 }
 
@@ -202,22 +202,24 @@ body.dark-theme .sidebar {
   position: absolute;
   cursor: pointer;
   top: 0;
-  left: -27px;
-  right: 30px;
+  left: 0;
+  right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background-color: #052962;
   transition: 0.4s;
   border-radius: 34px;
+  border: 2px solid #fff;
+  height: 68%;
 }
 
 .slider:before {
   position: absolute;
   content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: #052962;
+  height: 12px;
+  width: 11px;
+  left: 6px;
+  bottom: 5px;
+  background-color: #fff;
   transition: 0.4s;
   border-radius: 50%;
 }
@@ -403,7 +405,10 @@ input:checked + .slider:before {
 .dark-mode {
   flex: 1;
   position: relative;
-  line-height: 15px;
+  color: #ffffff;
+  font-size: 11px;
+  line-height: 13px;
+  margin-bottom: 0;
 }
 .dark-mode-wrapper,
 .home-election-label {
@@ -412,7 +417,9 @@ input:checked + .slider:before {
   justify-content: flex-start;
 }
 .dark-mode-wrapper {
-  align-self: stretch;
+  display: flex;
+  flex-direction: column-reverse !important;
+  /* align-self: stretch; */
   flex-direction: row;
   padding: 0 0 0 var(--padding-2xs);
 }
@@ -853,7 +860,7 @@ body {
   --padding-10xs: 3px;
 }
 body.dark-theme .sidebar {
-  background-color: #1a1a1a; /* Set your dark mode background color */
+  background-color: #333333; /* Set your dark mode background color */
   color: #ffffff; /* Set your dark mode text color */
 }
 
@@ -884,7 +891,7 @@ body.dark-theme .sidebar {
   border-radius: 70px !important;
 }
 #profile-button-icon-desktop {
-  background: #35144f;
+  background: transparent;
   border: none;
 }
 .middle-header .container {
@@ -926,6 +933,12 @@ body.dark-theme .sidebar {
   }
   .mheader-hamburger button img {
     width: 50px;
+  }
+  .wid768-diss {
+    display: none;
+  }
+  .dark-mode {
+    color: #052962;
   }
 }
 @media only screen and (max-width: 480px) {

@@ -2,7 +2,7 @@
 <header id="header" *ngIf="!isLoading">
   <div
     class="top-header"
-    [style.background-color]="darkMode ? '#1a1a1a' : '#052962'"
+    [style.background-color]="darkMode ? '#333 ' : '#052962'"
   >
     <div class="container">
       <div class="logos d-flex items-c">
@@ -375,7 +375,7 @@
             ></path></svg
         ></a>
         <div class="dark-mode-wrapper">
-          <b class="dark-mode">Dark Mode</b>
+          <b class="dark-mode">{{ "Dark Mode" | translate }}</b>
           <label class="dark-mode-toggle">
             <input
               (change)="toggleDarkMode()"
@@ -404,7 +404,7 @@
   <!-- side bar -->
   <div
     class="sidebar dark-theme"
-    [style.background-color]="darkMode ? '#1a1a1a' : 'rgb(255, 255, 255)'"
+    [style.background-color]="darkMode ? '#333333' : 'rgb(255, 255, 255)'"
   >
     <div class="wwwthequintcom-by-htmltode">
       <div class="div-1what"></div>
@@ -424,7 +424,7 @@
                 <b class="dark-mode">Dark Mode</b>
               </div> -->
               <div class="dark-mode-wrapper">
-                <b class="dark-mode">Dark Mode</b>
+                <b class="dark-mode">{{ "Dark Mode" | translate }}</b>
                 <label class="dark-mode-toggle">
                   <input
                     (change)="toggleDarkMode()"

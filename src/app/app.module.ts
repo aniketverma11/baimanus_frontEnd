@@ -25,6 +25,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { LoaderComponent } from './common-components/layout/loader/loader.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { CommonModule } from '@angular/common';
 //
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
     LoaderComponent,
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     MatSlideToggleModule,
     AppRoutingModule,

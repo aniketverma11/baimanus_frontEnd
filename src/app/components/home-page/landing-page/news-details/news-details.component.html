@@ -1,9 +1,7 @@
 <div class="loader" *ngIf="isLoading == true">
   <div class="circle"></div>
 </div>
-
 <div
-  *ngIf="isLoading == false"
   class="container"
   [ngClass]="{
     'small-text': textSize === 'small',
@@ -94,25 +92,12 @@
                   </button>
                 </mat-menu>
               </div>
-              <div
-                class="audio"
-                style="background-color: aqua"
-                *ngIf="newsDetails.audio"
-              >
-                <svg
-                  (click)="playAudio()"
-                  width="33"
-                  height="33"
-                  viewBox="0 0 33 23"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    id="Vector"
-                    d="M16.5 0C10.4577 0 5.46127 3.96552 3.9507 9.40394C3.60211 9.29064 3.25352 9.29064 2.90493 9.29064C1.27817 9.29064 0 10.6502 0 12.1232V16.7685C0 18.3547 1.39437 19.601 2.90493 19.601C4.53169 19.601 5.80986 18.2414 5.80986 16.7685V16.202V12.6897C5.80986 6.91133 10.5739 2.26601 16.5 2.26601C22.4261 2.26601 27.1901 6.91133 27.1901 12.6897V14.9557V16.0887V16.6552C27.1901 18.2414 28.5845 19.4877 30.0951 19.4877C31.6056 19.4877 33 18.1281 33 16.6552V12.0099C33 10.4236 31.6056 9.17734 30.0951 9.17734C29.7465 9.17734 29.3979 9.29064 29.0493 9.40394C27.5387 3.96552 22.5423 0 16.5 0ZM16.5 9.17734C15.8028 9.17734 15.338 9.74384 15.338 10.3103V21.867C15.338 22.5468 15.8028 23 16.5 23C17.1972 23 17.662 22.4335 17.662 21.867V10.4236C17.662 9.74384 17.1972 9.17734 16.5 9.17734ZM11.7359 11.5567C11.0387 11.5567 10.5739 12.1232 10.5739 12.6897V19.601C10.5739 20.2808 11.1549 20.734 11.7359 20.734C12.4331 20.734 12.8979 20.1675 12.8979 19.601V12.6897C12.8979 12.0099 12.4331 11.5567 11.7359 11.5567ZM21.2641 11.5567C20.5669 11.5567 20.1021 12.1232 20.1021 12.6897V19.601C20.1021 20.2808 20.5669 20.734 21.2641 20.734C21.9613 20.734 22.4261 20.1675 22.4261 19.601V12.6897C22.4261 12.0099 21.8451 11.5567 21.2641 11.5567ZM2.90493 11.5567C3.25352 11.5567 3.48592 11.7833 3.48592 12.1232V12.6897V14.9557V16.0887V16.6552C3.48592 16.9951 3.25352 17.2217 2.90493 17.2217C2.55634 17.2217 2.32394 16.9951 2.32394 16.6552V12.0099C2.32394 11.7833 2.55634 11.5567 2.90493 11.5567ZM30.0951 11.5567C30.4437 11.5567 30.6761 11.7833 30.6761 12.1232V16.7685C30.6761 17.1084 30.4437 17.335 30.0951 17.335C29.7465 17.335 29.5141 17.1084 29.5141 16.7685V16.202V12.6897V12.1232C29.5141 11.7833 29.7465 11.5567 30.0951 11.5567Z"
-                    class="custom-fill"
-                  ></path>
-                </svg>
+              <div class="audio" *ngIf="newsDetails.audio">
+                <img
+                  (click)="playOrPauseAudio(newsDetails?.audio)"
+                  src="../../../../../assets/icons/audio.png"
+                  alt=""
+                />
               </div>
 
               <div class="bookmark" (click)="bookmark()">
@@ -223,6 +208,83 @@
       <div class="category-image">
         <img [src]="getFullImagePath(news.image)" alt="{{ news?.image_alt }}" />
         <div class="shar-section">
+          <div class="Share icon">
+            <div class="shareLeft d-flex">
+              <button class="Menus" mat-button [matMenuTriggerFor]="menu">
+                <img src="../../../../../assets/icons/share_icon.png" alt="" />
+              </button>
+              Share
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item>
+                  <img src="../../../../../assets/icons/whats app.png" alt="" />
+                  <span class="iconNaming"
+                    ><span class="whatsapp-text">WhatsApp</span></span
+                  >
+                </button>
+                <button mat-menu-item>
+                  <img src="../../../../../assets/icons/facebook.png" alt="" />
+                  <span class="iconNaming"
+                    ><span class="whatsapp-text">Facebook</span></span
+                  >
+                </button>
+                <button mat-menu-item>
+                  <img src="../../../../../assets/icons/twitter_X.png" alt="" />
+                  <span class="iconNaming"
+                    ><span class="whatsapp-text">x</span></span
+                  >
+                </button>
+                <button mat-menu-item>
+                  <img src="../../../../../assets/icons/telegrame.png" alt="" />
+                  <span class="iconNaming"
+                    ><span class="whatsapp-text">Telegrame</span></span
+                  >
+                </button>
+                <span (click)="urlAndCopylink()">
+                  <button mat-menu-item>
+                    <img
+                      src="../../../../../assets/icons/copy_link.png"
+                      alt=""
+                    />
+                    <span class="iconNaming"
+                      ><span class="whatsapp-text">Copy link</span></span
+                    >
+                  </button>
+                </span>
+              </mat-menu>
+            </div>
+            <div class="share_rightt">
+              <div class="TextSizing">
+                <button mat-button [matMenuTriggerFor]="menuText">
+                  <span class="caps">A</span><span class="smallL">a</span>
+                </button>
+                <mat-menu #menuText="matMenu">
+                  <button mat-menu-item (click)="setTextSize('small')">
+                    Small
+                  </button>
+                  <button mat-menu-item (click)="setTextSize('medium')">
+                    Medium
+                  </button>
+                  <button mat-menu-item (click)="setTextSize('large')">
+                    Large
+                  </button>
+                </mat-menu>
+              </div>
+              <div class="audio" *ngIf="newsDetails.audio">
+                <img
+                  (click)="playOrPauseAudio(newsDetails?.audio)"
+                  src="../../../../../assets/icons/audio.png"
+                  alt=""
+                />
+              </div>
+
+              <div class="bookmark" (click)="bookmark()">
+                <img src="../../../../../assets/icons/bookmark.png" alt="" />
+              </div>
+              <div class="commets" (click)="isCommnet()">
+                <img src="../../../../../assets/icons/commentsTwo.png" alt="" />
+              </div>
+            </div>
+          </div>
           <hr />
         </div>
       </div>
@@ -263,15 +325,24 @@
     </span>
   </div>
 
-  <div class="right-section">
-    <div class="stay-updated">
-      <h2>Stay Updated</h2>
+  <div
+    class="right-section"
+    [ngClass]="{ 'dark-mode': themeServiceInstance.isDarkMode() }"
+  >
+    <div
+      class="stay-updated"
+      [ngClass]="{ 'dark-mode': themeServiceInstance.isDarkMode() }"
+    >
+      <h2>{{ "Stay Updated" | translate }}</h2>
       <app-subscribe></app-subscribe>
     </div>
-    <div class="line"></div>
+    <div class="line" style="display: none"></div>
 
-    <div class="more-news">
-      <h2>More News</h2>
+    <div
+      class="more-news"
+      [ngClass]="{ 'dark-mode': themeServiceInstance.isDarkMode() }"
+    >
+      <h2>{{ "More News" | translate }}</h2>
       <hr />
       <div
         class="news-item"

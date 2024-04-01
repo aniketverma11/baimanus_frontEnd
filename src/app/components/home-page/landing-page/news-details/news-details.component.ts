@@ -12,6 +12,7 @@ import { Subscription, catchError } from 'rxjs';
 import { environment } from '../../../../../enviroments/environment';
 import { ToastrService } from 'ngx-toastr';
 import { TextSizingService } from '../../../../../services/text-sizing.service';
+import { ThemeService } from '../../../../common-components/layout/theme.service';
 
 @Component({
   selector: 'app-news-details',
@@ -44,10 +45,12 @@ export class NewsDetailsComponent implements AfterViewInit {
   readMoreItemsDetail: any;
   readMoreImagesDetail: any;
   textSize: string = 'medium';
-  type: any = 'english';
+  type: any;
   isCommnetEnable: boolean = false;
   readMoreItemsNew: any;
-
+  isAudioPlaying: boolean = false;
+  audio: HTMLAudioElement = new Audio();
+  darkMode: boolean;
   constructor(
     private route: ActivatedRoute,
 
@@ -56,18 +59,24 @@ export class NewsDetailsComponent implements AfterViewInit {
     private router: Router,
     private renderer: Renderer2,
     private toastr: ToastrService,
-    private textSizeService: TextSizingService
-  ) {}
+    private textSizeService: TextSizingService,
+    private themeService: ThemeService
+  ) {
+    this.darkMode = this.themeService.isDarkMode();
+  }
 
   ngOnInit(): void {
+    this.themeService.darkModeChanged.subscribe((darkMode: boolean) => {
+      this.darkMode = darkMode;
+    });
     // getLangauge
-    this.type = localStorage.getItem('language');
-    console.log(localStorage.getItem('language'));
+    if (typeof localStorage !== 'undefined') {
+      this.type = localStorage.getItem('language');
+    }
 
     this.route.queryParams.subscribe((params) => {
       this.slug = params['slug'];
 
-      console.log(this.slug);
       if (this.slug) {
         this.getHomeContentBySlug(this.slug);
         this.textSizeService.textSize$.subscribe((size) => {
@@ -86,7 +95,9 @@ export class NewsDetailsComponent implements AfterViewInit {
   }
 
   getHomeContentBySlug(slug: any) {
-    console.log(this.type);
+    if (!this.type) {
+      this.type = 'english';
+    }
 
     this.isLoading = true;
     this.unsubscribe.add(
@@ -114,16 +125,13 @@ export class NewsDetailsComponent implements AfterViewInit {
               this.readMoreItemsDetail = data.data.read_more
                 .slice(0, 4)
                 .map((item: any) => item);
-              console.log(this.readMoreItemsDetail);
 
               this.readMoreImagesDetail = data.data.read_more
                 .slice(0, 4)
                 .map((item: any) => item.image);
-              console.log(this.trendingNews);
             }
           }
           if (data.data.is_for_members === true) {
-            console.log('member only ');
             this.content = this.sanitizer.bypassSecurityTrustHtml(
               data.data.content
             );
@@ -172,8 +180,6 @@ export class NewsDetailsComponent implements AfterViewInit {
     this.unsubscribe.add(
       this.apiService.getHomeContent(type).subscribe(
         (data) => {
-          console.log('aaa', data);
-
           this.homeInfo = data.data;
           this.belowContent = data.data;
           this.homeContent = data?.data[0];
@@ -182,13 +188,10 @@ export class NewsDetailsComponent implements AfterViewInit {
           this.readMoreItemsNew = data.data
             .slice(0, 4)
             .map((item: any) => item);
-          console.log(this.readMoreItemsNew);
           this.readMoreItems = data.data.slice(0, 4).map((item: any) => item);
           this.readMoreImages = data.data
             .slice(0, 4)
             .map((item: any) => item?.image);
-
-          console.log(this.homeInfo);
         },
         (error) => {
           console.error(error);
@@ -211,9 +214,7 @@ export class NewsDetailsComponent implements AfterViewInit {
     newsItem.expanded = !newsItem.expanded;
   }
   urlAndCopylink() {
-    // Construct the complete URL with the slug
     const completeUrl = `${this.websiteUrl}/home/news-details?slug=${this.slug}`;
-    console.log(completeUrl);
 
     this.copyToClipboard(completeUrl);
   }
@@ -248,11 +249,27 @@ export class NewsDetailsComponent implements AfterViewInit {
       queryParams: { slug: slug },
     });
   }
-  playAudio() {
+  playAudio(file: any) {
     const audio = new Audio();
-    audio.src = this.newsDetails.audio;
+    audio.src = this.imageBaseURL + file;
     audio.play();
   }
+  playOrPauseAudio(file: string) {
+    if (!this.isAudioPlaying) {
+      // If audio is not playing, start playing
+      this.audio.src = this.imageBaseURL + file;
+      this.audio.play();
+      this.isAudioPlaying = true;
+    } else {
+      // If audio is playing, pause it
+      this.audio.pause();
+      this.isAudioPlaying = false;
+    }
+  }
+  get themeServiceInstance(): ThemeService {
+    return this.themeService;
+  }
+
   ngOnDestroy(): void {
     this.unsubscribe.unsubscribe();
   }

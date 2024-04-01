@@ -380,6 +380,9 @@ h4 .dark-mode h2,
 .dark-mode .dark-color {
   color: #fa9000;
 }
+.dark-mode h2 {
+  color: #fa9000;
+}
 .dark-mode p {
   color: white;
 }
@@ -392,4 +395,21 @@ h4 .dark-mode h2,
 .entertain-image-block img {
   max-width: 100%;
   max-height: 100%;
+  width: 100%;
+}
+/* New CSS*/
+@media only screen and (max-width: 992px) {
+  .home-entertain-block .container {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+@media only screen and (max-width: 520px) {
+  .entertain-headlines-outer-block {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+.nodata img {
+  max-width: 100%;
 }

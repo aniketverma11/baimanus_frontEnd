@@ -4,130 +4,18 @@
       <div class="_3nzVQ">
         <div>
           <h3 class="_2cRXs">SECTIONS</h3>
-          <ul class="_1v3m6">
+          <ul class="_1v3m6 horizontal-list" *ngFor="let cat of categoryList">
             <li class="footer-sections-1 _1h-7a">
-              <a id="ga4-footer-sections-1" href="#">
-                <div>Politics</div>
-              </a>
-            </li>
-            <li class="footer-sections-2 _1h-7a">
-              <a id="ga4-footer-sections-2" href="#">
-                <div>Opinion</div>
-              </a>
-            </li>
-            <li class="footer-sections-3 _1h-7a">
-              <a id="ga4-footer-sections-3" href="#">
-                <div>Videos</div>
-              </a>
-            </li>
-            <li class="footer-sections-4 _1h-7a">
-              <a id="ga4-footer-sections-4" href="#">
-                <div>Sports</div>
-              </a>
-            </li>
-            <li class="footer-sections-5 _1h-7a">
-              <a id="ga4-footer-sections-5" href="#">
-                <div>Podcasts</div>
-              </a>
-            </li>
-            <li class="footer-sections-6 _1h-7a">
-              <a id="ga4-footer-sections-6" href="#">
-                <div>Entertainment</div>
-              </a>
-            </li>
-            <li class="footer-sections-7 _1h-7a">
-              <a id="ga4-footer-sections-7" href="#">
-                <div>Graphic Novels</div>
-              </a>
-            </li>
-            <li class="footer-sections-8 _1h-7a">
-              <a id="ga4-footer-sections-8" href="#">
-                <div>Photos</div>
-              </a>
-            </li>
-            <li class="footer-sections-9 _1h-7a">
-              <a id="ga4-footer-sections-9" href="#">
-                <div>India</div>
-              </a>
-            </li>
-            <li class="footer-sections-10 _1h-7a">
-              <a id="ga4-footer-sections-10" class="" href="#" target="_blank">
-                <div>HOPE Series</div>
-              </a>
-            </li>
-            <li class="footer-sections-11 _1h-7a">
-              <a id="ga4-footer-sections-11" href="#">
-                <div>Law</div>
-              </a>
-            </li>
-            <li class="footer-sections-12 _1h-7a">
-              <a id="ga4-footer-sections-12" href="#">
-                <div>Gender</div>
-              </a>
-            </li>
-            <li class="footer-sections-13 _1h-7a">
-              <a id="ga4-footer-sections-13" href="#">
-                <div>Cyber</div>
-              </a>
-            </li>
-            <li class="footer-sections-14 _1h-7a">
-              <a id="ga4-footer-sections-14" href="#">
-                <div>Climate Change</div>
-              </a>
-            </li>
-            <li class="footer-sections-15 _1h-7a">
-              <a id="ga4-footer-sections-15" href="#">
-                <div>FAQs</div>
-              </a>
-            </li>
-            <li class="footer-sections-16 _1h-7a">
-              <a id="ga4-footer-sections-16" href="#">
-                <div>Explainers</div>
-              </a>
-            </li>
-            <li class="footer-sections-17 _1h-7a">
-              <a id="ga4-footer-sections-17" href="#">
-                <div>Technology</div>
-              </a>
-            </li>
-            <li class="footer-sections-18 _1h-7a">
-              <a id="ga4-footer-sections-18" href="#">
-                <div>World</div>
-              </a>
-            </li>
-            <li class="footer-sections-19 _1h-7a">
-              <a id="ga4-footer-sections-19" href="#">
-                <div>South Asians</div>
-              </a>
-            </li>
-            <li class="footer-sections-20 _1h-7a">
-              <a id="ga4-footer-sections-20" href="#">
-                <div>Education</div>
-              </a>
-            </li>
-            <li class="footer-sections-21 _1h-7a">
-              <a id="ga4-footer-sections-21" href="#">
-                <div>The Quint Lab</div>
-              </a>
-            </li>
-            <li class="footer-sections-22 _1h-7a">
-              <a id="ga4-footer-sections-22" href="#">
-                <div>Business</div>
-              </a>
-            </li>
-            <li class="footer-sections-23 _1h-7a">
-              <a id="ga4-footer-sections-23" href="#">
-                <div>Good News</div>
-              </a>
-            </li>
-            <li class="footer-sections-24 _1h-7a">
-              <a id="ga4-footer-sections-24" href="#">
-                <div>Members&#x27; Opinion</div>
+              <a
+                id="ga4-footer-sections-1"
+                (click)="getHomeContentBySlug(cat.slug)"
+              >
+                <div>{{ cat.name }}</div>
               </a>
             </li>
           </ul>
         </div>
-        <div class="_2_rjA">
+        <!-- <div class="_2_rjA">
           <h3 class="_2cRXs">TRENDING TOPICS</h3>
           <ul class="_1v3m6">
             <li class="footer-trending-topic-1 _1h-7a">
@@ -196,7 +84,7 @@
               </a>
             </li>
           </ul>
-        </div>
+        </div> -->
         <hr />
         <div class="bottom-footer">
           <a class="CMes0" aria-label="The Quint homepage" href="/">
@@ -445,9 +333,11 @@
             </div> -->
             <div class="d-flex">
               <a class="menu-item-link" href="/home/about-us">
-                <div>About Us</div> </a
-              ><a class="menu-item-link" href="#"> <div>Contact Us</div> </a
-              ><a class="menu-item-link" href="#"> <div>Privacy Policy</div> </a
+                <div>{{ "About us" | translate }}</div> </a
+              ><a class="menu-item-link" href="#">
+                <div>{{ "Contact Us" | translate }}</div> </a
+              ><a class="menu-item-link" href="#">
+                <div>{{ "Privacy Policy" | translate }}</div> </a
               ><a class="menu-item-link" href="#">
                 <div>T&amp;C</div>
               </a>

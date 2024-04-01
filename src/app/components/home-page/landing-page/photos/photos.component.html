@@ -15,27 +15,113 @@
       </span>
     </div>
     <div class="category-image">
-      <ng-container *ngFor="let image of homePhotos.images">
-        <!-- <app-photos-details [photos]="image"></app-photos-details> -->
+      <div class="image-slider">
+        <img
+          [src]="getFullImagePath(homePhotos?.image)"
+          [alt]="homePhotos?.image_description"
+        />
+        <button (click)="prevImage()">Previous</button>
+        <button (click)="nextImage()">Next</button>
+      </div>
 
-        <img [src]="getFullImagePath(image.image)" alt="" />
-      </ng-container>
+      <!-- <owl-carousel-o [options]="customOptions">
+  <ng-container *ngFor="let slide of slidesImages">
+    <ng-template carouselSlide>
+      <img [src]="slide" alt="Slide Image" class="owl-lazy">
+    </ng-template>
+  </ng-container>
+</owl-carousel-o> -->
+
       <div class="shar-section">
+        <div class="Share icon">
+          <div class="shareLeft d-flex">
+            <button class="Menus" mat-button [matMenuTriggerFor]="menu">
+              <img src="../../../../../assets/icons/share_icon.png" alt="" />
+            </button>
+            Share
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item>
+                <img src="../../../../../assets/icons/whats app.png" alt="" />
+                <span class="iconNaming"
+                  ><span class="whatsapp-text">WhatsApp</span></span
+                >
+              </button>
+              <button mat-menu-item>
+                <img src="../../../../../assets/icons/facebook.png" alt="" />
+                <span class="iconNaming"
+                  ><span class="whatsapp-text">Facebook</span></span
+                >
+              </button>
+              <button mat-menu-item>
+                <img src="../../../../../assets/icons/twitter_X.png" alt="" />
+                <span class="iconNaming"
+                  ><span class="whatsapp-text">x</span></span
+                >
+              </button>
+              <button mat-menu-item>
+                <img src="../../../../../assets/icons/telegrame.png" alt="" />
+                <span class="iconNaming"
+                  ><span class="whatsapp-text">Telegrame</span></span
+                >
+              </button>
+              <span (click)="urlAndCopylink()">
+                <button mat-menu-item>
+                  <img src="../../../../../assets/icons/copy_link.png" alt="" />
+                  <span class="iconNaming"
+                    ><span class="whatsapp-text">Copy link</span></span
+                  >
+                </button>
+              </span>
+            </mat-menu>
+          </div>
+          <div class="share_rightt">
+            <div class="TextSizing">
+              <button mat-button [matMenuTriggerFor]="menuText">
+                <span class="caps">A</span><span class="smallL">a</span>
+              </button>
+              <mat-menu #menuText="matMenu">
+                <button mat-menu-item (click)="setTextSize('small')">
+                  Small
+                </button>
+                <button mat-menu-item (click)="setTextSize('medium')">
+                  Medium
+                </button>
+                <button mat-menu-item (click)="setTextSize('large')">
+                  Large
+                </button>
+              </mat-menu>
+            </div>
+            <div class="audio" *ngIf="homePhotos.audio">
+              <img
+                (click)="playOrPauseAudio(homePhotos?.audio)"
+                src="../../../../../assets/icons/audio.png"
+                alt=""
+              />
+            </div>
+
+            <div class="bookmark" (click)="bookmark()">
+              <img src="../../../../../assets/icons/bookmark.png" alt="" />
+            </div>
+            <div class="commets" (click)="isCommnet()">
+              <img src="../../../../../assets/icons/commentsTwo.png" alt="" />
+            </div>
+          </div>
+        </div>
         <hr />
       </div>
     </div>
-    <!-- <div class="articalread">
-        <div
-          [innerHTML]="
-            newsDetails.expanded
-              ? newsDetails.content
-              : truncateHtmlContent(newsDetails.content)
-          "
-        ></div>
-        <button class="read-full-article" (click)="toggleExpanded(newsDetails)">
-          {{ newsDetails.expanded ? "Show Less" : "Read Full Article" }}
-        </button>
-      </div> -->
+    <div class="articalread">
+      <div
+        [innerHTML]="
+          homePhotos?.expanded
+            ? homePhotos.content
+            : truncateHtmlContent(homePhotos?.content)
+        "
+      ></div>
+      <button class="read-full-article" (click)="toggleExpanded(homePhotos)">
+        {{ homePhotos?.expanded ? "Show Less" : "Read Full Article" }}
+      </button>
+    </div>
 
     <div class="ReadMore-section">
       <div class="read-more">
@@ -82,11 +168,11 @@
       <div class="articalread">
         <div
           [innerHTML]="
-            news.expanded ? news.content : truncateHtmlContent(news.content)
+            news.expanded ? news?.content : truncateHtmlContent(news?.content)
           "
         ></div>
         <button class="read-full-article" (click)="toggleExpanded(news)">
-          {{ news.expanded ? "Show Less" : "Read Full Article" }}
+          {{ news?.expanded ? "Show Less" : "Read Full Article" }}
         </button>
       </div>
 
@@ -111,15 +197,21 @@
     </span>
   </div>
 
-  <div class="right-section">
-    <div class="stay-updated">
-      <h2>Stay Updated</h2>
+  <div
+    class="right-section"
+    [ngClass]="{ 'dark-mode': themeServiceInstance.isDarkMode() }"
+  >
+    <div
+      class="stay-updated"
+      [ngClass]="{ 'dark-mode': themeServiceInstance.isDarkMode() }"
+    >
+      <h2>{{ "Stay Updated" | translate }}</h2>
       <app-subscribe></app-subscribe>
     </div>
     <div class="line"></div>
 
     <div class="more-news">
-      <h2>More News</h2>
+      <h2>{{ "More News" | translate }}</h2>
       <hr />
       <div
         class="news-item"

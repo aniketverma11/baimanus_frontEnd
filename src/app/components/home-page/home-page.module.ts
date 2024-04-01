@@ -25,6 +25,7 @@ import { SerachComponent } from './serach/serach.component';
 import { CategoryDetailsComponent } from './category-details/category-details.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 const routes: Routes = [
   {
     path: '',
@@ -82,6 +83,7 @@ const routes: Routes = [
   ],
   imports: [
     CommonModule,
+    CarouselModule,
     MatExpansionModule,
     TranslateModule,
     MatRadioModule,

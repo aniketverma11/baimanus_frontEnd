@@ -40,7 +40,7 @@
 
 .content-details p {
   font-size: 17px;
-  color: #555;
+  /* color: #555; */
   margin-bottom: 40px;
 }
 .title {
@@ -51,7 +51,7 @@ h1 {
   font-style: bold;
 }
 .dark-theme h1 {
-  color: yellow;
+  color: #fa9000;
 }
 
 .box {
@@ -154,7 +154,7 @@ h1 {
 }
 
 .read-full-article {
-  background-color: #ffc107; /* Yellow color */
+  background-color: #fa9000;
   color: #333; /* Dark text color */
   border: none;
   margin-left: 230px;
@@ -383,4 +383,36 @@ h1 {
   font-size: 25px;
   font-weight: 800;
   color: #052962;
+}
+@media only screen and (max-width: 520px) {
+  .ReadMore-section .read-more-items {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .ReadMore-section .read-more-items .item {
+    width: 100%;
+  }
+  .read-full-article {
+    margin-left: 0;
+  }
+}
+@media only screen and (max-width: 992px) {
+  .container.medium-text.ng-star-inserted {
+    display: flex;
+    flex-direction: column;
+  }
+}
+/* h4 .dark-mode h2,
+.dark-mode svg path,
+.dark-mode .dark-color {
+  color: #fa9000;
+} */
+.dark-mode p {
+  color: #fa9000;
+}
+.dark-mode .arrow {
+  background-color: white;
+}
+.dark-mode .more-news {
+  background-color: #333;
 }
