@@ -172,9 +172,9 @@ export class SidebarComponent implements OnInit {
     const languageToUseOn = localStorage.getItem('language');
     let newLanguage;
     if (languageToUseOn === 'english') {
-      newLanguage = 'english';
-    } else {
       newLanguage = 'marathi';
+    } else {
+      newLanguage = 'english';
     }
 
     localStorage.setItem('language', newLanguage);
