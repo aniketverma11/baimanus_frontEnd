@@ -111,8 +111,6 @@ export class NewsDetailsComponent implements AfterViewInit {
           })
         )
         .subscribe((data) => {
-          console.log(data);
-
           this.isLoading = false;
           if (data.data.is_for_members === false) {
             this.content = this.sanitizer.bypassSecurityTrustHtml(

@@ -120,7 +120,11 @@
           "
         ></div>
         <button class="read-full-article" (click)="toggleExpanded(newsDetails)">
-          {{ newsDetails.expanded ? "Show Less" : "Read Full Article" }}
+          {{
+            newsDetails?.expanded
+              ? ("Show Less" | translate)
+              : ("Read Full Article" | translate)
+          }}
         </button>
       </div>
 
@@ -295,7 +299,11 @@
           "
         ></div>
         <button class="read-full-article" (click)="toggleExpanded(news)">
-          {{ news?.expanded ? "Show Less" : "Read Full Article" }}
+          {{
+            news?.expanded
+              ? ("Show Less" | translate)
+              : ("Read Full Article" | translate)
+          }}
         </button>
       </div>
 

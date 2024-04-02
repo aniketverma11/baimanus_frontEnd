@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ApiServicesService } from '../../../../../services/api-services.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import {
@@ -8,6 +8,9 @@ import {
 } from '@angular/platform-browser';
 import { environment } from '../../../../../enviroments/environment';
 import { Subscription } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
+import { TextSizingService } from '../../../../../services/text-sizing.service';
+import { ThemeService } from '../../../../common-components/layout/theme.service';
 
 @Component({
   selector: 'app-videos',
@@ -15,6 +18,8 @@ import { Subscription } from 'rxjs';
   styleUrl: './videos.component.css',
 })
 export class VideosComponent {
+  @ViewChild('commentsSection') commentsSection!: ElementRef;
+  private websiteUrl = environment.webiste_url;
   slug: any;
   private imageBaseURL = environment.imagesBaseURL;
   private unsubscribe: Subscription = new Subscription();
@@ -32,18 +37,31 @@ export class VideosComponent {
   readMoreSlug: any;
   allImages: any;
   videoUrl: SafeResourceUrl = '';
+  type: any;
+  isCommnetEnable: boolean = false;
+  isAudioPlaying: boolean = false;
+  audio: HTMLAudioElement = new Audio();
+  textSize: string = 'medium';
   constructor(
     private apiService: ApiServicesService,
     private router: Router,
     private sanitizer: DomSanitizer,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private toastr: ToastrService,
+    private textSizeService: TextSizingService,
+    private themeService: ThemeService
   ) {
+    if (typeof localStorage !== 'undefined') {
+      this.type = localStorage.getItem('language');
+    }
     this.route.queryParams.subscribe((params) => {
       this.slug = params['slug'];
 
-      console.log(this.slug);
       if (this.slug) {
         this.getHomeVideos(this.slug);
+        this.textSizeService.textSize$.subscribe((size) => {
+          this.textSize = size;
+        });
       }
       if (!this.slug) {
         this.router.navigate(['home']);
@@ -51,18 +69,17 @@ export class VideosComponent {
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    if (typeof localStorage !== 'undefined') {
+      this.type = localStorage.getItem('language');
+    }
+  }
 
   getHomeVideos(slug: string) {
-    // slug = 'test';
-    console.log(slug);
-
     this.isLoading = true;
     this.unsubscribe.add(
-      this.apiService.getVideosDetails(slug).subscribe(
+      this.apiService.getVideosDetails(slug, this.type).subscribe(
         (data) => {
-          console.log('data', data);
-
           this.isLoading = false;
           this.homePhotos = data.data;
           const videoUrl = data.data.video;
@@ -77,18 +94,11 @@ export class VideosComponent {
           // );
           // this.videoUrl = this.extractVideoUrl(data.data.video);
           // );
-          console.log('video', this.videoUrl);
 
-          this.readMoreItems = data.data.read_more.map(
-            (item: any) => item.title
-          );
-          console.log(this.readMoreItems);
+          this.readMoreItems = data.data.read_more;
           this.trendingNews = data.data.treanding_news;
-          console.log(this.trendingNews);
 
-          this.readMoreItemsDetail = data.data.read_more.map(
-            (item: any) => item.title
-          );
+          this.readMoreItemsDetail = data.data.read_more;
 
           this.readMoreImagesDetail = data.data.read_more.flatMap((item: any) =>
             item.images.map((imageItem: any) => imageItem.image)
@@ -101,7 +111,6 @@ export class VideosComponent {
           this.readMoreSlug = data.data.read_more
             .slice(0, 4)
             .map((item: any) => item.slug);
-
           // loop
           for (let i = 0; i < this.homePhotos.length; i++) {
             const srcRegex = /<img[^>]+src="([^">]+)"/;
@@ -137,8 +146,6 @@ export class VideosComponent {
     newsItem.expanded = !newsItem.expanded;
   }
   getHomeContentBySlugAndNavigate(slug: any) {
-    console.log(slug);
-
     this.router.navigate(['home/videos'], {
       queryParams: { slug: slug },
     });
@@ -170,5 +177,55 @@ export class VideosComponent {
       /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/
     );
     return matches ? matches[1] : null;
+  }
+
+  urlAndCopylink() {
+    const completeUrl = `${this.websiteUrl}/home/news-details?slug=${this.slug}`;
+
+    this.copyToClipboard(completeUrl);
+  }
+  copyToClipboard(text: string) {
+    const textarea = document.createElement('textarea');
+    textarea.style.position = 'fixed';
+    textarea.style.left = '0';
+    textarea.style.top = '0';
+    textarea.style.opacity = '0';
+    textarea.value = text;
+    document.body.appendChild(textarea);
+    textarea.focus();
+    textarea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textarea);
+    // window.alert('');
+    this.toastr.success('Link copied');
+  }
+  setTextSize(size: string) {
+    this.textSizeService.setTextSize(size);
+  }
+  bookmark() {
+    this.toastr.success('Bookmark added');
+  }
+  isCommnet() {
+    this.isCommnetEnable = true;
+    this.commentsSection.nativeElement.scrollIntoView({ behavior: 'smooth' });
+  }
+  playOrPauseAudio(file: string) {
+    if (!this.isAudioPlaying) {
+      // If audio is not playing, start playing
+      this.audio.src = this.imageBaseURL + file;
+      this.audio.play();
+      this.isAudioPlaying = true;
+    } else {
+      // If audio is playing, pause it
+      this.audio.pause();
+      this.isAudioPlaying = false;
+    }
+  }
+  get themeServiceInstance(): ThemeService {
+    return this.themeService;
+  }
+
+  ngOnDestroy(): void {
+    this.unsubscribe.unsubscribe();
   }
 }

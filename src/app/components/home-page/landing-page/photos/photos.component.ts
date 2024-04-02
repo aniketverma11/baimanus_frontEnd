@@ -15,29 +15,30 @@ import { ThemeService } from '../../../../common-components/layout/theme.service
   styleUrl: './photos.component.css',
 })
 export class PhotosComponent {
-  customOptions: OwlOptions = {
-    loop: true,
-    mouseDrag: false,
-    touchDrag: false,
-    pullDrag: false,
-    dots: false,
-    navSpeed: 700,
-    navText: ['', ''],
-    responsive: {
-      0: {
-        items: 1,
-      },
-      400: {
-        items: 2,
-      },
-      740: {
-        items: 3,
-      },
-      940: {
-        items: 4,
-      },
-    },
+  oneImageOptions: OwlOptions = {
+    loop: false,
+    items: 1,
     nav: true,
+    dots: false,
+  };
+  expandedOptions: OwlOptions = {
+    loop: false,
+    nav: true,
+    dots: false,
+    // responsive: {
+    //   0: {
+    //     items: 1,
+    //   },
+    //   400: {
+    //     items: 2,
+    //   },
+    //   740: {
+    //     items: 3,
+    //   },
+    //   940: {
+    //     items: 4,
+    //   },
+    // },
   };
 
   private imageBaseURL = environment.imagesBaseURL;
@@ -65,6 +66,8 @@ export class PhotosComponent {
   @ViewChild('commentsSection') commentsSection!: ElementRef;
   isCommnetEnable: boolean = false;
   slidesImages: any;
+  textSize: string = 'medium';
+  expanded: boolean = false;
   constructor(
     private apiService: ApiServicesService,
     private router: Router,
@@ -79,6 +82,9 @@ export class PhotosComponent {
 
       if (this.slug) {
         this.getHomePhotos(this.slug);
+        this.textSizeService.textSize$.subscribe((size) => {
+          this.textSize = size;
+        });
       }
       if (!this.slug) {
         this.router.navigate(['home']);
@@ -99,8 +105,6 @@ export class PhotosComponent {
     this.unsubscribe.add(
       this.apiService.getPhotosDetails(slug, this.type).subscribe(
         (data) => {
-          console.log(data);
-
           this.isLoading = false;
           this.homePhotos = data.data;
           if (
@@ -111,10 +115,7 @@ export class PhotosComponent {
             this.slidesImages = this.homePhotos.images.map(
               (image: any) => this.imageBaseURL + image.image.replace(/"/g, '')
             );
-            console.log(this.slidesImages);
           }
-
-          console.log(this.slidesImages);
 
           this.trendingNews = data.data.treanding_news;
 
@@ -143,7 +144,6 @@ export class PhotosComponent {
             const match = this.homePhotos[i].content.match(srcRegex);
             const src = match ? match[1] : null;
             this.imagetitle = this.imageBaseURL + src;
-            console.log();
           }
 
           // this.headingTitle = this.homePhotos
@@ -184,20 +184,20 @@ export class PhotosComponent {
     return this.imageBaseURL + src;
   }
 
-  prev(index: number) {
-    if (this.currentIndex === index) {
-      this.currentIndex =
-        (this.currentIndex + this.homePhotos.images.length - 1) %
-        this.homePhotos.images.length;
-    }
-  }
+  // prev(index: number) {
+  //   if (this.currentIndex === index) {
+  //     this.currentIndex =
+  //       (this.currentIndex + this.homePhotos.images.length - 1) %
+  //       this.homePhotos.images.length;
+  //   }
+  // }
 
-  next(index: number) {
-    if (this.currentIndex === index) {
-      this.currentIndex =
-        (this.currentIndex + 1) % this.homePhotos.images.length;
-    }
-  }
+  // next(index: number) {
+  //   if (this.currentIndex === index) {
+  //     this.currentIndex =
+  //       (this.currentIndex + 1) % this.homePhotos.images.length;
+  //   }
+  // }
 
   urlAndCopylink() {
     const completeUrl = `${this.websiteUrl}/home/news-details?slug=${this.slug}`;
@@ -244,24 +244,30 @@ export class PhotosComponent {
 
   //
 
-  prevImage(): void {
-    if (this.currentIndex > 0) {
-      this.currentIndex--;
-      this.currentImage = this.getFullImagePath(
-        this.homePhotos.images[this.currentIndex].image
-      );
-    }
-  }
+  // prevImage(): void {
+  //   if (this.currentIndex > 0) {
+  //     this.currentIndex--;
+  //     this.currentImage = this.getFullImagePath(
+  //       this.homePhotos.images[this.currentIndex].image
+  //     );
+  //   }
+  // }
 
-  nextImage(): void {
-    if (this.currentIndex < this.homePhotos.images.length - 1) {
-      this.currentIndex++;
-      this.currentImage = this.getFullImagePath(
-        this.homePhotos.images[this.currentIndex].image
-      );
-    }
-  }
+  // nextImage(): void {
+  //   if (this.currentIndex < this.homePhotos.images.length - 1) {
+  //     this.currentIndex++;
+  //     this.currentImage = this.getFullImagePath(
+  //       this.homePhotos.images[this.currentIndex].image
+  //     );
+  //   }
+  // }
   get themeServiceInstance(): ThemeService {
     return this.themeService;
+  }
+  expandCarousel(): void {
+    this.expanded = true;
+  }
+  shrinkCarousel(): void {
+    this.expanded = false;
   }
 }

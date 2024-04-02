@@ -161,7 +161,6 @@ export class SidebarComponent implements OnInit {
         localStorage.setItem('language', newLanguage);
       }
       const languageToUse = localStorage.getItem('language');
-      console.warn(languageToUse);
 
       if (languageToUse) {
         this.translateService.use(languageToUse);

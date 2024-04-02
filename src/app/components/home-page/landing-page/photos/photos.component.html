@@ -1,4 +1,11 @@
-<div class="container">
+<div
+  class="container"
+  [ngClass]="{
+    'small-text': textSize === 'small',
+    'medium-text': textSize === 'medium',
+    'large-text': textSize === 'large'
+  }"
+>
   <div class="left-section">
     <!-- <span *ngFor="let imgaedata of homePhotos"> -->
     <h1>{{ homePhotos?.title }}</h1>
@@ -16,21 +23,54 @@
     </div>
     <div class="category-image">
       <div class="image-slider">
-        <img
-          [src]="getFullImagePath(homePhotos?.image)"
-          [alt]="homePhotos?.image_description"
-        />
-        <button (click)="prevImage()">Previous</button>
-        <button (click)="nextImage()">Next</button>
+        <button *ngIf="!expanded" (click)="expandCarousel()">Expand</button>
+
+        <owl-carousel-o
+          *ngIf="!expanded; else expandedCarousel"
+          [options]="oneImageOptions"
+        >
+          <ng-container *ngFor="let slide of [homePhotos?.image]">
+            <ng-template carouselSlide>
+              <img
+                [src]="getFullImagePath(slide)"
+                alt="Slide Image"
+                class="owl-lazy"
+              />
+            </ng-template>
+          </ng-container>
+        </owl-carousel-o>
+
+        <ng-template #expandedCarousel>
+          <div class="expanded-carousel">
+            <button class="backBtn" (click)="shrinkCarousel()">X</button>
+            <owl-carousel-o [options]="expandedOptions">
+              <ng-container *ngFor="let slide of slidesImages; let i = index">
+                <ng-template carouselSlide>
+                  <div
+                    class="carousel-item"
+                    [ngStyle]="{ 'z-index': i === currentIndex ? 1 : 0 }"
+                  >
+                    <img
+                      [src]="slide"
+                      alt="Slide Image"
+                      class="owl-lazy"
+                      [class.active]="i === currentIndex"
+                    />
+                  </div>
+                </ng-template>
+              </ng-container>
+            </owl-carousel-o>
+          </div>
+        </ng-template>
       </div>
 
       <!-- <owl-carousel-o [options]="customOptions">
-  <ng-container *ngFor="let slide of slidesImages">
-    <ng-template carouselSlide>
-      <img [src]="slide" alt="Slide Image" class="owl-lazy">
-    </ng-template>
-  </ng-container>
-</owl-carousel-o> -->
+        <ng-container *ngFor="let slide of slidesImages">
+          <ng-template carouselSlide>
+            <img [src]="slide" alt="Slide Image" class="owl-lazy" />
+          </ng-template>
+        </ng-container>
+      </owl-carousel-o> -->
 
       <div class="shar-section">
         <div class="Share icon">
@@ -119,7 +159,11 @@
         "
       ></div>
       <button class="read-full-article" (click)="toggleExpanded(homePhotos)">
-        {{ homePhotos?.expanded ? "Show Less" : "Read Full Article" }}
+        {{
+          homePhotos.expanded
+            ? ("Show Less" | translate)
+            : ("Read Full Article" | translate)
+        }}
       </button>
     </div>
 
@@ -172,7 +216,11 @@
           "
         ></div>
         <button class="read-full-article" (click)="toggleExpanded(news)">
-          {{ news?.expanded ? "Show Less" : "Read Full Article" }}
+          {{
+            news?.expanded
+              ? ("Show Less" | translate)
+              : ("Read Full Article" | translate)
+          }}
         </button>
       </div>
 

@@ -38,9 +38,9 @@ export class ApiServicesService {
       `${environment.apiBaseUrl}${PHOTOS_DETAILS}${slug}?type=${type}`
     );
   }
-  getVideosDetails(slug: string): Observable<any> {
+  getVideosDetails(slug: string, type: any): Observable<any> {
     return this.httpClient.get(
-      `${environment.apiBaseUrl}${VIDEOS_DETAILS}${slug}`
+      `${environment.apiBaseUrl}${VIDEOS_DETAILS}${slug}?type=${type}`
     );
   }
   getViideos(type: any): Observable<any> {

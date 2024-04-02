@@ -67,6 +67,7 @@ export class LandingPageComponent {
     if (!this.type) {
       this.type = 'english';
     }
+    console.log('', this.type);
 
     this.isLoading = true;
     this.unsubscribe.add(
@@ -86,7 +87,6 @@ export class LandingPageComponent {
           this.headingTitle = this.homePhotos
             .slice(0, 3)
             .map((item: any) => item);
-          console.log(this.headingTitle);
         },
         (error) => {
           console.error(error);
