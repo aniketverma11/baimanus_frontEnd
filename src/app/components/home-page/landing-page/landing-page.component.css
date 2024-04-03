@@ -409,6 +409,12 @@ h4 .dark-mode h2,
     display: grid;
     grid-template-columns: 1fr;
   }
+  .entertain-title h2 {
+    font-size: 28px;
+    line-height: 36px;
+    font-weight: 700;
+    word-break: break-all;
+  }
 }
 .nodata img {
   max-width: 100%;

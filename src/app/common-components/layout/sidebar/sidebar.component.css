@@ -946,3 +946,11 @@ body.dark-theme .sidebar {
     display: none;
   }
 }
+@media screen and (max-width: 760px){
+  .dark-mode-wrapper{
+    display: none;
+  }
+  .home-election-label .dark-mode-wrapper{
+    display: flex;
+  }
+}

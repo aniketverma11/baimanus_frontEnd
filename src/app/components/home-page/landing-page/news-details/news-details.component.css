@@ -416,3 +416,8 @@ h1 {
 .dark-mode .more-news {
   background-color: #333;
 }
+@media screen and (max-width: 992px){
+  .right-section{
+    margin-left: 0;
+  }
+}

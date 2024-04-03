@@ -469,3 +469,18 @@ h1 {
   border: 3px solid red; /* Specify the border for the image inside the active carousel item */
   z-index: 999;
 }
+@media screen and (max-width: 992px){
+  .right-section{
+    flex: none;
+    margin-left: 0;
+    width: 100%;
+  }
+  .category-image{
+    width: 500px;
+  }
+}
+@media screen and (max-width: 552px){
+  .category-image{
+    width: 250px;
+  }
+}

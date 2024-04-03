@@ -2,10 +2,10 @@
   <div class="_3cQo6">
     <div class="container">
       <div class="_3nzVQ">
+        <h3 class="_2cRXs">SECTIONS</h3>
         <div>
-          <h3 class="_2cRXs">SECTIONS</h3>
-          <ul class="_1v3m6 horizontal-list" *ngFor="let cat of categoryList">
-            <li class="footer-sections-1 _1h-7a">
+          <ul class="_1v3m6 horizontal-list">
+            <li class="footer-sections-1 _1h-7a" *ngFor="let cat of categoryList">
               <a
                 id="ga4-footer-sections-1"
                 (click)="getHomeContentBySlug(cat.slug)"

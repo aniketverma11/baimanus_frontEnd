@@ -264,6 +264,14 @@ p {
 .large-text {
   font-size: 24px;
 }
+.container.medium-text{
+  display: flex;
+  flex-wrap: wrap;
+}
+.news-item span{
+  display: flex;
+  align-items: center;
+}
 @media only screen and (max-width: 520px) {
   .ReadMore-section .read-more-items {
     display: grid;
@@ -275,10 +283,20 @@ p {
   .read-full-article {
     margin-left: 0;
   }
+  .subscription-container{
+    padding: 40px 0px !important;
+  }
+  .subscription-container .subscribe-form input{
+    width: 100%;
+  }
 }
 @media only screen and (max-width: 992px) {
-  .container.medium-text.ng-star-inserted {
+  .container.medium-text.ng-star-inserted, 
+  .container.detailed-wids {
     display: flex;
     flex-direction: column;
+  }
+  .right-section{
+    flex: none;
   }
 }
