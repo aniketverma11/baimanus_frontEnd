@@ -4,18 +4,23 @@
     <div class="subscription-container">
       <div class="newsletter-info"></div>
       <div class="subscribe-form">
-        <!-- Bind the form submission to the search function -->
-        <form (submit)="search(searchQuery.value, type.value)">
-          <input
-            type="text"
-            #searchQuery
-            placeholder="Type here...."
-            required
-          />
-          <input type="hidden" #type value="english" />
-          <button type="submit">Search</button>
-        </form>
+        <input
+          type="text"
+          (keypress)="onKeyPress($event)"
+          #searchInput
+          placeholder="Type here...."
+          required
+        />
+        <input type="hidden" #type value="english" />
+        <button type="submit" (click)="search(searchInput.value)">
+          Search
+        </button>
       </div>
     </div>
+  </div>
+  <div *ngIf="searchValue">
+    <span (click)="getHomeContentBySlug(searchValue?.slug)">{{
+      searchValue?.title
+    }}</span>
   </div>
 </section>
