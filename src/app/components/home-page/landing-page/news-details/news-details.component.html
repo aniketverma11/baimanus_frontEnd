@@ -118,6 +118,7 @@
               ? newsDetails.content
               : truncateHtmlContent(newsDetails.content)
           "
+          class="content-container"
         ></div>
         <button class="read-full-article" (click)="toggleExpanded(newsDetails)">
           {{
@@ -297,6 +298,7 @@
           [innerHTML]="
             news?.expanded ? news.content : truncateHtmlContent(news?.content)
           "
+          class="content-container"
         ></div>
         <button class="read-full-article" (click)="toggleExpanded(news)">
           {{

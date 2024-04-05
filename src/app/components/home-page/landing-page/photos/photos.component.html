@@ -157,6 +157,7 @@
             ? homePhotos.content
             : truncateHtmlContent(homePhotos?.content)
         "
+        class="content-container"
       ></div>
       <button class="read-full-article" (click)="toggleExpanded(homePhotos)">
         {{
@@ -214,6 +215,7 @@
           [innerHTML]="
             news.expanded ? news?.content : truncateHtmlContent(news?.content)
           "
+          class="content-container"
         ></div>
         <button class="read-full-article" (click)="toggleExpanded(news)">
           {{
@@ -256,7 +258,7 @@
       <h2>{{ "Stay Updated" | translate }}</h2>
       <app-subscribe></app-subscribe>
     </div>
-    <div class="line" style="display: none;"></div>
+    <div class="line" style="display: none"></div>
 
     <div class="more-news">
       <h2>{{ "More News" | translate }}</h2>
