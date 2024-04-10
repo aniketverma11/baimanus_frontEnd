@@ -67,12 +67,13 @@ export class LandingPageComponent {
     if (!this.type) {
       this.type = 'english';
     }
-    console.log('', this.type);
 
     this.isLoading = true;
     this.unsubscribe.add(
       this.apiService.getPhotos(this.type).subscribe(
         (data) => {
+          console.log(data);
+
           this.isLoading = false;
           this.homePhotos = data.data;
 
@@ -109,7 +110,7 @@ export class LandingPageComponent {
           this.belowContent = data.data;
           this.homeContent = data?.data[0];
 
-          this.homeInfo = data.data.slice(0, 3).map((item: any) => item.title);
+          this.homeInfo = data.data.slice(0, 3).map((item: any) => item);
           this.homeInfoSlug = data.data
             .slice(0, 3)
             .map((item: any) => item.slug);
@@ -161,7 +162,7 @@ export class LandingPageComponent {
         (res) => {
           this.isLoading = false;
           this.VideoObject = res.data[0];
-          this.VideoTitle = res.data.slice(0, 3).map((item: any) => item.title);
+          this.VideoTitle = res.data.slice(0, 3).map((item: any) => item);
           this.videoImages = res.data
             .slice(0, 3)
             .map((item: any) => item.image);
@@ -221,6 +222,62 @@ export class LandingPageComponent {
     } catch (error) {
       console.error(error);
       return ''; // or handle error as needed
+    }
+  }
+  isDarkModeInLocalStorage(): boolean {
+    if (typeof localStorage !== 'undefined') {
+      const isDark = localStorage.getItem('darkMode');
+      return isDark === 'true';
+    } else {
+      return false;
+    }
+  }
+  getTagStyle() {
+    if (this.isDarkModeInLocalStorage()) {
+      return {
+        color: '#fa9000',
+      };
+    } else {
+      return {
+        color: '#35144f',
+      };
+    }
+  }
+  getTagStyleTitle() {
+    if (this.isDarkModeInLocalStorage()) {
+      return {
+        color: '#fa9000',
+      };
+    } else {
+      return {
+        color: '#fff',
+      };
+    }
+  }
+  getTagStyleTitleMoreNews() {
+    if (this.isDarkModeInLocalStorage()) {
+      return {
+        color: '#fa9000',
+        'background-color': 'black',
+      };
+    } else {
+      return {
+        color: '#fa9000',
+        'background-color': 'white',
+      };
+    }
+  }
+  getshortDis() {
+    if (this.isDarkModeInLocalStorage()) {
+      return {
+        color: 'white',
+        'background-color': 'rgb(51, 51, 51)',
+      };
+    } else {
+      return {
+        color: '#000000',
+        'background-color': 'white',
+      };
     }
   }
 

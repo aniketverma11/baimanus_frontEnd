@@ -1,4 +1,10 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import {
+  Component,
+  ContentChild,
+  ElementRef,
+  Input,
+  ViewChild,
+} from '@angular/core';
 import { environment } from '../../../../../enviroments/environment';
 import { Subscription } from 'rxjs';
 import { ApiServicesService } from '../../../../../services/api-services.service';
@@ -8,13 +14,18 @@ import { ToastrService } from 'ngx-toastr';
 import { TextSizingService } from '../../../../../services/text-sizing.service';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { ThemeService } from '../../../../common-components/layout/theme.service';
-
+import { SwiperContainer } from 'swiper/element/bundle';
+import 'swiper/swiper-bundle.css';
+import { MatDialog } from '@angular/material/dialog';
+import { PhotosDetailsComponent } from './photos-details/photos-details.component';
 @Component({
   selector: 'app-photos',
   templateUrl: './photos.component.html',
   styleUrl: './photos.component.css',
 })
 export class PhotosComponent {
+  // SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
+
   oneImageOptions: OwlOptions = {
     loop: false,
     items: 1,
@@ -42,6 +53,12 @@ export class PhotosComponent {
   };
 
   private imageBaseURL = environment.imagesBaseURL;
+  @Input() swiperContainerId = '';
+  @ContentChild('swiper') swiperRef!: ElementRef<SwiperContainer>;
+  initialized = false;
+
+  index = 0;
+  slidePerView = 1;
   private unsubscribe: Subscription = new Subscription();
   isLoading: boolean = true;
   isAudioPlaying: boolean = false;
@@ -75,7 +92,8 @@ export class PhotosComponent {
     private route: ActivatedRoute,
     private toastr: ToastrService,
     private textSizeService: TextSizingService,
-    private themeService: ThemeService
+    private themeService: ThemeService,
+    public dialog: MatDialog
   ) {
     this.route.queryParams.subscribe((params) => {
       this.slug = params['slug'];
@@ -98,6 +116,23 @@ export class PhotosComponent {
     }
   }
 
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      const shadowRoot = document
+        .getElementById(this.swiperContainerId)
+        ?.getElementsByClassName('swiper')[0]?.shadowRoot
+        ?.firstChild as HTMLElement;
+      shadowRoot.style.paddingBottom = '35px';
+    }, 300);
+  }
+  changeSlide(prevOrNext: number): void {
+    if (prevOrNext === -1) {
+      this.swiperRef.nativeElement.swiper.slidePrev();
+    } else {
+      this.swiperRef.nativeElement.swiper.slideNext();
+    }
+  }
+
   getHomePhotos(slug: string) {
     // slug = 'test';
 
@@ -105,6 +140,8 @@ export class PhotosComponent {
     this.unsubscribe.add(
       this.apiService.getPhotosDetails(slug, this.type).subscribe(
         (data) => {
+          console.log(data);
+
           this.isLoading = false;
           this.homePhotos = data.data;
           if (
@@ -112,9 +149,11 @@ export class PhotosComponent {
             this.homePhotos.images &&
             Array.isArray(this.homePhotos.images)
           ) {
-            this.slidesImages = this.homePhotos.images.map(
-              (image: any) => this.imageBaseURL + image.image.replace(/"/g, '')
-            );
+            //   this.slidesImages = this.homePhotos.images.map(
+            //     (image: any) => this.imageBaseURL + image.image.replace(/"/g, '')
+            //   );
+            // }
+            this.slidesImages = this.homePhotos.images;
           }
 
           this.trendingNews = data.data.treanding_news;
@@ -267,7 +306,46 @@ export class PhotosComponent {
   expandCarousel(): void {
     this.expanded = true;
   }
+  // Inside your component class
+
+  showNextSlide() {
+    if (this.currentIndex < this.slidesImages.length - 1) {
+      this.currentIndex++;
+    }
+  }
+
+  showPreviousSlide() {
+    if (this.currentIndex > 0) {
+      this.currentIndex--;
+    }
+  }
+
   shrinkCarousel(): void {
     this.expanded = false;
+  }
+
+  viewPhoto(imageUrl: string) {
+    this.router.navigate(['/photo-view'], { queryParams: { imageUrl } });
+  }
+  openDialog(data: string): void {
+    console.log(data);
+
+    const dialogRef = this.dialog.open(PhotosDetailsComponent, {
+      data: data,
+      maxWidth: '100vw',
+      // maxHeight: '100vh',
+      width: '100%',
+      height: '100%',
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {});
+  }
+  isDarkModeInLocalStorage(): boolean {
+    if (typeof localStorage !== 'undefined') {
+      const isDark = localStorage.getItem('darkMode');
+      return isDark === 'true';
+    } else {
+      return false;
+    }
   }
 }

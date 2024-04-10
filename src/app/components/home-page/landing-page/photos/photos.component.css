@@ -34,12 +34,12 @@
 }
 
 .content-details h2 {
-  font-size: 18px;
+  /* font-size: 18px; */
   margin-bottom: 5px;
 }
 
 .content-details p {
-  font-size: 17px;
+  /* font-size: 17px; */
   /* color: #555; */
   margin-bottom: 40px;
 }
@@ -59,7 +59,7 @@ h1 {
   width: 100%;
   height: 100px;
   margin-bottom: 10px;
-  font-size: 18px;
+  /* font-size: 18px; */
   /* color: #35144f; */
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -149,7 +149,7 @@ h1 {
 }
 
 .item p {
-  font-size: 14px;
+  /* font-size: 14px; */
   line-height: 1.4;
 }
 
@@ -159,7 +159,7 @@ h1 {
   border: none;
   margin-left: 230px;
   padding: 10px 20px;
-  font-size: 16px;
+  /* font-size: 16px; */
   font-weight: bold;
   text-transform: uppercase;
   border-radius: 4px;
@@ -180,7 +180,7 @@ h1 {
 }
 
 .more-news h2 {
-  font-size: 18px;
+  /* font-size: 18px; */
   font-weight: bold;
   margin-bottom: 10px;
 }
@@ -199,7 +199,7 @@ h1 {
 }
 
 .news-item p {
-  font-size: 14px;
+  /* font-size: 14px; */
   line-height: 1.4;
   color: #333;
 }
@@ -228,19 +228,19 @@ h1 {
 }
 
 .newsletter-title {
-  font-size: 18px;
+  /* font-size: 18px; */
   font-weight: bold;
   margin-bottom: 10px;
 }
 
 .newsletter-description {
-  font-size: 14px;
+  /* font-size: 14px; */
   line-height: 1.4;
   margin-bottom: 10px;
 }
 
 .subscriber-count {
-  font-size: 14px;
+  /* font-size: 14px; */
   margin-bottom: 20px;
 }
 
@@ -255,7 +255,7 @@ h1 {
   /* color: #35144f; */
 }
 .whatsapp-text {
-  font-size: 10px;
+  /* font-size: 10px; */
 }
 
 .comments-section {
@@ -274,7 +274,7 @@ h1 {
 
 .header h2 {
   margin: 0;
-  font-size: 18px;
+  /* font-size: 18px; */
   font-weight: bold;
 }
 
@@ -345,7 +345,7 @@ h1 {
 }
 
 .disclaimer {
-  font-size: 12px;
+  /* font-size: 12px; */
   color: #888;
 }
 .d-flex {
@@ -444,7 +444,7 @@ h1 {
   background-color: transparent;
   color: #fff;
   border: none;
-  font-size: 16px;
+  /* font-size: 16px; */
   padding: 10px 20px;
   cursor: pointer;
 }
@@ -469,18 +469,40 @@ h1 {
   border: 3px solid red; /* Specify the border for the image inside the active carousel item */
   z-index: 999;
 }
-@media screen and (max-width: 992px){
-  .right-section{
+@media screen and (max-width: 992px) {
+  .right-section {
     flex: none;
     margin-left: 0;
     width: 100%;
   }
-  .category-image{
+  .category-image {
     width: 500px;
   }
 }
-@media screen and (max-width: 552px){
-  .category-image{
+@media screen and (max-width: 552px) {
+  .category-image {
     width: 250px;
   }
+}
+
+.small-text {
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.medium-text {
+  font-size: 23px;
+  line-height: 1.5;
+}
+
+.large-text {
+  font-size: 30px;
+  line-height: 1.7;
+}
+.image-slider {
+  background-color: #292929;
+}
+
+.image-slider img {
+  width: 90%;
 }

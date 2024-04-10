@@ -224,7 +224,14 @@ export class VideosComponent {
   get themeServiceInstance(): ThemeService {
     return this.themeService;
   }
-
+  isDarkModeInLocalStorage(): boolean {
+    if (typeof localStorage !== 'undefined') {
+      const isDark = localStorage.getItem('darkMode');
+      return isDark === 'true';
+    } else {
+      return false;
+    }
+  }
   ngOnDestroy(): void {
     this.unsubscribe.unsubscribe();
   }

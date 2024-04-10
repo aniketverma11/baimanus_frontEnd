@@ -1,0 +1,347 @@
+<div
+  class="container"
+  [ngClass]="{
+    'small-text': textSize === 'small',
+    'medium-text': textSize === 'medium',
+    'large-text': textSize === 'large'
+  }"
+>
+  <div class="left-section">
+    <!-- <span *ngFor="let imgaedata of homePhotos"> -->
+    <!-- <h1>{{ homePhotos?.title }}</h1>
+     -->
+    <h1
+      [ngClass]="{
+        'dark-mode-yellow': isDarkModeInLocalStorage(),
+        'light-mode-purple': !isDarkModeInLocalStorage()
+      }"
+      class="larger-text"
+    >
+      {{ homePhotos?.title }}
+    </h1>
+
+    <div class="content-details">
+      <p>{{ homePhotos?.short_description }}</p>
+
+      <!-- <strong>
+        <span class="author-name">
+          <iframe
+            [src]="videoUrl"
+            frameborder="0"
+            height="315"
+            width="560"
+          ></iframe>
+        </span>
+      </strong> -->
+
+      <span class="published-date" style="display: block">
+        Published : {{ homePhotos?.publish | date }}
+      </span>
+    </div>
+    <div class="category-image">
+      <!-- <ng-container *ngFor="let image of homePhotos.images">
+        <img [src]="getFullImagePath(image.image)" alt="" />
+      </ng-container> -->
+
+      <iframe
+        [src]="videoUrl"
+        frameborder="0"
+        width="560"
+        height="315"
+        allowfullscreen
+      ></iframe>
+
+      <div class="shar-section">
+        <div class="Share icon">
+          <div class="shareLeft d-flex">
+            <button class="Menus" mat-button [matMenuTriggerFor]="menu">
+              <img src="../../../../../assets/icons/share_icon.png" alt="" />
+            </button>
+            Share
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item>
+                <img src="../../../../../assets/icons/whats app.png" alt="" />
+                <span class="iconNaming"
+                  ><span class="whatsapp-text">WhatsApp</span></span
+                >
+              </button>
+              <button mat-menu-item>
+                <img src="../../../../../assets/icons/facebook.png" alt="" />
+                <span class="iconNaming"
+                  ><span class="whatsapp-text">Facebook</span></span
+                >
+              </button>
+              <button mat-menu-item>
+                <img src="../../../../../assets/icons/twitter_X.png" alt="" />
+                <span class="iconNaming"
+                  ><span class="whatsapp-text">x</span></span
+                >
+              </button>
+              <button mat-menu-item>
+                <img src="../../../../../assets/icons/telegrame.png" alt="" />
+                <span class="iconNaming"
+                  ><span class="whatsapp-text">Telegrame</span></span
+                >
+              </button>
+              <span (click)="urlAndCopylink()">
+                <button mat-menu-item>
+                  <img src="../../../../../assets/icons/copy_link.png" alt="" />
+                  <span class="iconNaming"
+                    ><span class="whatsapp-text">Copy link</span></span
+                  >
+                </button>
+              </span>
+            </mat-menu>
+          </div>
+          <div class="share_rightt">
+            <div class="TextSizing">
+              <button mat-button [matMenuTriggerFor]="menuText">
+                <span class="caps">A</span><span class="smallL">a</span>
+              </button>
+              <mat-menu #menuText="matMenu">
+                <button mat-menu-item (click)="setTextSize('small')">
+                  Small
+                </button>
+                <button mat-menu-item (click)="setTextSize('medium')">
+                  Medium
+                </button>
+                <button mat-menu-item (click)="setTextSize('large')">
+                  Large
+                </button>
+              </mat-menu>
+            </div>
+            <div class="audio" *ngIf="homePhotos.audio">
+              <img
+                (click)="playOrPauseAudio(homePhotos?.audio)"
+                src="../../../../../assets/icons/audio.png"
+                alt=""
+              />
+            </div>
+
+            <div class="bookmark" (click)="bookmark()">
+              <img src="../../../../../assets/icons/bookmark.png" alt="" />
+            </div>
+            <div class="commets" (click)="isCommnet()">
+              <img src="../../../../../assets/icons/commentsTwo.png" alt="" />
+            </div>
+          </div>
+        </div>
+        <hr />
+      </div>
+    </div>
+    <div class="articalread" *ngIf="homePhotos?.content">
+      <div
+        [innerHTML]="
+          homePhotos?.expanded
+            ? homePhotos?.content
+            : truncateHtmlContent(homePhotos?.content)
+        "
+        class="content-container"
+      ></div>
+      <button class="read-full-article" (click)="toggleExpanded(homePhotos)">
+        {{
+          homePhotos?.expanded
+            ? ("Show Less" | translate)
+            : ("Read Full Article" | translate)
+        }}
+      </button>
+    </div>
+
+    <div class="ReadMore-section" *ngIf="readMoreItems">
+      <div class="read-more">
+        <h1
+          [ngClass]="{
+            'dark-mode-yellow': isDarkModeInLocalStorage(),
+            'light-mode-purple': !isDarkModeInLocalStorage()
+          }"
+        >
+          {{ "Read More" | translate }}
+        </h1>
+        <hr />
+        <div class="read-more-items">
+          <div class="item" *ngFor="let item of readMoreItems; let i = index">
+            <img [src]="getFullImagePath(item.image)" />
+            <p>{{ item.title }}</p>
+          </div>
+        </div>
+        <div class="shar-section">
+          <hr />
+        </div>
+      </div>
+    </div>
+
+    <span class="trendingNews" *ngFor="let news of trendingNews">
+      <h1
+        [ngClass]="{
+          'dark-mode-yellow': isDarkModeInLocalStorage(),
+          'light-mode-purple': !isDarkModeInLocalStorage()
+        }"
+      >
+        {{ news?.title }}
+      </h1>
+
+      <div class="content-details">
+        <p>{{ news?.short_description }}</p>
+
+        <strong>
+          <span class="author-name">{{ news?.author }}</span>
+        </strong>
+
+        <span class="published-date" style="display: block">
+          Published : {{ news?.publish | date }}
+        </span>
+      </div>
+      <div class="category-image" *ngFor="let images of trendingNews.images">
+        <ng-container *ngFor="let image of news.images">
+          <img [src]="getFullImagePath(image.image)" />
+        </ng-container>
+        <div class="shar-section">
+          <div class="Share icon">
+            <div class="shareLeft d-flex">
+              <button class="Menus" mat-button [matMenuTriggerFor]="menu">
+                <img src="../../../../../assets/icons/share_icon.png" alt="" />
+              </button>
+              Share
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item>
+                  <img src="../../../../../assets/icons/whats app.png" alt="" />
+                  <span class="iconNaming"
+                    ><span class="whatsapp-text">WhatsApp</span></span
+                  >
+                </button>
+                <button mat-menu-item>
+                  <img src="../../../../../assets/icons/facebook.png" alt="" />
+                  <span class="iconNaming"
+                    ><span class="whatsapp-text">Facebook</span></span
+                  >
+                </button>
+                <button mat-menu-item>
+                  <img src="../../../../../assets/icons/twitter_X.png" alt="" />
+                  <span class="iconNaming"
+                    ><span class="whatsapp-text">x</span></span
+                  >
+                </button>
+                <button mat-menu-item>
+                  <img src="../../../../../assets/icons/telegrame.png" alt="" />
+                  <span class="iconNaming"
+                    ><span class="whatsapp-text">Telegrame</span></span
+                  >
+                </button>
+                <span (click)="urlAndCopylink()">
+                  <button mat-menu-item>
+                    <img
+                      src="../../../../../assets/icons/copy_link.png"
+                      alt=""
+                    />
+                    <span class="iconNaming"
+                      ><span class="whatsapp-text">Copy link</span></span
+                    >
+                  </button>
+                </span>
+              </mat-menu>
+            </div>
+            <div class="share_rightt">
+              <div class="TextSizing">
+                <button mat-button [matMenuTriggerFor]="menuText">
+                  <span class="caps">A</span><span class="smallL">a</span>
+                </button>
+                <mat-menu #menuText="matMenu">
+                  <button mat-menu-item (click)="setTextSize('small')">
+                    Small
+                  </button>
+                  <button mat-menu-item (click)="setTextSize('medium')">
+                    Medium
+                  </button>
+                  <button mat-menu-item (click)="setTextSize('large')">
+                    Large
+                  </button>
+                </mat-menu>
+              </div>
+              <div class="audio" *ngIf="homePhotos.audio">
+                <img
+                  (click)="playOrPauseAudio(homePhotos?.audio)"
+                  src="../../../../../assets/icons/audio.png"
+                  alt=""
+                />
+              </div>
+
+              <div class="bookmark" (click)="bookmark()">
+                <img src="../../../../../assets/icons/bookmark.png" alt="" />
+              </div>
+              <div class="commets" (click)="isCommnet()">
+                <img src="../../../../../assets/icons/commentsTwo.png" alt="" />
+              </div>
+            </div>
+          </div>
+          <hr />
+        </div>
+      </div>
+      <div class="articalread" *ngIf="news.content">
+        <div
+          [innerHTML]="
+            news.expanded ? news.content : truncateHtmlContent(news.content)
+          "
+          class="content-container"
+        ></div>
+        <button class="read-full-article" (click)="toggleExpanded(news)">
+          {{
+            news.expanded
+              ? ("Show Less" | translate)
+              : ("Read Full Article" | translate)
+          }}
+        </button>
+      </div>
+
+      <div class="ReadMore-section">
+        <div class="read-more">
+          <h1
+            [ngClass]="{
+              'dark-mode-yellow': isDarkModeInLocalStorage(),
+              'light-mode-purple': !isDarkModeInLocalStorage()
+            }"
+          >
+            {{ "Read More" | translate }}
+          </h1>
+          <hr />
+          <div class="read-more-items">
+            <div class="item" *ngFor="let item of readMoreItems; let i = index">
+              <img
+                [src]="getFullImagePath(item?.image)"
+                alt="Image {{ i + 1 }}"
+              />
+              <p>{{ item.title }}</p>
+            </div>
+          </div>
+          <div class="shar-section">
+            <hr />
+          </div>
+        </div>
+      </div>
+    </span>
+  </div>
+
+  <div class="right-section">
+    <div class="stay-updated">
+      <h2>{{ "Stay Updated" | translate }}</h2>
+      <app-subscribe></app-subscribe>
+    </div>
+    <div class="line" style="display: none"></div>
+
+    <div class="more-news">
+      <h2>{{ "More News" | translate }}</h2>
+      <hr />
+      <div
+        class="news-item"
+        *ngFor="let item of readMoreItemsDetail; let i = index"
+      >
+        <span (click)="getHomeContentBySlugAndNavigate(item.slug)">
+          <img [src]="getFullImagePath(item.image)" />
+          <p>{{ item.title }}</p>
+        </span>
+      </div>
+      <hr />
+    </div>
+  </div>
+  <!-- </span> -->
+</div>
+<!-- </div> -->

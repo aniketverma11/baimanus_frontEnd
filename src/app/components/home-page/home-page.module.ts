@@ -26,6 +26,12 @@ import { CategoryDetailsComponent } from './category-details/category-details.co
 import { TranslateModule } from '@ngx-translate/core';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { ProjectDharitriComponent } from './project-dharitri/project-dharitri.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DharitriPhotosComponent } from './project-dharitri/dharitri-photos/dharitri-photos.component';
+import { DharitriVideosComponent } from './project-dharitri/dharitri-videos/dharitri-videos.component';
+import { DharitriDetailsComponent } from './project-dharitri/dharitri-details/dharitri-details.component';
+import { DharitruPhotosDetailsComponent } from './project-dharitri/dharitri-photos/dharitru-photos-details/dharitru-photos-details.component';
 const routes: Routes = [
   {
     path: '',
@@ -60,6 +66,26 @@ const routes: Routes = [
     path: 'about-us',
     component: AboutUsComponent,
   },
+  {
+    path: 'photo-view',
+    component: PhotosDetailsComponent,
+  },
+  {
+    path: 'dharitriyes',
+    component: ProjectDharitriComponent,
+  },
+  {
+    path: 'dharitries-photos',
+    component: DharitriPhotosComponent,
+  },
+  {
+    path: 'dharitries-videos',
+    component: DharitriVideosComponent,
+  },
+  {
+    path: 'dharitries-details',
+    component: DharitriDetailsComponent,
+  },
 ];
 
 @NgModule({
@@ -73,21 +99,28 @@ const routes: Routes = [
     NewsDetailsComponent,
     VideosComponent,
     PhotosComponent,
-    PhotosDetailsComponent,
+    // PhotosDetailsComponent,
     NewsSectionComponent,
     HomePageVideosComponent,
     SubscribeComponent,
     SerachComponent,
     CategoryDetailsComponent,
     AboutUsComponent,
+    ProjectDharitriComponent,
+    DharitriPhotosComponent,
+    DharitriVideosComponent,
+    DharitriDetailsComponent,
   ],
   imports: [
     CommonModule,
     CarouselModule,
     MatExpansionModule,
+    PhotosDetailsComponent,
     TranslateModule,
+    // DharitruPhotosDetailsComponent,
     MatRadioModule,
     YouTubePlayerModule,
+    MatDialogModule,
     RouterModule.forChild(routes),
     MatMenuModule,
   ], // Use forChild() for lazy-loaded modules

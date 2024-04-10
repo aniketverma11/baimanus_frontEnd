@@ -26,6 +26,7 @@ import { LoaderComponent } from './common-components/layout/loader/loader.compon
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { CommonModule } from '@angular/common';
+
 //
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { CommonModule } from '@angular/common';
   ],
   imports: [
     CommonModule,
+
     BrowserModule,
     MatSlideToggleModule,
     AppRoutingModule,

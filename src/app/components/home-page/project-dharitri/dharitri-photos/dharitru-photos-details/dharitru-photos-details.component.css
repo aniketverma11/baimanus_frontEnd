@@ -1,0 +1,43 @@
+.swiperimg img {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  margin: 0 auto;
+}
+img {
+  height: 564px;
+}
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  background-color: #292929;
+}
+.imageDesc {
+  color: yellow;
+  background-color: #292929;
+}
+.counter {
+  color: rgb(203, 211, 211);
+  font-size: large;
+}
+dialog-container._mat-animation-noopable .mdc-dialog__surface {
+  background-color: #292929 !important;
+}
+.small-text {
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.medium-text {
+  font-size: 23px;
+  line-height: 1.5;
+}
+
+.large-text {
+  font-size: 30px;
+  line-height: 1.7;
+}

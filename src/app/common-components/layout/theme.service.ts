@@ -103,7 +103,7 @@ export class ThemeService {
   }
 
   applyHTheme(): void {
-    const headings = document.querySelectorAll('h1, h2, h3, h4');
+    const headings = document.querySelectorAll('h1, h3, h4');
 
     if (headings) {
       headings.forEach((element) => {

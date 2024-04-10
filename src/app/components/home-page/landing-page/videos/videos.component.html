@@ -8,7 +8,17 @@
 >
   <div class="left-section">
     <!-- <span *ngFor="let imgaedata of homePhotos"> -->
-    <h1>{{ homePhotos?.title }}</h1>
+    <!-- <h1>{{ homePhotos?.title }}</h1>
+     -->
+    <h1
+      [ngClass]="{
+        'dark-mode-yellow': isDarkModeInLocalStorage(),
+        'light-mode-purple': !isDarkModeInLocalStorage()
+      }"
+      class="larger-text"
+    >
+      {{ homePhotos?.title }}
+    </h1>
 
     <div class="content-details">
       <p>{{ homePhotos?.short_description }}</p>
@@ -139,7 +149,14 @@
 
     <div class="ReadMore-section" *ngIf="readMoreItems">
       <div class="read-more">
-        <h1>{{ "Read More" | translate }}</h1>
+        <h1
+          [ngClass]="{
+            'dark-mode-yellow': isDarkModeInLocalStorage(),
+            'light-mode-purple': !isDarkModeInLocalStorage()
+          }"
+        >
+          {{ "Read More" | translate }}
+        </h1>
         <hr />
         <div class="read-more-items">
           <div class="item" *ngFor="let item of readMoreItems; let i = index">
@@ -154,7 +171,14 @@
     </div>
 
     <span class="trendingNews" *ngFor="let news of trendingNews">
-      <h1>{{ news?.title }}</h1>
+      <h1
+        [ngClass]="{
+          'dark-mode-yellow': isDarkModeInLocalStorage(),
+          'light-mode-purple': !isDarkModeInLocalStorage()
+        }"
+      >
+        {{ news?.title }}
+      </h1>
 
       <div class="content-details">
         <p>{{ news?.short_description }}</p>
@@ -270,7 +294,14 @@
 
       <div class="ReadMore-section">
         <div class="read-more">
-          <h1>{{ "Read More" | translate }}</h1>
+          <h1
+            [ngClass]="{
+              'dark-mode-yellow': isDarkModeInLocalStorage(),
+              'light-mode-purple': !isDarkModeInLocalStorage()
+            }"
+          >
+            {{ "Read More" | translate }}
+          </h1>
           <hr />
           <div class="read-more-items">
             <div class="item" *ngFor="let item of readMoreItems; let i = index">

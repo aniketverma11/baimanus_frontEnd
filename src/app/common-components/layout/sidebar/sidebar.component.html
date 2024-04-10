@@ -9,9 +9,11 @@
         <div class="XRy60">
           <a class="_2eoA3" aria-label="The  homepage" href="/home">
             <span class="logoImg">
+              <!-- src="https://baimanus.in/wp-content/uploads/2022/01/bai_manus.png" -->
+
               <img
                 class="logoImg"
-                src="https://baimanus.in/wp-content/uploads/2022/01/bai_manus.png"
+                src="../../../../assets/images/newBaimanusLogo.png"
                 alt=""
                 srcset=""
               />
@@ -22,7 +24,7 @@
         <div class="hinditoggle">
           <span class="switchLanguage">
             <img
-              src="../../../../assets/images/lan-switch.png"
+              src="../../../../assets/images/newBaimanusEnglish.png"
               (click)="switchLanguage()"
               alt=""
             />
@@ -109,12 +111,26 @@
             </g>
           </svg> -->
         </div>
-        <div class="_1what">
-          <a
-            href="https://baimanus.in/category/current-news-related-to-women/ground-reports-and-news-articles-about-climate-change-effects-on-gender/"
-            target="_blank"
-          >
-            <h2 style="color: white; margin-top: 3px">प्रोजेक्ट धरित्री</h2>
+        <div class="_1what dharitri" *ngIf="dharitri == false">
+          <a href="/home/dharitriyes" target="_blank">
+            <img src="../../../../assets/images/Dharitri Logo PNG.png" alt="" />
+            <!-- <h2 style="color: white; margin-top: 3px">प्रोजेक्ट धरित्री</h2> -->
+          </a>
+        </div>
+        <div class="_1what dharitriGif" *ngIf="dharitri == true">
+          <a href="/home/dharitriyes" target="_blank">
+            <!-- <img src="../../../../assets/images/Dharitri Logo PNG." alt="" /> -->
+
+            <img
+              src="../../../../assets/images/gifwithproject-ezgif.com-resize2.gif"
+              alt=""
+            />
+            <!-- <video controls autoplay loop>
+              <source
+                src="../../../../assets/images/gif_with_project.mp4"
+                type="video/mp4"
+              />
+            </video> -->
           </a>
         </div>
       </div>
@@ -411,7 +427,7 @@
       <section class="member-frame">
         <header class="close-frame">
           <div class="home-link-frame">
-            <div class="divbecome-member-button">
+            <div class="divbecome-member-button" *ngIf="dharitri == false">
               <b class="become-a-member"
                 >{{ "Become a Member" | translate }}
               </b>
@@ -461,7 +477,7 @@
               class="link-fit-homepage"
               loading="lazy"
               alt=""
-              src="../../../../assets/images/lan-switch.png"
+              src="../../../../assets/images/newBaimanusEnglish.png"
             />
           </div>
         </div>

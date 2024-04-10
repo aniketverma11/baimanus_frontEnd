@@ -11,16 +11,37 @@
         />
       </div>
       <div class="content-details">
-        <h1>{{ homeContent?.title }}</h1>
-        <p>{{ homeContent?.short_description }}</p>
+        <h1
+          [ngClass]="{
+            'dark-mode-yellow': isDarkModeInLocalStorage(),
+            'light-mode-purple': !isDarkModeInLocalStorage()
+          }"
+        >
+          {{ homeContent?.title }}
+        </h1>
+
+        <p [ngStyle]="getshortDis()">
+          {{ homeContent?.short_description }}
+        </p>
       </div>
     </a>
     <span>
       <div class="hometitle">
         <div class="news-left">
           <div class="box" *ngFor="let items of homeInfo; index as i">
-            <span (click)="getHomeContentBySlug(homeInfoSlug[i])">
-              {{ items }}
+            <span (click)="getHomeContentBySlug(items?.slug)">
+              <h2
+                [ngClass]="{
+                  'dark-mode-yellow': isDarkModeInLocalStorage(),
+                  'light-mode-purple': !isDarkModeInLocalStorage()
+                }"
+              >
+                {{ items?.title }}
+              </h2>
+            </span>
+            <br />
+            <span class="shortDesc">
+              {{ items?.short_description }}
             </span>
           </div>
         </div>
@@ -34,7 +55,17 @@
                 [src]="getFullImagePath(belowContent[3]?.image)"
                 [alt]="belowContent[3]?.image_alt"
               />
-              <h2>{{ belowContent[3]?.title }}</h2>
+              <h2
+                [ngClass]="{
+                  'dark-mode-yellow': isDarkModeInLocalStorage(),
+                  'light-mode-purple': !isDarkModeInLocalStorage()
+                }"
+              >
+                {{ belowContent[3]?.title }}
+              </h2>
+            </span>
+            <span class="shortDesc">
+              {{ belowContent[3]?.short_description }}
             </span>
           </div>
         </div>
@@ -57,11 +88,25 @@
     </div>
     <div class="line"></div>
 
-    <div
+    <!-- <div
       class="more-news"
       [ngClass]="{ 'dark-mode': themeServiceInstance.isDarkMode() }"
+    > -->
+    <div
+      class="more-news"
+      [ngClass]="{
+        'dark-mode-yellow': isDarkModeInLocalStorage(),
+        'light-mode-purple': !isDarkModeInLocalStorage()
+      }"
     >
-      <h2>{{ "More News" | translate }}</h2>
+      <h2
+        [ngClass]="{
+          'dark-mode-yellow': isDarkModeInLocalStorage(),
+          'light-mode-purple': !isDarkModeInLocalStorage()
+        }"
+      >
+        {{ "More News" | translate }}
+      </h2>
       <hr />
       <span *ngFor="let item of readMoreItems; let i = index">
         <div class="news-item" (click)="getHomeContentBySlug(item?.slug)">
@@ -69,7 +114,14 @@
             [src]="getFullImagePath(readMoreImages[i])"
             [alt]="'News Item ' + (i + 1)"
           />
-          <p>{{ item?.title }}</p>
+          <h2
+            [ngClass]="{
+              'dark-mode-yellow': isDarkModeInLocalStorage(),
+              'light-mode-purple': !isDarkModeInLocalStorage()
+            }"
+          >
+            {{ item?.title }}
+          </h2>
         </div>
       </span>
       <hr />
@@ -125,7 +177,7 @@
         transform="translate(12.922 18.535)"
       ></path>
     </svg>
-    <h2>{{ "Videos" | translate }}</h2>
+    <h2 [ngStyle]="getTagStyle()">{{ "Videos" | translate }}</h2>
   </div>
 </div>
 
@@ -136,15 +188,32 @@
         <span (click)="navigateVideos(VideoObject?.slug)">
           <div class="phots-heading">
             <img [src]="getFullImagePath(VideoObject?.image)" />
-            <h3 class="dark-color">{{ VideoObject?.title }}</h3>
+            <h3 class="dark-color" [ngStyle]="getTagStyleTitle()">
+              {{ VideoObject?.title }}
+            </h3>
           </div>
+        </span>
+        <span class="shortDesc">
+          {{ VideoObject?.short_description }}
         </span>
       </div>
 
       <div class="photos-right videosRight">
         <div class="phots-box" *ngFor="let title of VideoTitle; index as i">
-          <img [src]="getFullImagePath(videoImages[i])" />
-          <h3 class="dark-color">{{ title }}</h3>
+          <img
+            (click)="navigateVideos(title?.slug)"
+            [src]="getFullImagePath(videoImages[i])"
+          />
+          <h3
+            (click)="navigateVideos(title?.slug)"
+            class="dark-color"
+            [ngStyle]="getTagStyleTitle()"
+          >
+            {{ title?.title }}
+          </h3>
+          <span class="shortDesc">
+            {{ title?.short_description }}
+          </span>
           <hr />
         </div>
       </div>
@@ -184,7 +253,7 @@
           </g>
         </g>
       </svg>
-      <h2>{{ "Photos" | translate }}</h2>
+      <h2 [ngStyle]="getTagStyle()">{{ "Photos" | translate }}</h2>
     </div>
     <div class="photos">
       <div class="photos-left">
@@ -194,7 +263,14 @@
               [src]="getFullImagePath(headingTitle[0]?.image)"
               [alt]="headingTitle[0]?.image_description"
             />
-            <h3 class="dark-color">{{ headingTitle[0]?.title }}</h3>
+            <h2
+              [ngClass]="{
+                'dark-mode-yellow': isDarkModeInLocalStorage(),
+                'light-mode-purple': !isDarkModeInLocalStorage()
+              }"
+            >
+              {{ headingTitle[0]?.title }}
+            </h2>
           </div>
         </span>
       </div>
@@ -202,13 +278,23 @@
       <div class="photos-right" [class.dark-mode]="darkMode">
         <div class="phots-box" *ngFor="let title of headingTitle">
           <hr />
-          <h3
-            class="dark-color"
-            [ngClass]="{ 'dark-color': darkMode }"
-            (click)="navigate(title.slug)"
+          <h2
+            [ngClass]="{
+              'dark-mode-yellow': isDarkModeInLocalStorage(),
+              'light-mode-purple': !isDarkModeInLocalStorage()
+            }"
           >
             {{ title.title }}
-          </h3>
+            <div class="insideimage">
+              <img
+                src=""
+                [src]="getFullImagePath(title?.image)"
+                [alt]="title?.image_alt"
+              />
+
+              <span class="shortDesc">{{ title?.short_description }}</span>
+            </div>
+          </h2>
         </div>
       </div>
     </div>
@@ -228,7 +314,14 @@
     >
       <div class="entertain-inner-block">
         <div class="entertain-title">
-          <h2 [ngClass]="{ 'dark-color': darkMode }">{{ category.name }}</h2>
+          <h2
+            [ngClass]="{
+              'dark-mode-yellow': isDarkModeInLocalStorage(),
+              'light-mode-purple': !isDarkModeInLocalStorage()
+            }"
+          >
+            {{ category.name }}
+          </h2>
           <div>
             <svg
               class="arrow"
@@ -281,13 +374,33 @@
           class="enterheadline-block-left enterblock-shadow"
           (click)="getHomeContentBySlug(category.posts[1]?.slug)"
         >
-          <h4>{{ category.posts[1]?.title }}</h4>
+          <h2
+            [ngClass]="{
+              'dark-mode-yellow': isDarkModeInLocalStorage(),
+              'light-mode-purple': !isDarkModeInLocalStorage()
+            }"
+          >
+            {{ category.posts[1]?.title }}
+          </h2>
+          <span class="shortDesc">
+            {{ category.posts[1]?.short_description }}
+          </span>
         </div>
         <div
           class="enterheadline-block-right enterblock-shadow"
           (click)="getHomeContentBySlug(category.posts[2]?.slug)"
         >
-          <h4>{{ category.posts[2]?.title }}</h4>
+          <h2
+            [ngClass]="{
+              'dark-mode-yellow': isDarkModeInLocalStorage(),
+              'light-mode-purple': !isDarkModeInLocalStorage()
+            }"
+          >
+            {{ category.posts[2]?.title }}
+          </h2>
+          <span class="shortDesc">
+            {{ category.posts[2]?.short_description }}
+          </span>
         </div>
       </div>
       <!-- <ng-container *ngIf="(i + 1) % 4 === 0 && i !== categoryList.length - 1">

@@ -268,6 +268,26 @@ export class NewsDetailsComponent implements AfterViewInit {
     return this.themeService;
   }
 
+  getFontSize(): number {
+    switch (this.textSize) {
+      case 'small':
+        return 5;
+      case 'medium':
+        return 6;
+      case 'large':
+        return 9;
+      default:
+        return 6;
+    }
+  }
+  isDarkModeInLocalStorage(): boolean {
+    if (typeof localStorage !== 'undefined') {
+      const isDark = localStorage.getItem('darkMode');
+      return isDark === 'true';
+    } else {
+      return false;
+    }
+  }
   ngOnDestroy(): void {
     this.unsubscribe.unsubscribe();
   }

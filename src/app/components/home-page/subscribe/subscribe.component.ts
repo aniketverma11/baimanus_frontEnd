@@ -24,4 +24,25 @@ export class SubscribeComponent {
     // Handle subscription logic here
     console.log('Subscribe button clicked');
   }
+  isDarkModeInLocalStorage(): boolean {
+    if (typeof localStorage !== 'undefined') {
+      const isDark = localStorage.getItem('darkMode');
+      return isDark === 'true';
+    } else {
+      return false;
+    }
+  }
+  getshortDis() {
+    if (this.isDarkModeInLocalStorage()) {
+      return {
+        color: 'white',
+        'background-color': 'rgb(51, 51, 51)',
+      };
+    } else {
+      return {
+        color: '#000000',
+        'background-color': 'white',
+      };
+    }
+  }
 }

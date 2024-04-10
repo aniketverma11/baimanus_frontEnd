@@ -99,6 +99,7 @@ footer .bottom-footer {
   padding: 10px 15px;
   background: #fa9000;
   border-radius: 23px;
+  font-weight: 700;
 }
 ._2_rjA {
   padding-top: 25px;
@@ -663,13 +664,15 @@ input:checked + .slider:before {
   line-height: 26px;
   display: flex;
   font-style: italic;
-  font-weight: 400;
+  font-weight: 800;
   font-family: inherit;
   white-space: pre-wrap;
   align-items: center;
   flex-shrink: 0;
   cursor: pointer;
   z-index: 1;
+  font: 16px;
+  font-weight: bold;
 }
 .text-parent {
   width: 371px;
@@ -946,11 +949,19 @@ body.dark-theme .sidebar {
     display: none;
   }
 }
-@media screen and (max-width: 760px){
-  .dark-mode-wrapper{
+@media screen and (max-width: 760px) {
+  .dark-mode-wrapper {
     display: none;
   }
-  .home-election-label .dark-mode-wrapper{
+  .home-election-label .dark-mode-wrapper {
     display: flex;
   }
+}
+.dharitri img {
+  width: 10%;
+  height: auto;
+}
+.dharitriGif img {
+  background-color: transparent;
+  width: 30%;
 }

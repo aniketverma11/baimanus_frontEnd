@@ -8,7 +8,16 @@
 >
   <div class="left-section">
     <!-- <span *ngFor="let imgaedata of homePhotos"> -->
-    <h1>{{ homePhotos?.title }}</h1>
+    <!-- <h1>{{ homePhotos?.title }}</h1> -->
+    <h1
+      [ngClass]="{
+        'dark-mode-yellow': isDarkModeInLocalStorage(),
+        'light-mode-purple': !isDarkModeInLocalStorage()
+      }"
+      class="larger-text"
+    >
+      {{ homePhotos?.title }}
+    </h1>
 
     <div class="content-details">
       <p>{{ homePhotos?.short_description }}</p>
@@ -23,12 +32,7 @@
     </div>
     <div class="category-image">
       <div class="image-slider">
-        <button *ngIf="!expanded" (click)="expandCarousel()">Expand</button>
-
-        <owl-carousel-o
-          *ngIf="!expanded; else expandedCarousel"
-          [options]="oneImageOptions"
-        >
+        <owl-carousel-o *ngIf="!expanded" [options]="oneImageOptions">
           <ng-container *ngFor="let slide of [homePhotos?.image]">
             <ng-template carouselSlide>
               <img
@@ -39,38 +43,15 @@
             </ng-template>
           </ng-container>
         </owl-carousel-o>
-
-        <ng-template #expandedCarousel>
-          <div class="expanded-carousel">
-            <button class="backBtn" (click)="shrinkCarousel()">X</button>
-            <owl-carousel-o [options]="expandedOptions">
-              <ng-container *ngFor="let slide of slidesImages; let i = index">
-                <ng-template carouselSlide>
-                  <div
-                    class="carousel-item"
-                    [ngStyle]="{ 'z-index': i === currentIndex ? 1 : 0 }"
-                  >
-                    <img
-                      [src]="slide"
-                      alt="Slide Image"
-                      class="owl-lazy"
-                      [class.active]="i === currentIndex"
-                    />
-                  </div>
-                </ng-template>
-              </ng-container>
-            </owl-carousel-o>
-          </div>
-        </ng-template>
+        <button (click)="openDialog(slidesImages)">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32">
+            <path
+              fill="#292929"
+              d="M.387.391A1.32 1.32 0 0 0 0 1.328v10.678a1.333 1.333 0 0 0 2.667 0V2.667h9.34c.728 0 1.326-.597 1.326-1.333C13.333.592 12.74 0 12.006 0H1.327C.964 0 .633.15.393.39zM.39 31.614c.24.24.57.386.936.386h10.68c.728 0 1.326-.597 1.326-1.333 0-.742-.594-1.334-1.327-1.334h-9.34v-9.339c0-.728-.596-1.327-1.333-1.327-.741 0-1.333.594-1.333 1.327v10.679c0 .363.149.694.389.935zM31.609.387A1.321 1.321 0 0 0 30.673 0H19.994c-.729 0-1.327.597-1.327 1.334 0 .741.594 1.333 1.327 1.333h9.34v9.34c0 .728.596 1.327 1.333 1.327.741 0 1.333-.594 1.333-1.328V1.328a1.32 1.32 0 0 0-.389-.935zm.004 31.222c.24-.24.387-.57.387-.936v-10.68c0-.728-.597-1.326-1.333-1.326-.742 0-1.334.594-1.334 1.327v9.34h-9.339c-.729 0-1.327.596-1.327 1.333 0 .741.594 1.333 1.327 1.333h10.679c.363 0 .694-.149.935-.389z"
+            ></path>
+          </svg>
+        </button>
       </div>
-
-      <!-- <owl-carousel-o [options]="customOptions">
-        <ng-container *ngFor="let slide of slidesImages">
-          <ng-template carouselSlide>
-            <img [src]="slide" alt="Slide Image" class="owl-lazy" />
-          </ng-template>
-        </ng-container>
-      </owl-carousel-o> -->
 
       <div class="shar-section">
         <div class="Share icon">
@@ -152,6 +133,11 @@
     </div>
     <div class="articalread">
       <div
+        [ngClass]="{
+          'small-text': textSize === 'small',
+          'medium-text': textSize === 'medium',
+          'large-text': textSize === 'large'
+        }"
         [innerHTML]="
           homePhotos?.expanded
             ? homePhotos.content
@@ -170,7 +156,14 @@
 
     <div class="ReadMore-section">
       <div class="read-more">
-        <h1>Read More</h1>
+        <h1
+          [ngClass]="{
+            'dark-mode-yellow': isDarkModeInLocalStorage(),
+            'light-mode-purple': !isDarkModeInLocalStorage()
+          }"
+        >
+          Read More
+        </h1>
         <hr />
         <div class="read-more-items">
           <div class="item" *ngFor="let item of readMoreItems; let i = index">
@@ -212,6 +205,11 @@
       </div>
       <div class="articalread">
         <div
+          [ngClass]="{
+            'small-text': textSize === 'small',
+            'medium-text': textSize === 'medium',
+            'large-text': textSize === 'large'
+          }"
           [innerHTML]="
             news.expanded ? news?.content : truncateHtmlContent(news?.content)
           "
@@ -261,7 +259,14 @@
     <div class="line" style="display: none"></div>
 
     <div class="more-news">
-      <h2>{{ "More News" | translate }}</h2>
+      <h2
+        [ngClass]="{
+          'dark-mode-yellow': isDarkModeInLocalStorage(),
+          'light-mode-purple': !isDarkModeInLocalStorage()
+        }"
+      >
+        {{ "More News" | translate }}
+      </h2>
       <hr />
       <div
         class="news-item"

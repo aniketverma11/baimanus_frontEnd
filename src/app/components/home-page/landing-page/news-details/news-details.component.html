@@ -12,10 +12,33 @@
   <div class="left-section">
     <!-- <span *ngFor="let news of belowContent"> -->
     <span>
-      <h1>{{ newsDetails?.title }}</h1>
+      <h1
+        [ngClass]="{
+          'dark-mode-yellow': isDarkModeInLocalStorage(),
+          'light-mode-purple': !isDarkModeInLocalStorage()
+        }"
+        class="larger-text"
+      >
+        {{ newsDetails?.title }}
+      </h1>
 
-      <div class="content-details">
-        <p>{{ newsDetails?.short_description }}</p>
+      <div
+        class="content-details"
+        [ngClass]="{
+          'small-text': textSize === 'small',
+          'medium-text': textSize === 'medium',
+          'large-text': textSize === 'large'
+        }"
+      >
+        <p
+          [ngClass]="{
+            'small-text': textSize === 'small',
+            'medium-text': textSize === 'medium',
+            'large-text': textSize === 'large'
+          }"
+        >
+          {{ newsDetails?.short_description }}
+        </p>
 
         <strong>
           <span class="author-name">{{ newsDetails?.author }}</span>
@@ -113,14 +136,31 @@
       </div>
       <div class="articalread">
         <div
-          [innerHTML]="
-            newsDetails.expanded
-              ? newsDetails.content
-              : truncateHtmlContent(newsDetails.content)
-          "
           class="content-container"
-        ></div>
-        <button class="read-full-article" (click)="toggleExpanded(newsDetails)">
+          [ngClass]="{
+            'small-text': textSize === 'small',
+            'medium-text': textSize === 'medium',
+            'large-text': textSize === 'large'
+          }"
+        >
+          <div
+            [innerHTML]="
+              newsDetails.expanded
+                ? newsDetails.content
+                : truncateHtmlContent(newsDetails.content)
+            "
+          ></div>
+        </div>
+
+        <button
+          class="read-full-article"
+          (click)="toggleExpanded(newsDetails)"
+          [ngClass]="{
+            'small-text': textSize === 'small',
+            'medium-text': textSize === 'medium',
+            'large-text': textSize === 'large'
+          }"
+        >
           {{
             newsDetails?.expanded
               ? ("Show Less" | translate)
@@ -131,7 +171,14 @@
 
       <div class="ReadMore-section">
         <div class="read-more">
-          <h1>{{ "Read More" | translate }}</h1>
+          <h1
+            [ngClass]="{
+              'dark-mode-yellow': isDarkModeInLocalStorage(),
+              'light-mode-purple': !isDarkModeInLocalStorage()
+            }"
+          >
+            {{ "Read More" | translate }}
+          </h1>
           <hr />
           <div class="read-more-items">
             <div
@@ -197,7 +244,14 @@
     <span class="trendingNews" *ngFor="let news of trendingNews">
       <!--  -->
 
-      <h1>{{ news?.title }}</h1>
+      <h1
+        [ngClass]="{
+          'dark-mode-yellow': isDarkModeInLocalStorage(),
+          'light-mode-purple': !isDarkModeInLocalStorage()
+        }"
+      >
+        {{ news?.title }}
+      </h1>
 
       <div class="content-details">
         <p>{{ news.short_description }}</p>
@@ -295,6 +349,11 @@
       </div>
       <div class="articalread">
         <div
+          [ngClass]="{
+            'small-text': textSize === 'small',
+            'medium-text': textSize === 'medium',
+            'large-text': textSize === 'large'
+          }"
           [innerHTML]="
             news?.expanded ? news.content : truncateHtmlContent(news?.content)
           "
@@ -314,7 +373,14 @@
         *ngIf="readMoreItems && readMoreItems.length > 0"
       >
         <div class="read-more">
-          <h1>{{ "Read More" | translate }}</h1>
+          <h1
+            [ngClass]="{
+              'dark-mode-yellow': isDarkModeInLocalStorage(),
+              'light-mode-purple': !isDarkModeInLocalStorage()
+            }"
+          >
+            {{ "Read More" | translate }}
+          </h1>
           <hr />
           <div class="read-more-items">
             <div class="item" *ngFor="let item of readMoreItems; let i = index">

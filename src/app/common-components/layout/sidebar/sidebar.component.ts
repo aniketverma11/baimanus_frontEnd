@@ -10,11 +10,11 @@ import { MatDrawer } from '@angular/material/sidenav';
 import { MatDialog } from '@angular/material/dialog';
 import { SignupdialogComponent } from '../signupdialog/signupdialog.component';
 import { CategoryService } from '../../../../services/category.service';
-import { Subscription } from 'rxjs';
+import { Subscription, filter } from 'rxjs';
 import { AuthService } from '../../../../services/auth.service';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { LanguageService } from '../../../../services/language.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { LanguageChangeServiceService } from '../../../../services/language-change-service.service';
 
 @Component({
@@ -36,6 +36,7 @@ export class SidebarComponent implements OnInit {
   showDropdown = false;
   isLoading: boolean = false;
   type: any = 'english';
+  dharitri: boolean = false;
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
     this.checkScreenWidth();
@@ -50,12 +51,27 @@ export class SidebarComponent implements OnInit {
     private authService: AuthService,
     private languageService: LanguageService,
     private router: Router,
+    private route: ActivatedRoute,
     private LanguageChangeService: LanguageChangeServiceService
   ) {
     this.darkMode = this.themeService.isDarkMode();
   }
 
   ngOnInit() {
+    this.router.events
+      .pipe(filter((event) => event instanceof NavigationEnd))
+      .subscribe(() => {
+        const currentUrl = this.router.url;
+        console.log(currentUrl);
+        if (currentUrl == '/home/dharitriyes') {
+          this.dharitri = true;
+        }
+        // if (this.route.snapshot.routeConfig?.path === '/home/dharitriyes') {
+        //   // Perform your custom logic here
+        //   console.log('Custom logic for route /dharitriyes');
+        // }
+      });
+
     this.themeService.darkModeChanged.subscribe((darkMode: boolean) => {
       this.darkMode = darkMode;
     });
