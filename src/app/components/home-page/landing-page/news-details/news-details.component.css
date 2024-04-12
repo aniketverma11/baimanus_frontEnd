@@ -183,7 +183,7 @@
 
 .more-news {
   background-color: #fff;
-  padding: 20px;
+  /* padding: 20px; */
   border-radius: 4px;
 }
 
@@ -435,8 +435,8 @@
 }
 
 .medium-text {
-  font-size: 23px;
-  line-height: 1.5;
+  font-size: 20px;
+  line-height: 1.6;
 }
 
 .large-text {

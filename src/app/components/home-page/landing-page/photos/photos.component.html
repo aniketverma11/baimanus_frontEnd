@@ -162,7 +162,7 @@
             'light-mode-purple': !isDarkModeInLocalStorage()
           }"
         >
-          Read More
+          {{ " Read More" | translate }}
         </h1>
         <hr />
         <div class="read-more-items">
@@ -171,7 +171,14 @@
               [src]="getFullImagePath(readMoreImages[i])"
               alt="Image {{ i + 1 }}"
             />
-            <p>{{ item }}</p>
+            <h2
+              [ngClass]="{
+                'dark-mode-yellow': isDarkModeInLocalStorage(),
+                'light-mode-purple': !isDarkModeInLocalStorage()
+              }"
+            >
+              {{ item }}
+            </h2>
           </div>
         </div>
         <div class="shar-section">
@@ -274,7 +281,14 @@
       >
         <span (click)="getHomeContentBySlugAndNavigate(readMoreSlug[i])">
           <img [src]="getFullImagePath(readMoreImagesDetail[i])" />
-          <p>{{ item }}</p>
+          <h2
+            [ngClass]="{
+              'dark-mode-yellow': isDarkModeInLocalStorage(),
+              'light-mode-purple': !isDarkModeInLocalStorage()
+            }"
+          >
+            {{ item }}
+          </h2>
         </span>
       </div>
       <hr />

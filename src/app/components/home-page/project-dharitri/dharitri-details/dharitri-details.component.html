@@ -409,7 +409,14 @@
       class="stay-updated"
       [ngClass]="{ 'dark-mode': themeServiceInstance.isDarkMode() }"
     >
-      <h2>{{ "Stay Updated" | translate }}</h2>
+      <h2
+        [ngClass]="{
+          'dark-mode-yellow': isDarkModeInLocalStorage(),
+          'light-mode-purple': !isDarkModeInLocalStorage()
+        }"
+      >
+        {{ "Stay Updated" | translate }}
+      </h2>
       <app-subscribe></app-subscribe>
     </div>
     <div class="line" style="display: none"></div>
@@ -418,7 +425,14 @@
       class="more-news"
       [ngClass]="{ 'dark-mode': themeServiceInstance.isDarkMode() }"
     >
-      <h2>{{ "More News" | translate }}</h2>
+      <h2
+        [ngClass]="{
+          'dark-mode-yellow': isDarkModeInLocalStorage(),
+          'light-mode-purple': !isDarkModeInLocalStorage()
+        }"
+      >
+        {{ "More News" | translate }}
+      </h2>
       <hr />
       <div
         class="news-item"
@@ -428,7 +442,15 @@
           [src]="getFullImagePath(readMoreImagesDetail[i])"
           [alt]="'News Item ' + (i + 1)"
         />
-        <p (click)="NavigateWithSlug(item?.slug)">{{ item?.title }}</p>
+        <h2
+          [ngClass]="{
+            'dark-mode-yellow': isDarkModeInLocalStorage(),
+            'light-mode-purple': !isDarkModeInLocalStorage()
+          }"
+          (click)="NavigateWithSlug(item?.slug)"
+        >
+          {{ item?.title }}
+        </h2>
       </div>
       <hr />
     </div>

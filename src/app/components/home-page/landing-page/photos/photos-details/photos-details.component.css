@@ -41,3 +41,19 @@ dialog-container._mat-animation-noopable .mdc-dialog__surface {
   font-size: 30px;
   line-height: 1.7;
 }
+.photos-slider-seccc{
+  max-width: 1152px;
+  margin: 20px auto;
+}
+.photos-slider-seccc span{
+  line-height: 51px;
+}
+.container .photo-closee{
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  border: none;
+  background: transparent;
+  color: #ffffff;
+  font-size: 28px;
+}
