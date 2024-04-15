@@ -102,84 +102,129 @@
         <div class="style-332">
           <div class="style-333">
             <hr class="style-334" />
-            <h1 class="style-335">About</h1>
+            <h1
+              class="style-335"
+              [ngClass]="{
+                'dark-mode-yellow': isDarkModeInLocalStorage(),
+                'light-mode-purple': !isDarkModeInLocalStorage()
+              }"
+            >
+              IDENTITY
+            </h1>
           </div>
           <div class="style-336">
-            <h3 class="style-337">Who we are</h3>
-            <p class="style-338">
-              India Development Review (IDR) is Asia’s largest independent media
-              platform that advances knowledge and insights on philanthropy and
-              social impact.
+            <h3 class="style-337">Why BaiManus</h3>
+            <p class="style-338" *ngIf="type == 'english'">
+              It is a fact that in developing states like Maharashtra, media
+              still hasn&#39;t reached out to millions of citizens, mainly those
+              living in remote and rural areas. Dalits, tribals, nomads and
+              lakhs of farmers and farm laborers in rural areas can be mentioned
+              as many elements of the society. The existing media seems to be
+              dependent more on male and elitists. This male-facing medium tends
+              to place news of particular class, caste and gender. News is
+              always designed with the majority at priority. This is why Mahatma
+              Gandhi Mission (MGM) University aims to change the established
+              definition of &#39;journalists&#39; to raise the voice of women
+              from all parts of the state with the help of new communication
+              media of modern technology, to provide them with the right
+              platform from their daily life to express the whole space around
+              them in their language, senior journalist Prashant Pawar &amp; MGM
+              University College of Journalism and Mass Communication have
+              launched BaiManus an ambitious and innovative digital media
+              platform.
             </p>
-            <p class="style-339">
-              Recognised as one of India’s top innovative organisations in
-              2023,&nbsp;we publish cutting-edge ideas, lessons and insights,
-              written by and for the people working on some of India’s toughest
-              problems. Our writing is fact-based and editorially independent.
-              And our job is to make things simple and relevant, so you can do
-              more of what you do, better
+            <p class="style-338" *ngIf="type == 'marathi'">
+              महाराष्ट्रासारख्या विकसनशील राज्यात खास करून दुर्गम आणि ग्रामीण
+              भागात राहणाऱ्या लाखो नागरिकांपर्यंत अजूनही माध्यमे पोहोचली नाहीत
+              हे वास्तव आहे. विशेषतः दलित, आदिवासी, भटके विमुक्त आणि ग्रामीण
+              भागातील लाखो शेतकरी-शेतमजूर असे अनेक समाजातील घटक सांगता येतील.
+              याशिवाय अस्तित्वात असणाऱ्या बहुतांश माध्यमांचा सगळा व्यवहार हा
+              पुरुषी आणि अभिजन असल्यासारखा आहे. पुरुषी चेहरा असलेल्या या
+              माध्यमात विशिष्ट वर्गाच्या, जातीच्या आणि लिंगाच्याचं बातम्यांना
+              स्थान दिलेले असते. नेहमीच बहुसंख्यांचा विचार करून बातम्यांची रचना
+              केली जाते. यामुळेच पत्रकारांची प्रस्थापित असणारी व्याख्या
+              बदलण्याचा प्रयत्न करून आधुनिक तंत्रज्ञानाच्या नव्या
+              संवाद-माध्यमांच्या मदतीने राज्यातील सर्व घटकांतील महिलांचा आवाज
+              बुलंद करण्यासाठी, त्यांच्या रोजच्या जगण्यापासून ते त्यांच्या
+              आजूबाजूचा पूर्ण अवकाश त्यांच्या भाषेत व्यक्त करता यावा यासाठी
+              वरिष्ठ पत्रकार प्रशांत पवार आणि एमजीएम विद्यापिठाचे
+              वृत्तपत्रविद्या आणि जनसंवाद महाविद्यालयाने बाईमाणूस या डिजिटल
+              मीडिया हाऊसची निर्मित केली.
             </p>
-            <p class="style-340">
-              We believe that knowledge has the power to drive change, and we
-              hope that our platform serves as a stage for underserved topics,
-              unheard voices, and the counter-narratives that are crucial to
-              achieving social progress.
+
+            <h3 class="style-341">Mission</h3>
+            <p class="style-342" *ngIf="'type==english'">
+              It is an attempt to perform independent journalism without any
+              ideological, economic or political yoke. The aim of the website 
+              baimanus.in  is to perform journalism that is honest to our soil
+              and people. Journalism that emphasizes common man. The agenda of
+              &#39;BaiManus&#39; is not one of popular appeal but of
+              people-oriented journalism that prioritizes people&#39;s issues,
+              questions and interests. A deluge of information is constantly
+              coming in front of us in one way or another. So often our
+              situation is like standing in the middle of a lot of noise. Thus
+              &#39;Baimanus&#39; aims at giving a view of how to look at all
+              this, what to grasp from it and what not.
             </p>
-            <h3 class="style-341">Why we exist</h3>
-            <p class="style-342">
-              Although the development community in India has a vast trove of
-              expertise and wisdom on advancing social change, that knowledge
-              resides in silos, locked in people’s heads or buried within
-              organisations. It seldom reaches the right people, in the right
-              format, or at the right time, for them to act.
+            <p class="style-342" *ngIf="'type==marathi'">
+              कोणतेही वैचारिक, आर्थिक, राजकीय जोखड नसलेल्या स्वतंत्र
+              पत्रकारितेचा हा एक प्रयत्न आहे.  baimanus.in  या वेबसाईटचा उद्देश
+              आपली माती आणि माणसांशी इमान राखणारी पत्रकारिता करण्याचा आहे.
+              सामान्य माणूस केंद्रित पत्रकारिता करण्यावर भर देणारा आहे.
+              &#39;बाईमाणूस&#39;चा अजेंडा लोकानुनय करणारा नाही पण लोकांचे
+              प्रश्न, मुद्दे आणि हित याला प्राधान्य देणाऱ्या लोकाभिमुखी
+              पत्रकारितेचा आहे. माहितीचा महापूर सतत या ना त्या माध्यमातून
+              आपल्यासमोर येतो आहे. त्यामुळे अनेकदा आपली अवस्था भर कोलाहलाच्या
+              मधोमध उभी असल्यासारखी होते. त्यामुळे या सर्वांकडे कसे पाहावे,
+              त्यातून काय घ्यावे आणि काय नाही, याचा दृष्टिकोन देण्याचे काम
+              &#39;बाईमाणूस&#39; करत आहे.
             </p>
-            <p class="style-343">
-              This limits access to learning, evidence and best practices,
-              constraining what we can achieve—both individually with our
-              programmes and money, and also collectively as a sector seeking to
-              create impact.
+
+            <h3 class="style-346">Board</h3>
+            <p class="style-347" *ngIf="'type==english'">
+              Prashant Pawar Director &amp; Editor, BaiManus Hearty welcome at
+              ‘Baimanus&#39; webportal and its other social media platforms. The
+              platform &#39;BaiManus&#39; is a first-of-its-kind experiment in
+              Maharashtra to raise the voice of the voiceless groups in media.
+              Along with urbanization, rural areas need to be given priority.
+              This is why the platform &#39;BaiManus&#39; has come into
+              existence. The power of &#39;social network&#39; is now being
+              felt. We want this new medium of ours to be a true platform of the
+              people, a medium of struggle against the common farmers and the
+              exploitative system. BaiManus&#39; is a montage of people breaking
+              a new path in the media who see such &quot;new dreams.&quot;
+              BaiManus is an online and &#39;grassroots&#39; movement of social,
+              cultural, and political affairs. Every rural and urban citizen
+              should be a part of it. Prashant Pawar has worked as Assistant
+              Editor in Dainik Loksatta for sixteen years and also worked as
+              Editor of Rasik Purvani of Dainik Divya Marathi for 10 years.
+              Prashant Pawar is one of the journalists who are following a
+              different path in Maharashtra, rooting the cultural, literary, and
+              social movement outside the periphery of Maharashtra.
             </p>
-            <p class="style-344">
-              We founded IDR as a nonprofit in 2017, with the objective of
-              surfacing these ideas and insights, so that together we can do
-              more and do right by the millions of Indians whom we work with and
-              for.
+            <p class="style-347" *ngIf="'type==marathi'">
+              &#39;बाईमाणूस&#39; या मराठी वेबपोर्टलवर आणि इतर सोशल मीडियाच्या
+              प्लॅटफॉर्मवर आपले मनापासून स्वागत. &#39;बाईमाणूस&#39; हे व्यासपीठ
+              आवाज नसलेल्या समूहांचा माध्यमांमधील आवाज वाढवण्यासाठीचा या
+              महाराष्ट्रातला पहिलाच प्रयोग आहे. शहरीकरणासोबतच ग्रामीण भागाकडे
+              प्राधान्यानं लक्ष देण्याची गरज आहे. यासाठीच &#39;बाईमाणूस&#39; हे
+              व्यासपीठ आकारास आले आहे. &quot;सोशल नेटवर्क&quot; या शब्दाची ताकद
+              आताशा जाणवू लागली आहे. आपले हे नवे माध्यम ख-या अर्थानं जनतेचे
+              व्यासपीठ व्हावे, सामान्य शेतकरी आणि शोषण व्यवस्थेच्या विरोधातील
+              संघर्षाचे माध्यम व्हावे, अशी आमची इच्छा आहे. &#39;बाईमाणूस&#39; हे
+              असे &quot;नवे स्वप्नं&quot; बघणा-या माध्यमांमध्ये वेगळी वाट
+              धुंडाळणाऱ्या माणसांचे मोहोळ आहे. &#39;बाईमाणूस&#39; ही सामाजिक,
+              सांस्कृतिक आणि राजकीय घडामोडींची ऑनलाइन आणि &#39;ग्रासरूट&#39;
+              चळवळ आहे. यामध्ये प्रत्येक ग्रामीण आणि शहरी नागरिकाने सहभागी
+              व्हावे. प्रशांत पवार यांनी दैनिक लोकसत्ता मध्ये सहाय्यक संपादक
+              म्हणून सोळा वर्षे काम केले आहे त्याचबरोबर दैनिक दिव्य मराठीच्या
+              रसिक पुरवणीचे संपाद्क म्हणून १० वर्षे काम केले आहे. महाराष्ट्रातील
+              वेगळ्या वाटेवर चालणाऱ्या , महाराष्ट्राची परिघाबाहेरील सांस्कृतिक ,
+              साहित्यिक , सामाजिक चळवळीला रुजविणाऱ्या पत्रकारांपैकी प्रशांत पवार
+              हे एक आहेत.
             </p>
-            <p class="style-345">
-              IDR aims to become the voice of, and for, the social sector. We
-              hope that our work will help create a sector that is better
-              informed, embraces critical thinking, and therefore functions
-              better.
-            </p>
-            <h3 class="style-346">What we do</h3>
-            <p class="style-347">
-              IDR focuses on cross-sector solutions to development problems,
-              cutting-edge ideas and research, and real-world practice. We know
-              that knowledge is only a part of the solution for any complex
-              problem; but we also know that it is a crucial part. So, we aim to
-              publish substantive and thought-provoking articles that are rooted
-              in facts, written in clear and simple language, and commissioned
-              by a knowledgeable editorial team.
-            </p>
-            <p class="style-348">
-              Our editorial direction is independent of any funder, nonprofit or
-              partner relationship. We hold ourselves accountable to
-              highlighting issues that matter, regardless of whether they belong
-              to little-known grassroots organisations or big-name funders. We
-              write about what has worked but also what has not. And, we
-              showcase the big ideas even as we cover the functional knowledge
-              that helps us strengthen our programmes and organisations.
-            </p>
-            <p class="style-349">
-              IDR publishes at least one article every weekday. Many of the
-              learnings and insights that we feature have never been documented
-              digitally, giving them the potential to reach millions of people
-              across the country, and the world. For this reason, with every
-              story we commission or write, we ask whether it will move people
-              to think, feel, or act differently; whether it will help create a
-              sector that functions better.
-            </p>
-            <div class="style-350">
+
+            <!-- <div class="style-350">
               <div class="style-351">
                 <h3 class="style-352">
                   <strong class="style-353">2000+</strong>
@@ -196,7 +241,7 @@
                 <h3 class="style-360"><strong class="style-361">28</strong></h3>
                 <p class="style-362">states covered</p>
               </div>
-            </div>
+            </div> -->
             <h3 class="style-363">Whom we serve</h3>
             <p class="style-364">
               IDR is for anyone who is interested in driving social change in

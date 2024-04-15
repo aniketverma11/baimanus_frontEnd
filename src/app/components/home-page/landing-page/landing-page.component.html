@@ -279,6 +279,7 @@
         <div class="phots-box" *ngFor="let title of headingTitle">
           <hr />
           <h2
+            (click)="navigate(title?.slug)"
             [ngClass]="{
               'dark-mode-yellow': isDarkModeInLocalStorage(),
               'light-mode-purple': !isDarkModeInLocalStorage()
@@ -287,12 +288,15 @@
             {{ title.title }}
             <div class="insideimage">
               <img
+                (click)="navigate(title?.slug)"
                 src=""
                 [src]="getFullImagePath(title?.image)"
                 [alt]="title?.image_alt"
               />
 
-              <span class="shortDesc">{{ title?.short_description }}</span>
+              <span (click)="navigate(title?.slug)" class="shortDesc">{{
+                title?.short_description
+              }}</span>
             </div>
           </h2>
         </div>
