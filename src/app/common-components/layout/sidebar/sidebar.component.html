@@ -12,6 +12,7 @@
               <!-- src="https://baimanus.in/wp-content/uploads/2022/01/bai_manus.png" -->
 
               <img
+                (click)="switchLanguage()"
                 class="logoImg"
                 src="../../../../assets/images/newBaimanusLogo.png"
                 alt=""
@@ -23,12 +24,22 @@
         <div class="vl"></div>
         <div class="hinditoggle">
           <span class="switchLanguage">
+            <!-- english logo -->
             <img
               src="../../../../assets/images/Bai manus logo 3.png"
               (click)="switchLanguage()"
               alt=""
             />
+            <!-- marathi logo -->
+
+            <!-- <img
+              *ngIf="currentLanguage == 'english'"
+              src="../../../../assets/images/newBaimanusLogo.png"
+              (click)="switchLanguage()"
+              alt=""
+            /> -->
           </span>
+
           <!-- <svg
             (click)="switchLanguage()"
             xmlns="http://www.w3.org/2000/svg"

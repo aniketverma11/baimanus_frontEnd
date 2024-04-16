@@ -243,6 +243,8 @@ export class NewsDetailsComponent implements AfterViewInit {
   }
 
   NavigateWithSlug(slug: any) {
+    console.log(slug);
+
     this.router.navigate(['home/news-details'], {
       queryParams: { slug: slug },
     });

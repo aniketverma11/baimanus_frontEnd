@@ -37,6 +37,7 @@ export class SidebarComponent implements OnInit {
   isLoading: boolean = false;
   type: any = 'english';
   dharitri: boolean = false;
+  currentLanguage: any;
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
     this.checkScreenWidth();
@@ -58,6 +59,10 @@ export class SidebarComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (typeof localStorage !== 'undefined') {
+      this.currentLanguage = localStorage.getItem('language');
+      console.log(this.currentLanguage);
+    }
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe(() => {
@@ -189,8 +194,10 @@ export class SidebarComponent implements OnInit {
     let newLanguage;
     if (languageToUseOn === 'english') {
       newLanguage = 'marathi';
+      this.router.navigate(['/home']);
     } else {
       newLanguage = 'english';
+      this.router.navigate(['/home']);
     }
 
     localStorage.setItem('language', newLanguage);

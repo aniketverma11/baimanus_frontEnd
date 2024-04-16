@@ -16,13 +16,20 @@
             'dark-mode-yellow': isDarkModeInLocalStorage(),
             'light-mode-purple': !isDarkModeInLocalStorage()
           }"
+          style="margin-bottom: 0"
         >
           {{ homeContent?.title }}
         </h1>
 
-        <p [ngStyle]="getshortDis()">
-          {{ homeContent?.short_description }}
-        </p>
+        <!-- <p> -->
+        <span
+          class="shortDesc"
+          style="margin-bottom: 3px"
+          [ngStyle]="getshortDis()"
+        >
+          {{ homeContent?.short_description }}</span
+        >
+        <!-- </p> -->
       </div>
     </a>
     <span>
@@ -188,9 +195,9 @@
         <span (click)="navigateVideos(VideoObject?.slug)">
           <div class="phots-heading">
             <img [src]="getFullImagePath(VideoObject?.image)" />
-            <h3 class="dark-color" [ngStyle]="getTagStyleTitle()">
+            <h2 class="dark-color" [ngStyle]="getTagStyleTitle()">
               {{ VideoObject?.title }}
-            </h3>
+            </h2>
           </div>
         </span>
         <span class="shortDesc">

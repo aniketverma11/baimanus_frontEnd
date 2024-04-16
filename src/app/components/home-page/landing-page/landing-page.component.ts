@@ -110,9 +110,9 @@ export class LandingPageComponent {
           this.belowContent = data.data;
           this.homeContent = data?.data[0];
 
-          this.homeInfo = data.data.slice(0, 3).map((item: any) => item);
+          this.homeInfo = data.data.slice(0, 2).map((item: any) => item);
           this.homeInfoSlug = data.data
-            .slice(0, 3)
+            .slice(0, 2)
             .map((item: any) => item.slug);
 
           this.readMoreItems = data.data.slice(0, 3).map((item: any) => item);

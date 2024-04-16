@@ -30,7 +30,7 @@
           'large-text': textSize === 'large'
         }"
       >
-        <p
+        <span
           [ngClass]="{
             'small-text': textSize === 'small',
             'medium-text': textSize === 'medium',
@@ -38,7 +38,7 @@
           }"
         >
           {{ newsDetails?.short_description }}
-        </p>
+        </span>
 
         <strong>
           <span class="author-name">{{ newsDetails?.author }}</span>
