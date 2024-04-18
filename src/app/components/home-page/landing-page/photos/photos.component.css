@@ -504,17 +504,17 @@ h1 {
   position: relative;
 }
 .image-slider button {
-  position: absolute;
+  /* position: absolute;
   bottom: 0;
-  right: 0;
+  right: 20; */
 }
 .image-slider img {
   /* width: 90%; */
 }
-.photoView svg {
+/* .photoView svg {
   z-index: 999;
   border: solid 3px red;
 }
 .photoView {
   border: solid 3px red;
-}
+} */

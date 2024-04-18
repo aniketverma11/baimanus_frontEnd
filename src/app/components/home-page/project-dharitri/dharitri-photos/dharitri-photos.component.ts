@@ -18,6 +18,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { environment } from '../../../../../enviroments/environment';
+import { PhotosDetailsComponent } from '../../landing-page/photos/photos-details/photos-details.component';
 @Component({
   selector: 'app-dharitri-photos',
   templateUrl: './dharitri-photos.component.html',
@@ -328,7 +329,7 @@ export class DharitriPhotosComponent {
   openDialog(data: string): void {
     console.log(data);
 
-    const dialogRef = this.dialog.open(DharitruPhotosDetailsComponent, {
+    const dialogRef = this.dialog.open(PhotosDetailsComponent, {
       data: data,
       maxWidth: '100vw',
       // maxHeight: '100vh',

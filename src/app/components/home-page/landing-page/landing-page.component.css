@@ -290,6 +290,8 @@ h1 {
   width: 100%;
 }
 .home-video-block {
+  position: relative;
+  z-index: 9999;
   background: #292929;
 }
 h2 {
@@ -386,10 +388,10 @@ h2 {
   align-items: center;
 }
 .home-block-titles h2 {
-  margin-left: -60px;
+  /* margin-left: -60px; */
 }
 .home-block-titles.video-block {
-  margin-bottom: -40px;
+  margin-bottom: -50px;
 }
 
 /* dark color changes  */
@@ -448,4 +450,14 @@ h4 .dark-mode .dark-mode svg path,
 }
 h2 {
   margin-bottom: 0;
+}
+.home-block-titles {
+  width: 100px;
+  height: 100px;
+}
+.home-block-titles img {
+  width: 100%;
+}
+.photo-blockkk {
+  margin-bottom: -30px;
 }
