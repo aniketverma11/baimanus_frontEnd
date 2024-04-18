@@ -43,7 +43,7 @@
             </ng-template>
           </ng-container>
         </owl-carousel-o>
-        <button (click)="openDialog(slidesImages)" class="photoView">
+        <button (click)="openDialog(slidesImages)">
           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32">
             <path
               fill="#292929"
@@ -162,11 +162,15 @@
             'light-mode-purple': !isDarkModeInLocalStorage()
           }"
         >
-          {{ " Read More" | translate }}
+          {{ "Read More" | translate }}
         </h1>
         <hr />
         <div class="read-more-items">
-          <div class="item" *ngFor="let item of readMoreItems; let i = index">
+          <div
+            class="item"
+            *ngFor="let item of readMoreItems; let i = index"
+            (click)="getHomeContentBySlugAndNavigate(item.slug)"
+          >
             <img
               [src]="getFullImagePath(readMoreImages[i])"
               alt="Image {{ i + 1 }}"
@@ -177,7 +181,7 @@
                 'light-mode-purple': !isDarkModeInLocalStorage()
               }"
             >
-              {{ item }}
+              {{ item.title }}
             </h2>
           </div>
         </div>
@@ -231,17 +235,21 @@
         </button>
       </div>
 
-      <div class="ReadMore-section">
+      <div class="ReadMore-section" *ngIf="readMoreItems.length > 0">
         <div class="read-more">
-          <h1>Read More</h1>
+          <h1>{{ "Read More" | translate }}</h1>
           <hr />
           <div class="read-more-items">
-            <div class="item" *ngFor="let item of readMoreItems; let i = index">
+            <div
+              class="item"
+              *ngFor="let item of readMoreItems; let i = index"
+              (click)="getHomeContentBySlugAndNavigate(item.slug)"
+            >
               <img
                 [src]="getFullImagePath(readMoreImages[i])"
                 alt="Image {{ i + 1 }}"
               />
-              <p>{{ item }}</p>
+              <p>{{ item.title }}</p>
             </div>
           </div>
           <div class="shar-section">

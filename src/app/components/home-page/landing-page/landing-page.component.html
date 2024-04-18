@@ -192,7 +192,10 @@
 
 <section class="home-video-block dark-mode">
   <div class="container">
-    <div class="photos video">
+    <div *ngIf="!VideoObject" class="no-data">
+      <img src="../../../../assets/images/no-data.jpg" alt="" />
+    </div>
+    <div class="photos video" *ngIf="VideoObject">
       <div class="photos-left">
         <span (click)="navigateVideos(VideoObject?.slug)">
           <div class="phots-heading">
@@ -266,7 +269,7 @@
       </svg> -->
       <h2 [ngStyle]="getTagStyle()">{{ "Photos" | translate }}</h2>
     </div>
-    <div class="photos">
+    <div class="photos" *ngIf="headingTitle && headingTitle.length > 0">
       <div class="photos-left">
         <span (click)="navigate(homePhotosSlug)">
           <div class="phots-heading">
@@ -312,6 +315,9 @@
           </h2>
         </div>
       </div>
+    </div>
+    <div *ngIf="headingTitle && headingTitle.length === 0" class="no-data">
+      <img src="../../../../assets/images/no-data.jpg" alt="" />
     </div>
   </div>
 </section>

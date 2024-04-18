@@ -237,3 +237,11 @@ h1 {
   font-family: "Proxima Nova", sans-serif !important;
   font-weight: 500 !important;
 }
+
+.owl-carousel {
+  position: unset;
+}
+.no-data img {
+  max-width: 100%;
+  height: 100%;
+}

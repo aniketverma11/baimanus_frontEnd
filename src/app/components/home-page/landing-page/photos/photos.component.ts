@@ -166,9 +166,9 @@ export class PhotosComponent {
             item.images.map((imageItem: any) => imageItem.image)
           );
 
-          this.readMoreItems = data.data.read_more.map(
-            (item: any) => item.title
-          );
+          this.readMoreItems = data.data.read_more.map((item: any) => item);
+          console.log(this.readMoreItems);
+
           this.readMoreImages = data.data.read_more.flatMap((item: any) =>
             item.images.map((imageItem: any) => imageItem.image)
           );
