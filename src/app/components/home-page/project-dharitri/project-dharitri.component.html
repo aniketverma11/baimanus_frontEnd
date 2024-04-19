@@ -1,7 +1,12 @@
 <div class="container top-headlines dark-mode">
   <div class="left-section" *ngIf="homeContent">
     <!-- Insert the advertiment on top section starts from here-->
-    <div class="advertisment-top"></div>
+    <div class="advertisment-top">
+      <img
+        src="../../../../assets/images/gifwithproject-ezgif.com-resize2.gif"
+        alt=""
+      />
+    </div>
     <!-- Insert the advertiment on top section ends here-->
     <a (click)="getHomeContentBySlug(homeContent?.slug)">
       <div class="category-image">
