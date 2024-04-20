@@ -340,6 +340,9 @@ input:checked + .slider:before {
   max-width: 100px;
   max-height: 100%;
 }
+.hinditoggle img :hover {
+  background-color: red;
+}
 @media only screen and (min-width: 769px) {
   .showSideBarButton {
     display: none;

@@ -245,3 +245,9 @@ h1 {
   max-width: 100%;
   height: 100%;
 }
+
+.image-slider button {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
