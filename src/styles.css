@@ -44,6 +44,10 @@ body {
 .dark-mode .more-news p {
   color: white;
 } */
+h1{
+  font-size: 25px;
+  line-height: 36px;
+}
 p {
   /* font-size: 18px; */
   /* line-height: 24px; */
@@ -250,4 +254,49 @@ h1 {
   position: absolute;
   bottom: 0;
   right: 0;
+}
+.hinditoggle{
+  width: 100px;
+}
+.hinditoggle span svg{
+  width: 100%;
+  height: auto;
+}
+.hinditoggle:hover svg g{
+  fill: #ffffff;
+}
+.dharitri{
+  width: 80px;
+}
+.dharitri a img{
+  width: 100%;
+}
+.phots-box{
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.phots-box h3{
+  margin-bottom: 0;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 600;
+}
+.phots-box img{
+  width: 80px;
+  height: 60px;
+  margin-right: 10px;
+} 
+.header-search-icon{
+  width: auto;
+}
+.author-name, .published-date{
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 700;
+  padding-top: 10px;
+  color: #000000;
+}
+#header .logos, #header .header-navs.header-icons {
+  grid-column-gap: 20px;
 }
