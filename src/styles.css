@@ -300,3 +300,6 @@ h1 {
 #header .logos, #header .header-navs.header-icons {
   grid-column-gap: 20px;
 }
+.articalread p img{
+  width: 100% !important;
+}

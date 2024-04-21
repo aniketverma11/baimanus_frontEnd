@@ -159,7 +159,11 @@
         </h1>
         <hr />
         <div class="read-more-items">
-          <div class="item" *ngFor="let item of readMoreItems; let i = index">
+          <div
+            class="item"
+            *ngFor="let item of readMoreItems; let i = index"
+            (click)="getHomeContentBySlugAndNavigate(item.slug)"
+          >
             <img [src]="getFullImagePath(item.image)" />
             <p>{{ item.title }}</p>
           </div>
@@ -304,7 +308,11 @@
           </h1>
           <hr />
           <div class="read-more-items">
-            <div class="item" *ngFor="let item of readMoreItems; let i = index">
+            <div
+              class="item"
+              *ngFor="let item of readMoreItems; let i = index"
+              (click)="getHomeContentBySlugAndNavigate(item?.slug)"
+            >
               <img
                 [src]="getFullImagePath(item?.image)"
                 alt="Image {{ i + 1 }}"
@@ -321,10 +329,10 @@
   </div>
 
   <div class="right-section">
-    <div class="stay-updated">
+    <!-- <div class="stay-updated">
       <h2>{{ "Stay Updated" | translate }}</h2>
       <app-subscribe></app-subscribe>
-    </div>
+    </div> -->
     <div class="line" style="display: none"></div>
 
     <div class="more-news">

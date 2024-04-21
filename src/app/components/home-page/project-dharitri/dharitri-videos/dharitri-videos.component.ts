@@ -117,6 +117,10 @@ export class DharitriVideosComponent {
           //   .map((item: any) => item.title);
         },
         (error) => {
+          // this.  private toastr: ToastrService,
+          this.router.navigate(['home/dharitriyes']);
+          this.toastr.error(error.message);
+          this.slug = null;
           console.error(error);
         }
       )
@@ -139,10 +143,11 @@ export class DharitriVideosComponent {
     newsItem.expanded = !newsItem.expanded;
   }
   getHomeContentBySlugAndNavigate(slug: any) {
-    this.router.navigate(['home/videos'], {
+    this.router.navigate(['home/dharitries-videos'], {
       queryParams: { slug: slug },
     });
   }
+
   extractVideoUrl(htmlString: any) {
     const tempDiv = document.createElement('div');
     tempDiv.innerHTML = htmlString;

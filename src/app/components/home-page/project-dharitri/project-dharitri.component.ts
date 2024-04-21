@@ -36,6 +36,7 @@ export class ProjectDharitriComponent {
   darkMode: boolean;
   categoryList: any;
   categoryListPosts: any;
+  VideoObject2: any;
   constructor(
     private apiService: ApiServicesService,
     private sanitizer: DomSanitizer,
@@ -93,13 +94,12 @@ export class ProjectDharitriComponent {
     this.unsubscribe.add(
       this.apiService.getHomeContent(this.type).subscribe(
         (data) => {
-          console.log(data);
-
-          this.homeInfo = data.data;
+          // this.homeInfo = data.data;
           this.belowContent = data.data;
           this.homeContent = data?.data[0];
 
-          this.homeInfo = data.data.slice(0, 3).map((item: any) => item);
+          this.homeInfo = data.data.slice(1).map((item: any) => item);
+
           this.homeInfoSlug = data.data
             .slice(0, 3)
             .map((item: any) => item.slug);
@@ -141,17 +141,21 @@ export class ProjectDharitriComponent {
   }
 
   getHomeVideos() {
-    if (!this.type) {
-      this.type = 'english';
-    }
-
     this.isLoading = true;
     this.unsubscribe.add(
       this.apiService.getViideos(this.type).subscribe(
         (res) => {
           this.isLoading = false;
           this.VideoObject = res.data[0];
-          this.VideoTitle = res.data.slice(0, 3).map((item: any) => item);
+
+          console.log(res);
+
+          // this.VideoObject2 = res.data[1];
+
+          // console.log(this.VideoObject2);
+          this.VideoTitle = res.data.slice(1).map((item: any) => item);
+          console.log(this.VideoTitle);
+
           this.videoImages = res.data
             .slice(0, 3)
             .map((item: any) => item.image);

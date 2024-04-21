@@ -1,20 +1,28 @@
-<div class="container top-headlines dark-mode">
+<div class="container top-headlines dark-mode dharitri-conatain">
   <div class="left-section" *ngIf="homeContent">
     <!-- Insert the advertiment on top section starts from here-->
     <div class="advertisment-top"></div>
     <!-- Insert the advertiment on top section ends here-->
-    <a (click)="getHomeContentBySlug(homeContent?.slug)">
-      <div class="category-image">
-        <!-- <img
+    <!-- <a (click)="getHomeContentBySlug(homeContent?.slug)"> -->
+    <div class="category-image">
+      <!-- <img
           [src]="getFullImagePath(homeContent?.image)"
           [alt]="homeContent?.image_alt"
         /> -->
-        <img
-          src="../../../../assets/images/gifwithproject-ezgif.com-resize2.gif"
-          alt=""
-        />
-      </div>
-      <div class="content-details">
+      <img
+        src="../../../../assets/images/gifwithproject-ezgif.com-resize2.gif"
+        alt=""
+      />
+    </div>
+    <div class="">
+      <p style="color: #000000; font-size: 18px; line-height: 22px">
+        In publishing and graphic design, Lorem ipsum is a placeholder text
+        commonly used to demonstrate the visual form of a document or a typeface
+        without relying on meaningful content. Lorem ipsum may be used as a
+        placeholder before the final copy is available.
+      </p>
+    </div>
+    <!-- <div class="content-details">
         <h1
           [ngClass]="{
             'dark-mode-yellow': isDarkModeInLocalStorage(),
@@ -27,10 +35,10 @@
         <p [ngStyle]="getshortDis()">
           {{ homeContent?.short_description }}
         </p>
-      </div>
-    </a>
+      </div> -->
+    <!-- </a> -->
     <span>
-      <div class="hometitle">
+      <!-- <div class="hometitle">
         <div class="news-left">
           <div class="box" *ngFor="let items of homeInfo; index as i">
             <span (click)="getHomeContentBySlug(items?.slug)">
@@ -73,7 +81,7 @@
             </span>
           </div>
         </div>
-      </div>
+      </div> -->
     </span>
   </div>
 
@@ -355,7 +363,6 @@
         </div>
         <div
           (click)="getHomeContentBySlug(homeContent?.slug)"
-          *ngIf="homeContent.length > 0"
           class="entertain-image-block"
         >
           <img
@@ -382,24 +389,128 @@
           </span>
         </div>
         <!-- <span > -->
-        <span *ngFor="let items of homeInfo; index as i">
-          <div
-            class="enterheadline-block-right enterblock-shadow"
-            (click)="getHomeContentBySlug(items[1]?.slug)"
+        <!-- <span *ngFor="let items of homeInfo; index as i"> -->
+        <div
+          class="enterheadline-block-right enterblock-shadow"
+          (click)="getHomeContentBySlug(homeInfo[0]?.slug)"
+        >
+          <h2
+            [ngClass]="{
+              'dark-mode-yellow': isDarkModeInLocalStorage(),
+              'light-mode-purple': !isDarkModeInLocalStorage()
+            }"
           >
-            <h2
-              [ngClass]="{
-                'dark-mode-yellow': isDarkModeInLocalStorage(),
-                'light-mode-purple': !isDarkModeInLocalStorage()
-              }"
+            {{ homeInfo[0]?.title }}
+          </h2>
+          <span class="shortDesc">
+            {{ homeInfo[0]?.short_description }}
+          </span>
+        </div>
+        <!-- </span> -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- vbideo  -->
+<section
+  class="home-entertain-block"
+  [ngClass]="{ 'dark-mode': darkMode, 'light-mode': !darkMode }"
+>
+  <div class="container">
+    <div class="entertain-block">
+      <div class="entertain-inner-block">
+        <div class="entertain-title">
+          <h2
+            [ngClass]="{
+              'dark-mode-yellow': isDarkModeInLocalStorage(),
+              'light-mode-purple': !isDarkModeInLocalStorage()
+            }"
+          >
+            {{ "video" | translate }}
+          </h2>
+          <div>
+            <svg
+              class="arrow"
+              version="1.0"
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              viewBox="0 0 768.000000 768.000000"
+              preserveAspectRatio="xMidYMid meet"
             >
-              {{ items[1]?.title }}
-            </h2>
-            <span class="shortDesc">
-              {{ items[1]?.short_description }}
-            </span>
+              <metadata [ngClass]="{ 'dark-color': darkMode }">
+                Created by potrace 1.16, written by Peter Selinger 2001-2019
+              </metadata>
+              <g
+                transform="translate(0.000000,768.000000) scale(0.100000,-0.100000)"
+                fill="#000000"
+                stroke="none"
+              >
+                <path
+                  d="M2075 5964 c-37 -19 -261 -239 -281 -276 -18 -35 -18 -101 0 -136 8
+                -15 395 -407 860 -872 l846 -845 -860 -860 -860 -860 0 -55 c0 -69 5 -77 144
+                -218 142 -145 187 -170 263 -142 16 6 474 457 1051 1033 1092 1092 1053 1049
+                1038 1134 -7 34 -109 140 -1029 1062 -598 598 -1035 1029 -1054 1037 -42 18
+                -81 18 -118 -2z"
+                ></path>
+                <path
+                  d="M3725 5966 c-40 -18 -281 -263 -295 -299 -17 -46 -12 -80 19 -128 16
+                -24 403 -417 860 -874 l831 -830 -854 -855 c-768 -768 -855 -859 -862 -893
+                -13 -73 5 -102 153 -249 149 -148 175 -162 246 -139 25 9 301 278 1058 1036
+                562 563 1027 1032 1032 1040 16 29 10 103 -12 137 -30 49 -2021 2034 -2058
+                2052 -39 19 -78 20 -118 2z"
+                ></path>
+              </g>
+            </svg>
           </div>
-        </span>
+        </div>
+        <div
+          (click)="navigateVideos(VideoObject?.slug)"
+          class="entertain-image-block"
+        >
+          <img
+            [src]="getFullImagePath(VideoObject?.image)"
+            [alt]="VideoObject?.image_alt"
+          />
+        </div>
+      </div>
+      <div class="entertain-headlines-outer-block">
+        <div
+          class="enterheadline-block-left enterblock-shadow"
+          (click)="navigateVideos(VideoObject?.slug)"
+        >
+          <h2
+            [ngClass]="{
+              'dark-mode-yellow': isDarkModeInLocalStorage(),
+              'light-mode-purple': !isDarkModeInLocalStorage()
+            }"
+          >
+            {{ VideoObject?.title }}
+          </h2>
+          <span class="shortDesc">
+            {{ VideoObject?.short_description }}
+          </span>
+        </div>
+        <!-- <span > -->
+        <!-- <span *ngFor="let items of homeInfo; index as i"> -->
+        <div
+          class="enterheadline-block-right enterblock-shadow"
+          (click)="getHomeContentBySlug(VideoObject2?.slug)"
+        >
+          <h2
+            [ngClass]="{
+              'dark-mode-yellow': isDarkModeInLocalStorage(),
+              'light-mode-purple': !isDarkModeInLocalStorage()
+            }"
+          >
+            {{ VideoObject2?.title }}
+          </h2>
+          <span class="shortDesc">
+            {{ VideoTitle[0]?.short_description }}
+          </span>
+        </div>
+        <!-- </span> -->
       </div>
     </div>
   </div>
