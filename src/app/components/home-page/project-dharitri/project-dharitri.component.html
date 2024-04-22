@@ -491,7 +491,7 @@
         <!-- <span *ngFor="let items of homeInfo; index as i"> -->
         <div
           class="enterheadline-block-right enterblock-shadow"
-          (click)="getHomeContentBySlug(VideoObject2?.slug)"
+          (click)="getHomeContentBySlug(VideoTitle[0]?.slug)"
         >
           <h2
             [ngClass]="{
@@ -499,7 +499,7 @@
               'light-mode-purple': !isDarkModeInLocalStorage()
             }"
           >
-            {{ VideoObject2?.title }}
+            {{ VideoTitle[0]?.title }}
           </h2>
           <!-- <span class="shortDesc">
             {{ VideoTitle[0]?.short_description }}
