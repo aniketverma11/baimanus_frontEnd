@@ -51,6 +51,8 @@ export class NewsDetailsComponent implements AfterViewInit {
   isAudioPlaying: boolean = false;
   audio: HTMLAudioElement = new Audio();
   darkMode: boolean;
+  category: any;
+  categorySlug: any;
   constructor(
     private route: ActivatedRoute,
 
@@ -75,7 +77,13 @@ export class NewsDetailsComponent implements AfterViewInit {
     }
 
     this.route.queryParams.subscribe((params) => {
+      console.log(params);
+
       this.slug = params['slug'];
+      console.log(this.slug);
+
+      this.categorySlug = params['category'];
+      console.log(this.category);
 
       if (this.slug) {
         this.getHomeContentBySlug(this.slug);
@@ -102,7 +110,7 @@ export class NewsDetailsComponent implements AfterViewInit {
     this.isLoading = true;
     this.unsubscribe.add(
       this.apiService
-        .getHomeContentBySlug(slug, this.type)
+        .getHomeContentBySlug(slug, this.type, this.categorySlug)
         .pipe(
           catchError((error) => {
             console.error('API Error:', error);
@@ -247,6 +255,13 @@ export class NewsDetailsComponent implements AfterViewInit {
 
     this.router.navigate(['home/news-details'], {
       queryParams: { slug: slug },
+    });
+  }
+  getHomeContentBySlugRouter(slug: any, category: any) {
+    console.log(category);
+
+    this.router.navigate(['home/news-details'], {
+      queryParams: { slug: slug, category: category },
     });
   }
   playAudio(file: any) {

@@ -129,9 +129,16 @@ export class ProjectDharitriComponent {
     );
   }
 
-  getHomeContentBySlug(slug: any) {
+  // getHomeContentBySlug(slug: any) {
+  //   this.router.navigate(['home/dharitries-details'], {
+  //     queryParams: { slug: slug },
+  //   });
+  // }
+  getHomeContentBySlug(slug: any, category: any) {
+    console.log(category);
+
     this.router.navigate(['home/dharitries-details'], {
-      queryParams: { slug: slug },
+      queryParams: { slug: slug, category: category },
     });
   }
 

@@ -3,7 +3,9 @@ import { Injectable } from '@angular/core';
 import { Observable, catchError, throwError } from 'rxjs';
 import { environment } from '../enviroments/environment';
 import {
+  GET_CAT_LIST,
   HOME_CONTENT,
+  HOME_CONTENT_BY_CATE,
   HOME_CONTENT_BY_SLUG,
   PHOTOS,
   PHOTOS_DETAILS,
@@ -22,10 +24,20 @@ export class ApiServicesService {
     const url = `${environment.apiBaseUrl}${HOME_CONTENT}?type=${type}`;
     return this.httpClient.get(url);
   }
-
-  getHomeContentBySlug(slug: any, type: string): Observable<any> {
+  // /category-articles
+  categoryarticles(slug: any, type: string): Observable<any> {
     return this.httpClient.get(
-      `${environment.apiBaseUrl}${HOME_CONTENT_BY_SLUG}${slug}?type=${type}`
+      `${environment.apiBaseUrl}${GET_CAT_LIST}${slug}?type=${type}`
+    );
+  }
+  getHomeContentBySlug(slug: any, type: string, cat: any): Observable<any> {
+    return this.httpClient.get(
+      `${environment.apiBaseUrl}${HOME_CONTENT_BY_CATE}${cat}/${slug}?type=${type}`
+    );
+  }
+  getHomeContentBySlugCat(slug: any, type: string): Observable<any> {
+    return this.httpClient.get(
+      `${environment.apiBaseUrl}${HOME_CONTENT_BY_CATE}${slug}?type=${type}`
     );
   }
 

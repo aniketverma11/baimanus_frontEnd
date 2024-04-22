@@ -329,7 +329,12 @@
           </h2>
           <div>
             <svg
-              (click)="getHomeContentBySlug(homeContent?.slug)"
+              (click)="
+                getHomeContentBySlug(
+                  homeContent?.slug,
+                  homeContent?.category?.slug
+                )
+              "
               class="arrow"
               version="1.0"
               xmlns="http://www.w3.org/2000/svg"
@@ -365,7 +370,9 @@
           </div>
         </div>
         <div
-          (click)="getHomeContentBySlug(homeContent?.slug)"
+          (click)="
+            getHomeContentBySlug(homeContent?.slug, homeContent?.category?.slug)
+          "
           class="entertain-image-block"
         >
           <img
@@ -377,7 +384,9 @@
       <div class="entertain-headlines-outer-block">
         <div
           class="enterheadline-block-left enterblock-shadow"
-          (click)="getHomeContentBySlug(homeContent?.slug)"
+          (click)="
+            getHomeContentBySlug(homeContent?.slug, homeContent?.category?.slug)
+          "
         >
           <h2
             [ngClass]="{
@@ -395,7 +404,9 @@
         <!-- <span *ngFor="let items of homeInfo; index as i"> -->
         <div
           class="enterheadline-block-right enterblock-shadow"
-          (click)="getHomeContentBySlug(homeInfo[0]?.slug)"
+          (click)="
+            getHomeContentBySlug(homeInfo[0]?.slug, homeInfo[0].category?.slug)
+          "
         >
           <h2
             [ngClass]="{

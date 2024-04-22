@@ -225,6 +225,8 @@ export class SidebarComponent implements OnInit {
     this.checkScreenWidth();
   }
   getHomeContentBySlug(slug: any) {
+    console.log(slug);
+
     this.router.navigate(['home/news-details'], {
       queryParams: { slug: slug },
     });

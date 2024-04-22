@@ -106,6 +106,8 @@ export class LandingPageComponent {
     this.unsubscribe.add(
       this.apiService.getHomeContent(this.type).subscribe(
         (data) => {
+          console.log(data);
+
           this.homeInfo = data.data;
           this.belowContent = data.data;
           this.homeContent = data?.data[0];
@@ -128,9 +130,11 @@ export class LandingPageComponent {
     );
   }
 
-  getHomeContentBySlug(slug: any) {
+  getHomeContentBySlug(slug: any, category: any) {
+    console.log(category);
+
     this.router.navigate(['home/news-details'], {
-      queryParams: { slug: slug },
+      queryParams: { slug: slug, category: category },
     });
   }
 
@@ -160,12 +164,14 @@ export class LandingPageComponent {
     this.unsubscribe.add(
       this.apiService.getViideos(this.type).subscribe(
         (res) => {
+          console.log(res);
+
           this.isLoading = false;
           this.VideoObject = res.data[0];
-          this.VideoTitle = res.data.slice(0, 3).map((item: any) => item);
-          this.videoImages = res.data
-            .slice(0, 3)
-            .map((item: any) => item.image);
+          this.VideoTitle = res.data.slice(1).map((item: any) => item);
+          console.log(this.VideoTitle);
+
+          this.videoImages = res.data.slice(0).map((item: any) => item.image);
         },
         (error) => {
           console.error(error);
@@ -279,6 +285,13 @@ export class LandingPageComponent {
         'background-color': 'white',
       };
     }
+  }
+  navigateToRefresh(cat: any) {
+    const data = cat.toLowerCase();
+
+    this.router.navigate(['home/category-listing'], {
+      queryParams: { category: data },
+    });
   }
 
   ngOnDestroy(): void {

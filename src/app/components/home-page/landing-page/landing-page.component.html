@@ -3,7 +3,11 @@
     <!-- Insert the advertiment on top section starts from here-->
     <div class="advertisment-top"></div>
     <!-- Insert the advertiment on top section ends here-->
-    <a (click)="getHomeContentBySlug(homeContent?.slug)">
+    <a
+      (click)="
+        getHomeContentBySlug(homeContent?.slug, homeContent?.category?.slug)
+      "
+    >
       <div class="category-image">
         <img
           [src]="getFullImagePath(homeContent?.image)"
@@ -36,7 +40,9 @@
       <div class="hometitle">
         <div class="news-left">
           <div class="box" *ngFor="let items of homeInfo; index as i">
-            <span (click)="getHomeContentBySlug(items?.slug)">
+            <span
+              (click)="getHomeContentBySlug(items?.slug, items?.category?.slug)"
+            >
               <h2
                 [ngClass]="{
                   'dark-mode-yellow': isDarkModeInLocalStorage(),
@@ -57,7 +63,14 @@
             class="news-right-title"
             *ngIf="belowContent && belowContent.length >= 4"
           >
-            <span (click)="getHomeContentBySlug(belowContent[3]?.slug)">
+            <span
+              (click)="
+                getHomeContentBySlug(
+                  belowContent[3]?.slug,
+                  belowContent?.category?.slug
+                )
+              "
+            >
               <img
                 [src]="getFullImagePath(belowContent[3]?.image)"
                 [alt]="belowContent[3]?.image_alt"
@@ -116,7 +129,10 @@
       </h2>
       <hr />
       <span *ngFor="let item of readMoreItems; let i = index">
-        <div class="news-item" (click)="getHomeContentBySlug(item?.slug)">
+        <div
+          class="news-item"
+          (click)="getHomeContentBySlug(item?.slug, item?.category?.slug)"
+        >
           <img
             [src]="getFullImagePath(readMoreImages[i])"
             [alt]="'News Item ' + (i + 1)"
@@ -210,11 +226,14 @@
         </span>
       </div>
 
-      <div class="photos-right videosRight">
+      <div
+        class="photos-right videosRight scroller"
+        [ngClass]="{ scrollable: VideoTitle.length > 5 }"
+      >
         <div class="phots-box" *ngFor="let title of VideoTitle; index as i">
           <img
             (click)="navigateVideos(title?.slug)"
-            [src]="getFullImagePath(videoImages[i])"
+            [src]="getFullImagePath(title?.image)"
           />
           <h3
             (click)="navigateVideos(title?.slug)"
@@ -228,6 +247,9 @@
           </span>
           <hr />
         </div>
+      </div>
+      <div class="_3dJ9b">
+        <div class="_3rg6w">SHOW MORE</div>
       </div>
     </div>
   </div>
@@ -345,6 +367,7 @@
           </h2>
           <div>
             <svg
+              (click)="navigateToRefresh(category.name)"
               class="arrow"
               version="1.0"
               xmlns="http://www.w3.org/2000/svg"
@@ -380,7 +403,12 @@
           </div>
         </div>
         <div
-          (click)="getHomeContentBySlug(category.posts[0]?.slug)"
+          (click)="
+            getHomeContentBySlug(
+              category.posts[0]?.slug,
+              category?.posts[0].category?.slug
+            )
+          "
           *ngIf="category.posts && category.posts.length > 0"
           class="entertain-image-block"
         >
@@ -393,7 +421,12 @@
       <div class="entertain-headlines-outer-block">
         <div
           class="enterheadline-block-left enterblock-shadow"
-          (click)="getHomeContentBySlug(category.posts[1]?.slug)"
+          (click)="
+            getHomeContentBySlug(
+              category.posts[1]?.slug,
+              category?.posts[1].category?.slug
+            )
+          "
         >
           <h2
             [ngClass]="{
@@ -409,7 +442,12 @@
         </div>
         <div
           class="enterheadline-block-right enterblock-shadow"
-          (click)="getHomeContentBySlug(category.posts[2]?.slug)"
+          (click)="
+            getHomeContentBySlug(
+              category.posts[2]?.slug,
+              category?.posts[2].category?.slug
+            )
+          "
         >
           <h2
             [ngClass]="{

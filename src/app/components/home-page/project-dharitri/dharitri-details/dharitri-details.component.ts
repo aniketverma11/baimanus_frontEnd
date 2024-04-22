@@ -50,6 +50,7 @@ export class DharitriDetailsComponent {
   isAudioPlaying: boolean = false;
   audio: HTMLAudioElement = new Audio();
   darkMode: boolean;
+  categorySlug: any;
   constructor(
     private route: ActivatedRoute,
 
@@ -72,6 +73,7 @@ export class DharitriDetailsComponent {
 
     this.route.queryParams.subscribe((params) => {
       this.slug = params['slug'];
+      this.categorySlug = params['category'];
 
       if (this.slug) {
         this.getHomeContentBySlug(this.slug);
@@ -94,7 +96,7 @@ export class DharitriDetailsComponent {
     this.isLoading = true;
     this.unsubscribe.add(
       this.apiService
-        .getHomeContentBySlug(slug, this.type)
+        .getHomeContentBySlug(slug, this.type, this.categorySlug)
         .pipe(
           catchError((error) => {
             console.error('API Error:', error);

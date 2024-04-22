@@ -32,6 +32,7 @@ import { DharitriPhotosComponent } from './project-dharitri/dharitri-photos/dhar
 import { DharitriVideosComponent } from './project-dharitri/dharitri-videos/dharitri-videos.component';
 import { DharitriDetailsComponent } from './project-dharitri/dharitri-details/dharitri-details.component';
 import { DharitruPhotosDetailsComponent } from './project-dharitri/dharitri-photos/dharitru-photos-details/dharitru-photos-details.component';
+import { CategoryListingComponent } from './category-listing/category-listing.component';
 const routes: Routes = [
   {
     path: '',
@@ -86,6 +87,10 @@ const routes: Routes = [
     path: 'dharitries-details',
     component: DharitriDetailsComponent,
   },
+  {
+    path: 'category-listing',
+    component: CategoryListingComponent,
+  },
 ];
 
 @NgModule({
@@ -110,6 +115,7 @@ const routes: Routes = [
     DharitriPhotosComponent,
     DharitriVideosComponent,
     DharitriDetailsComponent,
+    CategoryListingComponent,
   ],
   imports: [
     CommonModule,
