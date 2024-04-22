@@ -92,8 +92,8 @@ h1 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 30px;
-  padding-bottom: 2rem;
-  margin-bottom: 50px;
+  /* padding-bottom: 2rem;
+  margin-bottom: 50px; */
   border-bottom: 1px solid #e6e6e6;
 }
 

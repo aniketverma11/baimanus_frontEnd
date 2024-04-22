@@ -86,13 +86,13 @@
     class="right-section"
     [ngClass]="{ 'dark-mode': themeServiceInstance.isDarkMode() }"
   >
-    <div
+    <!-- <div
       class="stay-updated"
       [ngClass]="{ 'dark-mode': themeServiceInstance.isDarkMode() }"
     >
       <h2>{{ "Stay Updated" | translate }}</h2>
       <app-subscribe></app-subscribe>
-    </div>
+    </div> -->
     <div class="line"></div>
 
     <!-- <div
@@ -292,27 +292,27 @@
       <div class="photos-right" [class.dark-mode]="darkMode">
         <div class="phots-box" *ngFor="let title of headingTitle">
           <!-- <hr /> -->
-            <!-- <div class="insideimage"> -->
-              <img
-                (click)="navigate(title?.slug)"
-                src=""
-                [src]="getFullImagePath(title?.image)"
-                [alt]="title?.image_alt"
-              />
-              <h3
-                (click)="navigate(title?.slug)"
-                [ngClass]="{
-                  'dark-mode-yellow': isDarkModeInLocalStorage(),
-                  'light-mode-purple': !isDarkModeInLocalStorage()
-                }"
-              >
-                {{ title.title }}
-              </h3>
+          <!-- <div class="insideimage"> -->
+          <img
+            (click)="navigate(title?.slug)"
+            src=""
+            [src]="getFullImagePath(title?.image)"
+            [alt]="title?.image_alt"
+          />
+          <h3
+            (click)="navigate(title?.slug)"
+            [ngClass]="{
+              'dark-mode-yellow': isDarkModeInLocalStorage(),
+              'light-mode-purple': !isDarkModeInLocalStorage()
+            }"
+          >
+            {{ title.title }}
+          </h3>
 
-              <span (click)="navigate(title?.slug)" class="shortDesc">{{
-                title?.short_description
-              }}</span>
-            <!-- </div> -->
+          <span (click)="navigate(title?.slug)" class="shortDesc">{{
+            title?.short_description
+          }}</span>
+          <!-- </div> -->
         </div>
       </div>
     </div>

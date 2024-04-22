@@ -79,6 +79,7 @@ footer ul {
 footer ul li {
   padding-right: 25px;
   padding-bottom: 10px;
+  cursor: pointer;
 }
 footer ul li a,
 footer a {
@@ -169,4 +170,10 @@ select {
 /* Optional: Adjust the spacing between list items */
 .horizontal-list li {
   margin-right: 10px; /* Adjust as needed */
+}
+._3dzPw{
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 700;
+  color: #fa9000;
 }

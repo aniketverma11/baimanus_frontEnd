@@ -10,16 +10,18 @@
           [alt]="homeContent?.image_alt"
         /> -->
       <img
-        src="../../../../assets/images/gifwithproject-ezgif.com-resize2.gif"
+        src="../../../../assets/images/logo-transparent-unscreen.gif"
         alt=""
       />
     </div>
     <div class="">
-      <p style="color: #000000; font-size: 18px; line-height: 22px">
-        In publishing and graphic design, Lorem ipsum is a placeholder text
-        commonly used to demonstrate the visual form of a document or a typeface
-        without relying on meaningful content. Lorem ipsum may be used as a
-        placeholder before the final copy is available.
+      <p
+        [ngClass]="{
+          'dark-mode-yellow': isDarkModeInLocalStorage(),
+          'light-mode-purple': !isDarkModeInLocalStorage()
+        }"
+      >
+        {{ projectDescription }}
       </p>
     </div>
     <!-- <div class="content-details">
@@ -327,6 +329,7 @@
           </h2>
           <div>
             <svg
+              (click)="getHomeContentBySlug(homeContent?.slug)"
               class="arrow"
               version="1.0"
               xmlns="http://www.w3.org/2000/svg"
@@ -409,15 +412,6 @@
         <!-- </span> -->
       </div>
     </div>
-  </div>
-</section>
-
-<!-- vbideo  -->
-<section
-  class="home-entertain-block"
-  [ngClass]="{ 'dark-mode': darkMode, 'light-mode': !darkMode }"
->
-  <div class="container">
     <div class="entertain-block">
       <div class="entertain-inner-block">
         <div class="entertain-title">
@@ -431,6 +425,7 @@
           </h2>
           <div>
             <svg
+              (click)="navigateVideos(VideoObject?.slug)"
               class="arrow"
               version="1.0"
               xmlns="http://www.w3.org/2000/svg"
@@ -515,6 +510,16 @@
     </div>
   </div>
 </section>
+
+<!-- vbideo  -->
+<!-- <section
+  class="home-entertain-block"
+  [ngClass]="{ 'dark-mode': darkMode, 'light-mode': !darkMode }"
+>
+  <div class="container">
+    
+  </div>
+</section> -->
 
 <!--Entertainment section Starts from here-->
 <!-- 

@@ -59,7 +59,9 @@ header ul li {
   padding-right: 10px;
   font-size: 16px;
   line-height: 21px;
-  font-weight: 400;
+  font-weight: 600;
+  cursor: pointer;
+  color: rgb(53, 20, 79);
 }
 header ul li a,
 footer ul li a,
@@ -100,7 +102,7 @@ footer .bottom-footer {
   background: #fa9000;
   border-radius: 23px;
   font-weight: 700;
-  width: 71px;
+  /* width: 71px; */
 }
 ._2_rjA {
   padding-top: 25px;
@@ -969,5 +971,5 @@ body.dark-theme .sidebar {
 }
 .dharitriGif img {
   background-color: transparent;
-  width: 30%;
+  width: 16%;
 }
