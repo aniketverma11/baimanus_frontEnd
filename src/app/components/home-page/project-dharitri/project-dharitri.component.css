@@ -393,9 +393,9 @@ h4 .dark-mode .dark-mode svg path,
 /* .dark-mode h2 {
   color: #fa9000;
 } */
-.dark-mode p {
+/* .dark-mode p {
   color: white;
-}
+} */
 .dark-mode .arrow {
   background-color: white;
 }
@@ -443,7 +443,20 @@ h4 .dark-mode .dark-mode svg path,
   font-size: 14px !important;
   color: #888585;
 }
-.dharitri-conatain, .dharitri-conatain .hometitle{
+.dharitri-conatain,
+.dharitri-conatain .hometitle {
   display: grid;
   grid-template-columns: 1fr !important;
+}
+
+.dark-mode-yellowD {
+  color: #fa9000;
+  background-color: #333;
+  font-weight: 600;
+}
+
+.light-mode-purpleD {
+  color: #35144f;
+  background-color: white;
+  font-weight: 600;
 }
