@@ -491,7 +491,7 @@
         <!-- <span *ngFor="let items of homeInfo; index as i"> -->
         <div
           class="enterheadline-block-right enterblock-shadow"
-          (click)="getHomeContentBySlug(VideoTitle[0]?.slug)"
+          (click)="navigateVideos(VideoTitle[0]?.slug)"
         >
           <h2
             [ngClass]="{
