@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { ApiServicesService } from '../../../../../../services/api-services.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+import { ThemeService } from '../../../../../common-components/layout/theme.service';
 
 @Component({
   selector: 'app-home-page-videos',
@@ -19,38 +20,61 @@ export class HomePageVideosComponent {
   headingPhoto: any;
   headingTitle: any[] = [];
   imagetitle: string = '';
+  darkMode: boolean = false;
+  type: any;
+  VideoObject: any;
   constructor(
     private apiService: ApiServicesService,
     private sanitizer: DomSanitizer,
-    private router: Router
+    private router: Router,
+    private themeService: ThemeService
   ) {}
 
   ngOnInit() {
-    // this.getHomeVideos();
-  }
-  // getHomeVideos() {
-  //   this.isLoading = true;
-  //   this.unsubscribe.add(
-  //     this.apiService.getPhotos().subscribe(
-  //       (data) => {
-  //         this.isLoading = false;
-  //         this.homePhotos = data.data;
-  //         console.log(this.homePhotos);
-  //         this.headingPhoto = this.homePhotos[0].content;
-  //         const srcRegex = /<img[^>]+src="([^">]+)"/;
-  //         const match = this.headingPhoto.match(srcRegex);
-  //         const src = match ? match[1] : null;
-  //         this.imagetitle = this.imageBaseURL + src;
-  //         console.log(this.imagetitle);
+    if (typeof localStorage !== 'undefined') {
+      this.type = localStorage.getItem('language');
+    }
 
-  //         this.headingTitle = this.homePhotos
-  //           .slice(0, 3)
-  //           .map((item: any) => item.title);
-  //       },
-  //       (error) => {
-  //         console.error(error);
-  //       }
-  //     )
-  //   );
-  // }
+    this.themeService.darkModeChanged.subscribe((darkMode: boolean) => {
+      this.darkMode = darkMode;
+    });
+    this.getHomeVideos();
+  }
+  isDarkModeInLocalStorage(): boolean {
+    if (typeof localStorage !== 'undefined') {
+      const isDark = localStorage.getItem('darkMode');
+      return isDark === 'true';
+    } else {
+      return false;
+    }
+  }
+
+  getHomeVideos() {
+    if (!this.type) {
+      this.type = 'english';
+    }
+
+    this.isLoading = true;
+    this.unsubscribe.add(
+      this.apiService.getViideos(this.type).subscribe(
+        (res) => {
+          this.isLoading = false;
+          this.VideoObject = res.data;
+          console.log(this.VideoObject);
+          // this.VideoTitle = res.data.slice(1).map((item: any) => item);
+
+          // this.videoImages = res.data.slice(0).map((item: any) => item.image);
+        },
+        (error) => {
+          console.error(error);
+        }
+      )
+    );
+  }
+
+  getFullImagePath(relativePath: string): string {
+    console.log(relativePath);
+
+    return `${this.imageBaseURL}${relativePath}`;
+  }
 }

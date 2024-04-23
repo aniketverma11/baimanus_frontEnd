@@ -1,0 +1,90 @@
+<section
+  class="home-entertain-block"
+  [ngClass]="{ 'dark-mode': darkMode, 'light-mode': !darkMode }"
+>
+  <div class="container">
+    <div class="entertain-block">
+      <div
+        class="entertain-inner-block"
+        *ngFor="let videosItems of VideoObject; let i = index"
+      >
+        <div class="entertain-title">
+          <h2
+            [ngClass]="{
+              'dark-mode-yellow': isDarkModeInLocalStorage(),
+              'light-mode-purple': !isDarkModeInLocalStorage()
+            }"
+          >
+            {{ "videos" | translate }}
+          </h2>
+          <div>
+            <svg
+              class="arrow"
+              version="1.0"
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              viewBox="0 0 768.000000 768.000000"
+              preserveAspectRatio="xMidYMid meet"
+            >
+              <metadata [ngClass]="{ 'dark-color': darkMode }">
+                Created by potrace 1.16, written by Peter Selinger 2001-2019
+              </metadata>
+              <g
+                transform="translate(0.000000,768.000000) scale(0.100000,-0.100000)"
+                fill="#000000"
+                stroke="none"
+              >
+                <path
+                  d="M2075 5964 c-37 -19 -261 -239 -281 -276 -18 -35 -18 -101 0 -136 8
+                -15 395 -407 860 -872 l846 -845 -860 -860 -860 -860 0 -55 c0 -69 5 -77 144
+                -218 142 -145 187 -170 263 -142 16 6 474 457 1051 1033 1092 1092 1053 1049
+                1038 1134 -7 34 -109 140 -1029 1062 -598 598 -1035 1029 -1054 1037 -42 18
+                -81 18 -118 -2z"
+                ></path>
+                <path
+                  d="M3725 5966 c-40 -18 -281 -263 -295 -299 -17 -46 -12 -80 19 -128 16
+                -24 403 -417 860 -874 l831 -830 -854 -855 c-768 -768 -855 -859 -862 -893
+                -13 -73 5 -102 153 -249 149 -148 175 -162 246 -139 25 9 301 278 1058 1036
+                562 563 1027 1032 1032 1040 16 29 10 103 -12 137 -30 49 -2021 2034 -2058
+                2052 -39 19 -78 20 -118 2z"
+                ></path>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <div class="entertain-image-block">
+          <img [src]="getFullImagePath(videosItems?.image)" />
+        </div>
+      </div>
+      <div class="entertain-headlines-outer-block">
+        <div class="enterheadline-block-left enterblock-shadow">
+          <h2
+            [ngClass]="{
+              'dark-mode-yellow': isDarkModeInLocalStorage(),
+              'light-mode-purple': !isDarkModeInLocalStorage()
+            }"
+          >
+            <!-- {{ category.posts[1]?.title }} -->
+          </h2>
+          <span class="shortDesc">
+            <!-- {{ category.posts[1]?.short_description }} -->
+          </span>
+        </div>
+        <div class="enterheadline-block-right enterblock-shadow">
+          <h2
+            [ngClass]="{
+              'dark-mode-yellow': isDarkModeInLocalStorage(),
+              'light-mode-purple': !isDarkModeInLocalStorage()
+            }"
+          >
+            <!-- {{ category.posts[2]?.title }} -->
+          </h2>
+          <span class="shortDesc">
+            <!-- {{ category.posts[2]?.short_description }} -->
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -209,7 +209,7 @@
 <section class="home-video-block dark-mode">
   <div class="container">
     <div *ngIf="!VideoObject" class="no-data">
-      <img src="../../../../assets/images/no-data.jpg" alt="" />
+      <div>Loading ...</div>
     </div>
     <div class="photos video" *ngIf="VideoObject">
       <div class="photos-left">
@@ -249,7 +249,7 @@
         </div>
       </div>
       <div class="_3dJ9b">
-        <div class="_3rg6w">SHOW MORE</div>
+        <a href="/home/all-cat-videos"><div class="_3rg6w">SHOW MORE</div></a>
       </div>
     </div>
   </div>
@@ -339,11 +339,58 @@
       </div>
     </div>
     <div *ngIf="headingTitle && headingTitle.length === 0" class="no-data">
-      <img src="../../../../assets/images/no-data.jpg" alt="" />
+      <div>Loading........</div>
     </div>
   </div>
 </section>
-
+<!--  -->
+<div data-infinite-scroll="2" style="min-height: 50px">
+  <a href="/home/plan_section"
+    ><div class="containerA _1rO8K">
+      <h2
+        [ngClass]="{
+          'dark-mode-yellowA': isDarkModeInLocalStorage(),
+          'light-mode-purpleA': !isDarkModeInLocalStorage()
+        }"
+      >
+        BECOME A MEMBER
+      </h2>
+      <span class=""
+        ><svg
+          class="custom-svg"
+          version="1.0"
+          xmlns="http://www.w3.org/2000/svg"
+          width="32"
+          height="32"
+          viewBox="0 0 768.000000 768.000000"
+          preserveAspectRatio="xMidYMid meet"
+        >
+          <metadata>
+            Created by potrace 1.16, written by Peter Selinger 2001-2019
+          </metadata>
+          <g
+            transform="translate(0.000000,768.000000) scale(0.100000,-0.100000)"
+            fill="#000000"
+            stroke="none"
+          >
+            <path
+              d="M2075 5964 c-37 -19 -261 -239 -281 -276 -18 -35 -18 -101 0 -136 8
+-15 395 -407 860 -872 l846 -845 -860 -860 -860 -860 0 -55 c0 -69 5 -77 144
+-218 142 -145 187 -170 263 -142 16 6 474 457 1051 1033 1092 1092 1053 1049
+1038 1134 -7 34 -109 140 -1029 1062 -598 598 -1035 1029 -1054 1037 -42 18
+-81 18 -118 -2z"
+            ></path>
+            <path
+              d="M3725 5966 c-40 -18 -281 -263 -295 -299 -17 -46 -12 -80 19 -128 16
+-24 403 -417 860 -874 l831 -830 -854 -855 c-768 -768 -855 -859 -862 -893
+-13 -73 5 -102 153 -249 149 -148 175 -162 246 -139 25 9 301 278 1058 1036
+562 563 1027 1032 1032 1040 16 29 10 103 -12 137 -30 49 -2021 2034 -2058
+2052 -39 19 -78 20 -118 2z"
+            ></path>
+          </g></svg
+      ></span></div
+  ></a>
+</div>
 <!--Entertainment section Starts from here-->
 
 <section
@@ -462,9 +509,8 @@
           </span>
         </div>
       </div>
-      <!-- <ng-container *ngIf="(i + 1) % 4 === 0 && i !== categoryList.length - 1">
-        <app-subscribe></app-subscribe>
-      </ng-container> -->
     </div>
   </div>
 </section>
+
+<!-- Become a member -->

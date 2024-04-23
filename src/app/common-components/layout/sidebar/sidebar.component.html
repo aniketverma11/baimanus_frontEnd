@@ -478,11 +478,11 @@ l-61 56 0 637 c0 351 3 641 7 644 3 4 231 7 505 7 l498 0 0 -519z"
                 <img
                   [src]="user_profile_picture"
                   alt="Profile Picture"
-                  (click)="toggleDropdown()"
+                  (click)="profileDialog()"
                 />
-                <div *ngIf="showDropdown" class="dropdown-menu">
-                  <button (click)="logout()">Logout</button>
-                </div>
+                <!-- <div *ngIf="showDropdown" class="dropdown-menu">
+                  <button (click)="profileDialog()">Logout</button>
+                </div> -->
               </div>
             </span>
           </div>

@@ -11,6 +11,7 @@ import { environment } from './../../../../enviroments/environment';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../../../../services/auth.service';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
+import { Router } from '@angular/router';
 declare var google: any;
 
 @Component({
@@ -27,18 +28,19 @@ export class SignupdialogComponent implements OnInit, AfterViewInit {
     private jwtHelper: JwtHelperService,
     private toastr: ToastrService,
     private authService: AuthService,
-    private translateService: TranslateService
+    private translateService: TranslateService,
+    private router: Router
   ) {
-    this.translateService.setDefaultLang('en');
+    // this.translateService.setDefaultLang('en');
   }
 
   ngOnInit(): void {
-    this.translateService.onLangChange.subscribe((event) => {
-      console.log('Language changed to:', event.lang);
-      // React to language changes as needed
-    });
-    const user = this.authService.getFacebookUser();
-    console.log(user);
+    // this.translateService.onLangChange.subscribe((event) => {
+    //   console.log('Language changed to:', event.lang);
+    //   // React to language changes as needed
+    // });
+    // const user = this.authService.getFacebookUser();
+    // console.log(user);
   }
 
   ngAfterViewInit(): void {
@@ -72,10 +74,9 @@ export class SignupdialogComponent implements OnInit, AfterViewInit {
       const payload = this.decodeToken(response.credential);
 
       if (payload) {
-        window.alert('logged In sucuess');
-        window.location.reload();
-        this.toastr.success('logged In');
         sessionStorage.setItem('loggedInUser', JSON.stringify(payload));
+        this.toastr.success('logged In');
+        this.router.navigate(['/home/dashboard']);
         this.closeDialog();
       } else {
         console.error('Invalid token payload');

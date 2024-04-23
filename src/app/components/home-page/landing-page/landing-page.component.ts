@@ -199,6 +199,8 @@ export class LandingPageComponent {
     this.unsubscribe.add(
       this.categoryService.getFourCategories(this.type).subscribe(
         (data) => {
+          console.log(data);
+
           this.isLoading = false;
 
           this.categoryList = data.data;

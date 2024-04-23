@@ -16,6 +16,8 @@ import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { LanguageService } from '../../../../services/language.service';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { LanguageChangeServiceService } from '../../../../services/language-change-service.service';
+import { ProfileDialogComponent } from '../../../components/home-page/profile-dialog/profile-dialog.component';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-sidebar',
@@ -53,7 +55,8 @@ export class SidebarComponent implements OnInit {
     private languageService: LanguageService,
     private router: Router,
     private route: ActivatedRoute,
-    private LanguageChangeService: LanguageChangeServiceService
+    private LanguageChangeService: LanguageChangeServiceService,
+    private toastr: ToastrService
   ) {
     this.darkMode = this.themeService.isDarkMode();
   }
@@ -152,6 +155,8 @@ export class SidebarComponent implements OnInit {
       const loggedInUser = storedUserData ? JSON.parse(storedUserData) : null;
       this.loggedUser = loggedInUser;
       this.user_profile_picture = this.loggedUser.picture;
+      console.log(this.user_profile_picture);
+
       //
     }
   }
@@ -240,6 +245,13 @@ export class SidebarComponent implements OnInit {
     } else {
       return false;
     }
+  }
+  profileDialog(): void {
+    const dialogRef = this.dialog.open(ProfileDialogComponent, {
+      width: '400px',
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {});
   }
 
   ngOnDestroy(): void {

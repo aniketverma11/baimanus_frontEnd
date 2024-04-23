@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="menus">
+    <div class="close">
+      <svg
+        (click)="closeDialog()"
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="20"
+        viewBox="0 0 30 30"
+      >
+        <path d="M0 0h30v30H0z" fill="rgba(255,255,255,0)"></path>
+        <path
+          d="M0 0l20 20"
+          transform="translate(5 5)"
+          fill="none"
+          stroke="#292929"
+          stroke-linecap="round"
+          stroke-width="3px"
+        ></path>
+        <path
+          d="M0 0l19.54 19.54"
+          transform="rotate(90 9.77 15)"
+          fill="none"
+          stroke="#292929"
+          stroke-linecap="round"
+          stroke-width="3px"
+        ></path>
+      </svg>
+    </div>
+    <div class="list">
+      <div class="menusList" (click)="navigate()">My Profile</div>
+      <div class="menusList">Saved Stories</div>
+      <div class="menusList">Contact Us</div>
+      <div class="menusList">FAQs</div>
+    </div>
+  </div>
+</div>
