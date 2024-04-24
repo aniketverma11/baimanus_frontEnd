@@ -12,7 +12,7 @@ import { environment } from '../../../../enviroments/environment';
 @Component({
   selector: 'app-category-listing',
   templateUrl: './category-listing.component.html',
-  styleUrl: '../landing-page/landing-page.component.css',
+  styleUrl: './category-listing.component.css',
 })
 export class CategoryListingComponent {
   darkMode: boolean;
@@ -103,5 +103,8 @@ export class CategoryListingComponent {
   }
   getFullImagePath(relativePath: string): string {
     return `${this.imageBaseURL}${relativePath}`;
+  }
+  ngOnDestroy(): void {
+    this.unsubscribe.unsubscribe();
   }
 }

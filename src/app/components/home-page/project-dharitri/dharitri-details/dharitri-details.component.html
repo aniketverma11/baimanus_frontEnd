@@ -151,22 +151,23 @@
             "
           ></div>
         </div>
-
-        <button
-          class="read-full-article"
-          (click)="toggleExpanded(newsDetails)"
-          [ngClass]="{
-            'small-text': textSize === 'small',
-            'medium-text': textSize === 'medium',
-            'large-text': textSize === 'large'
-          }"
-        >
-          {{
-            newsDetails?.expanded
-              ? ("Show Less" | translate)
-              : ("Read Full Article" | translate)
-          }}
-        </button>
+        <div style="text-align: center;">
+          <button
+            class="read-full-article"
+            (click)="toggleExpanded(newsDetails)"
+            [ngClass]="{
+              'small-text': textSize === 'small',
+              'medium-text': textSize === 'medium',
+              'large-text': textSize === 'large'
+            }"
+          >
+            {{
+              newsDetails?.expanded
+                ? ("Show Less" | translate)
+                : ("Read Full Article" | translate)
+            }}
+          </button>
+        </div>
       </div>
 
       <div class="ReadMore-section">
@@ -359,13 +360,15 @@
           "
           class="content-container"
         ></div>
-        <button class="read-full-article" (click)="toggleExpanded(news)">
-          {{
-            news?.expanded
-              ? ("Show Less" | translate)
-              : ("Read Full Article" | translate)
-          }}
-        </button>
+        <div style="text-align: center;">
+          <button class="read-full-article" (click)="toggleExpanded(news)">
+            {{
+              news?.expanded
+                ? ("Show Less" | translate)
+                : ("Read Full Article" | translate)
+            }}
+          </button>
+        </div>
       </div>
 
       <div

@@ -44,7 +44,7 @@ body {
 .dark-mode .more-news p {
   color: white;
 } */
-h1{
+h1 {
   font-size: 25px;
   line-height: 36px;
 }
@@ -175,9 +175,9 @@ p {
 
 .shortDesc {
   font-size: 16px !important;
-  color: #6c6c6c !important;
+  color: #b9b7b7 !important;
   font-family: "Proxima Nova", sans-serif !important;
-  font-weight: 500 !important;
+  font-weight: 600 !important;
 }
 .box h2 {
   margin-bottom: 0;
@@ -255,51 +255,67 @@ h1 {
   bottom: 0;
   right: 0;
 }
-.hinditoggle{
+.hinditoggle {
   width: 100px;
 }
-.hinditoggle span svg{
+.hinditoggle span svg {
   width: 100%;
   height: auto;
 }
-.hinditoggle:hover svg g{
+.hinditoggle:hover svg g {
   fill: #ffffff;
 }
-.dharitri{
+.dharitri {
   width: 80px;
 }
-.dharitri a img{
+.dharitri a img {
   width: 100%;
 }
-.phots-box{
+.phots-box {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
 }
-.phots-box h3{
+.phots-box h3 {
   margin-bottom: 0;
   font-size: 16px;
   line-height: 22px;
   font-weight: 600;
 }
-.phots-box img{
+.phots-box img {
   width: 80px;
   height: 60px;
   margin-right: 10px;
-} 
-.header-search-icon{
+}
+.header-search-icon {
   width: auto;
 }
-.author-name, .published-date{
+.author-name,
+.published-date {
   font-size: 14px;
   line-height: 18px;
   font-weight: 700;
   padding-top: 10px;
   color: #000000;
 }
-#header .logos, #header .header-navs.header-icons {
+#header .logos,
+#header .header-navs.header-icons {
   grid-column-gap: 20px;
 }
-.articalread p img{
+.articalread p img {
   width: 100% !important;
+}
+
+.news-item,
+.larger-text,
+.content-details p,
+.item p,
+h1,
+h2,
+.phots-box,
+.shortDes,
+.medium-text,
+.light-mode-purpleD,
+.dark-mode-yellowD {
+  cursor: pointer !important;
 }

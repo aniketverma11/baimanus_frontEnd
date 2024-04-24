@@ -11,9 +11,58 @@
 >
   <div class="left-section">
     <!-- <span *ngFor="let news of belowContent"> -->
-    <div class="routerNavigations">
+    <!-- <div class="routerNavigations">
       <a href="/home">Home</a>> <a href="/home">{{ categorySlug }}</a
       >> <a href="/home"> {{ slug }}</a>
+    </div> -->
+    <div class="DYWI3">
+      <div class="phCpR">
+        <a href="/home"
+          ><span>Home&nbsp;</span
+          ><svg
+            version="1.0"
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 780 400"
+            preserveAspectRatio="xMidYMid meet"
+          >
+            <metadata>
+              Created by potrace 1.16, written by Peter Selinger 2001-2019
+            </metadata>
+            <g
+              transform="translate(0.000000,768.000000) scale(0.100000,-0.100000)"
+              fill="#000000"
+              stroke="none"
+            >
+              <path
+                d="M2075 5964 c-37 -19 -261 -239 -281 -276 -18 -35 -18 -101 0 -136 8 -15 395 -407 860 -872 l846 -845 -860 -860 -860 -860 0 -55 c0 -69 5 -77 144 -218 142 -145 187 -170 263 -142 16 6 474 457 1051 1033 1092 1092 1053 1049 1038 1134 -7 34 -109 140 -1029 1062 -598 598 -1035 1029 -1054 1037 -42 18 -81 18 -118 -2z"
+              ></path>
+            </g></svg></a
+        ><a href="/home"
+          ><span>{{ categorySlug }}&nbsp;</span
+          ><svg
+            version="1.0"
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 780 400"
+            preserveAspectRatio="xMidYMid meet"
+          >
+            <metadata>
+              Created by potrace 1.16, written by Peter Selinger 2001-2019
+            </metadata>
+            <g
+              transform="translate(0.000000,768.000000) scale(0.100000,-0.100000)"
+              fill="#000000"
+              stroke="none"
+            >
+              <path
+                d="M2075 5964 c-37 -19 -261 -239 -281 -276 -18 -35 -18 -101 0 -136 8 -15 395 -407 860 -872 l846 -845 -860 -860 -860 -860 0 -55 c0 -69 5 -77 144 -218 142 -145 187 -170 263 -142 16 6 474 457 1051 1033 1092 1092 1053 1049 1038 1134 -7 34 -109 140 -1029 1062 -598 598 -1035 1029 -1054 1037 -42 18 -81 18 -118 -2z"
+              ></path>
+            </g></svg></a
+        ><span class="_12j4- _32Ygc"> {{ newsDetails?.title }}</span>
+      </div>
     </div>
     <span>
       <h1
@@ -34,7 +83,7 @@
           'large-text': textSize === 'large'
         }"
       >
-        <span
+        <!-- <span
           [ngClass]="{
             'small-text': textSize === 'small',
             'medium-text': textSize === 'medium',
@@ -42,7 +91,7 @@
           }"
         >
           {{ newsDetails?.short_description }}
-        </span>
+        </span> -->
 
         <strong>
           <div class="author-name">{{ newsDetails?.author }}</div>
@@ -232,22 +281,23 @@
             "
           ></div>
         </div>
-
-        <button
-          class="read-full-article"
-          (click)="toggleExpanded(newsDetails)"
-          [ngClass]="{
-            'small-text': textSize === 'small',
-            'medium-text': textSize === 'medium',
-            'large-text': textSize === 'large'
-          }"
-        >
-          {{
-            newsDetails?.expanded
-              ? ("Show Less" | translate)
-              : ("Read Full Article" | translate)
-          }}
-        </button>
+        <div style="text-align: center">
+          <button
+            class="read-full-article"
+            (click)="toggleExpanded(newsDetails)"
+            [ngClass]="{
+              'small-text': textSize === 'small',
+              'medium-text': textSize === 'medium',
+              'large-text': textSize === 'large'
+            }"
+          >
+            {{
+              newsDetails?.expanded
+                ? ("Show Less" | translate)
+                : ("Read Full Article" | translate)
+            }}
+          </button>
+        </div>
       </div>
 
       <div class="ReadMore-section">
@@ -448,13 +498,15 @@
           "
           class="content-container"
         ></div>
-        <button class="read-full-article" (click)="toggleExpanded(news)">
-          {{
-            news?.expanded
-              ? ("Show Less" | translate)
-              : ("Read Full Article" | translate)
-          }}
-        </button>
+        <div style="text-align: center">
+          <button class="read-full-article" (click)="toggleExpanded(news)">
+            {{
+              news?.expanded
+                ? ("Show Less" | translate)
+                : ("Read Full Article" | translate)
+            }}
+          </button>
+        </div>
       </div>
 
       <div

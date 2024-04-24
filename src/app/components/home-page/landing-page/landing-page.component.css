@@ -185,8 +185,8 @@ h1 {
 .read-full-article {
   background-color: #ffc107;
   color: #333;
-  margin-left: 230px;
-  border: none;
+  /* margin-left: 230px; */
+  /* border: none; */
   padding: 10px 20px;
   font-size: 16px;
   font-weight: bold;
@@ -505,10 +505,11 @@ h2 {
   right: 0;
   transform: translateY(-50%);
 } */
+._3dJ9b {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
 @media (min-width: 1024px) {
-  ._3dJ9b {
-    margin-top: 3rem;
-  }
   ._3rg6w {
     font-size: #ffd150;
     line-height: 1.33;

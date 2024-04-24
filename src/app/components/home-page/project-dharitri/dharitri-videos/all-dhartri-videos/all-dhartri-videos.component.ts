@@ -1,45 +1,46 @@
 import { Component } from '@angular/core';
+import { ApiServicesService } from '../../../../../../services/api-services.service';
 import { environment } from '../../../../../../enviroments/environment';
 import { Subscription } from 'rxjs';
-import { ApiServicesService } from '../../../../../../services/api-services.service';
-import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { ThemeService } from '../../../../../common-components/layout/theme.service';
+import { CategoryService } from '../../../../../../services/category.service';
+import { LanguageService } from '../../../../../../services/language.service';
+import { LanguageChangeServiceService } from '../../../../../../services/language-change-service.service';
 
 @Component({
-  selector: 'app-home-page-videos',
-  templateUrl: './home-page-videos.component.html',
-  styleUrl: './home-page-videos.component.css',
+  selector: 'app-all-dhartri-videos',
+  templateUrl: './all-dhartri-videos.component.html',
+  styleUrl: './all-dhartri-videos.component.css',
 })
-export class HomePageVideosComponent {
+export class AllDhartriVideosComponent {
   private imageBaseURL = environment.imagesBaseURL;
   private unsubscribe: Subscription = new Subscription();
-  isLoading: boolean = true;
-  homeContent: any;
+  darkMode: boolean;
+  isLoading: boolean = false;
+  type: string = 'dhariti';
   homePhotos: any;
-  headingPhoto: any;
-  headingTitle: any[] = [];
-  imagetitle: string = '';
-  darkMode: boolean = false;
-  type: any;
   VideoObject: any;
   constructor(
     private apiService: ApiServicesService,
-    private sanitizer: DomSanitizer,
     private router: Router,
-    private themeService: ThemeService
-  ) {}
+    private themeService: ThemeService,
+    private categoryService: CategoryService,
+    private languageService: LanguageService,
+    private LanguageChangeService: LanguageChangeServiceService
+  ) {
+    this.darkMode = this.themeService.isDarkMode();
+  }
 
   ngOnInit() {
-    if (typeof localStorage !== 'undefined') {
-      this.type = localStorage.getItem('language');
-    }
-
-    this.themeService.darkModeChanged.subscribe((darkMode: boolean) => {
-      this.darkMode = darkMode;
-    });
     this.getHomeVideos();
   }
+  navigate(slug: any) {
+    this.router.navigate(['home/dharitries-videos'], {
+      queryParams: { slug: slug },
+    });
+  }
+
   isDarkModeInLocalStorage(): boolean {
     if (typeof localStorage !== 'undefined') {
       const isDark = localStorage.getItem('darkMode');
@@ -48,22 +49,15 @@ export class HomePageVideosComponent {
       return false;
     }
   }
-
   getHomeVideos() {
-    if (!this.type) {
-      this.type = 'english';
-    }
-
     this.isLoading = true;
     this.unsubscribe.add(
       this.apiService.getViideos(this.type).subscribe(
         (res) => {
           this.isLoading = false;
           this.VideoObject = res.data;
-          console.log(this.VideoObject);
-          // this.VideoTitle = res.data.slice(1).map((item: any) => item);
 
-          // this.videoImages = res.data.slice(0).map((item: any) => item.image);
+          console.log(res);
         },
         (error) => {
           console.error(error);
@@ -71,15 +65,7 @@ export class HomePageVideosComponent {
       )
     );
   }
-
-  navigateVideos(slug: any) {
-    this.router.navigate(['home/videos'], {
-      queryParams: { slug: slug },
-    });
-  }
   getFullImagePath(relativePath: string): string {
-    console.log(relativePath);
-
     return `${this.imageBaseURL}${relativePath}`;
   }
   ngOnDestroy(): void {

@@ -683,15 +683,31 @@ l-61 56 0 637 c0 351 3 641 7 644 3 4 231 7 505 7 l498 0 0 -519z"
           <img src="../../../../assets/icons/Menu.png" alt="" />
         </button>
       </div>
-      <ul class="topheaderMobile horizontal-list">
+      <ul
+        [ngClass]="{
+          'dark-mode-yellow': isDarkModeInLocalStorage(),
+          'light-mode-purple': !isDarkModeInLocalStorage()
+        }"
+        class="topheaderMobile horizontal-list"
+      >
         <!-- <li class="top-navbar-1 J_MHx"> -->
         <!-- <a id="ga4-header-10" class="" href="#" target="_blank"> -->
 
         <li
+          [ngClass]="{
+            'dark-mode-yellow': isDarkModeInLocalStorage(),
+            'light-mode-purple': !isDarkModeInLocalStorage()
+          }"
           *ngFor="let category of visibleCategories.slice(0, 5)"
           class="horizontal-list"
         >
-          <span (click)="getHomeContentBySlug(category.slug)">
+          <span
+            [ngClass]="{
+              'dark-mode-yellow': isDarkModeInLocalStorage(),
+              'light-mode-purple': !isDarkModeInLocalStorage()
+            }"
+            (click)="navigateToRefresh(category.name)"
+          >
             {{ category.name }}
           </span>
         </li>
@@ -700,18 +716,33 @@ l-61 56 0 637 c0 351 3 641 7 644 3 4 231 7 505 7 l498 0 0 -519z"
           *ngFor="let category of visibleCategories.slice(6)"
           class="horizontal-list"
         >
-          <span (click)="getHomeContentBySlug(category.slug)">
+          <span
+            [ngClass]="{
+              'dark-mode-yellow': isDarkModeInLocalStorage(),
+              'light-mode-purple': !isDarkModeInLocalStorage()
+            }"
+            (click)="navigateToRefresh(category.name)"
+          >
             {{ category.name }}
           </span>
         </li>
       </ul>
       <div>
         <div class="_2j_ED">
-          <select name="more" id="more-bottom-header" (change)="onmenuCHange()">
+          <select
+            class="select_category"
+            [ngClass]="{
+              'dark-mode-yellow': isDarkModeInLocalStorage(),
+              'light-mode-purple': !isDarkModeInLocalStorage()
+            }"
+            name="more"
+            id="more-bottom-header"
+            (change)="onmenuCHange($event)"
+          >
             <option value="">More</option>
             <option
               *ngFor="let category of categoryList.slice(6)"
-              [value]="category.id"
+              [value]="category.name"
             >
               {{ category.name }}
             </option>

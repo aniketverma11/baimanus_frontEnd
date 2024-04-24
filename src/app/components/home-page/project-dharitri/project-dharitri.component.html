@@ -329,12 +329,7 @@
           </h2>
           <div>
             <svg
-              (click)="
-                getHomeContentBySlug(
-                  homeContent?.slug,
-                  homeContent?.category?.slug
-                )
-              "
+              routerLink="/home/all-dhatri-content"
               class="arrow"
               version="1.0"
               xmlns="http://www.w3.org/2000/svg"
@@ -436,7 +431,7 @@
           </h2>
           <div>
             <svg
-              (click)="navigateVideos(VideoObject?.slug)"
+              routerLink="/home/all-dhatri-videos"
               class="arrow"
               version="1.0"
               xmlns="http://www.w3.org/2000/svg"

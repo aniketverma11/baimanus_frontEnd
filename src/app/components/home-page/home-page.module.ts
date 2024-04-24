@@ -35,6 +35,9 @@ import { DharitruPhotosDetailsComponent } from './project-dharitri/dharitri-phot
 import { CategoryListingComponent } from './category-listing/category-listing.component';
 import { ProfileDialogComponent } from './profile-dialog/profile-dialog.component';
 import { ProfileDashboardComponent } from './profile-dashboard/profile-dashboard.component';
+import { AllPhotosListingComponent } from './landing-page/photos/all-photos-listing/all-photos-listing.component';
+import { AllDhartriVideosComponent } from './project-dharitri/dharitri-videos/all-dhartri-videos/all-dhartri-videos.component';
+import { AllContentComponent } from './project-dharitri/all-content/all-content.component';
 const routes: Routes = [
   {
     path: '',
@@ -101,6 +104,18 @@ const routes: Routes = [
     path: 'all-cat-videos',
     component: HomePageVideosComponent,
   },
+  {
+    path: 'all-photos',
+    component: AllPhotosListingComponent,
+  },
+  {
+    path: 'all-dhatri-videos',
+    component: AllDhartriVideosComponent,
+  },
+  {
+    path: 'all-dhatri-content',
+    component: AllContentComponent,
+  },
 ];
 
 @NgModule({
@@ -128,6 +143,9 @@ const routes: Routes = [
     CategoryListingComponent,
     ProfileDialogComponent,
     ProfileDashboardComponent,
+    AllPhotosListingComponent,
+    AllDhartriVideosComponent,
+    AllContentComponent,
   ],
   imports: [
     CommonModule,

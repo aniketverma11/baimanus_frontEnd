@@ -207,7 +207,7 @@
 </div>
 
 <section class="home-video-block dark-mode">
-  <div class="container">
+  <div class="container" style="flex-direction: column">
     <div *ngIf="!VideoObject" class="no-data">
       <div>Loading ...</div>
     </div>
@@ -248,9 +248,9 @@
           <hr />
         </div>
       </div>
-      <div class="_3dJ9b">
-        <a href="/home/all-cat-videos"><div class="_3rg6w">SHOW MORE</div></a>
-      </div>
+    </div>
+    <div class="_3dJ9b">
+      <a href="/home/all-cat-videos"><div class="_3rg6w">SHOW MORE</div></a>
     </div>
   </div>
 </section>
@@ -289,7 +289,9 @@
           </g>
         </g>
       </svg> -->
-      <h2 [ngStyle]="getTagStyle()">{{ "Photos" | translate }}</h2>
+      <h2 [ngStyle]="getTagStyle()" routerLink="/home/all-photos">
+        {{ "Photos" | translate }}
+      </h2>
     </div>
     <div class="photos" *ngIf="headingTitle && headingTitle.length > 0">
       <div class="photos-left">

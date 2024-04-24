@@ -5,7 +5,7 @@
   <div class="container">
     <div
       class="entertain-block"
-      *ngFor="let videosItems of VideoObject; let i = index"
+      *ngFor="let items of homePhotos; let i = index"
     >
       <div class="entertain-inner-block">
         <div class="entertain-title">
@@ -15,33 +15,30 @@
               'light-mode-purple': !isDarkModeInLocalStorage()
             }"
           >
-            {{ "videos" | translate }}
+            {{ "photos" | translate }}
           </h2>
           <div></div>
         </div>
-        <div
-          class="entertain-image-block"
-          (click)="navigateVideos(videosItems?.slug)"
-        >
-          <img [src]="getFullImagePath(videosItems?.image)" />
+        <div class="entertain-image-block" (click)="navigate(items?.slug)">
+          <img [src]="getFullImagePath(items?.image)" />
         </div>
       </div>
       <div class="entertain-headlines-outer-block">
         <div
           class="enterheadline-block-left enterblock-shadow"
-          (click)="navigateVideos(videosItems?.slug)"
+          (click)="navigate(items?.slug)"
         >
           <h2
-            (click)="navigateVideos(videosItems?.slug)"
+            (click)="navigate(items?.slug)"
             [ngClass]="{
               'dark-mode-yellow': isDarkModeInLocalStorage(),
               'light-mode-purple': !isDarkModeInLocalStorage()
             }"
           >
-            {{ videosItems?.title }}
+            {{ items?.title }}
           </h2>
           <span class="shortDesc">
-            {{ videosItems?.short_description }}
+            {{ items?.short_description }}
           </span>
         </div>
         <!-- <div class="enterheadline-block-right enterblock-shadow">

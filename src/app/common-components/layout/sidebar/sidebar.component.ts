@@ -236,7 +236,11 @@ export class SidebarComponent implements OnInit {
       queryParams: { slug: slug },
     });
   }
-  onmenuCHange() {}
+  onmenuCHange(event: any) {
+    const value = event.target.value;
+    console.log(value);
+    this.navigateToRefresh(value);
+  }
 
   isDarkModeInLocalStorage(): boolean {
     if (typeof localStorage !== 'undefined') {
@@ -252,6 +256,15 @@ export class SidebarComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {});
+  }
+  navigateToRefresh(cat: any) {
+    console.log(cat);
+
+    const data = cat.toLowerCase();
+
+    this.router.navigate(['home/category-listing'], {
+      queryParams: { category: data },
+    });
   }
 
   ngOnDestroy(): void {

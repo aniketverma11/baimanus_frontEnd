@@ -185,8 +185,8 @@ h1 {
 .read-full-article {
   background-color: #ffc107;
   color: #333;
-  margin-left: 230px;
-  border: none;
+  /* margin-left: 230px; */
+  /* border: none; */
   padding: 10px 20px;
   font-size: 16px;
   font-weight: bold;
