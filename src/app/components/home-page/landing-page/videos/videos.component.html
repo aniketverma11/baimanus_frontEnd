@@ -6,10 +6,15 @@
     'large-text': textSize === 'large'
   }"
 >
-  <div class="left-section">
-    <!-- <span *ngFor="let imgaedata of homePhotos"> -->
-    <!-- <h1>{{ homePhotos?.title }}</h1>
-     -->
+<div class="detailed-vids-containerr">
+  <div class="vidd-left-blockk">
+    <iframe
+        [src]="videoUrl"
+        frameborder="0"
+        allowfullscreen
+      ></iframe>
+  </div>
+  <div class="vidd-right-blockk">
     <h1
       [ngClass]="{
         'dark-mode-yellow': isDarkModeInLocalStorage(),
@@ -42,14 +47,6 @@
       <!-- <ng-container *ngFor="let image of homePhotos.images">
         <img [src]="getFullImagePath(image.image)" alt="" />
       </ng-container> -->
-
-      <iframe
-        [src]="videoUrl"
-        frameborder="0"
-        width="560"
-        height="315"
-        allowfullscreen
-      ></iframe>
 
       <div class="shar-section">
         <div class="Share icon">
@@ -126,9 +123,15 @@
             </div>
           </div>
         </div>
-        <hr />
       </div>
     </div>
+  </div>
+</div>
+  <div class="left-section">
+    <!-- <span *ngFor="let imgaedata of homePhotos"> -->
+    <!-- <h1>{{ homePhotos?.title }}</h1>
+     -->
+    
     <div class="articalread" *ngIf="homePhotos?.content">
       <div
         [innerHTML]="

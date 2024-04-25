@@ -421,6 +421,7 @@ h4 .dark-mode .dark-mode svg path,
 }
 .dark-mode .arrow {
   background-color: white;
+  background-color: transparent;
 }
 /* .dark-mode .more-news {
   background-color: #333;
