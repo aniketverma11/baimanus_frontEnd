@@ -4,7 +4,7 @@
 >
   <div class="container">
     <div
-      class="entertain-block"
+      class="entertain-block detailed-vid-blockk"
       *ngFor="let items of homePhotos; let i = index"
     >
       <div class="entertain-inner-block">
@@ -14,9 +14,7 @@
               'dark-mode-yellow': isDarkModeInLocalStorage(),
               'light-mode-purple': !isDarkModeInLocalStorage()
             }"
-          >
-            {{ "photos" | translate }}
-          </h2>
+          ></h2>
           <div></div>
         </div>
         <div class="entertain-image-block" (click)="navigate(items?.slug)">
@@ -41,19 +39,6 @@
             {{ items?.short_description }}
           </span>
         </div>
-        <!-- <div class="enterheadline-block-right enterblock-shadow">
-          <h2
-            [ngClass]="{
-              'dark-mode-yellow': isDarkModeInLocalStorage(),
-              'light-mode-purple': !isDarkModeInLocalStorage()
-            }"
-          >
-            {{ category.posts[2]?.title }}
-          </h2>
-          <span class="shortDesc">
-            {{ category.posts[2]?.short_description }}
-          </span>
-        </div> -->
       </div>
     </div>
   </div>

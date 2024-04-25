@@ -64,3 +64,55 @@
     </div>
   </div>
 </section>
+
+<!-- <section
+  class="home-entertain-block"
+  [ngClass]="{ 'dark-mode': darkMode, 'light-mode': !darkMode }"
+>
+  <div class="container">
+    <div
+      class="entertain-block detailed-vid-blockk"
+      *ngFor="let items of categoryList; let i = index"
+    >
+      <div class="entertain-inner-block">
+        <div class="entertain-title">
+          <h2
+            [ngClass]="{
+              'dark-mode-yellow': isDarkModeInLocalStorage(),
+              'light-mode-purple': !isDarkModeInLocalStorage()
+            }"
+          ></h2>
+          <div></div>
+        </div>
+        <div
+          class="entertain-image-block"
+          getHomeContentBySlug(category?.slug,
+          category?.category?.slug)
+        >
+          <img [src]="getFullImagePath(items?.image)" />
+        </div>
+      </div>
+      <div class="entertain-headlines-outer-block">
+        <div
+          class="enterheadline-block-left enterblock-shadow"
+          getHomeContentBySlug(category?.slug,
+          category?.category?.slug)
+        >
+          <h2
+            getHomeContentBySlug(category?.slug,
+            category?.category?.slug)
+            [ngClass]="{
+              'dark-mode-yellow': isDarkModeInLocalStorage(),
+              'light-mode-purple': !isDarkModeInLocalStorage()
+            }"
+          >
+            {{ items?.title }}
+          </h2>
+          <span class="shortDesc">
+            {{ items?.short_description }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
