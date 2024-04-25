@@ -449,3 +449,36 @@
 h1 {
   font-weight: 700;
 }
+/* share icon css  */
+
+@media (min-width: 1024px) {
+  ._1a6rt .MkXZ4 .ITJ9D ._3wF-_ {
+    left: -80px;
+  }
+  ._3DL7q ._1qwem .social-share-links li {
+    margin: 0;
+    line-height: 0;
+  }
+}
+._1a6rt .MkXZ4 .ITJ9D ._3wF-_ {
+  border: 2px solid red;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  grid-gap: 10px;
+  gap: 10px;
+  background-color: #fff;
+  position: absolute;
+  top: 50px;
+  width: 170px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  right: 0;
+  left: 1px;
+  z-index: 100;
+}
+._1a6rt .MkXZ4 .ITJ9D ._3wF-_ ._1rVqb ._2FfZE {
+  color: #353535;
+  font-weight: 700;
+}
+/* share icon end  */

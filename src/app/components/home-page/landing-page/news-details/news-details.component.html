@@ -39,7 +39,7 @@
                 d="M2075 5964 c-37 -19 -261 -239 -281 -276 -18 -35 -18 -101 0 -136 8 -15 395 -407 860 -872 l846 -845 -860 -860 -860 -860 0 -55 c0 -69 5 -77 144 -218 142 -145 187 -170 263 -142 16 6 474 457 1051 1033 1092 1092 1053 1049 1038 1134 -7 34 -109 140 -1029 1062 -598 598 -1035 1029 -1054 1037 -42 18 -81 18 -118 -2z"
               ></path>
             </g></svg></a
-        ><a href="/home"
+        ><a (click)="navigateToCategory(categorySlug)"
           ><span>{{ categorySlug }}&nbsp;</span
           ><svg
             version="1.0"
@@ -546,13 +546,13 @@
     class="right-section"
     [ngClass]="{ 'dark-mode': themeServiceInstance.isDarkMode() }"
   >
-    <div
+    <!-- <div
       class="stay-updated"
       [ngClass]="{ 'dark-mode': themeServiceInstance.isDarkMode() }"
     >
       <h2>{{ "Stay Updated" | translate }}</h2>
       <app-subscribe></app-subscribe>
-    </div>
+    </div> -->
     <div class="line" style="display: none"></div>
 
     <div

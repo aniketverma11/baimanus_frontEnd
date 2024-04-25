@@ -305,6 +305,15 @@ export class NewsDetailsComponent implements AfterViewInit {
       return false;
     }
   }
+  navigateToCategory(cat: any) {
+    console.log(cat);
+
+    const data = cat.toLowerCase();
+
+    this.router.navigate(['home/category-listing'], {
+      queryParams: { category: data },
+    });
+  }
   ngOnDestroy(): void {
     this.unsubscribe.unsubscribe();
   }
