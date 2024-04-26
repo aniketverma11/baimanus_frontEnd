@@ -369,7 +369,7 @@ h1 {
 }
 
 .TextSizing button {
-  background-color: white;
+  background-color: transparent;
   border: none;
   color: #35144f;
   font-weight: bolder;

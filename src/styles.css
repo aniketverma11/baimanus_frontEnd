@@ -254,6 +254,11 @@ h1 {
   position: absolute;
   bottom: 0;
   right: 0;
+  background: transparent;
+  border: none;
+}
+.image-slider button svg path{
+  fill: #ffffff;
 }
 .hinditoggle {
   width: 100px;
@@ -346,4 +351,26 @@ h2,
   .detailed-vids-containerr .vidd-left-blockk{
     min-height: 352px;
   }
+}
+.dark-mode-white{
+  color: #ffffff !important;
+}
+.cdk-overlay-pane{
+  display: block;
+  width: 170px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, .1);
+}
+.cdk-overlay-pane .mat-mdc-menu-panel.mat-mdc-elevation-specific{
+  border-radius: 20px;
+}
+.mat-mdc-menu-item-text{
+  display: flex;
+  align-items: center;
+  grid-gap: 10px;
+}
+.mat-mdc-menu-item-text .iconNaming span{
+  font-size: 16px;
+  line-height: 26px;
+  color: #353535;
+  font-weight: 700;
 }

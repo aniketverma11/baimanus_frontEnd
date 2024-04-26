@@ -104,6 +104,15 @@ footer .bottom-footer {
   font-weight: 700;
   /* width: 71px; */
 }
+@media only screen and (min-width: 992px){
+  #become-member-button{
+    font-size: 20px;
+  }
+  .logoImg img{
+    width: 232px;
+    height: 132px;
+  }
+}
 ._2_rjA {
   padding-top: 25px;
   padding-bottom: 25px;

@@ -154,8 +154,16 @@
             <div class="share_rightt">
               <div class="TextSizing">
                 <button mat-button [matMenuTriggerFor]="menuText">
-                  <span class="caps">{{ "A" | translate }}</span
-                  ><span class="smallL">{{ "a" | translate }}</span>
+                  <span class="caps"
+                  [ngClass]="{
+                    'dark-mode-white': isDarkModeInLocalStorage()
+                  }"
+                  >{{ "A" | translate }}</span>
+                  <span class="smallL"
+                  [ngClass]="{
+                    'dark-mode-white': isDarkModeInLocalStorage()
+                  }">
+                  {{ "a" | translate }}</span>
                 </button>
                 <mat-menu #menuText="matMenu">
                   <button mat-menu-item (click)="setTextSize('small')">

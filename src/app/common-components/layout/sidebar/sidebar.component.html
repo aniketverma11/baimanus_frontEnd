@@ -254,7 +254,12 @@ l-61 56 0 637 c0 351 3 641 7 644 3 4 231 7 505 7 l498 0 0 -519z"
           aria-label="Become a Member"
           routerLink="home/plan_section"
         >
-          <div id="become-member-button" class="_1atAn">
+          <div id="become-member-button" class="_1atAn"
+          [ngClass]="{
+            'dark-mode-white': isDarkModeInLocalStorage(),
+            'light-mode-purple': !isDarkModeInLocalStorage()
+          }"
+          >
             {{ "Become a Member" | translate }}
           </div>
         </a>
