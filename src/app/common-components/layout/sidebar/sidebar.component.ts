@@ -127,6 +127,9 @@ export class SidebarComponent implements OnInit {
     if (!this.type) {
       this.type = 'english';
     }
+    // if (this.dharitri == true) {
+    this.type = 'dhariti';
+    console.log(this.type);
     this.isLoading = true;
     this.unsubscribe.add(
       this.categoryService.getFourCategories(this.type).subscribe(
@@ -142,6 +145,26 @@ export class SidebarComponent implements OnInit {
         }
       )
     );
+    // }
+    // if (this.dharitri == false) {
+    console.log(this.type);
+
+    this.isLoading = true;
+    this.unsubscribe.add(
+      this.categoryService.getFourCategories(this.type).subscribe(
+        (data) => {
+          this.isLoading = false;
+
+          this.categoryList = data.data;
+
+          this.visibleCategories = [...this.categoryList.slice(0, 10)];
+        },
+        (error) => {
+          console.error(error);
+        }
+      )
+    );
+    // }
   }
 
   showMore() {
