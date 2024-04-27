@@ -14,10 +14,16 @@ import {
 export class CategoryService {
   constructor(private httpClient: HttpClient) {}
 
-  getAllCategories(): Observable<any> {
-    return this.httpClient
-      .get(environment.apiBaseUrl + GET_ALL_CATEGORIES)
-      .pipe(catchError(this.errorHandler));
+  // getAllCategories(type: any): Observable<any> {
+  //   return this.httpClient
+  //     .get(environment.apiBaseUrl + GET_ALL_CATEGORIES)
+
+  //     .pipe(catchError(this.errorHandler));
+  // }
+  getAllCategories(type: any): Observable<any> {
+    return this.httpClient.get(
+      `${environment.apiBaseUrl}${GET_ALL_CATEGORIES}?type=${type}`
+    );
   }
 
   getFourCategories(type: any): Observable<any> {

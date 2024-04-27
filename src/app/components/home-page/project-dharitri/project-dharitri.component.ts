@@ -106,6 +106,8 @@ export class ProjectDharitriComponent {
     this.unsubscribe.add(
       this.apiService.getHomeContent(this.type).subscribe(
         (data) => {
+          console.log(data);
+
           // this.homeInfo = data.data;
           this.belowContent = data.data;
           this.homeContent = data?.data[0];

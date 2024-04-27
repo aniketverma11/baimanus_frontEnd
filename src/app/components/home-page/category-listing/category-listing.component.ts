@@ -86,6 +86,8 @@ export class CategoryListingComponent {
     this.unsubscribe.add(
       this.apiService.categoryarticles(category, this.type).subscribe(
         (data) => {
+          console.log(data);
+
           this.isLoading = false;
 
           this.categoryList = data.data;

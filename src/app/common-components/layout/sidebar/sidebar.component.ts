@@ -72,7 +72,11 @@ export class SidebarComponent implements OnInit {
         const currentUrl = this.router.url;
         console.log(currentUrl);
         if (currentUrl == '/home/dharitriyes') {
+          const getType = 'dharitri';
+          this.getAllCategoriesDhartri(getType);
           this.dharitri = true;
+        } else {
+          this.getAllCategories();
         }
         // if (this.route.snapshot.routeConfig?.path === '/home/dharitriyes') {
         //   // Perform your custom logic here
@@ -88,7 +92,7 @@ export class SidebarComponent implements OnInit {
     if (typeof localStorage !== 'undefined') {
       this.type = localStorage.getItem('language');
     }
-    this.getAllCategories();
+    // this.getAllCategories();
 
     if (typeof sessionStorage !== 'undefined') {
       const storedUserData = sessionStorage.getItem('loggedInUser');
@@ -127,13 +131,14 @@ export class SidebarComponent implements OnInit {
     if (!this.type) {
       this.type = 'english';
     }
-    // if (this.dharitri == true) {
-    this.type = 'dhariti';
+
     console.log(this.type);
     this.isLoading = true;
     this.unsubscribe.add(
-      this.categoryService.getFourCategories(this.type).subscribe(
+      this.categoryService.getAllCategories(this.type).subscribe(
         (data) => {
+          console.log(data);
+
           this.isLoading = false;
 
           this.categoryList = data.data;
@@ -145,14 +150,15 @@ export class SidebarComponent implements OnInit {
         }
       )
     );
-    // }
-    // if (this.dharitri == false) {
-    console.log(this.type);
-
+  }
+  getAllCategoriesDhartri(type: string) {
+    console.log(type);
     this.isLoading = true;
     this.unsubscribe.add(
-      this.categoryService.getFourCategories(this.type).subscribe(
+      this.categoryService.getAllCategories(type).subscribe(
         (data) => {
+          console.log(data);
+
           this.isLoading = false;
 
           this.categoryList = data.data;
@@ -164,7 +170,6 @@ export class SidebarComponent implements OnInit {
         }
       )
     );
-    // }
   }
 
   showMore() {

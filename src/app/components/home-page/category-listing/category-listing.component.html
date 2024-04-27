@@ -1,4 +1,4 @@
-<section
+<!-- <section
   class="home-entertain-block"
   [ngClass]="{ 'dark-mode': darkMode, 'light-mode': !darkMode }"
 >
@@ -29,12 +29,6 @@
       </div>
       <div class="entertain-headlines-outer-block">
         <div class="enterheadline-block-left enterblock-shadow">
-          <!-- <div
-          class="enterheadline-block-left enterblock-shadow"
-          (click)="
-            getHomeContentBySlug(category[1]?.slug, category[1].category?.slug)
-          " -->
-
           <h2
             [ngClass]="{
               'dark-mode-yellow': isDarkModeInLocalStorage(),
@@ -43,36 +37,20 @@
           >
             {{ category?.title }}
           </h2>
-          <!-- <span class="shortDesc">
-            {{ category[1]?.short_description }}
-          </span> -->
         </div>
-        <!-- <div class="enterheadline-block-right enterblock-shadow">
-          <h2
-            [ngClass]="{
-              'dark-mode-yellow': isDarkModeInLocalStorage(),
-              'light-mode-purple': !isDarkModeInLocalStorage()
-            }"
-          >
-            {{ category[2]?.title }}
-          </h2>
-          <span class="shortDesc">
-            {{ category[2]?.short_description }}
-          </span>
-        </div> -->
       </div>
     </div>
   </div>
-</section>
+</section> -->
 
-<!-- <section
+<section
   class="home-entertain-block"
   [ngClass]="{ 'dark-mode': darkMode, 'light-mode': !darkMode }"
 >
   <div class="container">
     <div
       class="entertain-block detailed-vid-blockk"
-      *ngFor="let items of categoryList; let i = index"
+      *ngFor="let category of categoryList; let i = index"
     >
       <div class="entertain-inner-block">
         <div class="entertain-title">
@@ -81,38 +59,43 @@
               'dark-mode-yellow': isDarkModeInLocalStorage(),
               'light-mode-purple': !isDarkModeInLocalStorage()
             }"
-          ></h2>
+          >
+            <!-- {{ "videos" | translate }} -->
+          </h2>
           <div></div>
         </div>
         <div
           class="entertain-image-block"
-          getHomeContentBySlug(category?.slug,
-          category?.category?.slug)
+          (click)="
+            getHomeContentBySlug(category?.slug, category?.category?.slug)
+          "
         >
-          <img [src]="getFullImagePath(items?.image)" />
+          <img [src]="getFullImagePath(category?.image)" />
         </div>
       </div>
       <div class="entertain-headlines-outer-block">
         <div
           class="enterheadline-block-left enterblock-shadow"
-          getHomeContentBySlug(category?.slug,
-          category?.category?.slug)
+          (click)="
+            getHomeContentBySlug(category?.slug, category?.category?.slug)
+          "
         >
           <h2
-            getHomeContentBySlug(category?.slug,
-            category?.category?.slug)
+            (click)="
+              getHomeContentBySlug(category?.slug, category?.category?.slug)
+            "
             [ngClass]="{
               'dark-mode-yellow': isDarkModeInLocalStorage(),
               'light-mode-purple': !isDarkModeInLocalStorage()
             }"
           >
-            {{ items?.title }}
+            {{ category?.title }}
           </h2>
           <span class="shortDesc">
-            {{ items?.short_description }}
+            {{ category?.short_description }}
           </span>
         </div>
       </div>
     </div>
   </div>
-</section> -->
+</section>
