@@ -73,6 +73,12 @@ footer a {
 .header-navs {
   padding-right: 20px;
 }
+@media screen and (max-width: 572px){
+  .header-navs a,
+  .header-navs{
+    padding-right: 0;
+  }
+}
 footer {
   padding-top: 20px;
   padding-bottom: 20px;
@@ -109,8 +115,8 @@ footer .bottom-footer {
     font-size: 20px;
   }
   .logoImg img{
-    width: 232px;
-    height: 132px;
+    width: 113px;
+    height: 86px;
   }
 }
 ._2_rjA {
@@ -161,8 +167,9 @@ body.dark-theme .sidebar {
   }
   #become-member-button {
     padding: 3px 11px;
-    height: 34px;
+    line-height: 34px;
     width: 82px;
+    text-align: center;
   }
   .logoImg {
     width: 64px !important;

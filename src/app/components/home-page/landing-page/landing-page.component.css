@@ -16,6 +16,7 @@
   flex: 0.5;
   margin-left: 28px;
   position: relative;
+  margin-top: 40px;
 }
 /* .right-section .line {
   border: none;
@@ -540,7 +541,11 @@ h2 {
   vertical-align: middle;
   height: 1px;
 }
-
+@media screen and (max-width: 480px){
+  ._3rg6w:after,._3rg6w:before{
+    margin: 0 10px;
+  } 
+}
 /* become a member  */
 @media (min-width: 768px) {
   ._1rO8K {
