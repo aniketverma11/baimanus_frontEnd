@@ -2,9 +2,16 @@
   class="home-entertain-block"
   [ngClass]="{ 'dark-mode': darkMode, 'light-mode': !darkMode }"
 >
-  <h3 *ngIf="categoryName">
-    {{ categoryName }}
-  </h3>
+  <div class="container">
+    <h3 class="category-detailed-pagee" *ngIf="categoryName"
+    [ngClass]="{
+      'dark-mode-yellow': isDarkModeInLocalStorage(),
+      'light-mode-purple': !isDarkModeInLocalStorage()
+    }"
+    >
+      {{ categoryName }}
+    </h3>
+  </div>
 
   <div class="container">
     <div

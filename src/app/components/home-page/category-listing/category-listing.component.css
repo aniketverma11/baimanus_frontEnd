@@ -586,3 +586,9 @@ a {
 .custom-svg {
   color: wheat;
 }
+h3.category-detailed-pagee{
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-top: 0.67em;
+}
