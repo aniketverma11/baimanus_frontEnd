@@ -23,10 +23,24 @@
       <p>{{ homePhotos?.short_description }}</p>
 
       <strong>
-        <span class="author-name">{{ homePhotos?.author }}</span>
+        <span
+          [ngClass]="{
+            'dark-mode-navigation': isDarkModeInLocalStorage(),
+            'light-mode-navigation': !isDarkModeInLocalStorage()
+          }"
+          class="author-name"
+          >{{ homePhotos?.author }}</span
+        >
       </strong>
 
-      <span class="published-date" style="display: block">
+      <span
+        [ngClass]="{
+          'dark-mode-navigation': isDarkModeInLocalStorage(),
+          'light-mode-navigation': !isDarkModeInLocalStorage()
+        }"
+        class="published-date"
+        style="display: block"
+      >
         Published : {{ homePhotos?.publish | date }}
       </span>
     </div>
@@ -57,7 +71,14 @@
         <div class="Share icon">
           <div class="shareLeft d-flex">
             <button class="Menus" mat-button [matMenuTriggerFor]="menu">
+              @if ( isDarkModeInLocalStorage() ) {
+              <img
+                src="../../../../../assets/icons/share_icon_white.png"
+                alt=""
+              />
+              } @if (!isDarkModeInLocalStorage()) {
               <img src="../../../../../assets/icons/share_icon.png" alt="" />
+              }
             </button>
             Share
             <mat-menu #menu="matMenu">
@@ -199,10 +220,24 @@
         <p>{{ news.short_description }}</p>
 
         <strong>
-          <span class="author-name">{{ news?.author }}</span>
+          <span
+            [ngClass]="{
+              'dark-mode-navigation': isDarkModeInLocalStorage(),
+              'light-mode-navigation': !isDarkModeInLocalStorage()
+            }"
+            class="author-name"
+            >{{ news?.author }}</span
+          >
         </strong>
 
-        <span class="published-date" style="display: block">
+        <span
+          [ngClass]="{
+            'dark-mode-navigation': isDarkModeInLocalStorage(),
+            'light-mode-navigation': !isDarkModeInLocalStorage()
+          }"
+          class="published-date"
+          style="display: block"
+        >
           Published : {{ news?.publish | date }}
         </span>
       </div>
@@ -226,7 +261,7 @@
           "
           class="content-container"
         ></div>
-        <div style="text-align: center;">
+        <div style="text-align: center">
           <button class="read-full-article" (click)="toggleExpanded(news)">
             {{
               news?.expanded

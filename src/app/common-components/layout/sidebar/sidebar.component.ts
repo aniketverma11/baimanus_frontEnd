@@ -32,6 +32,7 @@ export class SidebarComponent implements OnInit {
   isSidebarExpanded = false;
   categoryList: any;
   visibleCategories: any[] = [];
+
   showAll = false;
   loggedUser: any;
   user_profile_picture: any;

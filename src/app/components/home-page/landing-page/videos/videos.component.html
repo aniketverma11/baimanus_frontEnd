@@ -35,7 +35,14 @@
         </span>
       </strong> -->
 
-        <span class="published-date" style="display: block">
+        <span
+          [ngClass]="{
+            'dark-mode-navigation': isDarkModeInLocalStorage(),
+            'light-mode-navigation': !isDarkModeInLocalStorage()
+          }"
+          class="published-date"
+          style="display: block"
+        >
           Published : {{ homePhotos?.publish | date }}
         </span>
       </div>
@@ -48,9 +55,23 @@
           <div class="Share icon">
             <div class="shareLeft d-flex">
               <button class="Menus" mat-button [matMenuTriggerFor]="menu">
+                @if ( isDarkModeInLocalStorage() ) {
+                <img
+                  src="../../../../../assets/icons/share_icon_white.png"
+                  alt=""
+                />
+                } @if (!isDarkModeInLocalStorage()) {
                 <img src="../../../../../assets/icons/share_icon.png" alt="" />
+                }
               </button>
-              Share
+              <span
+                [ngClass]="{
+                  'dark-mode-navigation': isDarkModeInLocalStorage(),
+                  'light-mode-navigation': !isDarkModeInLocalStorage()
+                }"
+              >
+                Share
+              </span>
 
               <mat-menu #menu="matMenu">
                 <button mat-menu-item>
@@ -93,7 +114,21 @@
             <div class="share_rightt">
               <div class="TextSizing">
                 <button mat-button [matMenuTriggerFor]="menuText">
-                  <span class="caps">A</span><span class="smallL">a</span>
+                  <span
+                    [ngClass]="{
+                      'dark-mode-navigation': isDarkModeInLocalStorage(),
+                      'light-mode-navigation': !isDarkModeInLocalStorage()
+                    }"
+                    class="caps"
+                    >A</span
+                  ><span
+                    [ngClass]="{
+                      'dark-mode-navigation': isDarkModeInLocalStorage(),
+                      'light-mode-navigation': !isDarkModeInLocalStorage()
+                    }"
+                    class="smallL"
+                    >a</span
+                  >
                 </button>
                 <mat-menu #menuText="matMenu">
                   <button mat-menu-item (click)="setTextSize('small')">
@@ -187,10 +222,24 @@
         <p>{{ news?.short_description }}</p>
 
         <strong>
-          <span class="author-name">{{ news?.author }}</span>
+          <span
+            [ngClass]="{
+              'dark-mode-navigation': isDarkModeInLocalStorage(),
+              'light-mode-navigation': !isDarkModeInLocalStorage()
+            }"
+            class="author-name"
+            >{{ news?.author }}</span
+          >
         </strong>
 
-        <span class="published-date" style="display: block">
+        <span
+          [ngClass]="{
+            'dark-mode-navigation': isDarkModeInLocalStorage(),
+            'light-mode-navigation': !isDarkModeInLocalStorage()
+          }"
+          class="published-date"
+          style="display: block"
+        >
           Published : {{ news?.publish | date }}
         </span>
       </div>
@@ -202,9 +251,23 @@
           <div class="Share icon">
             <div class="shareLeft d-flex">
               <button class="Menus" mat-button [matMenuTriggerFor]="menu">
+                @if ( isDarkModeInLocalStorage() ) {
+                <img
+                  src="../../../../../assets/icons/share_icon_white.png"
+                  alt=""
+                />
+                } @if (!isDarkModeInLocalStorage()) {
                 <img src="../../../../../assets/icons/share_icon.png" alt="" />
+                }
               </button>
-              Share
+              <span
+                [ngClass]="{
+                  'dark-mode-navigation': isDarkModeInLocalStorage(),
+                  'light-mode-navigation': !isDarkModeInLocalStorage()
+                }"
+              >
+                Share
+              </span>
               <mat-menu #menu="matMenu">
                 <button mat-menu-item>
                   <img src="../../../../../assets/icons/whats app.png" alt="" />

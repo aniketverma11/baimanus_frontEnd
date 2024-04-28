@@ -137,9 +137,22 @@
           <div class="Share icon">
             <div class="shareLeft d-flex">
               <button class="Menus" mat-button [matMenuTriggerFor]="menu">
+                @if ( isDarkModeInLocalStorage() ) {
+                <img
+                  src="../../../../../assets/icons/share_icon_white.png"
+                  alt=""
+                />
+                } @if (!isDarkModeInLocalStorage()) {
                 <img src="../../../../../assets/icons/share_icon.png" alt="" />
+                }
               </button>
-              Share
+              <span
+                [ngClass]="{
+                  'dark-mode-navigation': isDarkModeInLocalStorage(),
+                  'light-mode-navigation': !isDarkModeInLocalStorage()
+                }"
+                >Share</span
+              >
               <mat-menu #menu="matMenu">
                 <button mat-menu-item>
                   <img src="../../../../../assets/icons/whats app.png" alt="" />
@@ -352,10 +365,7 @@
           </h1>
           <hr />
           <div class="read-more-items">
-            <div
-              class="item"
-              *ngFor="let item of readMoreItemsNew; let i = index"
-            >
+            <div class="item" *ngFor="let item of trendingNews; let i = index">
               <img
                 (click)="
                   getHomeContentBySlugRouter(item?.slug, item?.category?.slug)
@@ -394,9 +404,16 @@
               </select>
             </div>
             <div class="share">
-              <span
-                ><img src="../../../../../assets/icons/share_icon.png" alt=""
-              /></span>
+              <span>
+                @if ( isDarkModeInLocalStorage() ) {
+                <img
+                  src="../../../../../assets/icons/share_icon_white.png"
+                  alt=""
+                />
+                } @if (!isDarkModeInLocalStorage()) {
+                <img src="../../../../../assets/icons/share_icon.png" alt="" />
+                }
+              </span>
               <span>Share</span>
             </div>
           </div>
@@ -436,10 +453,24 @@
         <p>{{ news.short_description }}</p>
 
         <strong>
-          <span class="author-name">{{ news?.author }}</span>
+          <span
+            [ngClass]="{
+              'dark-mode-navigation': isDarkModeInLocalStorage(),
+              'light-mode-navigation': !isDarkModeInLocalStorage()
+            }"
+            class="author-name"
+            >{{ news?.author }}</span
+          >
         </strong>
 
-        <span class="published-date" style="display: block">
+        <span
+          [ngClass]="{
+            'dark-mode-navigation': isDarkModeInLocalStorage(),
+            'light-mode-navigation': !isDarkModeInLocalStorage()
+          }"
+          class="published-date"
+          style="display: block"
+        >
           Published : {{ news?.publish | date }}
         </span>
       </div>
@@ -449,9 +480,23 @@
           <div class="Share icon">
             <div class="shareLeft d-flex">
               <button class="Menus" mat-button [matMenuTriggerFor]="menu">
+                @if ( isDarkModeInLocalStorage() ) {
+                <img
+                  src="../../../../../assets/icons/share_icon_white.png"
+                  alt=""
+                />
+                } @if (!isDarkModeInLocalStorage()) {
                 <img src="../../../../../assets/icons/share_icon.png" alt="" />
+                }
               </button>
-              Share
+              <span
+                [ngClass]="{
+                  'dark-mode-navigation': isDarkModeInLocalStorage(),
+                  'light-mode-navigation': !isDarkModeInLocalStorage()
+                }"
+              >
+                Share</span
+              >
               <mat-menu #menu="matMenu">
                 <button mat-menu-item>
                   <img src="../../../../../assets/icons/whats app.png" alt="" />
@@ -551,7 +596,7 @@
 
       <div
         class="ReadMore-section"
-        *ngIf="readMoreItems && readMoreItems.length > 0"
+        *ngIf="trendingNews && trendingNews.length > 0"
       >
         <div class="read-more">
           <h1
@@ -564,7 +609,7 @@
           </h1>
           <hr />
           <div class="read-more-items">
-            <div class="item" *ngFor="let item of readMoreItems; let i = index">
+            <div class="item" *ngFor="let item of trendingNews; let i = index">
               <img
                 (click)="getHomeContentBySlug(item.slug)"
                 [src]="getFullImagePath(item?.image)"

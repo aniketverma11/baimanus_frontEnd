@@ -261,7 +261,7 @@
   margin-bottom: 10px;
 }
 .Menus {
-  background-color: white;
+  background-color: transparent;
   border: none;
   /* color: #35144f; */
 }
@@ -482,3 +482,10 @@ h1 {
   font-weight: 700;
 }
 /* share icon end  */
+
+.dark-mode-navigation {
+  color: white !important;
+}
+.light-mode-navigation {
+  color: #000 !important;
+}

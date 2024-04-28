@@ -119,6 +119,8 @@ export class NewsDetailsComponent implements AfterViewInit {
           })
         )
         .subscribe((data) => {
+          console.log(data);
+
           this.isLoading = false;
           if (data.data.is_for_members === false) {
             this.content = this.sanitizer.bypassSecurityTrustHtml(
@@ -128,6 +130,8 @@ export class NewsDetailsComponent implements AfterViewInit {
               this.newsDetails = data.data;
               this.images = this.imageBaseURL;
               this.trendingNews = data.data.treanding_news;
+              console.log(this.trendingNews);
+
               this.readMoreItemsDetail = data.data.read_more
                 .slice(0, 4)
                 .map((item: any) => item);
@@ -186,6 +190,8 @@ export class NewsDetailsComponent implements AfterViewInit {
     this.unsubscribe.add(
       this.apiService.getHomeContent(type).subscribe(
         (data) => {
+          console.log(data);
+
           this.homeInfo = data.data;
           this.belowContent = data.data;
           this.homeContent = data?.data[0];
@@ -206,6 +212,33 @@ export class NewsDetailsComponent implements AfterViewInit {
     );
   }
 
+  // trendingNews() {
+  //   this.isLoading = true;
+  //   const type = 'english';
+  //   this.unsubscribe.add(
+  //     this.apiService.getHomeContent(type).subscribe(
+  //       (data) => {
+  //         console.log(data);
+
+  //         this.homeInfo = data.data;
+  //         this.belowContent = data.data;
+  //         this.homeContent = data?.data[0];
+
+  //         this.homeInfo = data.data.slice(0, 3).map((item: any) => item.title);
+  //         this.readMoreItemsNew = data.data
+  //           .slice(0, 4)
+  //           .map((item: any) => item);
+  //         this.readMoreItems = data.data.slice(0, 4).map((item: any) => item);
+  //         this.readMoreImages = data.data
+  //           .slice(0, 4)
+  //           .map((item: any) => item?.image);
+  //       },
+  //       (error) => {
+  //         console.error(error);
+  //       }
+  //     )
+  //   );
+  // }
   truncateHtmlContent(content: string): SafeHtml {
     const words = content.split(' ');
 
