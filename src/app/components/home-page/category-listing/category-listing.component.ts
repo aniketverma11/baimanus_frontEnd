@@ -24,6 +24,7 @@ export class CategoryListingComponent {
   categoryList: any;
   categoryListPosts: any;
   private imageBaseURL = environment.imagesBaseURL;
+  categoryName: any;
   constructor(
     private apiService: ApiServicesService,
     private sanitizer: DomSanitizer,
@@ -51,6 +52,8 @@ export class CategoryListingComponent {
 
       this.slug = params['category'];
       console.log(this.slug);
+      this.categoryName = params['name'];
+      console.log('name===================');
 
       this.categorySlug = params['category'];
 

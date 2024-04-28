@@ -2,8 +2,8 @@
   class="home-entertain-block"
   [ngClass]="{ 'dark-mode': darkMode, 'light-mode': !darkMode }"
 >
-  <h3>
-    {{ this.slug }}
+  <h3 *ngIf="categoryName">
+    {{ categoryName }}
   </h3>
 
   <div class="container">

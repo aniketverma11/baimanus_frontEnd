@@ -288,11 +288,11 @@ export class LandingPageComponent {
       };
     }
   }
-  navigateToRefresh(cat: any) {
+  navigateToRefresh(cat: any, name: string) {
     const data = cat.toLowerCase();
 
     this.router.navigate(['home/category-listing'], {
-      queryParams: { category: data },
+      queryParams: { category: data, name: name },
     });
   }
 
