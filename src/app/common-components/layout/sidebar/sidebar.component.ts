@@ -285,10 +285,11 @@ export class SidebarComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {});
   }
-  navigateToRefresh(cat: any) {
+  navigateToRefresh(cat: string) {
     console.log(cat);
 
     const data = cat.toLowerCase();
+    console.log(data);
 
     this.router.navigate(['home/category-listing'], {
       queryParams: { category: data },

@@ -1,4 +1,4 @@
-<section
+<!-- <section
   class="home-entertain-block"
   [ngClass]="{ 'dark-mode': darkMode, 'light-mode': !darkMode }"
 >
@@ -14,9 +14,7 @@
               'dark-mode-yellow': isDarkModeInLocalStorage(),
               'light-mode-purple': !isDarkModeInLocalStorage()
             }"
-          >
-            <!-- {{ "photos" | translate }} -->
-          </h2>
+          ></h2>
           <div></div>
         </div>
         <div class="entertain-image-block" (click)="navigate(items?.slug)">
@@ -41,19 +39,57 @@
             {{ items?.short_description }}
           </span>
         </div>
-        <!-- <div class="enterheadline-block-right enterblock-shadow">
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<section
+  class="home-entertain-block"
+  [ngClass]="{ 'dark-mode': darkMode, 'light-mode': !darkMode }"
+>
+  <div class="container">
+    <div
+      class="entertain-block detailed-vid-blockk"
+      *ngFor="let videosItems of VideoObject; let i = index"
+    >
+      <div class="entertain-inner-block">
+        <div class="entertain-title">
           <h2
             [ngClass]="{
               'dark-mode-yellow': isDarkModeInLocalStorage(),
               'light-mode-purple': !isDarkModeInLocalStorage()
             }"
           >
-            {{ category.posts[2]?.title }}
+            <!-- {{ "videos" | translate }} -->
+          </h2>
+          <div></div>
+        </div>
+        <div
+          class="entertain-image-block"
+          (click)="navigate(videosItems?.slug)"
+        >
+          <img [src]="getFullImagePath(videosItems?.image)" />
+        </div>
+      </div>
+      <div class="entertain-headlines-outer-block">
+        <div
+          class="enterheadline-block-left enterblock-shadow"
+          (click)="navigate(videosItems?.slug)"
+        >
+          <h2
+            (click)="navigate(videosItems?.slug)"
+            [ngClass]="{
+              'dark-mode-yellow': isDarkModeInLocalStorage(),
+              'light-mode-purple': !isDarkModeInLocalStorage()
+            }"
+          >
+            {{ videosItems?.title }}
           </h2>
           <span class="shortDesc">
-            {{ category.posts[2]?.short_description }}
+            {{ videosItems?.short_description }}
           </span>
-        </div> -->
+        </div>
       </div>
     </div>
   </div>

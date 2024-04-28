@@ -1,4 +1,4 @@
-<section
+<!-- <section
   class="home-entertain-block"
   [ngClass]="{ 'dark-mode': darkMode, 'light-mode': !darkMode }"
 >
@@ -15,7 +15,7 @@
               'light-mode-purple': !isDarkModeInLocalStorage()
             }"
           >
-            <!-- {{ "photos" | translate }} -->
+       
           </h2>
           <div></div>
         </div>
@@ -41,19 +41,55 @@
             {{ items?.short_description }}
           </span>
         </div>
-        <!-- <div class="enterheadline-block-right enterblock-shadow">
+     
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<section
+  class="home-entertain-block"
+  [ngClass]="{ 'dark-mode': darkMode, 'light-mode': !darkMode }"
+>
+  <div class="container">
+    <div
+      class="entertain-block detailed-vid-blockk"
+      *ngFor="let items of homeContent; let i = index"
+    >
+      <div class="entertain-inner-block">
+        <div class="entertain-title">
           <h2
             [ngClass]="{
               'dark-mode-yellow': isDarkModeInLocalStorage(),
               'light-mode-purple': !isDarkModeInLocalStorage()
             }"
           >
-            {{ category.posts[2]?.title }}
+            <!-- {{ "videos" | translate }} -->
           </h2>
-          <span class="shortDesc">
-            {{ category.posts[2]?.short_description }}
-          </span>
-        </div> -->
+          <div></div>
+        </div>
+        <div class="entertain-image-block" (click)="navigate(items?.slug)">
+          <img [src]="getFullImagePath(items?.image)" />
+        </div>
+      </div>
+      <div class="entertain-headlines-outer-block">
+        <div
+          class="enterheadline-block-left enterblock-shadow"
+          (click)="navigate(items?.slug)"
+        >
+          <h2
+            (click)="navigate(items?.slug)"
+            [ngClass]="{
+              'dark-mode-yellow': isDarkModeInLocalStorage(),
+              'light-mode-purple': !isDarkModeInLocalStorage()
+            }"
+          >
+            {{ items?.title }}
+          </h2>
+          <!-- <span class="shortDesc">
+            {{ videosItems?.short_description }}
+          </span> -->
+        </div>
       </div>
     </div>
   </div>

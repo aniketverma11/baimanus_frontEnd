@@ -8,12 +8,18 @@
       <div class="logos d-flex items-c">
         <div class="XRy60">
           <a class="_2eoA3" aria-label="The  homepage" href="/home">
-            <span class="logoImg">
-              <!-- src="https://baimanus.in/wp-content/uploads/2022/01/bai_manus.png" -->
-
+            <span class="logoImg" *ngIf="currentLanguage == 'marathi'">
               <img
                 class="logoImg"
                 src="../../../../assets/images/BaiManus Logo gray.png"
+                alt=""
+                srcset=""
+              />
+            </span>
+            <span class="logoImg" *ngIf="currentLanguage == 'english'">
+              <img
+                class="logoImg"
+                src="../../../../assets/images/lan-switch.png"
                 alt=""
                 srcset=""
               />
@@ -713,7 +719,8 @@ l-61 56 0 637 c0 351 3 641 7 644 3 4 231 7 505 7 l498 0 0 -519z"
               'dark-mode-yellow': isDarkModeInLocalStorage(),
               'light-mode-purple': !isDarkModeInLocalStorage()
             }"
-            (click)="navigateToRefresh(category.name)"
+            (click)="navigateToRefresh(category?.slug)"
+            style="cursor: pointer"
           >
             {{ category.name }}
           </span>
@@ -729,6 +736,7 @@ l-61 56 0 637 c0 351 3 641 7 644 3 4 231 7 505 7 l498 0 0 -519z"
               'light-mode-purple': !isDarkModeInLocalStorage()
             }"
             (click)="navigateToRefresh(category.slug)"
+            style="cursor: pointer"
           >
             {{ category.name }}
           </span>
@@ -749,7 +757,7 @@ l-61 56 0 637 c0 351 3 641 7 644 3 4 231 7 505 7 l498 0 0 -519z"
             <option value="">More</option>
             <option
               *ngFor="let category of categoryList.slice(6)"
-              [value]="category.name"
+              [value]="category.slug"
             >
               {{ category.name }}
             </option>

@@ -1,52 +1,11 @@
-<!-- <section
-  class="home-entertain-block"
-  [ngClass]="{ 'dark-mode': darkMode, 'light-mode': !darkMode }"
->
-  <h2>{{ slug }}</h2>
-  <div class="container">
-    <div
-      class="entertain-block"
-      *ngFor="let category of categoryList; let i = index"
-    >
-      <div class="entertain-inner-block">
-        <div class="entertain-title">
-          <h2
-            [ngClass]="{
-              'dark-mode-yellow': isDarkModeInLocalStorage(),
-              'light-mode-purple': !isDarkModeInLocalStorage()
-            }"
-          ></h2>
-          <div></div>
-        </div>
-        <div
-          (click)="
-            getHomeContentBySlug(category?.slug, category?.category?.slug)
-          "
-          class="entertain-image-block"
-        >
-          <img [src]="getFullImagePath(category?.image)" />
-        </div>
-      </div>
-      <div class="entertain-headlines-outer-block">
-        <div class="enterheadline-block-left enterblock-shadow">
-          <h2
-            [ngClass]="{
-              'dark-mode-yellow': isDarkModeInLocalStorage(),
-              'light-mode-purple': !isDarkModeInLocalStorage()
-            }"
-          >
-            {{ category?.title }}
-          </h2>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
-
 <section
   class="home-entertain-block"
   [ngClass]="{ 'dark-mode': darkMode, 'light-mode': !darkMode }"
 >
+  <h3>
+    {{ this.slug }}
+  </h3>
+
   <div class="container">
     <div
       class="entertain-block detailed-vid-blockk"
@@ -91,9 +50,9 @@
           >
             {{ category?.title }}
           </h2>
-          <span class="shortDesc">
+          <!-- <span class="shortDesc">
             {{ category?.short_description }}
-          </span>
+          </span> -->
         </div>
       </div>
     </div>

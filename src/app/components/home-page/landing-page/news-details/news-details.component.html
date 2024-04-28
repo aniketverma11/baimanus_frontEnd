@@ -10,15 +10,21 @@
   }"
 >
   <div class="left-section">
-    <!-- <span *ngFor="let news of belowContent"> -->
-    <!-- <div class="routerNavigations">
-      <a href="/home">Home</a>> <a href="/home">{{ categorySlug }}</a
-      >> <a href="/home"> {{ slug }}</a>
-    </div> -->
     <div class="DYWI3">
-      <div class="phCpR">
+      <div
+        class="phCpR"
+        [ngClass]="{
+          'dark-mode-navigation': isDarkModeInLocalStorage(),
+          'light-mode-navigation': !isDarkModeInLocalStorage()
+        }"
+      >
         <a href="/home"
-          ><span>Home&nbsp;</span
+          ><span
+            [ngClass]="{
+              'dark-mode-navigation': isDarkModeInLocalStorage(),
+              'light-mode-navigation': !isDarkModeInLocalStorage()
+            }"
+            >Home&nbsp;</span
           ><svg
             version="1.0"
             xmlns="http://www.w3.org/2000/svg"
@@ -40,7 +46,13 @@
               ></path>
             </g></svg></a
         ><a (click)="navigateToCategory(categorySlug)"
-          ><span>{{ categorySlug }}&nbsp;</span
+          ><span
+            [ngClass]="{
+              'dark-mode-navigation': isDarkModeInLocalStorage(),
+              'light-mode-navigation': !isDarkModeInLocalStorage()
+            }"
+          >
+            {{ categorySlug }}&nbsp;</span
           ><svg
             version="1.0"
             xmlns="http://www.w3.org/2000/svg"
@@ -94,10 +106,25 @@
         </span> -->
 
         <strong>
-          <div class="author-name">{{ newsDetails?.author }}</div>
+          <div
+            class="author-name"
+            [ngClass]="{
+              'dark-mode-navigation': isDarkModeInLocalStorage(),
+              'light-mode-navigation': !isDarkModeInLocalStorage()
+            }"
+          >
+            {{ newsDetails?.author }}
+          </div>
         </strong>
 
-        <span class="published-date" style="display: block">
+        <span
+          class="published-date"
+          style="display: block"
+          [ngClass]="{
+            'dark-mode-navigation': isDarkModeInLocalStorage(),
+            'light-mode-navigation': !isDarkModeInLocalStorage()
+          }"
+        >
           Published : {{ newsDetails?.publish | date }}
         </span>
       </div>
@@ -154,16 +181,21 @@
             <div class="share_rightt">
               <div class="TextSizing">
                 <button mat-button [matMenuTriggerFor]="menuText">
-                  <span class="caps"
-                  [ngClass]="{
-                    'dark-mode-white': isDarkModeInLocalStorage()
-                  }"
-                  >{{ "A" | translate }}</span>
-                  <span class="smallL"
-                  [ngClass]="{
-                    'dark-mode-white': isDarkModeInLocalStorage()
-                  }">
-                  {{ "a" | translate }}</span>
+                  <span
+                    class="caps"
+                    [ngClass]="{
+                      'dark-mode-white': isDarkModeInLocalStorage()
+                    }"
+                    >{{ "A" | translate }}</span
+                  >
+                  <span
+                    class="smallL"
+                    [ngClass]="{
+                      'dark-mode-white': isDarkModeInLocalStorage()
+                    }"
+                  >
+                    {{ "a" | translate }}</span
+                  >
                 </button>
                 <mat-menu #menuText="matMenu">
                   <button mat-menu-item (click)="setTextSize('small')">

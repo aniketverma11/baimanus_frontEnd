@@ -486,25 +486,25 @@ h1 {
   -webkit-box-orient: vertical !important;
   overflow: hidden !important;
   -webkit-line-clamp: 1;
-  -webkit-text-fill-color: #245e8a;
+  /* -webkit-text-fill-color: #245e8a; */
   width: 100%;
 }
 ._2kvsH,
 ._22QAR,
 .iqw8S,
 .phCpR {
-  padding: 0 var(--space2);
-  margin-bottom: var(--space1);
+  padding: 0 2rem;
+  margin-bottom: 1rem;
   min-height: 22px;
 }
 ._32Ygc {
   font-size: 12px;
-  color: #000;
-  -webkit-text-fill-color: #000;
-  cursor: text;
+  /* color: #000;
+  -webkit-text-fill-color: #000; */
+  cursor: pointer;
 }
 .phCpR a span {
-  color: #245e8a;
+  /* color: #245e8a; */
   font-size: 12px;
   font-weight: 400;
   letter-spacing: 0.7px;
@@ -512,4 +512,16 @@ h1 {
 }
 .DYWI3 {
   min-height: 40px;
+}
+.dark-mode-navigation a {
+  color: white !important;
+}
+.light-mode-navigation a {
+  color: #000 !important;
+}
+.dark-mode-navigation {
+  color: white !important;
+}
+.light-mode-navigation {
+  color: #000 !important;
 }
