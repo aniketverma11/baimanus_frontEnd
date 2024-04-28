@@ -52,6 +52,17 @@
   [ngClass]="{ 'dark-mode': darkMode, 'light-mode': !darkMode }"
 >
   <div class="container">
+    <h3
+      class="category-detailed-pagee"
+      [ngClass]="{
+        'dark-mode-yellow': isDarkModeInLocalStorage(),
+        'light-mode-purple': !isDarkModeInLocalStorage()
+      }"
+    >
+      Content
+    </h3>
+  </div>
+  <div class="container">
     <div
       class="entertain-block detailed-vid-blockk"
       *ngFor="let items of homeContent; let i = index"

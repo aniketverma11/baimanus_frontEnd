@@ -268,7 +268,7 @@ export class SidebarComponent implements OnInit {
   onmenuCHange(event: any) {
     const value = event.target.value;
     console.log(value);
-    this.navigateToRefresh(value);
+    this.navigateToRefresh2(value);
   }
 
   isDarkModeInLocalStorage(): boolean {
@@ -286,14 +286,24 @@ export class SidebarComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {});
   }
-  navigateToRefresh(cat: string) {
+  navigateToRefresh(cat: string, name: string) {
     console.log(cat);
 
     const data = cat.toLowerCase();
     console.log(data);
 
     this.router.navigate(['home/category-listing'], {
-      queryParams: { category: data },
+      queryParams: { category: data, name: name },
+    });
+  }
+  navigateToRefresh2(cat: string) {
+    console.log(cat);
+
+    const data = cat.toLowerCase();
+    console.log(data);
+
+    this.router.navigate(['home/category-listing'], {
+      queryParams: { category: data, name: name },
     });
   }
 
