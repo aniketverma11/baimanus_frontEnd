@@ -325,7 +325,8 @@ h2,
   cursor: pointer !important;
 }
 .detailed-vid-blockk .entertain-headlines-outer-block {
-  display: flex !important;
+  display: grid !important;
+  grid-template-columns: 1fr !important;
 }
 .dark-mode-arroww {
   fill: #fa9000;
@@ -458,4 +459,11 @@ h3.category-detailed-pagee {
   /* font-size: 18px; */
   font-weight: bold;
   margin-bottom: 10px;
+}
+._2kvsH,
+._22QAR,
+.iqw8S,
+.phCpR{
+  padding-left: 0;
+  padding-right: 0;
 }
