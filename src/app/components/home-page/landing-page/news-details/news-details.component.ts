@@ -53,6 +53,7 @@ export class NewsDetailsComponent implements AfterViewInit {
   darkMode: boolean;
   category: any;
   categorySlug: any;
+  categoryName: any;
   constructor(
     private route: ActivatedRoute,
 
@@ -83,6 +84,7 @@ export class NewsDetailsComponent implements AfterViewInit {
       console.log(this.slug);
 
       this.categorySlug = params['category'];
+      this.categoryName = params['categoryName'];
       console.log(this.category);
 
       if (this.slug) {

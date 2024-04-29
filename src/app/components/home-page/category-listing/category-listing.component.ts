@@ -77,11 +77,15 @@ export class CategoryListingComponent {
     }
   }
 
-  getHomeContentBySlug(slug: any, category: any) {
+  getHomeContentBySlug(slug: any, category: any, categoryName: string) {
     console.log(category);
 
     this.router.navigate(['home/news-details'], {
-      queryParams: { slug: slug, category: category },
+      queryParams: {
+        slug: slug,
+        category: category,
+        categoryName: categoryName,
+      },
     });
   }
   getAllCategories(category: any) {

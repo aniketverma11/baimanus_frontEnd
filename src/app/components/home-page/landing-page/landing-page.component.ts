@@ -130,11 +130,15 @@ export class LandingPageComponent {
     );
   }
 
-  getHomeContentBySlug(slug: any, category: any) {
-    console.log(category);
+  getHomeContentBySlug(slug: any, category: any, categoryName: string) {
+    console.log(categoryName);
 
     this.router.navigate(['home/news-details'], {
-      queryParams: { slug: slug, category: category },
+      queryParams: {
+        slug: slug,
+        category: category,
+        categoryName: categoryName,
+      },
     });
   }
 

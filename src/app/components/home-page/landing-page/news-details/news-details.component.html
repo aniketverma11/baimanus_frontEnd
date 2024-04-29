@@ -52,7 +52,7 @@
               'light-mode-navigation': !isDarkModeInLocalStorage()
             }"
           >
-            {{ categorySlug }}&nbsp;</span
+            {{ categoryName }}&nbsp;</span
           ><svg
             version="1.0"
             xmlns="http://www.w3.org/2000/svg"
@@ -365,7 +365,10 @@
           </h1>
           <hr />
           <div class="read-more-items">
-            <div class="item" *ngFor="let item of trendingNews; let i = index">
+            <div
+              class="item more-news"
+              *ngFor="let item of trendingNews; let i = index"
+            >
               <img
                 (click)="
                   getHomeContentBySlugRouter(item?.slug, item?.category?.slug)
@@ -373,13 +376,25 @@
                 [src]="getFullImagePath(readMoreImages[i])"
                 alt="Image {{ i + 1 }}"
               />
-              <p
+              <!-- <p
                 (click)="
                   getHomeContentBySlugRouter(item?.slug, item?.category?.slug)
                 "
               >
                 {{ item.title }}
-              </p>
+              </p> -->
+
+              <h2
+                [ngClass]="{
+                  'dark-mode-yellow': isDarkModeInLocalStorage(),
+                  'light-mode-purple': !isDarkModeInLocalStorage()
+                }"
+                (click)="
+                  getHomeContentBySlugRouter(item?.slug, item?.category?.slug)
+                "
+              >
+                {{ item.title }}
+              </h2>
             </div>
           </div>
 
@@ -609,12 +624,24 @@
           </h1>
           <hr />
           <div class="read-more-items">
-            <div class="item" *ngFor="let item of trendingNews; let i = index">
+            <div
+              class="item more-news"
+              *ngFor="let item of trendingNews; let i = index"
+            >
               <img
                 (click)="getHomeContentBySlug(item.slug)"
                 [src]="getFullImagePath(item?.image)"
               />
-              <p (click)="getHomeContentBySlug(item.slug)">{{ item?.title }}</p>
+              <!-- <p (click)="getHomeContentBySlug(item.slug)">{{ item?.title }}</p> -->
+              <h2
+                [ngClass]="{
+                  'dark-mode-yellow': isDarkModeInLocalStorage(),
+                  'light-mode-purple': !isDarkModeInLocalStorage()
+                }"
+                (click)="getHomeContentBySlug(item?.slug)"
+              >
+                {{ item.title }}
+              </h2>
             </div>
           </div>
           <div class="shar-section">

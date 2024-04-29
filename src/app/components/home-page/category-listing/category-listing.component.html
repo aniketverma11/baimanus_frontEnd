@@ -3,11 +3,13 @@
   [ngClass]="{ 'dark-mode': darkMode, 'light-mode': !darkMode }"
 >
   <div class="container">
-    <h3 class="category-detailed-pagee" *ngIf="categoryName"
-    [ngClass]="{
-      'dark-mode-yellow': isDarkModeInLocalStorage(),
-      'light-mode-purple': !isDarkModeInLocalStorage()
-    }"
+    <h3
+      class="category-detailed-pagee"
+      *ngIf="categoryName"
+      [ngClass]="{
+        'dark-mode-yellow': isDarkModeInLocalStorage(),
+        'light-mode-purple': !isDarkModeInLocalStorage()
+      }"
     >
       {{ categoryName }}
     </h3>
@@ -33,7 +35,11 @@
         <div
           class="entertain-image-block"
           (click)="
-            getHomeContentBySlug(category?.slug, category?.category?.slug)
+            getHomeContentBySlug(
+              category?.slug,
+              category?.category?.slug,
+              category?.category?.name
+            )
           "
         >
           <img [src]="getFullImagePath(category?.image)" />
@@ -43,12 +49,20 @@
         <div
           class="enterheadline-block-left enterblock-shadow"
           (click)="
-            getHomeContentBySlug(category?.slug, category?.category?.slug)
+            getHomeContentBySlug(
+              category?.slug,
+              category?.category?.slug,
+              category?.category?.name
+            )
           "
         >
           <h2
             (click)="
-              getHomeContentBySlug(category?.slug, category?.category?.slug)
+              getHomeContentBySlug(
+                category?.slug,
+                category?.category?.slug,
+                category?.category?.name
+              )
             "
             [ngClass]="{
               'dark-mode-yellow': isDarkModeInLocalStorage(),

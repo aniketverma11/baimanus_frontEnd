@@ -80,6 +80,8 @@ export class VideosComponent {
     this.unsubscribe.add(
       this.apiService.getVideosDetails(slug, this.type).subscribe(
         (data) => {
+          console.log(data);
+
           this.isLoading = false;
           this.homePhotos = data.data;
           const videoUrl = data.data.video;
@@ -89,11 +91,6 @@ export class VideosComponent {
               `https://www.youtube.com/embed/${videoId}`
             );
           }
-          // this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
-          //   this.extractVideoUrl(data.data.video)
-          // );
-          // this.videoUrl = this.extractVideoUrl(data.data.video);
-          // );
 
           this.readMoreItems = data.data.read_more;
           this.trendingNews = data.data.treanding_news;
@@ -118,12 +115,10 @@ export class VideosComponent {
             const src = match ? match[1] : null;
             this.imagetitle = this.imageBaseURL + src;
           }
-
-          // this.headingTitle = this.homePhotos
-          //   .slice(0, 3)
-          //   .map((item: any) => item.title);
         },
         (error) => {
+          this.toastr.error('post not found');
+
           console.error(error);
         }
       )
@@ -231,6 +226,11 @@ export class VideosComponent {
     } else {
       return false;
     }
+  }
+  navigateVideos(slug: any) {
+    this.router.navigate(['home/videos'], {
+      queryParams: { slug: slug },
+    });
   }
   ngOnDestroy(): void {
     this.unsubscribe.unsubscribe();

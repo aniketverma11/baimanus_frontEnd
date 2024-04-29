@@ -394,7 +394,7 @@ h2 {
   border-top: 4px solid #35144f;
   border-radius: 5px;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15);
-  min-height: 129px;
+  min-height: 100px;
   padding: 10px 15px 15px;
   margin-top: 40px;
 }
@@ -541,10 +541,11 @@ h2 {
   vertical-align: middle;
   height: 1px;
 }
-@media screen and (max-width: 480px){
-  ._3rg6w:after,._3rg6w:before{
+@media screen and (max-width: 480px) {
+  ._3rg6w:after,
+  ._3rg6w:before {
     margin: 0 10px;
-  } 
+  }
 }
 /* become a member  */
 @media (min-width: 768px) {

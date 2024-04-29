@@ -5,7 +5,11 @@
     <!-- Insert the advertiment on top section ends here-->
     <a
       (click)="
-        getHomeContentBySlug(homeContent?.slug, homeContent?.category?.slug)
+        getHomeContentBySlug(
+          homeContent?.slug,
+          homeContent?.category?.slug,
+          homeContent?.category?.name
+        )
       "
     >
       <div class="category-image">
@@ -41,7 +45,13 @@
         <div class="news-left">
           <div class="box" *ngFor="let items of homeInfo; index as i">
             <span
-              (click)="getHomeContentBySlug(items?.slug, items?.category?.slug)"
+              (click)="
+                getHomeContentBySlug(
+                  items?.slug,
+                  items?.category?.slug,
+                  items?.category?.name
+                )
+              "
             >
               <h2
                 [ngClass]="{
@@ -67,7 +77,8 @@
               (click)="
                 getHomeContentBySlug(
                   belowContent[3]?.slug,
-                  belowContent?.category?.slug
+                  belowContent[3]?.category?.slug,
+                  belowContent[3]?.category?.name
                 )
               "
             >
@@ -131,7 +142,13 @@
       <span *ngFor="let item of readMoreItems; let i = index">
         <div
           class="news-item"
-          (click)="getHomeContentBySlug(item?.slug, item?.category?.slug)"
+          (click)="
+            getHomeContentBySlug(
+              item?.slug,
+              item?.category?.slug,
+              item?.category?.name
+            )
+          "
         >
           <img
             [src]="getFullImagePath(readMoreImages[i])"
@@ -460,7 +477,8 @@
           (click)="
             getHomeContentBySlug(
               category.posts[0]?.slug,
-              category?.posts[0].category?.slug
+              category?.posts[0].category?.slug,
+              category?.posts[0].category?.name
             )
           "
           *ngIf="category.posts && category.posts.length > 0"
@@ -478,7 +496,8 @@
           (click)="
             getHomeContentBySlug(
               category.posts[1]?.slug,
-              category?.posts[1].category?.slug
+              category?.posts[1].category?.slug,
+              category?.posts[1].category?.name
             )
           "
         >
@@ -499,7 +518,8 @@
           (click)="
             getHomeContentBySlug(
               category.posts[2]?.slug,
-              category?.posts[2].category?.slug
+              category?.posts[2].category?.slug,
+              category?.posts[2].category?.name
             )
           "
         >

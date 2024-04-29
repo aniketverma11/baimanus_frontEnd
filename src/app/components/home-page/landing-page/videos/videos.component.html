@@ -6,6 +6,76 @@
     'large-text': textSize === 'large'
   }"
 >
+  <div class="vidd-left-blockk">
+    <!-- navihation -->
+    <div class="DYWI3">
+      <div
+        class="phCpR"
+        [ngClass]="{
+          'dark-mode-navigation': isDarkModeInLocalStorage(),
+          'light-mode-navigation': !isDarkModeInLocalStorage()
+        }"
+      >
+        <a href="/home"
+          ><span
+            [ngClass]="{
+              'dark-mode-navigation': isDarkModeInLocalStorage(),
+              'light-mode-navigation': !isDarkModeInLocalStorage()
+            }"
+            >Home&nbsp;</span
+          ><svg
+            version="1.0"
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 780 400"
+            preserveAspectRatio="xMidYMid meet"
+          >
+            <metadata>
+              Created by potrace 1.16, written by Peter Selinger 2001-2019
+            </metadata>
+            <g
+              transform="translate(0.000000,768.000000) scale(0.100000,-0.100000)"
+              fill="#000000"
+              stroke="none"
+            >
+              <path
+                d="M2075 5964 c-37 -19 -261 -239 -281 -276 -18 -35 -18 -101 0 -136 8 -15 395 -407 860 -872 l846 -845 -860 -860 -860 -860 0 -55 c0 -69 5 -77 144 -218 142 -145 187 -170 263 -142 16 6 474 457 1051 1033 1092 1092 1053 1049 1038 1134 -7 34 -109 140 -1029 1062 -598 598 -1035 1029 -1054 1037 -42 18 -81 18 -118 -2z"
+              ></path>
+            </g></svg></a
+        ><a href="/home/all-cat-videos"
+          ><span
+            [ngClass]="{
+              'dark-mode-navigation': isDarkModeInLocalStorage(),
+              'light-mode-navigation': !isDarkModeInLocalStorage()
+            }"
+          >
+            {{ "Videos" | translate }}&nbsp;</span
+          ><svg
+            version="1.0"
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 780 400"
+            preserveAspectRatio="xMidYMid meet"
+          >
+            <metadata>
+              Created by potrace 1.16, written by Peter Selinger 2001-2019
+            </metadata>
+            <g
+              transform="translate(0.000000,768.000000) scale(0.100000,-0.100000)"
+              fill="#000000"
+              stroke="none"
+            >
+              <path
+                d="M2075 5964 c-37 -19 -261 -239 -281 -276 -18 -35 -18 -101 0 -136 8 -15 395 -407 860 -872 l846 -845 -860 -860 -860 -860 0 -55 c0 -69 5 -77 144 -218 142 -145 187 -170 263 -142 16 6 474 457 1051 1033 1092 1092 1053 1049 1038 1134 -7 34 -109 140 -1029 1062 -598 598 -1035 1029 -1054 1037 -42 18 -81 18 -118 -2z"
+              ></path>
+            </g></svg></a
+        ><span class="_12j4- _32Ygc"> {{ homePhotos?.title }}</span>
+      </div>
+    </div>
+    <!-- navigation -->
+  </div>
   <div class="detailed-vids-containerr">
     <div class="vidd-left-blockk">
       <iframe [src]="videoUrl" frameborder="0" allowfullscreen></iframe>
@@ -197,9 +267,21 @@
         </h1>
         <hr />
         <div class="read-more-items">
-          <div class="item" *ngFor="let item of readMoreItems; let i = index">
+          <div
+            class="item more-news"
+            *ngFor="let item of readMoreItems; let i = index"
+            (click)="navigateVideos(item?.slug)"
+          >
             <img [src]="getFullImagePath(item.image)" />
-            <p>{{ item.title }}</p>
+            <!-- <p>{{ item.title }}</p> -->
+            <h2
+              [ngClass]="{
+                'dark-mode-yellow': isDarkModeInLocalStorage(),
+                'light-mode-purple': !isDarkModeInLocalStorage()
+              }"
+            >
+              {{ item.title }}
+            </h2>
           </div>
         </div>
         <div class="shar-section">
@@ -370,12 +452,24 @@
           </h1>
           <hr />
           <div class="read-more-items">
-            <div class="item" *ngFor="let item of readMoreItems; let i = index">
+            <div
+              class="item more-news"
+              *ngFor="let item of trendingNews; let i = index"
+              (click)="navigateVideos(item?.slug)"
+            >
               <img
                 [src]="getFullImagePath(item?.image)"
                 alt="Image {{ i + 1 }}"
               />
-              <p>{{ item.title }}</p>
+              <!-- <p>{{ item.title }}</p> -->
+              <h2
+                [ngClass]="{
+                  'dark-mode-yellow': isDarkModeInLocalStorage(),
+                  'light-mode-purple': !isDarkModeInLocalStorage()
+                }"
+              >
+                {{ item.title }}
+              </h2>
             </div>
           </div>
           <div class="shar-section">
@@ -402,7 +496,15 @@
       >
         <span (click)="getHomeContentBySlugAndNavigate(item.slug)">
           <img [src]="getFullImagePath(item.image)" />
-          <p>{{ item.title }}</p>
+          <!-- <p>{{ item.title }}</p> -->
+          <h2
+            [ngClass]="{
+              'dark-mode-yellow': isDarkModeInLocalStorage(),
+              'light-mode-purple': !isDarkModeInLocalStorage()
+            }"
+          >
+            {{ item.title }}
+          </h2>
         </span>
       </div>
       <hr />
