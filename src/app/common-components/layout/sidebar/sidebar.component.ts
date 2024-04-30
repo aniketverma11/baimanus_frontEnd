@@ -10,7 +10,7 @@ import { MatDrawer } from '@angular/material/sidenav';
 import { MatDialog } from '@angular/material/dialog';
 import { SignupdialogComponent } from '../signupdialog/signupdialog.component';
 import { CategoryService } from '../../../../services/category.service';
-import { Subscription, filter } from 'rxjs';
+import { Subject, Subscription, debounceTime, filter } from 'rxjs';
 import { AuthService } from '../../../../services/auth.service';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { LanguageService } from '../../../../services/language.service';
@@ -18,6 +18,7 @@ import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { LanguageChangeServiceService } from '../../../../services/language-change-service.service';
 import { ProfileDialogComponent } from '../../../components/home-page/profile-dialog/profile-dialog.component';
 import { ToastrService } from 'ngx-toastr';
+import { ApiServicesService } from '../../../../services/api-services.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -45,6 +46,8 @@ export class SidebarComponent implements OnInit {
   onResize(event: any) {
     this.checkScreenWidth();
   }
+  searchSubject = new Subject<string>();
+  searchValue: any;
 
   constructor(
     private themeService: ThemeService,
@@ -57,7 +60,8 @@ export class SidebarComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private LanguageChangeService: LanguageChangeServiceService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private apiService: ApiServicesService
   ) {
     this.darkMode = this.themeService.isDarkMode();
   }
@@ -67,6 +71,16 @@ export class SidebarComponent implements OnInit {
       this.currentLanguage = localStorage.getItem('language');
       console.log(this.currentLanguage);
     }
+    //
+    // this.searchSubject
+    //   .pipe(
+    //     debounceTime(300) // Adjust debounce time as needed
+    //   )
+    //   .subscribe((value: string) => {
+    //     this.search(value);
+    //   });
+
+    //
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe(() => {
@@ -306,7 +320,27 @@ export class SidebarComponent implements OnInit {
       queryParams: { category: data, name: name },
     });
   }
-
+  onKeyPress(event: any) {
+    // Emit the input value to the searchSubject
+    this.searchSubject.next(event.target.value);
+  }
+  search(value: string) {
+    console.log(value);
+    this.isLoading = true;
+    this.unsubscribe.add(
+      this.apiService.serach(value, this.type).subscribe(
+        (data) => {
+          this.isLoading = false;
+          this.searchValue = data.data;
+          console.log(data);
+        },
+        (error) => {
+          this.isLoading = false;
+          console.error(error);
+        }
+      )
+    );
+  }
   ngOnDestroy(): void {
     this.unsubscribe.unsubscribe();
   }

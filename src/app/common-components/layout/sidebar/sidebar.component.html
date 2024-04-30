@@ -591,23 +591,46 @@ l-61 56 0 637 c0 351 3 641 7 644 3 4 231 7 505 7 l498 0 0 -519z"
         </header>
         <div class="frames-container-frame">
           <div class="link-frame">
-            <div class="wrapper-link-the-quint-hindi">
-              <img
-                class="link-the-quint-hindi-homepag"
-                loading="lazy"
-                alt=""
-                src="https://baimanus.in/wp-content/uploads/2022/01/bai_manus.png"
-              />
+            <div
+              class="wrapper-link-the-quint-hindi"
+              (click)="switchLanguage()"
+            >
+              <span
+                class="logoImg logoImgNew"
+                *ngIf="currentLanguage == 'marathi'"
+              >
+                <img
+                  class="logoImg logoImgNew"
+                  src="../../../../assets/images/BaiManus Logo gray.png"
+                  alt=""
+                  srcset=""
+                />
+              </span>
+              <span
+                class="logoImg logoImgNew"
+                *ngIf="currentLanguage == 'english'"
+              >
+                <img
+                  class="logoImg logoImgNew"
+                  src="../../../../assets/images/lan-switch.png"
+                  alt=""
+                  srcset=""
+                />
+              </span>
             </div>
           </div>
-          <div class="wrapper-link-fit-homepage" (click)="switchLanguage()">
-            <img
-              class="link-fit-homepage"
-              loading="lazy"
-              alt=""
-              src="../../../../assets/images/newBaimanusEnglish.png"
-            />
+          <div
+            class="wrapper-link-fit-homepage _1what dhatriSideBar"
+            *ngIf="dharitri == false"
+          >
+            <a href="/home/dharitriyes" target="_blank">
+              <img
+                src="../../../../assets/images/Dharitri Logo PNG.png"
+                alt=""
+              />
+            </a>
           </div>
+          <!-- <div class="_1what dharitri"></div> -->
         </div>
       </section>
       <div class="search-wrapper Mwrs6">
@@ -617,12 +640,19 @@ l-61 56 0 637 c0 351 3 641 7 644 3 4 231 7 505 7 l498 0 0 -519z"
               <input
                 type="search"
                 name="q"
+                (keypress)="onKeyPress($event)"
+                #searchInput
                 placeholder="Search"
                 value=""
                 class="search__form-input"
                 id="searchForm"
             /></label>
-            <button type="submit" class="yHPRR" aria-label="Search">
+            <button
+              type="submit"
+              (click)="search(searchInput.value)"
+              class="yHPRR"
+              aria-label="Search"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="26"
@@ -637,6 +667,11 @@ l-61 56 0 637 c0 351 3 641 7 644 3 4 231 7 505 7 l498 0 0 -519z"
                 ></path>
               </svg>
             </button>
+            <div *ngIf="searchValue">
+              <span (click)="getHomeContentBySlug(searchValue?.slug)">{{
+                searchValue?.title
+              }}</span>
+            </div>
           </div>
         </form>
       </div>
