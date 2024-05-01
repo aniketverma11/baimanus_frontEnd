@@ -41,7 +41,14 @@ export class MostViewedComponent {
 
     this.getMostViewdData();
   }
-
+  isDarkModeInLocalStorage(): boolean {
+    if (typeof localStorage !== 'undefined') {
+      const isDark = localStorage.getItem('darkMode');
+      return isDark === 'true';
+    } else {
+      return false;
+    }
+  }
   getMostViewdData() {
     this.isLoading = true;
     console.log(this.content_type);

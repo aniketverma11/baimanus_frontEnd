@@ -71,7 +71,7 @@
   font-weight: 700;
   font-style: normal;
   --source-text-decoration-thickness: 2px;
-  color: #121212;
+
   overflow-wrap: break-word;
 }
 .dcr-dk1ula {
@@ -83,7 +83,6 @@
   font-style: normal;
   --source-text-decoration-thickness: 2px;
   line-height: 125%;
-  color: #707070;
   overflow-wrap: break-word;
 }
 .dcr-15dwazu {
@@ -177,7 +176,6 @@ ul {
   font-weight: 700;
   font-style: normal;
   --source-text-decoration-thickness: 2px;
-  color: #121212;
   overflow-wrap: break-word;
 }
 
@@ -190,7 +188,6 @@ ul {
   font-style: normal;
   --source-text-decoration-thickness: 2px;
   line-height: 125%;
-  color: #707070;
   overflow-wrap: break-word;
 }
 
@@ -478,7 +475,6 @@ section {
   font-weight: 700;
   font-style: normal;
   --source-text-decoration-thickness: 2px;
-  color: #121212;
   overflow-wrap: break-word;
 }
 .dcr-n509ks svg {

@@ -59,6 +59,8 @@ export class HomePageVideosComponent {
     this.unsubscribe.add(
       this.apiService.getViideos(this.type).subscribe(
         (res) => {
+          console.log(res);
+
           this.isLoading = false;
           this.VideoObject = res.data;
           console.log(this.VideoObject);
