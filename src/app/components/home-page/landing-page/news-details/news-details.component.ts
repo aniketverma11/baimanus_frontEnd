@@ -20,6 +20,7 @@ import { ThemeService } from '../../../../common-components/layout/theme.service
   styleUrl: './news-details.component.css',
 })
 export class NewsDetailsComponent implements AfterViewInit {
+  conent_type = 'posts';
   @ViewChild('commentsSection') commentsSection!: ElementRef;
   private imageBaseURL = environment.imagesBaseURL;
   private websiteUrl = environment.webiste_url;

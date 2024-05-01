@@ -15,6 +15,7 @@ import { environment } from '../../../../enviroments/environment';
   styleUrl: './category-listing.component.css',
 })
 export class CategoryListingComponent {
+  conent_type = 'posts';
   darkMode: boolean;
   type: any;
   slug: any;

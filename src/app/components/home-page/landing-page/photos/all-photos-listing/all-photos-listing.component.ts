@@ -14,6 +14,7 @@ import { environment } from '../../../../../../enviroments/environment';
   styleUrl: './all-photos-listing.component.css',
 })
 export class AllPhotosListingComponent {
+  conent_type = 'photos';
   private imageBaseURL = environment.imagesBaseURL;
   private unsubscribe: Subscription = new Subscription();
   darkMode: boolean;

@@ -16,6 +16,7 @@ import { LanguageChangeServiceService } from '../../../../services/language-chan
   providers: [ThemeService],
 })
 export class LandingPageComponent {
+  conent_type = 'posts';
   private imageBaseURL = environment.imagesBaseURL;
   private unsubscribe: Subscription = new Subscription();
   isLoading: boolean = true;

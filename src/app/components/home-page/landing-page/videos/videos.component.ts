@@ -18,6 +18,7 @@ import { ThemeService } from '../../../../common-components/layout/theme.service
   styleUrl: './videos.component.css',
 })
 export class VideosComponent {
+  conent_type = 'videos';
   @ViewChild('commentsSection') commentsSection!: ElementRef;
   private websiteUrl = environment.webiste_url;
   slug: any;

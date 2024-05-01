@@ -13,7 +13,7 @@
       {{ "Photos" | translate }}
     </h3>
   </div>
-  <div class="container">
+  <div class="container" *ngIf="homePhotos.length > 0">
     <div
       class="entertain-block detailed-vid-blockk"
       *ngFor="let items of homePhotos; let i = index"
@@ -54,3 +54,8 @@
     </div>
   </div>
 </section>
+<div class="conatinerMost">
+  <div class="section-most-viewed">
+    <app-most-viewed [content_type]="conent_type"></app-most-viewed>
+  </div>
+</div>

@@ -38,6 +38,7 @@ import { ProfileDashboardComponent } from './profile-dashboard/profile-dashboard
 import { AllPhotosListingComponent } from './landing-page/photos/all-photos-listing/all-photos-listing.component';
 import { AllDhartriVideosComponent } from './project-dharitri/dharitri-videos/all-dhartri-videos/all-dhartri-videos.component';
 import { AllContentComponent } from './project-dharitri/all-content/all-content.component';
+import { MostViewedComponent } from './most-viewed/most-viewed.component';
 const routes: Routes = [
   {
     path: '',
@@ -116,6 +117,10 @@ const routes: Routes = [
     path: 'all-dhatri-content',
     component: AllContentComponent,
   },
+  {
+    path: 'most-viewd',
+    component: MostViewedComponent,
+  },
 ];
 
 @NgModule({
@@ -146,6 +151,7 @@ const routes: Routes = [
     AllPhotosListingComponent,
     AllDhartriVideosComponent,
     AllContentComponent,
+    MostViewedComponent,
   ],
   imports: [
     CommonModule,

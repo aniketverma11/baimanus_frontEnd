@@ -7,6 +7,7 @@ import {
   HOME_CONTENT,
   HOME_CONTENT_BY_CATE,
   HOME_CONTENT_BY_SLUG,
+  MOST_VIEW,
   PHOTOS,
   PHOTOS_DETAILS,
   SEARCH,
@@ -22,6 +23,10 @@ export class ApiServicesService {
 
   getHomeContent(type: string): Observable<any> {
     const url = `${environment.apiBaseUrl}${HOME_CONTENT}?type=${type}`;
+    return this.httpClient.get(url);
+  }
+  getMostViewd(type: string, content_type: any): Observable<any> {
+    const url = `${environment.apiBaseUrl}${MOST_VIEW}?type=${type}&q=${content_type}`;
     return this.httpClient.get(url);
   }
   // /category-articles

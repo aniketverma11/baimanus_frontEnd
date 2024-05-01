@@ -25,6 +25,7 @@ import { PhotosDetailsComponent } from './photos-details/photos-details.componen
 })
 export class PhotosComponent {
   // SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
+  conent_type = 'photos';
 
   oneImageOptions: OwlOptions = {
     loop: false,
@@ -167,7 +168,6 @@ export class PhotosComponent {
           );
 
           this.readMoreItems = data.data.read_more.map((item: any) => item);
-          console.log(this.readMoreItems);
 
           this.readMoreImages = data.data.read_more.flatMap((item: any) =>
             item.images.map((imageItem: any) => imageItem.image)

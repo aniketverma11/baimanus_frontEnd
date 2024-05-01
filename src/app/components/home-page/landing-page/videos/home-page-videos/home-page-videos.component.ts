@@ -12,6 +12,7 @@ import { ThemeService } from '../../../../../common-components/layout/theme.serv
   styleUrl: './home-page-videos.component.css',
 })
 export class HomePageVideosComponent {
+  conent_type = 'videos';
   private imageBaseURL = environment.imagesBaseURL;
   private unsubscribe: Subscription = new Subscription();
   isLoading: boolean = true;

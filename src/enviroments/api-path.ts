@@ -12,3 +12,4 @@ export const PHOTOS_DETAILS = 'photos/';
 export const VIDEOS = 'videos';
 export const VIDEOS_DETAILS = 'videos/';
 export const SEARCH = 'posts/search/';
+export const MOST_VIEW = 'posts/most-viewed/';
