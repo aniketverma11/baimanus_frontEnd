@@ -659,7 +659,7 @@ a {
     padding: 1rem;
     bottom: 108px;
     width: 78%;
-    margin-left: 43px;
+    /* margin-left: 43px; */
     border-radius: 0 5px 5px 0;
   }
 }
@@ -744,3 +744,20 @@ a {
   padding: 0 2rem;
 }
 /*  */
+@media only screen and (max-width: 572px){
+  .entertain-headlines-outer-block{
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+  }
+  .entertain-headlines-outer-block .enterblock-shadow{
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 0;
+    box-shadow: none;
+    min-height: auto;
+    padding: 10px 0px 5px;
+    margin-top: 20px;
+  }
+  .entertain-headlines-outer-block h2{
+    font-size: 16px;
+  }
+}
