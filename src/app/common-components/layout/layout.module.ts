@@ -21,6 +21,7 @@ import {
 } from '@abacritt/angularx-social-login';
 import { LoaderComponent } from './loader/loader.component';
 import { TranslatePipe } from '@ngx-translate/core';
+import { NewCategoryComponent } from './new-category/new-category.component';
 
 export function tokenGetter() {
   if (sessionStorage && sessionStorage.getItem('loggedInUser')) {
@@ -30,7 +31,7 @@ export function tokenGetter() {
   }
 }
 @NgModule({
-  declarations: [SignupdialogComponent],
+  declarations: [SignupdialogComponent, NewCategoryComponent],
 
   imports: [
     CommonModule,
