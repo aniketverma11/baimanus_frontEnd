@@ -646,12 +646,20 @@ a {
 }
 @media (min-width: 768px) {
   ._327Ov {
-    position: absolute;
+    /* position: absolute;
     opacity: 0.85;
     background-color: #fff;
     padding: 1rem;
     bottom: 35px;
     width: 78%;
+    border-radius: 0 5px 5px 0; */
+    position: absolute;
+    opacity: 0.85;
+    background-color: #fff;
+    padding: 1rem;
+    bottom: 108px;
+    width: 78%;
+    margin-left: 43px;
     border-radius: 0 5px 5px 0;
   }
 }
@@ -727,5 +735,12 @@ a {
   grid-template-columns: repeat(2, 6fr);
   column-gap: 3.5rem;
   margin-top: 4.5rem;
+}
+.new-container {
+  max-width: 784px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 /*  */

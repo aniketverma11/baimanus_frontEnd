@@ -167,7 +167,7 @@
       <hr />
     </div>
   </div>
-
+  <!-- <app-category-details></app-category-details> -->
   <!--  -->
   <!-- <div class="_3_jxX" id="sports">
     <div class="_15XGv">
@@ -512,7 +512,6 @@
   </a>
 </div>
 <!--Entertainment section Starts from here-->
-
 <section
   class="home-entertain-block"
   [ngClass]="{ 'dark-mode': darkMode, 'light-mode': !darkMode }"
@@ -583,35 +582,36 @@
           *ngIf="category.posts && category.posts.length > 0"
           class="entertain-image-block"
         >
-          <img
+          <!-- <img
             [src]="category.posts[0]?.image"
             [alt]="'News Item ' + (i + 1)"
-          />
+          /> -->
 
-          <!-- <a
-  href="https://www.thequint.com/news/webqoof/deepfake-video-diabetes-news-anchors-parliament-cm-yogi-fact-check"
-  ><div class="card-image-wrapper _1o6Zo">
-    <figure class="qt-image-dynamic image16x9 qt-figure _2NlBL _3-Yad _2JSAU">
-      <picture class="qt-image _2X5ZZ"
-        ><img
-          src="https://images.thequint.com/thequint%2F2024-05%2F79e22ffb-d72a-423f-9f7c-5da8bb75aec6%2FRujuta_WQ_33_.jpg?auto=format%2Ccompress&amp;fmt=webp&amp;width=540"
-          data-src="https://images.thequint.com/thequint%2F2024-05%2F79e22ffb-d72a-423f-9f7c-5da8bb75aec6%2FRujuta_WQ_33_.jpg?auto=format%2Ccompress&amp;fmt=webp&amp;width=540"
-          type="image/webp"
-          sizes="(max-width: 400px ) 90vw, ( max-width: 730px ) 90vw,( max-width: 720px ) 50vw"
-          class="qt-image image _1tCvn gm-added gm-observing gm-observing-cb"
-          alt="" /><noscript></noscript
-      ></picture>
-    </figure>
-    <div class="cardimage-headline-view _327Ov">
-      <div class="headline headline-type-4">
-        <h2 class="ieh5X _3gpGB">
-          Deepfake Videos of Politicians &amp; News Anchors Endorsing Diabetes
-          Meds Goes Viral
-        </h2>
-      </div>
-    </div>
-  </div></a -->
-          >
+          <a
+            href="https://www.thequint.com/news/webqoof/deepfake-video-diabetes-news-anchors-parliament-cm-yogi-fact-check"
+            ><div class="card-image-wrapper _1o6Zo">
+              <figure
+                class="qt-image-dynamic image16x9 qt-figure _2NlBL _3-Yad _2JSAU"
+              >
+                <picture class="qt-image _2X5ZZ"
+                  ><img
+                    [src]="category.posts[0]?.image"
+                    data-src="https://images.thequint.com/thequint%2F2024-05%2F79e22ffb-d72a-423f-9f7c-5da8bb75aec6%2FRujuta_WQ_33_.jpg?auto=format%2Ccompress&amp;fmt=webp&amp;width=540"
+                    type="image/webp"
+                    sizes="(max-width: 400px ) 90vw, ( max-width: 730px ) 90vw,( max-width: 720px ) 50vw"
+                    class="qt-image image _1tCvn gm-added gm-observing gm-observing-cb"
+                    alt="" /><noscript></noscript
+                ></picture>
+              </figure>
+              <div class="cardimage-headline-view _327Ov">
+                <div class="headline headline-type-4">
+                  <h2 class="ieh5X _3gpGB">
+                    <span> {{ category.posts[0]?.title }}</span>
+                    &amp;<span></span>
+                  </h2>
+                </div>
+              </div></div
+          ></a>
         </div>
       </div>
       <div class="entertain-headlines-outer-block">
