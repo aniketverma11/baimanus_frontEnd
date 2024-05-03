@@ -56,8 +56,6 @@ export class AllDhartriVideosComponent {
         (res) => {
           this.isLoading = false;
           this.VideoObject = res.data;
-
-          console.log(res);
         },
         (error) => {
           console.error(error);

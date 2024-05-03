@@ -11,7 +11,6 @@ export class AboutUsComponent implements OnInit {
   ngOnInit() {
     if (typeof localStorage !== 'undefined') {
       this.type = localStorage.getItem('language');
-      console.log(this.type);
     }
   }
 

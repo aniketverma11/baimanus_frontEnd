@@ -81,8 +81,6 @@ export class VideosComponent {
     this.unsubscribe.add(
       this.apiService.getVideosDetails(slug, this.type).subscribe(
         (data) => {
-          console.log(data);
-
           this.isLoading = false;
           this.homePhotos = data.data;
           const videoUrl = data.data.video;

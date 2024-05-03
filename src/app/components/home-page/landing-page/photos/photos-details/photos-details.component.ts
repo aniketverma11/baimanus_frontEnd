@@ -34,8 +34,6 @@ export class PhotosDetailsComponent {
 
   ngOnInit() {}
   close() {
-    console.log('cloe');
-
     this.dialogRef.close();
   }
   updateIndex(index: any) {

@@ -61,8 +61,6 @@ export class AllPhotosListingComponent {
     this.unsubscribe.add(
       this.apiService.getPhotos(this.type).subscribe(
         (data) => {
-          console.log(data);
-
           this.isLoading = false;
           this.homePhotos = data.data;
         },

@@ -44,14 +44,12 @@ export class SerachComponent {
   }
 
   search(value: string) {
-    console.log(value);
     this.isLoading = true;
     this.unsubscribe.add(
       this.apiService.serach(value, this.type).subscribe(
         (data) => {
           this.isLoading = false;
           this.searchValue = data.data;
-          console.log(data);
         },
         (error) => {
           this.isLoading = false;

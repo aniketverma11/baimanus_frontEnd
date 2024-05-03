@@ -139,8 +139,6 @@ export class DharitriPhotosComponent {
     this.unsubscribe.add(
       this.apiService.getPhotosDetails(slug, this.type).subscribe(
         (data) => {
-          console.log(data);
-
           this.isLoading = false;
           this.homePhotos = data.data;
           if (
