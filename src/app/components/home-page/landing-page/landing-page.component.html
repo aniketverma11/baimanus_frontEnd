@@ -605,11 +605,11 @@
                 <div class="headline headline-type-4">
                   <h2 class="ieh5X _3gpGB">
                     <span> {{ category.posts[0]?.title }}</span>
-                    &amp;<span></span>
                   </h2>
                 </div>
-              </div></div
-          ></a>
+              </div>
+            </div></a
+          >
         </div>
       </div>
       <div class="entertain-headlines-outer-block">
@@ -653,24 +653,23 @@
             )
           "
         >
-          <!-- <div class="wrapperrr-title"> -->
-          <div class="entertain-blk-image">
-            <!-- <img src="../../../../assets/images/IMG-20240305-WA0030.jpg" /> -->
-            <img
-              [src]="category.posts[1]?.image"
-              [alt]="'News Item ' + (i + 1)"
-            />
-          </div>
+          <div class="wrapperrr-title">
+            <div class="entertain-blk-image">
+              <img
+                [src]="category.posts[2]?.image"
+                [alt]="'News Item ' + (i + 1)"
+              />
+            </div>
 
-          <h2
-            [ngClass]="{
-              'dark-mode-yellow': isDarkModeInLocalStorage(),
-              'light-mode-purple': !isDarkModeInLocalStorage()
-            }"
-          >
-            {{ category.posts[2]?.title }}
-          </h2>
-          <!-- </div> -->
+            <h2
+              [ngClass]="{
+                'dark-mode-yellow': isDarkModeInLocalStorage(),
+                'light-mode-purple': !isDarkModeInLocalStorage()
+              }"
+            >
+              {{ category.posts[2]?.title }}
+            </h2>
+          </div>
           <span class="shortDesc">
             {{ category.posts[2]?.short_description }}
           </span>
