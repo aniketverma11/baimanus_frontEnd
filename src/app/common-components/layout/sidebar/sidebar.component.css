@@ -1070,3 +1070,10 @@ body.dark-theme .sidebar {
   color: #35144f;
   background-color: white;
 }
+.mheader-hamburger .showSideBarButton{
+  border: none;
+  background: transparent;
+}
+.mheader-hamburger .showSideBarButton svg{
+  margin-bottom: -10px;
+}
