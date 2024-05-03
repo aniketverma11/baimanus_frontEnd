@@ -10631,3 +10631,27 @@
     margin-bottom: 10px;
   }
 }
+@media only screen and (max-width: 768px){
+    .style-332, .style-395, .style-430{
+        display: flex;
+        flex-direction: column;
+    }
+    .style-333, .style-334, .style-336, .style-396, .style-397, .style-399, .style-431, .style-432, .style-434{
+        max-width: 100%;
+        width: 100%;
+    }
+    .style-430 div a img{
+        width: 150px;
+        height: 150px;
+    }
+}
+@media only screen and (max-width: 572px){
+    .style-430 div a img{
+        width: 80px;
+        height: 80px;
+    }
+    .style-436, .style-444, .style-452{
+        max-width: 50%;
+        flex: 0 0 50%;
+    }
+}
