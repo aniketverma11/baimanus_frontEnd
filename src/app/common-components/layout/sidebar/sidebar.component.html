@@ -844,11 +844,11 @@ l-61 56 0 637 c0 351 3 641 7 644 3 4 231 7 505 7 l498 0 0 -519z"
           >
             <option value="">More</option>
             <option
-              *ngFor="let category of categoryList.slice(6)"
+              *ngFor="let category of categoryList?.slice(6)"
               [value]="category.slug"
               [ngValue]="{ name: category.name, slug: category.slug }"
             >
-              {{ category.name }}
+              {{ category?.name }}
             </option>
           </select>
         </div>

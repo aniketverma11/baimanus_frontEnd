@@ -10,7 +10,7 @@
         data-link-name="most-popular"
         class="dcr-qwrfde"
       >
-        <div id="container">
+        <div id="container" *ngIf="content.length > 0">
           <div id="left-div">
             <section data-link-name="most-viewed" class="dcr-15dwazu">
               <div class="dcr-1mntuxd">
@@ -35,6 +35,7 @@
               </div>
               <ol class="dcr-15dwazu">
                 <li
+                  *ngIf="content[0]"
                   data-link-name="1 | text"
                   class="dcr-1g3ygc9"
                   (click)="
@@ -73,6 +74,7 @@
                   >
                 </li>
                 <li
+                  *ngIf="content[1]"
                   data-link-name="2 | text"
                   class="dcr-1eimrr4"
                   (click)="
@@ -111,6 +113,7 @@
                   >
                 </li>
                 <li
+                  *ngIf="content[2]"
                   data-link-name="3 | text"
                   class="dcr-zbj0eb"
                   (click)="
@@ -149,6 +152,7 @@
                   >
                 </li>
                 <li
+                  *ngIf="content[3]"
                   data-link-name="4 | text"
                   class="dcr-16hqne5"
                   (click)="
@@ -187,6 +191,7 @@
                   >
                 </li>
                 <li
+                  *ngIf="content[4]"
                   data-link-name="5 | text"
                   class="dcr-7j5vhj"
                   (click)="
@@ -251,6 +256,7 @@
               </div>
               <ol class="dcr-15dwazu">
                 <li
+                  *ngIf="content[5]"
                   data-link-name="6 | text"
                   class="dcr-2km3f3"
                   (click)="
@@ -289,6 +295,7 @@
                   >
                 </li>
                 <li
+                  *ngIf="content[6]"
                   data-link-name="7 | text"
                   class="dcr-ek220n"
                   (click)="
@@ -328,6 +335,7 @@
                   >
                 </li>
                 <li
+                  *ngIf="content[7]"
                   data-link-name="8 | text"
                   class="dcr-mc9p7t"
                   (click)="
@@ -367,6 +375,7 @@
                   >
                 </li>
                 <li
+                  *ngIf="content[8]"
                   data-link-name="9 | text"
                   class="dcr-1cbofui"
                   (click)="
@@ -406,6 +415,7 @@
                   >
                 </li>
                 <li
+                  *ngIf="content[9]"
                   data-link-name="10 | text"
                   class="dcr-1t5kbga"
                   (click)="
