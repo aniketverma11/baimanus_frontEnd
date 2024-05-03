@@ -976,9 +976,9 @@ body.dark-theme .sidebar {
   .wid768-diss {
     display: none;
   }
-  .dark-mode {
+  /* .dark-mode {
     color: #052962;
-  }
+  } */
 }
 @media only screen and (max-width: 480px) {
   #become-member-button {
@@ -1016,9 +1016,15 @@ body.dark-theme .sidebar {
   outline: none;
   padding: 10px 20px;
   border: none;
-  background-color: transparent;
+  /* background-color: transparent; */
   width: 100%;
   height: 40px;
+}
+.seatchDark {
+  background-color: white;
+}
+.serachWhite {
+  background-color: transparent;
 }
 .QY5hf {
   position: relative;
@@ -1054,4 +1060,13 @@ body.dark-theme .sidebar {
     /* margin-left: auto;
     margin-right: auto; */
   }
+}
+.dark-mode-yellow {
+  color: #fa9000;
+  background-color: #333;
+}
+
+.light-mode-purple {
+  color: #35144f;
+  background-color: white;
 }

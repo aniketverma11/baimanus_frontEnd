@@ -603,8 +603,14 @@
               </figure>
               <div class="cardimage-headline-view _327Ov">
                 <div class="headline headline-type-4">
-                  <h2 class="ieh5X _3gpGB">
-                    <span> {{ category.posts[0]?.title }}</span>
+                  <h2
+                    class="ieh5X _3gpGB"
+                    [ngClass]="{
+                      'dark-mode-yellowHeading': isDarkModeInLocalStorage(),
+                      'light-mode-purpleHeading': !isDarkModeInLocalStorage()
+                    }"
+                  >
+                    {{ category.posts[0]?.title }}
                   </h2>
                 </div>
               </div>

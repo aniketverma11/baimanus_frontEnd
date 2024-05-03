@@ -10617,3 +10617,17 @@
             padding: 0px;
             font-family: 'open sans', sans-serif;
         }
+
+        /* Mobile Styles */
+@media only screen and (max-width: 600px) {
+  .style-336 {
+    padding: 10px; /* Adjust spacing as needed */
+  }
+
+  /* Adjust font sizes and margins for better readability on smaller screens */
+  .style-336 h3,
+  .style-336 p {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+}

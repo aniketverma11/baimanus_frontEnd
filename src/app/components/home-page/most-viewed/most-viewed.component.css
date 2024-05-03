@@ -454,7 +454,6 @@ video {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
-  color: #35144f;
   font-size: 18px;
   font-weight: 700;
 }
@@ -581,4 +580,13 @@ section {
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
   }
+}
+.dark-mode-yellow {
+  color: #fa9000;
+  background-color: #333 !important;
+}
+
+.light-mode-purple {
+  color: #35144f;
+  background-color: white !important;
 }

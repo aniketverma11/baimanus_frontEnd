@@ -568,7 +568,14 @@ l-61 56 0 637 c0 351 3 641 7 644 3 4 231 7 505 7 l498 0 0 -519z"
                 <b class="dark-mode">Dark Mode</b>
               </div> -->
               <div class="dark-mode-wrapper">
-                <b class="dark-mode">{{ "Dark Mode" | translate }}</b>
+                <b
+                  [ngClass]="{
+                    'dark-mode-yellow': isDarkModeInLocalStorage(),
+                    'light-mode-purple': !isDarkModeInLocalStorage()
+                  }"
+                  class="dark-mode"
+                  >{{ "Dark Mode" | translate }}</b
+                >
                 <label class="dark-mode-toggle">
                   <input
                     (change)="toggleDarkMode()"
@@ -581,11 +588,20 @@ l-61 56 0 637 c0 351 3 641 7 644 3 4 231 7 505 7 l498 0 0 -519z"
               </div>
             </div>
             <img
+              *ngIf="!isDarkModeInLocalStorage()"
               (click)="close()"
               class="close-icon"
               loading="lazy"
               alt=""
               src="../../../../assets/icons/Close.png"
+            />
+            <img
+              *ngIf="isDarkModeInLocalStorage()"
+              (click)="close()"
+              class="close-icon"
+              loading="lazy"
+              alt=""
+              src="../../../../assets/icons/whiteClose.png"
             />
           </div>
         </header>
@@ -597,7 +613,7 @@ l-61 56 0 637 c0 351 3 641 7 644 3 4 231 7 505 7 l498 0 0 -519z"
             >
               <span
                 class="logoImg logoImgNew"
-                *ngIf="currentLanguage == 'marathi'"
+                *ngIf="currentLanguage == 'english'"
               >
                 <img
                   class="logoImg logoImgNew"
@@ -608,7 +624,7 @@ l-61 56 0 637 c0 351 3 641 7 644 3 4 231 7 505 7 l498 0 0 -519z"
               </span>
               <span
                 class="logoImg logoImgNew"
-                *ngIf="currentLanguage == 'english'"
+                *ngIf="currentLanguage == 'marathi'"
               >
                 <img
                   class="logoImg logoImgNew"
@@ -633,7 +649,13 @@ l-61 56 0 637 c0 351 3 641 7 644 3 4 231 7 505 7 l498 0 0 -519z"
           <!-- <div class="_1what dharitri"></div> -->
         </div>
       </section>
-      <div class="search-wrapper Mwrs6">
+      <div
+        class="search-wrapper Mwrs6"
+        [ngClass]="{
+          seatchDark: isDarkModeInLocalStorage(),
+          serachWhite: !isDarkModeInLocalStorage()
+        }"
+      >
         <form role="search" action="/search" class="_1KYhV">
           <div class="QY5hf" style="display: block">
             <label for="searchForm">

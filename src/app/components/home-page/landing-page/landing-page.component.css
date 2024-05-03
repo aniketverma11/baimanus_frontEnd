@@ -679,10 +679,11 @@ a {
   font-size: 16px;
 }
 .ieh5X {
-  color: #35144f;
+  /* color: #35144f; */
   font-family: "Nunito Sans";
   letter-spacing: 400;
   line-height: 1.4;
+  margin-top: 10px;
 }
 ._3ZFtH,
 .ieh5X {
@@ -704,7 +705,7 @@ a {
   }
 }
 .ieh5X {
-  color: #35144f;
+  /* color: #35144f; */
   font-family: "Nunito Sans";
   letter-spacing: 400;
   line-height: 1.4;
@@ -744,12 +745,12 @@ a {
   padding: 0 2rem;
 }
 /*  */
-@media only screen and (max-width: 572px){
-  .entertain-headlines-outer-block{
+@media only screen and (max-width: 572px) {
+  .entertain-headlines-outer-block {
     grid-template-columns: 1fr;
     grid-gap: 10px;
   }
-  .entertain-headlines-outer-block .enterblock-shadow{
+  .entertain-headlines-outer-block .enterblock-shadow {
     border-top: 1px solid rgba(0, 0, 0, 0.15);
     border-radius: 0;
     box-shadow: none;
@@ -757,7 +758,7 @@ a {
     padding: 10px 0px 5px;
     margin-top: 20px;
   }
-  .entertain-headlines-outer-block h2{
+  .entertain-headlines-outer-block h2 {
     font-size: 16px;
   }
 }

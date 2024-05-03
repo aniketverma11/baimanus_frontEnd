@@ -329,6 +329,9 @@
           </h2>
           <div>
             <svg
+              [ngClass]="{
+                'dark-mode-arroww': isDarkModeInLocalStorage()
+              }"
               routerLink="/home/all-dhatri-content"
               class="arrow"
               version="1.0"
@@ -342,6 +345,9 @@
                 Created by potrace 1.16, written by Peter Selinger 2001-2019
               </metadata>
               <g
+                [ngClass]="{
+                  'dark-mode-arroww': isDarkModeInLocalStorage()
+                }"
                 transform="translate(0.000000,768.000000) scale(0.100000,-0.100000)"
                 fill="#000000"
                 stroke="none"
@@ -370,10 +376,42 @@
           "
           class="entertain-image-block"
         >
-          <img
+          <!-- <img
             [src]="getFullImagePath(homeContent?.image)"
             [alt]="homeContent?.image_alt"
-          />
+          /> -->
+          <!--  -->
+          <a
+            ><div class="card-image-wrapper _1o6Zo">
+              <figure
+                class="qt-image-dynamic image16x9 qt-figure _2NlBL _3-Yad _2JSAU"
+              >
+                <picture class="qt-image _2X5ZZ"
+                  ><img
+                    [src]="getFullImagePath(homeContent?.image)"
+                    type="image/webp"
+                    sizes="(max-width: 400px ) 90vw, ( max-width: 730px ) 90vw,( max-width: 720px ) 50vw"
+                    class="qt-image image _1tCvn gm-added gm-observing gm-observing-cb"
+                    alt="" /><noscript></noscript
+                ></picture>
+              </figure>
+              <div class="cardimage-headline-view _327Ov">
+                <div class="headline headline-type-4">
+                  <h2
+                    class="ieh5X _3gpGB"
+                    [ngClass]="{
+                      'dark-mode-yellowHeading': isDarkModeInLocalStorage(),
+                      'light-mode-purpleHeading': !isDarkModeInLocalStorage()
+                    }"
+                  >
+                    {{ homeContent?.title }}
+                  </h2>
+                </div>
+              </div>
+            </div></a
+          >
+
+          <!--  -->
         </div>
       </div>
       <div class="entertain-headlines-outer-block">
@@ -431,6 +469,9 @@
           </h2>
           <div>
             <svg
+              [ngClass]="{
+                'dark-mode-arroww': isDarkModeInLocalStorage()
+              }"
               routerLink="/home/all-dhatri-videos"
               class="arrow"
               version="1.0"
@@ -444,6 +485,9 @@
                 Created by potrace 1.16, written by Peter Selinger 2001-2019
               </metadata>
               <g
+                [ngClass]="{
+                  'dark-mode-arroww': isDarkModeInLocalStorage()
+                }"
                 transform="translate(0.000000,768.000000) scale(0.100000,-0.100000)"
                 fill="#000000"
                 stroke="none"
@@ -470,10 +514,39 @@
           (click)="navigateVideos(VideoObject?.slug)"
           class="entertain-image-block"
         >
-          <img
+          <!-- <img
             [src]="getFullImagePath(VideoObject?.image)"
             [alt]="VideoObject?.image_alt"
-          />
+          /> -->
+          <a
+            ><div class="card-image-wrapper _1o6Zo">
+              <figure
+                class="qt-image-dynamic image16x9 qt-figure _2NlBL _3-Yad _2JSAU"
+              >
+                <picture class="qt-image _2X5ZZ"
+                  ><img
+                    [src]="getFullImagePath(VideoObject?.image)"
+                    type="image/webp"
+                    sizes="(max-width: 400px ) 90vw, ( max-width: 730px ) 90vw,( max-width: 720px ) 50vw"
+                    class="qt-image image _1tCvn gm-added gm-observing gm-observing-cb"
+                    alt="" /><noscript></noscript
+                ></picture>
+              </figure>
+              <div class="cardimage-headline-view _327Ov">
+                <div class="headline headline-type-4">
+                  <h2
+                    class="ieh5X _3gpGB"
+                    [ngClass]="{
+                      'dark-mode-yellowHeading': isDarkModeInLocalStorage(),
+                      'light-mode-purpleHeading': !isDarkModeInLocalStorage()
+                    }"
+                  >
+                    {{ VideoObject?.title }}
+                  </h2>
+                </div>
+              </div>
+            </div></a
+          >
         </div>
       </div>
       <div class="entertain-headlines-outer-block">

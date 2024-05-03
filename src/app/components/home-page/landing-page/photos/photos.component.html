@@ -7,9 +7,6 @@
   }"
 >
   <div class="left-section">
-    <!-- <span *ngFor="let imgaedata of homePhotos"> -->
-    <!-- <h1>{{ homePhotos?.title }}</h1> -->
-    <!-- navihation -->
     <div class="DYWI3">
       <div
         class="phCpR"
@@ -189,7 +186,7 @@
               <button mat-button [matMenuTriggerFor]="menuText">
                 <svg
                   [ngClass]="{
-                    'dark-mode-arroww': isDarkModeInLocalStorage()
+                    'dark-mode-icons': isDarkModeInLocalStorage()
                   }"
                   width="24"
                   height="24"
@@ -228,7 +225,7 @@
             <div class="audio" *ngIf="homePhotos.audio">
               <svg
                 [ngClass]="{
-                  'dark-mode-arroww': isDarkModeInLocalStorage()
+                  'dark-mode-icons': isDarkModeInLocalStorage()
                 }"
                 (click)="playOrPauseAudio(homePhotos?.audio)"
                 width="24"
@@ -260,7 +257,7 @@
             <div class="bookmark" (click)="bookmark()">
               <svg
                 [ngClass]="{
-                  'dark-mode-arroww': isDarkModeInLocalStorage()
+                  'dark-mode-icons': isDarkModeInLocalStorage()
                 }"
                 width="24"
                 height="24"
@@ -286,7 +283,7 @@
             <div class="commets" (click)="isCommnet()">
               <svg
                 [ngClass]="{
-                  'dark-mode-arroww': isDarkModeInLocalStorage()
+                  'dark-mode-icons': isDarkModeInLocalStorage()
                 }"
                 width="24"
                 height="24"
@@ -344,10 +341,16 @@
             </svg>
           </div>
           <div class="XXFVp">
-            <h2 class="_1EdpE">
+            <h2
+              class="_1EdpE"
+              [ngClass]="{
+                'dark-mode-yellow': isDarkModeInLocalStorage(),
+                'light-mode-purple': !isDarkModeInLocalStorage()
+              }"
+            >
               {{ item?.image_description }}
             </h2>
-            <p class="_2wpyG">(Photo Courtesy)</p>
+            <!-- <p class="_2wpyG">(Photo Courtesy)</p> -->
           </div>
         </div>
       </div>

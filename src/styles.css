@@ -163,6 +163,16 @@ p {
   color: #35144f;
   background-color: white;
 }
+/* dark Mode  Heading  color  */
+.dark-mode-yellowHeading {
+  color: #fa9000;
+  /* background-color: #333 !important; */
+}
+
+.light-mode-purpleHeading {
+  color: #35144f;
+  /* background-color: white !important; */
+}
 
 .mat-mdc-dialog-container._mat-animation-noopable .mdc-dialog__container,
 .mat-mdc-dialog-container._mat-animation-noopable .mdc-dialog__surface {
@@ -479,25 +489,28 @@ h3.category-detailed-pagee {
   padding-top: 20px;
   padding-bottom: 20px;
 }
-.most-viewd-wrapper .container{
+.most-viewd-wrapper .container {
   display: flex;
   justify-content: center;
 }
-.entertain-image-block a figure{
+.entertain-image-block a figure {
   margin: 0;
 }
-@media only screen and (min-width: 573px){
-  .entertain-blk-image{
+@media only screen and (min-width: 573px) {
+  .entertain-blk-image {
     display: none;
   }
 }
-@media only screen and (max-width: 572px){
-  .wrapperrr-title{
+@media only screen and (max-width: 572px) {
+  .wrapperrr-title {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    grid-gap: 20px;;
+    grid-gap: 20px;
   }
-  .entertain-blk-image img{
+  .entertain-blk-image img {
     width: 100%;
   }
+}
+.dark-mode-icons {
+  fill: #fff;
 }
