@@ -588,7 +588,6 @@
           /> -->
 
           <a
-            href="https://www.thequint.com/news/webqoof/deepfake-video-diabetes-news-anchors-parliament-cm-yogi-fact-check"
             ><div class="card-image-wrapper _1o6Zo">
               <figure
                 class="qt-image-dynamic image16x9 qt-figure _2NlBL _3-Yad _2JSAU"
@@ -596,7 +595,6 @@
                 <picture class="qt-image _2X5ZZ"
                   ><img
                     [src]="category.posts[0]?.image"
-                    data-src="https://images.thequint.com/thequint%2F2024-05%2F79e22ffb-d72a-423f-9f7c-5da8bb75aec6%2FRujuta_WQ_33_.jpg?auto=format%2Ccompress&amp;fmt=webp&amp;width=540"
                     type="image/webp"
                     sizes="(max-width: 400px ) 90vw, ( max-width: 730px ) 90vw,( max-width: 720px ) 50vw"
                     class="qt-image image _1tCvn gm-added gm-observing gm-observing-cb"
@@ -625,19 +623,22 @@
             )
           "
         >
-        <div class="wrapperrr-title">
-          <div class="entertain-blk-image">
-            <img src="../../../../assets/images/IMG-20240305-WA0030.jpg">
+          <div class="wrapperrr-title">
+            <div class="entertain-blk-image">
+              <img
+                [src]="category.posts[1]?.image"
+                [alt]="'News Item ' + (i + 1)"
+              />
+            </div>
+            <h2
+              [ngClass]="{
+                'dark-mode-yellow': isDarkModeInLocalStorage(),
+                'light-mode-purple': !isDarkModeInLocalStorage()
+              }"
+            >
+              {{ category.posts[1]?.title }}
+            </h2>
           </div>
-          <h2
-            [ngClass]="{
-              'dark-mode-yellow': isDarkModeInLocalStorage(),
-              'light-mode-purple': !isDarkModeInLocalStorage()
-            }"
-          >
-            {{ category.posts[1]?.title }}
-          </h2>
-        </div>
           <span class="shortDesc">
             {{ category.posts[1]?.short_description }}
           </span>
@@ -652,6 +653,15 @@
             )
           "
         >
+          <!-- <div class="wrapperrr-title"> -->
+          <div class="entertain-blk-image">
+            <!-- <img src="../../../../assets/images/IMG-20240305-WA0030.jpg" /> -->
+            <img
+              [src]="category.posts[1]?.image"
+              [alt]="'News Item ' + (i + 1)"
+            />
+          </div>
+
           <h2
             [ngClass]="{
               'dark-mode-yellow': isDarkModeInLocalStorage(),
@@ -660,6 +670,7 @@
           >
             {{ category.posts[2]?.title }}
           </h2>
+          <!-- </div> -->
           <span class="shortDesc">
             {{ category.posts[2]?.short_description }}
           </span>
