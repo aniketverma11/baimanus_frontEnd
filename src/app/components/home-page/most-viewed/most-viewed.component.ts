@@ -31,7 +31,6 @@ export class MostViewedComponent {
   }
 
   ngOnInit() {
-    this.getMostViewdData();
     if (typeof localStorage !== 'undefined') {
       this.type = localStorage.getItem('language');
     }
@@ -39,6 +38,8 @@ export class MostViewedComponent {
     this.themeService.darkModeChanged.subscribe((darkMode: boolean) => {
       this.darkMode = darkMode;
     });
+
+    this.getMostViewdData();
   }
   isDarkModeInLocalStorage(): boolean {
     if (typeof localStorage !== 'undefined') {
@@ -54,8 +55,6 @@ export class MostViewedComponent {
     this.unsubscribe.add(
       this.apiService.getMostViewd(this.type, this.content_type).subscribe(
         (data) => {
-          console.log(data);
-
           this.content = data.data;
         },
         (error) => {
@@ -65,6 +64,8 @@ export class MostViewedComponent {
     );
   }
   getHomeContentBySlug(slug: any, category: any, categoryName: string) {
+    console.log(categoryName);
+
     this.router.navigate(['home/news-details'], {
       queryParams: {
         slug: slug,
