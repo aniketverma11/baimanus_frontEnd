@@ -1070,10 +1070,22 @@ body.dark-theme .sidebar {
   color: #35144f;
   background-color: white;
 }
-.mheader-hamburger .showSideBarButton{
+.mheader-hamburger .showSideBarButton {
   border: none;
   background: transparent;
 }
-.mheader-hamburger .showSideBarButton svg{
+.mheader-hamburger .showSideBarButton svg {
   margin-bottom: -10px;
+}
+.dark-mode-icons {
+  fill: #fff !important;
+}
+
+.light-mode-Side {
+  fill: #052962 !important;
+  stroke: #052962 !important;
+}
+.dark-mode-Side {
+  fill: #fff !important;
+  stroke: #fff !important;
 }

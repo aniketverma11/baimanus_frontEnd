@@ -512,5 +512,8 @@ h3.category-detailed-pagee {
   }
 }
 .dark-mode-icons {
-  fill: #fff;
+  stroke: #fff !important;
+}
+.dark-mode-iconsWhite {
+  stroke: #35144f !important;
 }
