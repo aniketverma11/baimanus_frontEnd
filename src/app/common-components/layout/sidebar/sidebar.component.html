@@ -738,6 +738,10 @@ l-61 56 0 637 c0 351 3 641 7 644 3 4 231 7 505 7 l498 0 0 -519z"
             <div class="text-parent">
               <div class="text" data-scroll-to="text"></div>
               <h3
+                [ngClass]="{
+                  'dark-mode-yellow': isDarkModeInLocalStorage(),
+                  'light-mode-purple': !isDarkModeInLocalStorage()
+                }"
                 class="become-a-member1"
                 id="becomeAMember1"
                 (click)="navigateToPlan()"
