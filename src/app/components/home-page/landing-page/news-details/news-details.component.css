@@ -360,6 +360,8 @@
   display: flex;
 }
 .category-image img {
+  max-height: 405px;
+  object-fit: cover;
   width: 100%;
 }
 .shar-section .Share {
