@@ -20,13 +20,22 @@
             ><h4>{{ "The Baimanus's Newsletter" | translate }}</h4></a
           >
           <!-- <p [ngStyle]="getshortDis()"> -->
-          <p [ngStyle]="getshortDis()">
+          <!-- <p [ngStyle]="getshortDis()">
             {{
               "The us tells stories no one else is willing to tell. Join us in our journey as we bring you unheard voices, humanise big events, and propel change"
                 | translate
             }}.
+          </p> -->
+          <p [ngStyle]="getshortDis()">
+            माध्यमांच्या उठवळ कोलाहलात, मुख्य समस्या दुर्लक्षित राहतात. याच
+            समस्यांना वाचा फोडण्यासाठी आम्ही प्राधान्य देतो. मोजके मनुष्यबळ व
+            मर्यादित भौतिक सुविधांच्या आधारे नवनवीन विषय आम्ही तुमच्यापर्यंत
+            घेऊन येतो. परंतु वेळ, श्रम ही महत्वाची साधने मुबलक प्रमाणात उपलब्ध
+            झाल्यास तुमच्यापर्यंत आम्ही आणखी नावीन्यपूर्ण विषय घेऊन येऊ असा
+            विश्वास वाटतो. यासाठीच तुम्ही बाईमाणूसचे सदस्यत्व घेऊन आम्हाला मदतपर
+            प्रोत्साहन देऊ शकता
           </p>
-          <p>{{ "Over 20,000 subscribers" | translate }}</p>
+          <!-- <p>{{ "Over 20,000 subscribers" | translate }}</p> -->
         </div>
       </div>
       <div class="subscribe-form">
@@ -35,13 +44,41 @@
           {{ "subscribe" | translate }}
         </button>
       </div>
-      <p class="terms">
+      <p
+        class="terms"
+        [ngClass]="{
+          'dark-mode-icons': isDarkModeInLocalStorage(),
+          'dark-mode-iconsWhite': !isDarkModeInLocalStorage()
+        }"
+      >
         {{ " By subscribing you agree to" | translate }}
-        <a href="#">{{ "By subscribing you agree to" | translate }}</a
-        >, our <a href="#">Privacy Policy</a> and our
-        <a href="#">Information collection policy</a>.
+        <a
+          href="#"
+          [ngClass]="{
+            'dark-mode-icons': isDarkModeInLocalStorage(),
+            'dark-mode-iconsWhite': !isDarkModeInLocalStorage()
+          }"
+          >{{ "By subscribing you agree to" | translate }}</a
+        >, our
+        <a
+          href="#"
+          [ngClass]="{
+            'dark-mode-icons': isDarkModeInLocalStorage(),
+            'dark-mode-iconsWhite': !isDarkModeInLocalStorage()
+          }"
+          >Privacy Policy</a
+        >
+        and our
+        <a
+          href="#"
+          [ngClass]="{
+            'dark-mode-icons': isDarkModeInLocalStorage(),
+            'dark-mode-iconsWhite': !isDarkModeInLocalStorage()
+          }"
+          >Information collection policy</a
+        >.
       </p>
-      <p class="powered-by">Powered by Substack</p>
+      <!-- <p class="powered-by">Powered by Substack</p> -->
     </div>
   </div>
 </section>

@@ -134,8 +134,8 @@ export class SidebarComponent implements OnInit {
 
   openPaymentModal(): void {
     const dialogRef = this.dialog.open(SignupdialogComponent, {
-      width: '1380px',
-      height: '700px',
+      width: '900px',
+      height: '500px',
     });
 
     dialogRef.afterClosed().subscribe((result) => {});

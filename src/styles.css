@@ -153,6 +153,9 @@ p {
   line-height: 1.4 !important;
 }
 
+.dark-mode-yellowDis {
+  color: #fff;
+}
 /* dark Mode  Heading  color  */
 .dark-mode-yellow {
   color: #fa9000;
@@ -229,7 +232,7 @@ h1 {
 }
 
 .small-text {
-  font-size: 20px;
+  font-size: 14px !important;
   line-height: 1.3;
   color: #6c6c6c !important;
   font-family: "Proxima Nova", sans-serif !important;

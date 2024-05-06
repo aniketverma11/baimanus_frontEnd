@@ -542,3 +542,24 @@ h1 {
   width: 27px;
   height: 22px;
 }
+@media (min-width: 768px) {
+  .R7DyQ ._17kbP {
+    min-height: 75px;
+  }
+}
+@media (min-width: 768px) {
+  .R7DyQ ._2QRqw {
+    line-height: 1.3;
+    font-size: 20px;
+    margin-bottom: 2rem;
+  }
+}
+.R7DyQ ._2QRqw {
+  font-family: var(--font-2);
+  font-size: 18px;
+  font-weight: var(--medium-bold);
+  line-height: 1.43;
+  text-align: left;
+  color: #6c6c6c;
+  margin-bottom: 2rem;
+}
