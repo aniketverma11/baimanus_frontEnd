@@ -97,12 +97,12 @@
               'light-mode-purple': !isDarkModeInLocalStorage()
             }"
           >
-            IDENTITY
+            {{ "IDENTITY" | translate }}
           </h1>
         </div>
         <div class="style-336">
-          <h3 class="style-337">Why BaiManus</h3>
-          <p class="style-338">
+          <h3 class="style-337">{{ "Why BaiManus" | translate }}</h3>
+          <p class="style-338" *ngIf="type == 'english'">
             It is a fact that in developing states like Maharashtra, media still
             hasn&#39;t reached out to millions of citizens, mainly those living
             in remote and rural areas. Dalits, tribals, nomads and lakhs of
@@ -120,7 +120,7 @@
             Journalism and Mass Communication have launched BaiManus an
             ambitious and innovative digital media platform.
           </p>
-          <p class="style-338">
+          <p class="style-338" *ngIf="type == 'marathi'">
             महाराष्ट्रासारख्या विकसनशील राज्यात खास करून दुर्गम आणि ग्रामीण
             भागात राहणाऱ्या लाखो नागरिकांपर्यंत अजूनही माध्यमे पोहोचली नाहीत हे
             वास्तव आहे. विशेषतः दलित, आदिवासी, भटके विमुक्त आणि ग्रामीण भागातील
@@ -138,8 +138,8 @@
             डिजिटल मीडिया हाऊसची निर्मित केली.
           </p>
 
-          <h3 class="style-341">Mission</h3>
-          <p class="style-342">
+          <h3 class="style-341">{{ "Mission" | translate }}</h3>
+          <p class="style-342" *ngIf="type == 'english'">
             It is an attempt to perform independent journalism without any
             ideological, economic or political yoke. The aim of the website 
             baimanus.in  is to perform journalism that is honest to our soil and
@@ -152,7 +152,7 @@
             &#39;Baimanus&#39; aims at giving a view of how to look at all this,
             what to grasp from it and what not.
           </p>
-          <p class="style-342">
+          <p class="style-342" *ngIf="type == 'marathi'">
             कोणतेही वैचारिक, आर्थिक, राजकीय जोखड नसलेल्या स्वतंत्र पत्रकारितेचा
             हा एक प्रयत्न आहे.  baimanus.in  या वेबसाईटचा उद्देश आपली माती आणि
             माणसांशी इमान राखणारी पत्रकारिता करण्याचा आहे. सामान्य माणूस
@@ -165,8 +165,8 @@
             दृष्टिकोन देण्याचे काम &#39;बाईमाणूस&#39; करत आहे.
           </p>
 
-          <h3 class="style-346">Board</h3>
-          <p class="style-347" *ngIf="'type==english'">
+          <h3 class="style-346">{{ "Board" | translate }}</h3>
+          <p class="style-347" *ngIf="type == 'english'">
             Prashant Pawar Director &amp; Editor, BaiManus Hearty welcome at
             ‘Baimanus&#39; webportal and its other social media platforms. The
             platform &#39;BaiManus&#39; is a first-of-its-kind experiment in
@@ -187,7 +187,7 @@
             cultural, literary, and social movement outside the periphery of
             Maharashtra.
           </p>
-          <p class="style-347">
+          <p class="style-347" *ngIf="type == 'marathi'">
             &#39;बाईमाणूस&#39; या मराठी वेबपोर्टलवर आणि इतर सोशल मीडियाच्या
             प्लॅटफॉर्मवर आपले मनापासून स्वागत. &#39;बाईमाणूस&#39; हे व्यासपीठ
             आवाज नसलेल्या समूहांचा माध्यमांमधील आवाज वाढवण्यासाठीचा या
@@ -309,7 +309,7 @@
     <div class="style-395">
       <div class="style-396">
         <hr class="style-397" />
-        <h2 class="style-398">Our Reporters</h2>
+        <h2 class="style-398">{{ "Our Reporters" | translate }}</h2>
       </div>
       <div class="style-399">
         <h3 class="style-401">Bhagyashri Lekhami (Gadchiroli) &nbsp;</h3>
@@ -321,19 +321,23 @@
         </ol>
         <h3 class="style-401">Apsara Aaga (Pune) &nbsp;</h3>
         <ol class="style-402">
-          <li class="style-403">
+          <li class="style-403" *ngIf="type == 'english'">
             A voice for equality, equity and justice for women who are
-            squatters, garbage collectors and scavengers बेठबिर्गारी, कचरा ेचक
-            आवि सफाई कामर्गार महिलांच्या समता, समानता आवि न्यायासाठी झटारा आ
-            ाज&nbsp;
+            squatters, garbage collectors and scavengers
+          </li>
+          <li class="style-403" *ngIf="type == 'marathi'">
+            बेठबिर्गारी, कचरा ेचक आवि सफाई कामर्गार महिलांच्या समता, समानता आवि
+            न्यायासाठी झटारा आ ाज&nbsp;
           </li>
         </ol>
         <h3 class="style-401">Sumitra Vasave (Nandurbar) &nbsp;</h3>
         <ol class="style-402">
-          <li class="style-403">
+          <li class="style-403" *ngIf="type == 'english'">
             A strong tribal woman fighting against superstition and gender
-            discrimination अंधशरद्धा आ ् वि लिर्गं भेदा वि रुद्ध लढारी सशक्त आदि
-            ासी नारी&nbsp;
+            discrimination
+          </li>
+          <li class="style-403" *ngIf="type == 'marathi'">
+            अंधशरद्धा आ ् वि लिर्गं भेदा वि रुद्ध लढारी सशक्त आदि ासी नारी&nbsp;
           </li>
         </ol>
         <h3 class="style-401">Varsha Kodape (Chandrapur) &nbsp;</h3>
@@ -360,31 +364,39 @@
         </ol>
         <h3 class="style-401">Poonam Chaure (Dahanu) &nbsp;</h3>
         <ol class="style-402">
-          <li class="style-403">
-            ारली आदि ासीचे ं ास्त मांारी. Presenting the reality of Warli
-            tribals. &nbsp;
+          <li class="style-403" *ngIf="type == 'marathi'">
+            ारली आदि ासीचे ं ास्त &nbsp;
+          </li>
+          <li class="style-403" *ngIf="type == 'english'">
+            . Presenting the reality of Warli tribals. &nbsp;
           </li>
         </ol>
         <h3 class="style-401">Ashwini Sutar (Dahanu) &nbsp;</h3>
         <ol class="style-402">
-          <li class="style-403">
-            ारली आदि ासीचे ं ास्त मांारी. Presenting the reality of Warli
-            tribals.&nbsp;
+          <li class="style-403" *ngIf="type == 'english'">
+            Presenting the reality of Warli tribals.&nbsp;
+          </li>
+          <li class="style-403" *ngIf="type == 'marathi'">
+            ारली आदि ासीचे ं ास्त मांारी.&nbsp;
           </li>
         </ol>
         <h3 class="style-401">Sukeshini Naekwade (Beed) &nbsp;</h3>
         <ol class="style-402">
-          <li class="style-403">
-            मराठ ाड्यातील महिलांचा बलंद आ ु ाज A strong voice of women from
-            Marathwada regionी.&nbsp;
+          <li class="style-403" *ngIf="type == 'english'">
+            A strong voice of women from Marathwada regionी.&nbsp;
+          </li>
+          <li class="style-403" *ngIf="type == 'marathi'">
+            मराठ ाड्यातील महिलांचा बलंद आ ु ाज &nbsp;
           </li>
         </ol>
 
         <h3 class="style-401">Sukeshini Naekwade (Beed) &nbsp;</h3>
         <ol class="style-402">
-          <li class="style-403">
-            मराठ ाड्यातील महिलांचा बलंद आ ु ाज A strong voice of women from
-            Marathwada regionी.&nbsp;
+          <li class="style-403" *ngIf="type == 'english'">
+            A strong voice of women from Marathwada regionी.&nbsp;
+          </li>
+          <li class="style-403" *ngIf="type == 'marathi'">
+            मराठ ाड्यातील महिलांचा बलंद आ ु ाज&nbsp;
           </li>
         </ol>
       </div>
@@ -396,7 +408,7 @@
     <div class="style-430">
       <div class="style-431">
         <hr class="style-432" />
-        <h2 class="style-433">Team</h2>
+        <h2 class="style-433">{{ "Team" | translate }}</h2>
       </div>
       <div class="style-434">
         <div class="style-435">
@@ -419,11 +431,11 @@
                   href="../../../../assets/about-baimanus/bhagyshri lekhame.jpg"
                   class="style-441"
                 >
-                  Abhijeet Tangade</a
+                  {{ "Abhijeet Tangade" | translate }}</a
                 >
               </div>
               <div class="style-442">
-                <div class="style-443">Hindi Editor</div>
+                <div class="style-443">{{ "Hindi Editor" | translate }}</div>
               </div>
             </div>
           </div>
@@ -445,11 +457,13 @@
                   href="https://baimanus.in/BaimanusImages/images/Madhuram.jpeg"
                   class="style-449"
                 >
-                  Madhuram</a
+                  {{ "Madhuram" | translate }}</a
                 >
               </div>
               <div class="style-450">
-                <div class="style-451">Editor - Content</div>
+                <div class="style-451">
+                  {{ "Editor - Content" | translate }}
+                </div>
               </div>
             </div>
           </div>
@@ -474,7 +488,7 @@
                   href="https://baimanus.in/BaimanusImages/images/Prashant%20Pawar.jpeg"
                   class="style-457"
                 >
-                  Prashant Pawar</a
+                  {{ "Prashant Pawar" | translate }}</a
                 >
               </div>
               <div class="style-459"></div>
@@ -503,7 +517,7 @@
                   href="https://baimanus.in/BaimanusImages/images/Rekha%20Shelake.jpg"
                   class="style-457"
                 >
-                  Rekha Shelake</a
+                  {{ "Rekha Shelake" | translate }}</a
                 >
               </div>
               <div class="style-459"></div>
@@ -532,11 +546,13 @@
                   href="https://baimanus.in/BaimanusImages/images/Rina%20Mahtole.jpeg"
                   class="style-449"
                 >
-                  Rina Mahtole</a
+                  {{ "Rina Mahtole" | translate }}</a
                 >
               </div>
               <div class="style-450">
-                <div class="style-451">Editor - Content</div>
+                <div class="style-451">
+                  {{ "Editor - Content" | translate }}
+                </div>
               </div>
             </div>
           </div>
@@ -561,11 +577,13 @@
                   href="https://baimanus.in/BaimanusImages/images/Rushikesh%20More.jpeg"
                   class="style-449"
                 >
-                  Rushikesh More</a
+                  {{ "Rushikesh More" | translate }}</a
                 >
               </div>
               <div class="style-450">
-                <div class="style-451">Editor - Content</div>
+                <div class="style-451">
+                  {{ "Editor - Content" | translate }}
+                </div>
               </div>
             </div>
           </div>
@@ -590,11 +608,13 @@
                   href="https://baimanus.in/BaimanusImages/images/Sanjana%20Khandare.jpg"
                   class="style-449"
                 >
-                  Sanjana Khandare</a
+                  {{ "Sanjana Khandare" | translate }}</a
                 >
               </div>
               <div class="style-450">
-                <div class="style-451">Editor - Content</div>
+                <div class="style-451">
+                  {{ "Editor - Content" | translate }}
+                </div>
               </div>
             </div>
           </div>
@@ -619,11 +639,13 @@
                   href="https://baimanus.in/BaimanusImages/images/Sanyam%20Deshmane.jpg"
                   class="style-449"
                 >
-                  Sanyam Deshmane</a
+                  {{ "Sanyam Deshmane" | translate }}</a
                 >
               </div>
               <div class="style-450">
-                <div class="style-451">Editor - Content</div>
+                <div class="style-451">
+                  {{ "Editor - Content" | translate }}
+                </div>
               </div>
             </div>
           </div>
@@ -648,11 +670,13 @@
                   href="https://baimanus.in/BaimanusImages/images/Suraj%20patke.jpeg"
                   class="style-449"
                 >
-                  Suraj patke</a
+                  {{ " Suraj patke" | translate }}</a
                 >
               </div>
               <div class="style-450">
-                <div class="style-451">Editor - Content</div>
+                <div class="style-451">
+                  {{ "Editor - Content" | translate }}
+                </div>
               </div>
             </div>
           </div>
