@@ -279,7 +279,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 37.4px;
+  width: 39.4px;
   height: 17px;
 }
 .p-3nupt {
@@ -336,16 +336,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 53.7px;
+  /* width: 53.7px; */
   height: 18px;
 }
 .months1,
 .months2 {
-  left: calc(50% - 29.4px);
-  width: 59px;
+  left: calc(50% - 33.4px);
+  /* width: 59px; */
 }
 .months2 {
-  left: calc(50% + 96px);
+  left: calc(50% + 87px);
 }
 .svg-icon2 {
   position: absolute;
