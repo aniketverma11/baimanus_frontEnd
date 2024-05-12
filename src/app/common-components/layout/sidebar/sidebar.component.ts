@@ -69,7 +69,6 @@ export class SidebarComponent implements OnInit {
   ngOnInit() {
     if (typeof localStorage !== 'undefined') {
       this.currentLanguage = localStorage.getItem('language');
-      console.log(this.currentLanguage);
     }
     //
     // this.searchSubject
@@ -85,7 +84,6 @@ export class SidebarComponent implements OnInit {
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe(() => {
         const currentUrl = this.router.url;
-        console.log(currentUrl);
         if (currentUrl == '/home/dharitriyes') {
           const getType = 'dharitri';
           this.getAllCategoriesDhartri(getType);
@@ -136,8 +134,8 @@ export class SidebarComponent implements OnInit {
 
   openPaymentModal(): void {
     const dialogRef = this.dialog.open(SignupdialogComponent, {
-      width: '1380px',
-      height: '700px',
+      width: '900px',
+      height: '500px',
     });
 
     dialogRef.afterClosed().subscribe((result) => {});
@@ -147,13 +145,10 @@ export class SidebarComponent implements OnInit {
       this.type = 'english';
     }
 
-    console.log(this.type);
     this.isLoading = true;
     this.unsubscribe.add(
       this.categoryService.getAllCategories(this.type).subscribe(
         (data) => {
-          console.log(data);
-
           this.isLoading = false;
 
           this.categoryList = data.data;
@@ -167,13 +162,10 @@ export class SidebarComponent implements OnInit {
     );
   }
   getAllCategoriesDhartri(type: string) {
-    console.log(type);
     this.isLoading = true;
     this.unsubscribe.add(
       this.categoryService.getAllCategories(type).subscribe(
         (data) => {
-          console.log(data);
-
           this.isLoading = false;
 
           this.categoryList = data.data;
@@ -198,7 +190,6 @@ export class SidebarComponent implements OnInit {
       const loggedInUser = storedUserData ? JSON.parse(storedUserData) : null;
       this.loggedUser = loggedInUser;
       this.user_profile_picture = this.loggedUser.picture;
-      console.log(this.user_profile_picture);
 
       //
     }
@@ -273,15 +264,12 @@ export class SidebarComponent implements OnInit {
     this.checkScreenWidth();
   }
   getHomeContentBySlug(slug: any) {
-    console.log(slug);
-
     this.router.navigate(['home/news-details'], {
       queryParams: { slug: slug },
     });
   }
   onmenuCHange(event: any) {
     const value = event.target.value;
-    console.log(value);
     this.navigateToRefresh2(value);
   }
 
@@ -301,20 +289,14 @@ export class SidebarComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {});
   }
   navigateToRefresh(cat: string, name: string) {
-    console.log(cat);
-
     const data = cat.toLowerCase();
-    console.log(data);
 
     this.router.navigate(['home/category-listing'], {
       queryParams: { category: data, name: name },
     });
   }
   navigateToRefresh2(cat: string) {
-    console.log(cat);
-
     const data = cat.toLowerCase();
-    console.log(data);
 
     this.router.navigate(['home/category-listing'], {
       queryParams: { category: data, name: name },
@@ -325,14 +307,12 @@ export class SidebarComponent implements OnInit {
     this.searchSubject.next(event.target.value);
   }
   search(value: string) {
-    console.log(value);
     this.isLoading = true;
     this.unsubscribe.add(
       this.apiService.serach(value, this.type).subscribe(
         (data) => {
           this.isLoading = false;
           this.searchValue = data.data;
-          console.log(data);
         },
         (error) => {
           this.isLoading = false;

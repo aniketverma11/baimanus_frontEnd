@@ -98,6 +98,10 @@ const routes: Routes = [
     component: CategoryListingComponent,
   },
   {
+    path: 'detail',
+    component: CategoryDetailsComponent,
+  },
+  {
     path: 'dashboard',
     component: ProfileDashboardComponent,
   },

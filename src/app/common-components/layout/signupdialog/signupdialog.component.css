@@ -42,8 +42,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 300px;
-  margin-top: 80px;
+  height: 176px;
+  /* margin-top: 80px; */
 }
 
 button {

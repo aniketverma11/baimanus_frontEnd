@@ -18,18 +18,44 @@
 
         <div class="benefitsContainer">
           <Strong>
-            <h2>{{ "Benefits" | translate }}</h2></Strong
+            <h2
+              [ngClass]="{
+                'dark-mode-yellowHeading': isDarkModeInLocalStorage(),
+                'light-mode-purpleHeading': !isDarkModeInLocalStorage()
+              }"
+            >
+              {{ "Benefits" | translate }}
+            </h2></Strong
           >
           <ul>
-            <li>{{ "Get recommended content" | translate }}</li>
-            <li>{{ "Listen to stories and bookmark articles" | translate }}</li>
+            <li
+              [ngClass]="{
+                'dark-mode-yellowHeading': isDarkModeInLocalStorage(),
+                'light-mode-purpleHeading': !isDarkModeInLocalStorage()
+              }"
+            >
+              {{ "Get recommended content" | translate }}
+            </li>
+            <li
+              [ngClass]="{
+                'dark-mode-yellowHeading': isDarkModeInLocalStorage(),
+                'light-mode-purpleHeading': !isDarkModeInLocalStorage()
+              }"
+            >
+              {{ "Listen to stories and bookmark articles" | translate }}
+            </li>
           </ul>
-          <p>
+          <h5
+            [ngClass]="{
+              'dark-mode-yellowHeading': isDarkModeInLocalStorage(),
+              'light-mode-purpleHeading': !isDarkModeInLocalStorage()
+            }"
+          >
             {{
               "By signing in you agree to our T&C and privacy policy"
                 | translate
             }}
-          </p>
+          </h5>
         </div>
       </mat-tab>
       <!-- <mat-tab label="{{ 'Register' | translate }}">

@@ -59,11 +59,8 @@ export class HomePageVideosComponent {
     this.unsubscribe.add(
       this.apiService.getViideos(this.type).subscribe(
         (res) => {
-          console.log(res);
-
           this.isLoading = false;
           this.VideoObject = res.data;
-          console.log(this.VideoObject);
           // this.VideoTitle = res.data.slice(1).map((item: any) => item);
 
           // this.videoImages = res.data.slice(0).map((item: any) => item.image);
@@ -81,8 +78,6 @@ export class HomePageVideosComponent {
     });
   }
   getFullImagePath(relativePath: string): string {
-    console.log(relativePath);
-
     return `${this.imageBaseURL}${relativePath}`;
   }
   ngOnDestroy(): void {

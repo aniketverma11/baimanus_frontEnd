@@ -8,18 +8,18 @@
       <div class="logos d-flex items-c">
         <div class="XRy60">
           <a class="_2eoA3" aria-label="The  homepage" href="/home">
-            <span class="logoImg" *ngIf="currentLanguage == 'marathi'">
+            <span class="logoImg newImage" *ngIf="currentLanguage == 'marathi'">
               <img
                 class="logoImg"
-                src="../../../../assets/images/BaiManus Logo gray.png"
+                src="../../../../assets/images/Bai Manus - Marathi GrayNew.png"
                 alt=""
                 srcset=""
               />
             </span>
-            <span class="logoImg" *ngIf="currentLanguage == 'english'">
+            <span class="logoImg newImage" *ngIf="currentLanguage == 'english'">
               <img
                 class="logoImg"
-                src="../../../../assets/images/lan-switch.png"
+                src="../../../../assets/images/Bai Manus - English GrayNew.png"
                 alt=""
                 srcset=""
               />
@@ -568,7 +568,14 @@ l-61 56 0 637 c0 351 3 641 7 644 3 4 231 7 505 7 l498 0 0 -519z"
                 <b class="dark-mode">Dark Mode</b>
               </div> -->
               <div class="dark-mode-wrapper">
-                <b class="dark-mode">{{ "Dark Mode" | translate }}</b>
+                <b
+                  [ngClass]="{
+                    'dark-mode-yellow': isDarkModeInLocalStorage(),
+                    'light-mode-purple': !isDarkModeInLocalStorage()
+                  }"
+                  class="dark-mode"
+                  >{{ "Dark Mode" | translate }}</b
+                >
                 <label class="dark-mode-toggle">
                   <input
                     (change)="toggleDarkMode()"
@@ -581,11 +588,20 @@ l-61 56 0 637 c0 351 3 641 7 644 3 4 231 7 505 7 l498 0 0 -519z"
               </div>
             </div>
             <img
+              *ngIf="!isDarkModeInLocalStorage()"
               (click)="close()"
               class="close-icon"
               loading="lazy"
               alt=""
               src="../../../../assets/icons/Close.png"
+            />
+            <img
+              *ngIf="isDarkModeInLocalStorage()"
+              (click)="close()"
+              class="close-icon"
+              loading="lazy"
+              alt=""
+              src="../../../../assets/icons/whiteClose.png"
             />
           </div>
         </header>
@@ -597,7 +613,7 @@ l-61 56 0 637 c0 351 3 641 7 644 3 4 231 7 505 7 l498 0 0 -519z"
             >
               <span
                 class="logoImg logoImgNew"
-                *ngIf="currentLanguage == 'marathi'"
+                *ngIf="currentLanguage == 'english'"
               >
                 <img
                   class="logoImg logoImgNew"
@@ -608,7 +624,7 @@ l-61 56 0 637 c0 351 3 641 7 644 3 4 231 7 505 7 l498 0 0 -519z"
               </span>
               <span
                 class="logoImg logoImgNew"
-                *ngIf="currentLanguage == 'english'"
+                *ngIf="currentLanguage == 'marathi'"
               >
                 <img
                   class="logoImg logoImgNew"
@@ -633,7 +649,13 @@ l-61 56 0 637 c0 351 3 641 7 644 3 4 231 7 505 7 l498 0 0 -519z"
           <!-- <div class="_1what dharitri"></div> -->
         </div>
       </section>
-      <div class="search-wrapper Mwrs6">
+      <div
+        class="search-wrapper Mwrs6"
+        [ngClass]="{
+          seatchDark: isDarkModeInLocalStorage(),
+          serachWhite: !isDarkModeInLocalStorage()
+        }"
+      >
         <form role="search" action="/search" class="_1KYhV">
           <div class="QY5hf" style="display: block">
             <label for="searchForm">
@@ -716,6 +738,10 @@ l-61 56 0 637 c0 351 3 641 7 644 3 4 231 7 505 7 l498 0 0 -519z"
             <div class="text-parent">
               <div class="text" data-scroll-to="text"></div>
               <h3
+                [ngClass]="{
+                  'dark-mode-yellow': isDarkModeInLocalStorage(),
+                  'light-mode-purple': !isDarkModeInLocalStorage()
+                }"
                 class="become-a-member1"
                 id="becomeAMember1"
                 (click)="navigateToPlan()"
@@ -759,7 +785,54 @@ l-61 56 0 637 c0 351 3 641 7 644 3 4 231 7 505 7 l498 0 0 -519z"
     <div class="container">
       <div class="mheader-hamburger">
         <button class="showSideBarButton btnToggle" (click)="showSidebar()">
-          <img src="../../../../assets/icons/Menu.png" alt="" />
+          <!-- <img src="../../../../assets/icons/Menu.png" alt="" /> -->
+          <svg
+            [ngClass]="{
+              'dark-mode-Side': isDarkModeInLocalStorage(),
+              'light-mode-Side': !isDarkModeInLocalStorage()
+            }"
+            xmlns="http://www.w3.org/2000/svg"
+            width="26"
+            height="26"
+            viewBox="0 0 36 36"
+          >
+            <g
+              transform="translate(1.75 1.75)"
+              [ngClass]="{
+                'dark-mode-Side': isDarkModeInLocalStorage(),
+                'light-mode-Side': !isDarkModeInLocalStorage()
+              }"
+            >
+              <path
+                [ngClass]="{
+                  'dark-mode-Side': isDarkModeInLocalStorage(),
+                  'light-mode-Side': !isDarkModeInLocalStorage()
+                }"
+                d="M0 0h28"
+                stroke-linecap="round"
+                stroke-width="3.5px"
+              ></path>
+              <path
+                d="M0 0h28"
+                [ngClass]="{
+                  'dark-mode-Side': isDarkModeInLocalStorage(),
+                  'light-mode-Side': !isDarkModeInLocalStorage()
+                }"
+                stroke-linecap="round"
+                stroke-width="3.5px"
+                transform="translate(0 10.984)"
+              ></path>
+              <path
+                [ngClass]="{
+                  'dark-mode-Side': isDarkModeInLocalStorage(),
+                  'light-mode-Side': !isDarkModeInLocalStorage()
+                }"
+                stroke-linecap="round"
+                stroke-width="3.5px"
+                transform="translate(-5.897 22)"
+              ></path>
+            </g>
+          </svg>
         </button>
       </div>
       <ul
@@ -822,11 +895,11 @@ l-61 56 0 637 c0 351 3 641 7 644 3 4 231 7 505 7 l498 0 0 -519z"
           >
             <option value="">More</option>
             <option
-              *ngFor="let category of categoryList.slice(6)"
+              *ngFor="let category of categoryList?.slice(6)"
               [value]="category.slug"
               [ngValue]="{ name: category.name, slug: category.slug }"
             >
-              {{ category.name }}
+              {{ category?.name }}
             </option>
           </select>
         </div>

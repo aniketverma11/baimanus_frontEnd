@@ -174,7 +174,7 @@ h1 {
 /* more news  */
 
 .more-news {
-  background-color: #fff;
+  /* background-color: #fff; */
   padding: 20px;
   border-radius: 4px;
 }
@@ -250,7 +250,7 @@ h1 {
   margin-bottom: 10px;
 }
 .Menus {
-  background-color: white;
+  background-color: transparent;
   border: none;
   /* color: #35144f; */
 }
@@ -557,7 +557,7 @@ h1 {
   font-family: "proxima-nova";
   font-size: 18px;
   font-weight: 600;
-  color: #35144f;
+  /* color: #35144f; */
   padding-bottom: 1rem;
 }
 @media (min-width: 768px) {

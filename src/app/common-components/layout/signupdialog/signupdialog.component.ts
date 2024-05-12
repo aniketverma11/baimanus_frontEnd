@@ -95,4 +95,12 @@ export class SignupdialogComponent implements OnInit, AfterViewInit {
   closeDialog(): void {
     this.dialogRef.close();
   }
+  isDarkModeInLocalStorage(): boolean {
+    if (typeof localStorage !== 'undefined') {
+      const isDark = localStorage.getItem('darkMode');
+      return isDark === 'true';
+    } else {
+      return false;
+    }
+  }
 }

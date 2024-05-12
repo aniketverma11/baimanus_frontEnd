@@ -79,14 +79,10 @@ export class NewsDetailsComponent implements AfterViewInit {
     }
 
     this.route.queryParams.subscribe((params) => {
-      console.log(params);
-
       this.slug = params['slug'];
-      console.log(this.slug);
 
       this.categorySlug = params['category'];
       this.categoryName = params['categoryName'];
-      console.log(this.category);
 
       if (this.slug) {
         this.getHomeContentBySlug(this.slug);
@@ -122,8 +118,6 @@ export class NewsDetailsComponent implements AfterViewInit {
           })
         )
         .subscribe((data) => {
-          console.log(data);
-
           this.isLoading = false;
           if (data.data.is_for_members === false) {
             this.content = this.sanitizer.bypassSecurityTrustHtml(
@@ -133,7 +127,6 @@ export class NewsDetailsComponent implements AfterViewInit {
               this.newsDetails = data.data;
               this.images = this.imageBaseURL;
               this.trendingNews = data.data.treanding_news;
-              console.log(this.trendingNews);
 
               this.readMoreItemsDetail = data.data.read_more
                 .slice(0, 4)
@@ -193,8 +186,6 @@ export class NewsDetailsComponent implements AfterViewInit {
     this.unsubscribe.add(
       this.apiService.getHomeContent(type).subscribe(
         (data) => {
-          console.log(data);
-
           this.homeInfo = data.data;
           this.belowContent = data.data;
           this.homeContent = data?.data[0];
@@ -287,15 +278,11 @@ export class NewsDetailsComponent implements AfterViewInit {
   }
 
   NavigateWithSlug(slug: any) {
-    console.log(slug);
-
     this.router.navigate(['home/news-details'], {
       queryParams: { slug: slug },
     });
   }
   getHomeContentBySlugRouter(slug: any, category: any) {
-    console.log(category);
-
     this.router.navigate(['home/news-details'], {
       queryParams: { slug: slug, category: category },
     });
@@ -342,8 +329,6 @@ export class NewsDetailsComponent implements AfterViewInit {
     }
   }
   navigateToCategory(cat: any) {
-    console.log(cat);
-
     const data = cat.toLowerCase();
 
     this.router.navigate(['home/category-listing'], {

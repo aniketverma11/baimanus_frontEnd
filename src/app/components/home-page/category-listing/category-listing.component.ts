@@ -49,12 +49,8 @@ export class CategoryListingComponent {
     }
 
     this.route.queryParams.subscribe((params) => {
-      console.log(params);
-
       this.slug = params['category'];
-      console.log(this.slug);
       this.categoryName = params['name'];
-      console.log('name===================');
 
       this.categorySlug = params['category'];
 
@@ -79,8 +75,6 @@ export class CategoryListingComponent {
   }
 
   getHomeContentBySlug(slug: any, category: any, categoryName: string) {
-    console.log(category);
-
     this.router.navigate(['home/news-details'], {
       queryParams: {
         slug: slug,
@@ -94,12 +88,9 @@ export class CategoryListingComponent {
     this.unsubscribe.add(
       this.apiService.categoryarticles(category, this.type).subscribe(
         (data) => {
-          console.log(data);
-
           this.isLoading = false;
 
           this.categoryList = data.data;
-          console.log(this.categoryList);
 
           this.categoryListPosts = this.categoryList.map(
             (item: any) => item.posts

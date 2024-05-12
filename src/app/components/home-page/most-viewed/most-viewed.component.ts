@@ -51,13 +51,10 @@ export class MostViewedComponent {
   }
   getMostViewdData() {
     this.isLoading = true;
-    console.log(this.content_type);
 
     this.unsubscribe.add(
       this.apiService.getMostViewd(this.type, this.content_type).subscribe(
         (data) => {
-          console.log(data);
-
           this.content = data.data;
         },
         (error) => {

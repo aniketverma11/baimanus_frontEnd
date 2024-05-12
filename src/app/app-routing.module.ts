@@ -11,6 +11,11 @@ const routes: Routes = [
         (m) => m.HomePageModule
       ),
   },
+  {
+    path: 'utils',
+    loadChildren: () =>
+      import('./components/utilis/utilis.module').then((m) => m.UtilisModule),
+  },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
 
