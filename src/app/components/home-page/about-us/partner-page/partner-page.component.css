@@ -10711,7 +10711,6 @@
     font-size: 16px;
     margin-bottom: 10px;
   }
-  
 }
 @media only screen and (max-width: 768px) {
   .style-332,
@@ -10736,8 +10735,8 @@
     width: 150px;
     height: 150px;
   }
-    .partnerImage {
-      max-width: 100% !important;
+  .partnerImage {
+    max-width: 100% !important;
     height: 100% !important;
   }
 }
@@ -10758,6 +10757,29 @@
   }
 }
 .partnerImage {
-  max-width: 700px;
+  max-width: 200px;
   height: 100%;
+}
+.container2 {
+  display: flex;
+  flex-direction: row; /* Arranges the divs horizontally */
+  flex-wrap: wrap; /* Allows the divs to wrap to the next line on smaller screens */
+}
+
+.left, .right {
+  width: 50%; /* Each div takes half of the container's width */
+}
+
+@media screen and (max-width: 600px) {
+  .container2 {
+    flex-direction: column; /* Switch to a vertical layout on small screens */
+  }
+
+  .left, .right {
+    width: 100%; /* Each div takes the full width on small screens */
+  }
+
+  .right {
+    order: -1; /* Moves the right div below the left div in the source order */
+  }
 }

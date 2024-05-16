@@ -330,7 +330,45 @@
       <!--  -->
       <div class="style-399">
         <div class="style-399">
-          <h3 class="style-401">Ankushrao Kadam &nbsp;</h3>
+          <h3
+            *ngIf="type == 'english'"
+            class="style-401"
+            [ngClass]="{
+              'dark-mode-yellow': isDarkModeInLocalStorage(),
+              'light-mode-purple': !isDarkModeInLocalStorage()
+            }"
+          >
+            Ankushrao Kadam &nbsp;
+          </h3>
+          <h3
+            *ngIf="type == 'marathi'"
+            class="style-401"
+            [ngClass]="{
+              'dark-mode-yellow': isDarkModeInLocalStorage(),
+              'light-mode-purple': !isDarkModeInLocalStorage()
+            }"
+          >
+            श्री अंकुशराव कदम &nbsp;
+          </h3>
+          <h3
+            *ngIf="type == 'english'"
+            [ngClass]="{
+              'dark-mode-yellow': isDarkModeInLocalStorage(),
+              'light-mode-purple': !isDarkModeInLocalStorage()
+            }"
+          >
+            Director, BaiManus &nbsp;
+          </h3>
+          <h3
+            *ngIf="type == 'marathi'"
+            [ngClass]="{
+              'dark-mode-yellow': isDarkModeInLocalStorage(),
+              'light-mode-purple': !isDarkModeInLocalStorage()
+            }"
+          >
+            संचालक, बाईमाणूस &nbsp;
+          </h3>
+
           <div class="style-434">
             <div class="style-435">
               <div class="style-436">
@@ -355,32 +393,56 @@
           <ul class="style-402">
             <li class="style-403">
               <p class="style-347" *ngIf="type == 'english'">
-                BaiManus and Asar's Gender and Climate Programme has
-                collaborated and launched Project Dharitri to democratise
-                reporting on climate change and focus on the gendered aspects of
-                the issue. The Project Dharitri aims to work on building
-                awareness and understanding the intersection of gender and
-                climate. We hope to democratise climate change reporting through
-                this project as currently a lot of it is in the English
-                language, that too, at National and International level. We
-                believe that this project will help us take the discourse to a
-                local audience in Marathi and speak about how climate change
-                impacts the everyday lives of ordinary people.
+                During the freedom struggle, Mahatma Gandhi took women, tribals
+                and rural Indians along with him. There was a broader thought
+                behind this. His decision not only broadened the freedom
+                movement but also helped in bringing these marginalized sections
+                of the society into the mainstream. This inclusive vision of
+                Gandhi, who laid the foundation of Indian democracy, also gave
+                strength to the creation of an egalitarian constitution. But
+                today such weak elements are seen to be neglected by society and
+                the government. The reason behind it is that the mainstream
+                media does not emphasize the questions of these classes. Just as
+                one cannot become a champion with half of the body disabled, no
+                society can be complete and prosperous by ignoring sections like
+                tribals, dalits, women and LGBTQ. But due to the selfishness of
+                the media, this reality is being ignored. As an alternative to
+                these media, the web portal 'BaiManus' was born and it is our
+                effort to make this portal a platform of rights for the
+                marginalized sections of the society. One of the objectives of
+                this initiative is to present the problems of these constituents
+                before the society and the government and empower them to
+                present their problems themselves. This is why women, tribals
+                and rural youth are written and their articles are given
+                priority here. Because this is the only way to create
+                journalists who present truth without surrendering to the system
+                and the fourth pillar of democracy will be strengthened. We too
+                should read, share and join the effort on 'BaiManus.
               </p>
               <p class="style-347" *ngIf="type == 'marathi'">
-                BaiManus आणि Asar यांच्या संयुक्त विद्यमानाने क्लायमेट चेंज अँड
-                जेंडर या विषयांतर्गत हवामान बदलाचे लिंगनिहाय परिणाम, त्यावरील
-                समस्या आणि समस्यांचे निराकरण यासंदर्भातील पत्रकारितेला
-                तळागाळातील महिलांच्या माध्यमातून पुढे आणण्यासाठी
-                प्रोजेक्टधरित्री हा प्रकल्प सुरू केला आहे. धरित्री प्रकल्पाचे
-                उद्दिष्ट जागरुकता निर्माण करणे आणि लिंग आणि हवामानाचा छेदनबिंदू
-                समजून घेणे हे आहे. या प्रकल्पाच्या माध्यमातून आम्हाला आशा आहे की
-                हवामान बदल आणि त्याचे लिंगनिहाय परिणाम याविषयाशी संबंधित
-                पत्रकारितेचे लोकशाहीकरण होईल, कारण सध्या त्याचा बराचसा भाग
-                इंग्रजी भाषेमध्ये आहे, तोही राष्ट्रीय आणि आंतरराष्ट्रीय पातळीवर.
-                आम्हाला विश्वास आहे की हा प्रकल्प आम्हाला महाराष्ट्राच्या
-                तळागाळातील लोकांपर्यंत हवामान बदलाचा लिंगनिहाय परिणाम सामान्य
-                लोकांच्या दैनंदिन जीवनावर कसा होतो हे सांगण्यास मदत करेल.
+                महात्मा गांधींनी स्वातंत्र्य लढ्यात महिला, आदिवासी आणि ग्रामीण
+                भारतीयांनाही सोबत घेतले. यामागे एक व्यापक विचार होता. त्यांच्या
+                या निर्णयामुळे केवळ स्वातंत्र्य चळवळच अधिक व्यापक झाली नाही तर
+                समाजातील या उपेक्षित घटकांना मुख्य प्रवाहात आणण्यातही मदत झाली.
+                भारतीय लोकशाहीचा पाया रचणाऱ्या गांधींच्या याच सर्वसमावेशक
+                दृष्टीकोनाने पुढे समताधिष्ठित संविधानाच्या निर्मितीसही बळ दिले.
+                परंतु आज अशा दुर्बल घटकांकडे समाज आणि शासनाचेही सर्रास दुर्लक्ष
+                होताना दिसते. याचे कारण मुख्य प्रवाहातील माध्यमे या वर्गांचे
+                प्रश्न मांडत नाहीत. ज्याप्रमाणे एखाद्याचे अर्धे शरीर अपंग असताना
+                तो पहिलवान बनू शकत नाही त्याचप्रमाणे आदिवासी, दलित, महिला आणि
+                एलजीबीटीक्यू सारख्या वर्गांची उपेक्षा करून कोणताही समाज संपन्न
+                आणि समृद्ध होऊ शकत नाही. मात्र स्वतःच्या स्वार्थापायी आजची
+                माध्यमे या वास्तवाकडे दुर्लक्ष करीत आहेत. या माध्यमांना पर्याय
+                म्हणून ‘बाईमाणूस’ या वेबपोर्टलचा जन्म झाला असून समाजातील
+                दुर्लक्षित घटकांसाठी हे पोर्टल म्हणजे एक हक्काचे व्यासपीठ
+                व्हावे, हा आमचा प्रयत्न आहे. समाज आणि शासनासमोर या घटकांच्या
+                समस्या मांडण्याबरोबरच त्यांना आपल्या समस्या स्वतः मांडण्यास
+                सक्षम बनवणे, हे देखील या उपक्रमाचे एक उद्दिष्ट आहे. यासाठीच
+                महिला, आदिवासी व ग्रामीण तरुण-तरुणींना लिहिते करून त्यांच्या
+                लेखांना येथे प्राधान्य देण्यात येते. कारण यातूनच व्यवस्थेला शरण
+                न जाता निर्भीड आणि निष्पक्षपणे सत्य मांडणारे पत्रकार घडू शकतील
+                आणि लोकशाहीचा चौथा स्तंभ मजबूत होईल. आपणही ‘बाईमाणूस’ वरील लेख
+                वाचावेत, शेअर करावेत आणि या प्रयत्नात सामील व्हावे.
               </p>
             </li>
           </ul>
@@ -388,7 +450,32 @@
           <!--  -->
         </div>
         <div class="style-399">
-          <h3 class="style-401">Dr. Rekha Shelke Director &nbsp;</h3>
+          <h3 class="style-401" *ngIf="type == 'english'">
+            Dr. Rekha Shelke &nbsp;
+          </h3>
+          <h3 class="style-401" *ngIf="type == 'marathi'">
+            डॉ. रेखा शेळके.&nbsp;
+          </h3>
+
+          <h3
+            *ngIf="type == 'english'"
+            [ngClass]="{
+              'dark-mode-yellow': isDarkModeInLocalStorage(),
+              'light-mode-purple': !isDarkModeInLocalStorage()
+            }"
+          >
+            Director, BaiManus &nbsp;
+          </h3>
+          <h3
+            *ngIf="type == 'marathi'"
+            [ngClass]="{
+              'dark-mode-yellow': isDarkModeInLocalStorage(),
+              'light-mode-purple': !isDarkModeInLocalStorage()
+            }"
+          >
+            संचालक, बाईमाणूस &nbsp;
+          </h3>
+
           <div class="style-434">
             <div class="style-435">
               <div class="style-436">
@@ -446,7 +533,7 @@
                 लोकांना जागरुक करणारा पत्रकार घडावा, असा एमजीएम जनसंवाद आणि
                 वृत्तपत्र महाविद्यालयाचा नेहमीच प्रयत्न असतो. 'बाईमाणूस' हा
                 उपक्रमही याच प्रयत्नाचा एक भाग आहे. यात आपण सर्वांचे मन:पूर्वक
-                स्वागत.... Shri Ankushrao Kadam
+                स्वागत....
               </p>
             </li>
           </ul>
@@ -454,6 +541,7 @@
           <!--  -->
         </div>
         <h3
+          *ngIf="type == 'english'"
           class="style-401"
           [ngClass]="{
             'dark-mode-yellow': isDarkModeInLocalStorage(),
@@ -461,6 +549,35 @@
           }"
         >
           Prashant Pawar Director & Editor, BaiManus &nbsp;
+        </h3>
+        <h3
+          *ngIf="type == 'marathi'"
+          class="style-401"
+          [ngClass]="{
+            'dark-mode-yellow': isDarkModeInLocalStorage(),
+            'light-mode-purple': !isDarkModeInLocalStorage()
+          }"
+        >
+          प्रशांत पवार&nbsp;
+        </h3>
+
+        <h3
+          *ngIf="type == 'english'"
+          [ngClass]="{
+            'dark-mode-yellow': isDarkModeInLocalStorage(),
+            'light-mode-purple': !isDarkModeInLocalStorage()
+          }"
+        >
+          Director & Editor, BaiManus &nbsp;
+        </h3>
+        <h3
+          *ngIf="type == 'marathi'"
+          [ngClass]="{
+            'dark-mode-yellow': isDarkModeInLocalStorage(),
+            'light-mode-purple': !isDarkModeInLocalStorage()
+          }"
+        >
+          संचालक आणि संपादक, बाईमाणूस&nbsp;
         </h3>
         <div class="style-434">
           <div class="style-435">
@@ -1135,202 +1252,12 @@
   </div>
 
   <!-- our partber -->
-
-  <div class="style-393"></div>
-  <div class="style-394">
-    <div class="style-395">
-      <div class="style-396">
-        <hr
-          [ngClass]="{
-            'dark-mode-yellowLine': isDarkModeInLocalStorage(),
-            'light-mode-purpleLine': !isDarkModeInLocalStorage()
-          }"
-          class="style-397"
-        />
-        <h2
-          class="style-398"
-          [ngClass]="{
-            'dark-mode-yellow': isDarkModeInLocalStorage(),
-            'light-mode-purple': !isDarkModeInLocalStorage()
-          }"
-        >
-          {{ "Our Partners" | translate }}
-        </h2>
-      </div>
-      <div class="style-399">
-        <h3
-          class="style-401"
-          [ngClass]="{
-            'dark-mode-yellow': isDarkModeInLocalStorage(),
-            'light-mode-purple': !isDarkModeInLocalStorage()
-          }"
-        >
-          Asar Social Impact Advisor (Project Partner)&nbsp;
-        </h3>
-        <div class="style-434">
-          <div class="style-435">
-            <div class="style-436">
-              <a
-                href="https://baimanus.in/BaimanusImages/images/Rekha%20Shelake.jpg"
-                class="style-453"
-              >
-                <img
-                  decoding="async"
-                  width="497"
-                  height="497"
-                  src="../../../../assets/partner/image1.png"
-                  class="partnerImage"
-                  alt="Debojit Dutta-profile"
-                  sizes="(max-width: 497px) 100vw, 497px"
-                  data-uw-rm-alt-original="Debojit Dutta-profile"
-              /></a>
-            </div>
-          </div>
-        </div>
-
-        <a
-          class="partner_nabigation"
-          href=" https://www.asar.co.in/ "
-          [ngClass]="{
-            'dark-mode-yellow': isDarkModeInLocalStorage(),
-            'light-mode-purple': !isDarkModeInLocalStorage()
-          }"
-        >
-          https://www.asar.co.in/ &nbsp;
-        </a>
-        <!--  -->
-        <div class="style-393"></div>
-        <h3
-          class="style-401"
-          [ngClass]="{
-            'dark-mode-yellow': isDarkModeInLocalStorage(),
-            'light-mode-purple': !isDarkModeInLocalStorage()
-          }"
-        >
-          MGM University (Supporting Partner)&nbsp;
-        </h3>
-        <div class="style-434">
-          <div class="style-435">
-            <div class="style-436">
-              <a class="style-453">
-                <img
-                  decoding="async"
-                  width="497"
-                  height="497"
-                  src="../../../../assets/partner/image2.png"
-                  class="partnerImage"
-                  alt="Debojit Dutta-profile"
-                  sizes="(max-width: 497px) 100vw, 497px"
-                  data-uw-rm-alt-original="Debojit Dutta-profile"
-              /></a>
-            </div>
-          </div>
-        </div>
-
-        <a
-          class="partner_nabigation"
-          href=" https://www.asar.co.in/ "
-          [ngClass]="{
-            'dark-mode-yellow': isDarkModeInLocalStorage(),
-            'light-mode-purple': !isDarkModeInLocalStorage()
-          }"
-        >
-          https://mgmu.ac.in/&nbsp;
-        </a>
-
-        <div class="style-393"></div>
-        <h3
-          class="style-401"
-          [ngClass]="{
-            'dark-mode-yellow': isDarkModeInLocalStorage(),
-            'light-mode-purple': !isDarkModeInLocalStorage()
-          }"
-        >
-          MGM College of Journalism & Mass Communication (Knowledge
-          Partner)&nbsp;
-        </h3>
-        <div class="style-434">
-          <div class="style-435">
-            <div class="style-436">
-              <a class="style-453">
-                <img
-                  decoding="async"
-                  width="497"
-                  height="497"
-                  src="../../../../assets/partner/image3.png"
-                  class="partnerImage"
-                  alt="Debojit Dutta-profile"
-                  sizes="(max-width: 497px) 100vw, 497px"
-                  data-uw-rm-alt-original="Debojit Dutta-profile"
-              /></a>
-            </div>
-          </div>
-        </div>
-
-        <a
-          class="partner_nabigation"
-          href=" https://www.mgmjournalism.org/ "
-          [ngClass]="{
-            'dark-mode-yellow': isDarkModeInLocalStorage(),
-            'light-mode-purple': !isDarkModeInLocalStorage()
-          }"
-        >
-          https://www.mgmjournalism.org/&nbsp;
-        </a>
-        <!--  -->
-
-        <div class="style-393"></div>
-        <h3
-          class="style-401"
-          [ngClass]="{
-            'dark-mode-yellow': isDarkModeInLocalStorage(),
-            'light-mode-purple': !isDarkModeInLocalStorage()
-          }"
-        >
-          Manish Pharma (Project Partner) &nbsp;
-        </h3>
-        <div class="style-434">
-          <div class="style-435">
-            <div class="style-436">
-              <a class="style-453">
-                <img
-                  decoding="async"
-                  width="497"
-                  height="497"
-                  src="../../../../assets/partner/image4.png"
-                  class="partnerImage"
-                  alt="Debojit Dutta-profile"
-                  sizes="(max-width: 497px) 100vw, 497px"
-                  data-uw-rm-alt-original="Debojit Dutta-profile"
-              /></a>
-            </div>
-          </div>
-        </div>
-
-        <a
-          class="partner_nabigation"
-          href="https://www.maneeshpharma.com/ "
-          [ngClass]="{
-            'dark-mode-yellow': isDarkModeInLocalStorage(),
-            'light-mode-purple': !isDarkModeInLocalStorage()
-          }"
-        >
-          https://www.maneeshpharma.com/ &nbsp;
-        </a>
-      </div>
-    </div>
-  </div>
+  <app-partner-page></app-partner-page>
 
   <!-- our partner end  -->
   <div class="style-652"></div>
 
   <div class="style-684"></div>
-
-  <div class="style-727"></div>
-
-  <div class="style-752"></div>
-
-  <div class="style-763"></div>
 </section>
 <!-- </html> -->
 <!-- <app-partner-page></app-partner-page> -->
