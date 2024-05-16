@@ -673,7 +673,7 @@
           {{ "Our Reporters" | translate }}
         </h2>
       </div>
-      <div class="style-399">
+      <div class="style-399" *ngIf="type == 'english'">
         <h3
           class="style-401"
           [ngClass]="{
@@ -953,6 +953,169 @@
             }"
           >
             मराठ ाड्यातील महिलांचा बलंद आ ु ाज&nbsp;
+          </li>
+        </ol>
+      </div>
+      <div class="style-399" *ngIf="type == 'marathi'">
+        <h3
+          class="style-401"
+          [ngClass]="{
+            'dark-mode-yellow': isDarkModeInLocalStorage(),
+            'light-mode-purple': !isDarkModeInLocalStorage()
+          }"
+        >
+          भाग्यश्री लेखमी (गडचिरोली) &nbsp;
+        </h3>
+        <ol class="style-402">
+          <li
+            class="style-403"
+            [ngClass]="{
+              'dark-mode-yellow': isDarkModeInLocalStorage(),
+              'light-mode-purple': !isDarkModeInLocalStorage()
+            }"
+          >
+            नक्षलग्रस्त भागातील तडफदार तरूण महिला सरपंच..&nbsp;
+          </li>
+        </ol>
+        <h3
+          class="style-401"
+          [ngClass]="{
+            'dark-mode-yellow': isDarkModeInLocalStorage(),
+            'light-mode-purple': !isDarkModeInLocalStorage()
+          }"
+        >
+          अप्सरा आगा (पुणे) &nbsp;
+        </h3>
+        <ol class="style-402">
+          <li
+            class="style-403"
+            [ngClass]="{
+              'dark-mode-yellow': isDarkModeInLocalStorage(),
+              'light-mode-purple': !isDarkModeInLocalStorage()
+            }"
+          >
+            बेठबिगारी, कचरा वेचक आणि सफाई कामगार महिलांच्या समता, समानता आणि
+            न्यायासाठी झटणारा आवाज
+          </li>
+        </ol>
+        <h3
+          class="style-401"
+          [ngClass]="{
+            'dark-mode-yellow': isDarkModeInLocalStorage(),
+            'light-mode-purple': !isDarkModeInLocalStorage()
+          }"
+        >
+          सुमित्रा वसावे (नंदुरबार) &nbsp;
+        </h3>
+        <ol
+          class="style-402"
+          [ngClass]="{
+            'dark-mode-yellow': isDarkModeInLocalStorage(),
+            'light-mode-purple': !isDarkModeInLocalStorage()
+          }"
+        >
+          <li
+            class="style-403"
+            *ngIf="type == 'marathi'"
+            [ngClass]="{
+              'dark-mode-yellow': isDarkModeInLocalStorage(),
+              'light-mode-purple': !isDarkModeInLocalStorage()
+            }"
+          >
+            अंधश्रद्धा आणि लिंगभेदा विरुद्ध लढणारी सशक्त आदिवासी नारी&nbsp;
+          </li>
+        </ol>
+        <h3
+          class="style-401"
+          [ngClass]="{
+            'dark-mode-yellow': isDarkModeInLocalStorage(),
+            'light-mode-purple': !isDarkModeInLocalStorage()
+          }"
+        >
+          वर्षा कोडापे (चंद्रपूर) &nbsp;
+        </h3>
+        <ol class="style-402">
+          <li
+            class="style-403"
+            [ngClass]="{
+              'dark-mode-yellow': isDarkModeInLocalStorage(),
+              'light-mode-purple': !isDarkModeInLocalStorage()
+            }"
+          >
+            फिनिक्सप्रमाणे राखेतून झेप घेऊ पाहणारी&nbsp;
+          </li>
+        </ol>
+        <h3
+          class="style-401"
+          [ngClass]="{
+            'dark-mode-yellow': isDarkModeInLocalStorage(),
+            'light-mode-purple': !isDarkModeInLocalStorage()
+          }"
+        >
+          सुकेशिनी नाईकवाडे (बीड) &nbsp;
+        </h3>
+        <ol class="style-402">
+          <li
+            class="style-403"
+            [ngClass]="{
+              'dark-mode-yellow': isDarkModeInLocalStorage(),
+              'light-mode-purple': !isDarkModeInLocalStorage()
+            }"
+          >
+            मराठवाड्यातील महिलांचा बुलंद आवाज&nbsp;
+          </li>
+        </ol>
+
+        <!--  -->
+        <h3
+          class="style-401"
+          [ngClass]="{
+            'dark-mode-yellow': isDarkModeInLocalStorage(),
+            'light-mode-purple': !isDarkModeInLocalStorage()
+          }"
+        >
+          शमिभा पाटील (जळगाव) &nbsp;
+        </h3>
+        <ol class="style-402">
+          <li
+            class="style-403"
+            [ngClass]="{
+              'dark-mode-yellow': isDarkModeInLocalStorage(),
+              'light-mode-purple': !isDarkModeInLocalStorage()
+            }"
+          >
+            तृतीयपंथीयांसाठी लढणारा आश्वासक आवाज&nbsp;
+          </li>
+        </ol>
+        <h3
+          class="style-401"
+          [ngClass]="{
+            'dark-mode-yellow': isDarkModeInLocalStorage(),
+            'light-mode-purple': !isDarkModeInLocalStorage()
+          }"
+        >
+          पूनाम चौरे (डहाणू) &nbsp;
+        </h3>
+        <ol class="style-402">
+          <li
+            class="style-403"
+            *ngIf="type == 'marathi'"
+            [ngClass]="{
+              'dark-mode-yellow': isDarkModeInLocalStorage(),
+              'light-mode-purple': !isDarkModeInLocalStorage()
+            }"
+          >
+            ारली आदि ासीचे ं ास्त &nbsp;
+          </li>
+          <li
+            class="style-403"
+            *ngIf="type == 'english'"
+            [ngClass]="{
+              'dark-mode-yellow': isDarkModeInLocalStorage(),
+              'light-mode-purple': !isDarkModeInLocalStorage()
+            }"
+          >
+            वारली आदिवासींचे वास्तव मांडणारी.&nbsp;
           </li>
         </ol>
       </div>
