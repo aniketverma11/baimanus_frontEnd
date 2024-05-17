@@ -10711,7 +10711,6 @@
     font-size: 16px;
     margin-bottom: 10px;
   }
-  
 }
 @media only screen and (max-width: 768px) {
   .style-332,
@@ -10736,8 +10735,8 @@
     width: 150px;
     height: 150px;
   }
-    .partnerImage {
-      max-width: 100% !important;
+  .partnerImage {
+    max-width: 100% !important;
     height: 100% !important;
   }
 }
@@ -10760,4 +10759,7 @@
 .partnerImage {
   max-width: 700px;
   height: 100%;
+}
+.styled-text {
+  text-align: justify;
 }

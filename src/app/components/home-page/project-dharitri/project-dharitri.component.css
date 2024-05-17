@@ -624,3 +624,6 @@ a {
     font-size: 16px;
   }
 }
+.styled-text {
+  text-align: justify;
+}

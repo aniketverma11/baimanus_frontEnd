@@ -102,7 +102,7 @@
         </div>
         <div class="style-336">
           <h3 class="style-337">{{ "Why BaiManus" | translate }}</h3>
-          <p class="style-338" *ngIf="type == 'english'">
+          <p class="style-338 styled-text" *ngIf="type == 'english'">
             It is a fact that in developing states like Maharashtra, media still
             hasn&#39;t reached out to millions of citizens, mainly those living
             in remote and rural areas. Dalits, tribals, nomads and lakhs of
@@ -120,7 +120,7 @@
             Journalism and Mass Communication have launched BaiManus an
             ambitious and innovative digital media platform.
           </p>
-          <p class="style-338" *ngIf="type == 'marathi'">
+          <p class="style-338 styled-text" *ngIf="type == 'marathi'">
             महाराष्ट्रासारख्या विकसनशील राज्यात खास करून दुर्गम आणि ग्रामीण
             भागात राहणाऱ्या लाखो नागरिकांपर्यंत अजूनही माध्यमे पोहोचली नाहीत हे
             वास्तव आहे. विशेषतः दलित, आदिवासी, भटके विमुक्त आणि ग्रामीण भागातील
@@ -138,8 +138,8 @@
             डिजिटल मीडिया हाऊसची निर्मित केली.
           </p>
 
-          <h3 class="style-341">{{ "Mission" | translate }}</h3>
-          <p class="style-342" *ngIf="type == 'english'">
+          <!-- <h3 class="style-341">{{ "Mission" | translate }}</h3> -->
+          <p class="style-342 styled-text" *ngIf="type == 'english'">
             It is an attempt to perform independent journalism without any
             ideological, economic or political yoke. The aim of the website 
             baimanus.in  is to perform journalism that is honest to our soil and
@@ -152,7 +152,7 @@
             &#39;Baimanus&#39; aims at giving a view of how to look at all this,
             what to grasp from it and what not.
           </p>
-          <p class="style-342" *ngIf="type == 'marathi'">
+          <p class="style-342 styled-text" *ngIf="type == 'marathi'">
             कोणतेही वैचारिक, आर्थिक, राजकीय जोखड नसलेल्या स्वतंत्र पत्रकारितेचा
             हा एक प्रयत्न आहे.  baimanus.in  या वेबसाईटचा उद्देश आपली माती आणि
             माणसांशी इमान राखणारी पत्रकारिता करण्याचा आहे. सामान्य माणूस
@@ -392,7 +392,7 @@
 
           <ul class="style-402">
             <li class="style-403">
-              <p class="style-347" *ngIf="type == 'english'">
+              <p class="style-347 styled-text" *ngIf="type == 'english'">
                 During the freedom struggle, Mahatma Gandhi took women, tribals
                 and rural Indians along with him. There was a broader thought
                 behind this. His decision not only broadened the freedom
@@ -419,7 +419,7 @@
                 and the fourth pillar of democracy will be strengthened. We too
                 should read, share and join the effort on 'BaiManus.
               </p>
-              <p class="style-347" *ngIf="type == 'marathi'">
+              <p class="style-347 styled-text" *ngIf="type == 'marathi'">
                 महात्मा गांधींनी स्वातंत्र्य लढ्यात महिला, आदिवासी आणि ग्रामीण
                 भारतीयांनाही सोबत घेतले. यामागे एक व्यापक विचार होता. त्यांच्या
                 या निर्णयामुळे केवळ स्वातंत्र्य चळवळच अधिक व्यापक झाली नाही तर
@@ -499,7 +499,7 @@
 
           <ul class="style-402">
             <li class="style-403">
-              <p class="style-347" *ngIf="type == 'english'">
+              <p class="style-347 styled-text" *ngIf="type == 'english'">
                 Marathwada is a land of saints with diverse cultures and
                 geographical backgrounds. While working as the principal of a
                 journalism college, the culture, literature, numerous events,
@@ -516,7 +516,7 @@
                 sentiments of the masses The initiative 'Baimanus' is also a
                 part of this effort. Welcome to all of you.
               </p>
-              <p class="style-347" *ngIf="type == 'marathi'">
+              <p class="style-347 styled-text" *ngIf="type == 'marathi'">
                 मराठवाडा ही वैविध्यतेनं नटलेल्या संस्कृती, भौगोलिक
                 पार्श्वभूमीची, संतांची भूमी. एका पत्रकारिता महाविद्यालयाची
                 प्राचार्या म्हणून काम करत असताना या भागातील संस्कृती, साहित्य,
@@ -601,7 +601,7 @@
 
           <ul class="style-402">
             <li class="style-403">
-              <p class="style-347" *ngIf="type == 'english'">
+              <p class="style-347 styled-text" *ngIf="type == 'english'">
                 Hearty welcome at ‘Baimanus' webportal and its other social
                 media platforms. The platform 'BaiManus' is a first-of-its-kind
                 experiment in Maharashtra to raise the voice of the voiceless
@@ -621,7 +621,7 @@
                 path in Maharashtra, rooting the cultural, literary, and social
                 movement outside the periphery of Maharashtra.
               </p>
-              <p class="style-347" *ngIf="type == 'marathi'">
+              <p class="style-347 styled-text" *ngIf="type == 'marathi'">
                 'बाईमाणूस' या मराठी वेबपोर्टलवर आणि इतर सोशल मीडियाच्या
                 प्लॅटफॉर्मवर आपले मनापासून स्वागत. 'बाईमाणूस' हे व्यासपीठ आवाज
                 नसलेल्या समूहांचा माध्यमांमधील आवाज वाढवण्यासाठीचा या
@@ -691,8 +691,7 @@
               'light-mode-purple': !isDarkModeInLocalStorage()
             }"
           >
-            A young dynamite lady sarpanch in a naxal affected area नक्षलर्गरस्त
-            भा ् र्गातील तफदार तरू महिला सरपंच..&nbsp;
+            A young dynamite lady sarpanch in a naxal affected area.&nbsp;
           </li>
         </ol>
         <h3
@@ -715,17 +714,6 @@
           >
             A voice for equality, equity and justice for women who are
             squatters, garbage collectors and scavengers
-          </li>
-          <li
-            class="style-403"
-            *ngIf="type == 'marathi'"
-            [ngClass]="{
-              'dark-mode-yellow': isDarkModeInLocalStorage(),
-              'light-mode-purple': !isDarkModeInLocalStorage()
-            }"
-          >
-            बेठबिर्गारी, कचरा ेचक आवि सफाई कामर्गार महिलांच्या समता, समानता आवि
-            न्यायासाठी झटारा आ ाज&nbsp;
           </li>
         </ol>
         <h3
@@ -755,16 +743,6 @@
             A strong tribal woman fighting against superstition and gender
             discrimination
           </li>
-          <li
-            class="style-403"
-            *ngIf="type == 'marathi'"
-            [ngClass]="{
-              'dark-mode-yellow': isDarkModeInLocalStorage(),
-              'light-mode-purple': !isDarkModeInLocalStorage()
-            }"
-          >
-            अंधशरद्धा आ ् वि लिर्गं भेदा वि रुद्ध लढारी सशक्त आदि ासी नारी&nbsp;
-          </li>
         </ol>
         <h3
           class="style-401"
@@ -783,7 +761,7 @@
               'light-mode-purple': !isDarkModeInLocalStorage()
             }"
           >
-            फिनिक्सपरमा ् े राखेतन झेप घेऊ पाह ू ारी.&nbsp;
+            Looking to rise from the ashes like a phoenix... &nbsp;
           </li>
         </ol>
         <h3
@@ -803,8 +781,7 @@
               'light-mode-purple': !isDarkModeInLocalStorage()
             }"
           >
-            मराठ ाड्यातील महिलांचा बलंद आ ु ाज A strong voice of women from
-            Marathwada regionी.&nbsp;
+            A strong voice of women from Marathwada region&nbsp;
           </li>
         </ol>
 
@@ -826,8 +803,7 @@
               'light-mode-purple': !isDarkModeInLocalStorage()
             }"
           >
-            ततीयपंथीयांसाठी लढ ृ ारा आश् ासक आ ाज A reassuring voice fighting
-            for Transgender&nbsp;
+            A reassuring voice fighting for Transgender&nbsp;
           </li>
         </ol>
         <h3
@@ -848,17 +824,7 @@
               'light-mode-purple': !isDarkModeInLocalStorage()
             }"
           >
-            ारली आदि ासीचे ं ास्त &nbsp;
-          </li>
-          <li
-            class="style-403"
-            *ngIf="type == 'english'"
-            [ngClass]="{
-              'dark-mode-yellow': isDarkModeInLocalStorage(),
-              'light-mode-purple': !isDarkModeInLocalStorage()
-            }"
-          >
-            . Presenting the reality of Warli tribals. &nbsp;
+            Presenting the reality of Warli tribals. &nbsp;
           </li>
         </ol>
         <h3
@@ -868,7 +834,7 @@
             'light-mode-purple': !isDarkModeInLocalStorage()
           }"
         >
-          Ashwini Sutar (Dahanu) &nbsp;
+          Sanjana Khandare (Chhatrapati Sambhajinagar) &nbsp;
         </h3>
         <ol class="style-402">
           <li
@@ -879,80 +845,8 @@
               'light-mode-purple': !isDarkModeInLocalStorage()
             }"
           >
-            Presenting the reality of Warli tribals.&nbsp;
-          </li>
-          <li
-            class="style-403"
-            *ngIf="type == 'marathi'"
-            [ngClass]="{
-              'dark-mode-yellow': isDarkModeInLocalStorage(),
-              'light-mode-purple': !isDarkModeInLocalStorage()
-            }"
-          >
-            ारली आदि ासीचे ं ास्त मांारी.&nbsp;
-          </li>
-        </ol>
-        <h3
-          class="style-401"
-          [ngClass]="{
-            'dark-mode-yellow': isDarkModeInLocalStorage(),
-            'light-mode-purple': !isDarkModeInLocalStorage()
-          }"
-        >
-          Sukeshini Naekwade (Beed) &nbsp;
-        </h3>
-        <ol class="style-402">
-          <li
-            class="style-403"
-            *ngIf="type == 'english'"
-            [ngClass]="{
-              'dark-mode-yellow': isDarkModeInLocalStorage(),
-              'light-mode-purple': !isDarkModeInLocalStorage()
-            }"
-          >
-            A strong voice of women from Marathwada regionी.&nbsp;
-          </li>
-          <li
-            class="style-403"
-            *ngIf="type == 'marathi'"
-            [ngClass]="{
-              'dark-mode-yellow': isDarkModeInLocalStorage(),
-              'light-mode-purple': !isDarkModeInLocalStorage()
-            }"
-          >
-            मराठ ाड्यातील महिलांचा बलंद आ ु ाज &nbsp;
-          </li>
-        </ol>
-
-        <h3
-          class="style-401"
-          [ngClass]="{
-            'dark-mode-yellow': isDarkModeInLocalStorage(),
-            'light-mode-purple': !isDarkModeInLocalStorage()
-          }"
-        >
-          Sukeshini Naekwade (Beed) &nbsp;
-        </h3>
-        <ol class="style-402">
-          <li
-            class="style-403"
-            *ngIf="type == 'english'"
-            [ngClass]="{
-              'dark-mode-yellow': isDarkModeInLocalStorage(),
-              'light-mode-purple': !isDarkModeInLocalStorage()
-            }"
-          >
-            A strong voice of women from Marathwada regionी.&nbsp;
-          </li>
-          <li
-            class="style-403"
-            *ngIf="type == 'marathi'"
-            [ngClass]="{
-              'dark-mode-yellow': isDarkModeInLocalStorage(),
-              'light-mode-purple': !isDarkModeInLocalStorage()
-            }"
-          >
-            मराठ ाड्यातील महिलांचा बलंद आ ु ाज&nbsp;
+            Creating a separate space for experimentation in the midst of
+            mainstream media..&nbsp;
           </li>
         </ol>
       </div>
@@ -1099,23 +993,33 @@
         <ol class="style-402">
           <li
             class="style-403"
-            *ngIf="type == 'marathi'"
             [ngClass]="{
               'dark-mode-yellow': isDarkModeInLocalStorage(),
               'light-mode-purple': !isDarkModeInLocalStorage()
             }"
           >
-            ारली आदि ासीचे ं ास्त &nbsp;
+            वारली आदिवासींचे वास्तव मांडणारी. &nbsp;
           </li>
+        </ol>
+
+        <h3
+          class="style-401"
+          [ngClass]="{
+            'dark-mode-yellow': isDarkModeInLocalStorage(),
+            'light-mode-purple': !isDarkModeInLocalStorage()
+          }"
+        >
+          संजना खंडारे (छत्रपती संभाजीनगर) &nbsp;
+        </h3>
+        <ol class="style-402">
           <li
             class="style-403"
-            *ngIf="type == 'english'"
             [ngClass]="{
               'dark-mode-yellow': isDarkModeInLocalStorage(),
               'light-mode-purple': !isDarkModeInLocalStorage()
             }"
           >
-            वारली आदिवासींचे वास्तव मांडणारी.&nbsp;
+            वेगळ्या धाडसी वाटा आजमावत माध्यमांमध्ये स्थान बनवू पाहणारी. &nbsp;
           </li>
         </ol>
       </div>
@@ -1136,7 +1040,7 @@
             'light-mode-purple': !isDarkModeInLocalStorage()
           }"
         >
-          {{ "Team" | translate }}
+          {{ "Team Baimanus" | translate }}
         </h2>
       </div>
       <div class="style-434">
@@ -1148,19 +1052,19 @@
                 decoding="async"
                 width="334"
                 height="333"
-                src="https://baimanus.in/BaimanusImages/images/Abhijeet%20Tangade.jpg"
+                src="https://baimanus.in/BaimanusImages/images/Suraj%20patke.jpeg"
                 class="style-438"
-                alt="Abhijeet Tangade"
+                alt="Suraj patke"
                 sizes="(max-width: 334px) 100vw, 334px"
                 data-uw-rm-alt-original="Anjali Mishra-profile"
             /></a>
             <div class="style-439">
               <div class="style-440">
                 <a
-                  href="../../../../assets/about-baimanus/bhagyshri lekhame.jpg"
+                  href="https://baimanus.in/BaimanusImages/images/Suraj%20patke.jpeg"
                   class="style-441"
                 >
-                  {{ "Abhijeet Tangade" | translate }}</a
+                  {{ "Suraj patke" | translate }}</a
                 >
               </div>
               <div class="style-442">
@@ -1196,7 +1100,7 @@
               </div>
             </div>
           </div>
-          <div class="style-452">
+          <!-- <div class="style-452">
             <a
               href="https://baimanus.in/BaimanusImages/images/Prashant%20Pawar.jpeg"
               class="style-453"
@@ -1224,8 +1128,8 @@
               <div class="style-459"></div>
               <div class="style-458"></div>
             </div>
-          </div>
-          <div class="style-452">
+          </div> -->
+          <!-- <div class="style-452">
             <a
               href="https://baimanus.in/BaimanusImages/images/Rekha%20Shelake.jpg"
               class="style-453"
@@ -1253,7 +1157,7 @@
               <div class="style-459"></div>
               <div class="style-458"></div>
             </div>
-          </div>
+          </div> -->
           <div class="style-444">
             <a
               href="https://baimanus.in/BaimanusImages/images/Rina%20Mahtole.jpeg"
@@ -1387,19 +1291,21 @@
                 decoding="async"
                 width="361"
                 height="361"
-                src="https://baimanus.in/BaimanusImages/images/Suraj%20patke.jpeg"
+                src="
+https://baimanus.in/BaimanusImages/images/Abhijeet%20Tangade.jpg"
                 class="style-446"
-                alt="Cincy Jose-profile"
+                alt="Abhijeet Tangade"
                 sizes="(max-width: 361px) 100vw, 361px"
                 data-uw-rm-alt-original="Cincy Jose-profile"
             /></a>
             <div class="style-447">
               <div class="style-448">
                 <a
-                  href="https://baimanus.in/BaimanusImages/images/Suraj%20patke.jpeg"
+                  href="
+https://baimanus.in/BaimanusImages/images/Abhijeet%20Tangade.jpg"
                   class="style-449"
                 >
-                  {{ " Suraj patke" | translate }}</a
+                  {{ "Abhijeet Tangade" | translate }}</a
                 >
               </div>
               <div class="style-450">
