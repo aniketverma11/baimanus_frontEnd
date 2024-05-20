@@ -39,6 +39,7 @@ import { AllPhotosListingComponent } from './landing-page/photos/all-photos-list
 import { AllDhartriVideosComponent } from './project-dharitri/dharitri-videos/all-dhartri-videos/all-dhartri-videos.component';
 import { AllContentComponent } from './project-dharitri/all-content/all-content.component';
 import { MostViewedComponent } from './most-viewed/most-viewed.component';
+import { PartnerPageComponent } from './about-us/partner-page/partner-page.component';
 const routes: Routes = [
   {
     path: '',
@@ -156,6 +157,7 @@ const routes: Routes = [
     AllDhartriVideosComponent,
     AllContentComponent,
     MostViewedComponent,
+    PartnerPageComponent,
   ],
   imports: [
     CommonModule,

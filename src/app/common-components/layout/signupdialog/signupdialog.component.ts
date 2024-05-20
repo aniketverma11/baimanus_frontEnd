@@ -23,6 +23,7 @@ declare var google: any;
 export class SignupdialogComponent implements OnInit, AfterViewInit {
   user!: SocialUser;
   private client_id = environment.google_client_id;
+  loggedUser: any;
   constructor(
     private dialogRef: MatDialogRef<SignupdialogComponent>,
     private jwtHelper: JwtHelperService,
@@ -41,6 +42,13 @@ export class SignupdialogComponent implements OnInit, AfterViewInit {
     // });
     // const user = this.authService.getFacebookUser();
     // console.log(user);
+
+    if (typeof sessionStorage !== 'undefined') {
+      const storedUserData = sessionStorage.getItem('loggedInUser');
+      if (storedUserData) {
+        this.getLoginInfo();
+      }
+    }
   }
 
   ngAfterViewInit(): void {
@@ -101,6 +109,16 @@ export class SignupdialogComponent implements OnInit, AfterViewInit {
       return isDark === 'true';
     } else {
       return false;
+    }
+  }
+  getLoginInfo() {
+    const storedUserData = sessionStorage.getItem('loggedInUser');
+    if (storedUserData) {
+      const loggedInUser = storedUserData ? JSON.parse(storedUserData) : null;
+      this.loggedUser = loggedInUser;
+      console.log(this.loggedUser);
+
+      //
     }
   }
 }
